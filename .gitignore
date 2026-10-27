@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+models/
+*.db
+*.wav
+*.webm
+*.jpg
+*.png
+!docs/*.png
+.impeccable/
