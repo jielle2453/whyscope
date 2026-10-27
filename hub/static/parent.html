@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>好奇鏡｜家長頁面</title>
+<style>
+  :root { --bg: #f6f3ec; --ink: #2d2a26; --muted: #6a645b; --card: #fff; --line: #e3ddd0; --accent: #1f6fb2;
+          --warm: #b8431f; --ok: #2c7a56; --warn-bg: #fff1ec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Heiti TC", sans-serif; }
+  header { padding: 18px 20px 0; max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin: 0; }
+  header p { margin: 2px 0 12px; color: var(--muted); font-size: .95rem; }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 2px solid var(--line); }
+  nav button { font: inherit; padding: 10px 18px; border: 0; background: none; cursor: pointer; color: var(--muted);
+    border-bottom: 3px solid transparent; margin-bottom: -2px; font-weight: 600; }
+  nav button[aria-selected=true] { color: var(--accent); border-bottom-color: var(--accent); }
+  main { max-width: 980px; margin: 0 auto; padding: 18px 20px 48px; }
+  section.panel { display: none; } section.panel.on { display: block; }
+  h2 { font-size: 1.15rem; margin: 22px 0 8px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stat { flex: 1 1 140px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+  .stat b { display: block; font-size: 2rem; line-height: 1.1; }
+  .stat span { color: var(--muted); font-size: .9rem; }
+  .bar { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+  .bar .name { width: 7em; flex: none; } .bar .n { width: 2.5em; text-align: right; color: var(--muted); }
+  .bar .track { flex: 1; background: #ece6d8; border-radius: 6px; height: 16px; overflow: hidden; }
+  .bar .fill { height: 100%; background: var(--accent); border-radius: 6px; }
+  ul.plain { margin: 0; padding-left: 1.2em; } ul.plain li { margin: 4px 0; }
+  .empty { color: var(--muted); font-style: italic; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); font-size: .93rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #efeadd; position: sticky; top: 0; }
+  .tablewrap { overflow-x: auto; }
+  .tag { display: inline-block; padding: 1px 9px; border-radius: 10px; font-size: .8rem; font-weight: 700; }
+  .tag.answered { background: #dff3e8; color: var(--ok); } .tag.abstained { background: #fdecc8; color: #8a5a00; }
+  .tag.sensitive { background: #fde0d8; color: var(--warm); }
+  .urgent { background: var(--warm); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: .8rem; margin-left: 8px; }
+  button.act, a.btn { font: inherit; padding: 7px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent);
+    color: #fff; cursor: pointer; text-decoration: none; display: inline-block; }
+  button.act.secondary, a.btn.secondary { background: #fff; color: var(--accent); }
+  button.act.danger { background: #fff; border-color: var(--warm); color: var(--warm); }
+  button.act:disabled { opacity: .55; cursor: default; }
+  input, select { font: inherit; padding: 6px 10px; border: 1px solid #cbc3b1; border-radius: 8px; background: #fff; color: var(--ink); }
+  .agetabs { display: inline-flex; gap: 0; margin: 6px 0; }
+  .agetabs button { font: inherit; padding: 4px 14px; border: 1px solid var(--accent); background: #fff; color: var(--accent); cursor: pointer; }
+  .agetabs button:first-child { border-radius: 8px 0 0 8px; } .agetabs button:last-child { border-radius: 0 8px 8px 0; }
+  .agetabs button.on { background: var(--accent); color: #fff; }
+  .cheat h3 { margin: 0 0 4px; font-size: 1.05rem; } .cheat .q { color: var(--muted); font-size: .9rem; margin-bottom: 6px; }
+  .cheat.done { opacity: .65; }
+  .nots { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 8px; }
+  .note { font-size: .9rem; color: var(--muted); }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+  .settings { margin-top: 36px; border-top: 2px solid var(--line); padding-top: 4px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>好奇鏡 · 家長頁面</h1>
+  <p>看看孩子這週好奇了什麼，也能陪他一起聊。所有資料只存在這台機器上。</p>
+  <nav role="tablist" id="tabs">
+    <button role="tab" data-tab="week" aria-selected="true">本週</button>
+    <button role="tab" data-tab="log" aria-selected="false">問題紀錄</button>
+    <button role="tab" data-tab="cheats" aria-selected="false">家長小抄</button>
+    <button role="tab" data-tab="world" aria-selected="false">孩子的世界</button>
+  </nav>
+</header>
+<main>
+  <section class="panel on" id="p-week"></section>
+  <section class="panel" id="p-log"></section>
+  <section class="panel" id="p-cheats"></section>
+  <section class="panel" id="p-world"></section>
+
+  <section class="settings" id="settings">
+    <h2>設定</h2>
+    <div class="card">
+      <div class="row">
+        <label for="ret">紀錄保存天數</label>
+        <input type="number" id="ret" min="1" max="365" style="width:6em">
+        <button class="act" id="ret-save">儲存</button>
+        <span class="note" id="ret-msg"></span>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" id="cloud" disabled> 雲端備援（把問題送到雲端 AI）</label>
+        <span class="note">尚未開放</span>
+      </div>
+      <div class="row">
+        <button class="act danger" id="clear">清除所有紀錄</button>
+        <a class="btn secondary" href="/api/data/export" download="whyscope-export.json">匯出 JSON</a>
+        <span class="note" id="data-msg"></span>
+      </div>
+      <p class="note">錄音與鏡頭畫面不會被儲存，只留下問題文字與回答。</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  const TOPIC_ZH = { animals: "動物", plants: "植物", sky_weather: "天氣與天空", body: "身體", machines: "機器與家電", food: "食物" };
+  const CAT_ZH = { death: "死亡", birth_sex: "出生與性別", violence_war: "暴力與戰爭", divorce_family: "家庭變動", illness: "生病", self_harm: "自我傷害", money_poverty: "金錢", religion: "宗教", bullying: "霸凌", scary_news: "可怕的新聞" };
+  const STATUS_ZH = { answered: "已回答", abstained: "不確定", sensitive: "敏感話題" };
+  let memInfo = null, ageGroup = "5-6";
+
+  // ---- tiny DOM helpers (all text goes through textContent, never innerHTML) ----
+  function h(tag, attrs, ...kids) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+      else if (v !== false && v != null) e.setAttribute(k, v === true ? "" : v);
+    }
+    for (const k of kids.flat(Infinity)) if (k != null) e.append(k.nodeType ? k : document.createTextNode(String(k)));
+    return e;
+  }
+  const api = async (url, opt) => { const r = await fetch(url, opt); if (!r.ok) throw new Error(url + " " + r.status); return r.json(); };
+  const post = (url, body, method) => api(url, { method: method || "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
+  const empty = (t) => h("p", { class: "empty" }, t);
+  const safeUrl = (u) => /^https?:\/\//i.test(u || "") ? u : null;
+  const fmtTs = (s) => (s || "").replace("T", " ").slice(0, 16);
+  function panel(id, ...kids) { document.getElementById("p-" + id).replaceChildren(...kids.flat(Infinity).filter((k) => k != null)); }
+
+  // ---- tabs ----
+  const loaders = { week: loadWeek, log: loadLog, cheats: loadCheats, world: loadWorld };
+  document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => select(b.dataset.tab)));
+  function select(name) {
+    document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
+    document.querySelectorAll("section.panel").forEach((p) => p.classList.toggle("on", p.id === "p-" + name));
+    loaders[name]().catch((e) => panel(name, empty("讀取失敗：" + e.message)));
+  }
+
+  // ---- 本週 ----
+  async function loadWeek() {
+    const r = await api("/api/report/week");
+    const max = Math.max(1, ...Object.values(r.by_topic));
+    const topics = Object.entries(r.by_topic);
+    panel("week",
+      h("div", { class: "stats" },
+        stat(r.total, "本週問題總數"), stat(r.answered, "已回答"), stat(r.sensitive, "轉給家長的敏感話題"), stat(r.unanswered.length, "不確定的問題")),
+      h("h2", {}, "問了哪些主題"),
+      topics.length ? h("div", { class: "card" }, topics.map(([t, n]) =>
+        h("div", { class: "bar" }, h("span", { class: "name" }, TOPIC_ZH[t] || t),
+          h("span", { class: "track" }, h("span", { class: "fill", style: "width:" + Math.round(n / max * 100) + "%", display: null })),
+          h("span", { class: "n" }, n)))) : empty("這週還沒有問題。"),
+      h("h2", {}, "可以聊聊看"),
+      r.talk_about.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.talk_about.map((t) =>
+        h("li", {}, h("b", {}, t.object || "（未知）"), "（" + (TOPIC_ZH[t.topic] || t.topic || "") + "，問了 " + t.count + " 次）",
+          t.ask_back ? " → 你可以問他：" + t.ask_back : "")))) : empty("還沒有可聊的話題。"),
+      h("h2", {}, "沒能回答的問題"),
+      r.unanswered.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.unanswered.map((u) =>
+        h("li", {}, u.question, h("span", { class: "note" }, "　" + fmtTs(u.ts)))))) : empty("沒有。"),
+      h("h2", {}, "用上的孩子小世界連結"),
+      r.bridges_used.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.bridges_used.map((b) =>
+        h("li", {}, b.label_zh + "：" + b.count + " 次")))) : empty("還沒有用到。可在「孩子的世界」分頁加入資料。"));
+  }
+  const stat = (n, label) => h("div", { class: "stat" }, h("b", {}, n), h("span", {}, label));
+
+  // ---- 問題紀錄 ----
+  async function loadLog() {
+    const ev = await api("/api/events?days=30");
+    panel("log", h("h2", {}, "最近 30 天的問題（共 " + ev.length + " 筆）"),
+      ev.length ? h("div", { class: "tablewrap" }, h("table", {},
+        h("thead", {}, h("tr", {}, ["時間", "問題", "狀態", "主題", "回答", "耗時"].map((t) => h("th", {}, t)))),
+        h("tbody", {}, ev.map((e) => h("tr", {},
+          h("td", {}, fmtTs(e.ts)), h("td", {}, e.question || ""),
+          h("td", {}, h("span", { class: "tag " + e.status }, STATUS_ZH[e.status] || e.status)),
+          h("td", {}, TOPIC_ZH[e.topic] || e.topic || CAT_ZH[e.sensitive_category] || e.sensitive_category || ""),
+          h("td", {}, [e.first_sentence, e.explanation].filter(Boolean).join(" ")),
+          h("td", {}, e.latency_total_ms != null ? e.latency_total_ms + " ms" : "")))))) : empty("還沒有紀錄。"));
+  }
+
+  // ---- 家長小抄 ----
+  async function loadCheats() {
+    if (!memInfo) memInfo = await api("/api/memory");
+    const age = (memInfo.memory.child_age || {}).value;
+    if (age >= 7) ageGroup = "7-8";
+    const list = await api("/api/cheats?days=30");
+    const ageBtns = h("div", { class: "agetabs" }, ["5-6", "7-8"].map((g) =>
+      h("button", { class: g === ageGroup ? "on" : "", onclick: () => { ageGroup = g; loadCheats(); } }, g + " 歲")));
+    panel("cheats",
+      h("h2", {}, "家長小抄"),
+      h("p", { class: "note" }, "孩子問到比較沈重或需要大人陪伴的話題時，好奇鏡不會回答，而是請他回來問你。這裡幫你準備好怎麼聊。"),
+      ageBtns,
+      list.length ? list.map(cheatCard) : empty("目前沒有需要聊的敏感話題。"));
+  }
+  function cheatCard(c) {
+    const pts = (c.talking_points || {})[ageGroup] || Object.values(c.talking_points || {})[0] || [];
+    const srcs = (c.sources || []).map((s) => { const u = safeUrl(s.url);
+      return h("li", {}, u ? h("a", { href: u, target: "_blank", rel: "noopener noreferrer" }, s.title || u) : (s.title || ""),
+        s.publisher ? "（" + s.publisher + "）" : ""); });
+    return h("div", { class: "card cheat" + (c.cheat_done ? " done" : "") },
+      h("h3", {}, c.category_zh, c.urgent ? h("span", { class: "urgent" }, "需要立即關心") : null),
+      h("div", { class: "q" }, fmtTs(c.ts) + "　孩子問：「" + (c.question || "") + "」"),
+      c.has_cheat_sheet ? [
+        h("b", {}, "可以這樣說（" + ageGroup + " 歲）"),
+        pts.length ? h("ul", { class: "plain" }, pts.map((p) => h("li", {}, p))) : empty("這個年齡層還沒有建議。"),
+        (c.what_not_to_say || []).length ? h("div", { class: "nots" }, h("b", {}, "盡量避免"),
+          h("ul", { class: "plain" }, c.what_not_to_say.map((p) => h("li", {}, p)))) : null,
+        srcs.length ? [h("b", {}, "資料來源"), h("ul", { class: "plain" }, srcs)] : null
+      ] : empty("這個類別的小抄還沒準備好。"),
+      h("div", { class: "row" }, h("button", { class: "act", disabled: c.cheat_done,
+        onclick: async () => { await post("/api/cheats/" + c.event_id + "/done"); loadCheats(); } }, c.cheat_done ? "已聊過" : "已聊過")));
+  }
+
+  // ---- 孩子的世界 ----
+  async function loadWorld() {
+    memInfo = await api("/api/memory");
+    const mem = memInfo.memory, labels = Object.fromEntries(memInfo.keys.map((k) => [k.key, k]));
+    const set = memInfo.keys.filter((k) => mem[k.key]);
+    const sel = h("select", { id: "mk" }, memInfo.keys.map((k) => h("option", { value: k.key }, k.label_zh)));
+    const valBox = h("span", {});
+    const renderVal = () => {
+      const k = labels[sel.value];
+      const inp = k.type === "bool" ? h("select", { id: "mv" }, h("option", { value: "true" }, "是"), h("option", { value: "false" }, "否"))
+        : h("input", { id: "mv", type: k.type === "int" ? "number" : "text", min: 5, max: 8, placeholder: k.type === "int" ? "5–8" : "請輸入" });
+      valBox.replaceChildren(inp);
+    };
+    sel.addEventListener("change", renderVal); renderVal();
+    const auto = (memInfo.auto_keys || []).filter((k) => mem[k.key]);
+    panel("world",
+      h("h2", {}, "孩子的世界"),
+      h("p", { class: "note" }, "你填的資料會讓好奇鏡把答案連到孩子熟悉的事物（例如家裡的狗狗）。孩子的名字只顯示在這個頁面，裝置不會念出來。"),
+      set.length ? h("div", { class: "tablewrap" }, h("table", {}, h("thead", {}, h("tr", {}, ["項目", "內容", ""].map((t) => h("th", {}, t)))),
+        h("tbody", {}, set.map((k) => { const v = mem[k.key].value;
+          return h("tr", {}, h("td", {}, k.label_zh), h("td", {}, v === true ? "是" : v === false ? "否" : String(v)),
+            h("td", {}, h("button", { class: "act danger", onclick: async () => { await post("/api/memory?key=" + encodeURIComponent(k.key), null, "DELETE"); loadWorld(); } }, "刪除"))); })))) : empty("還沒有資料。"),
+      h("h2", {}, "新增或更新"),
+      h("div", { class: "row" }, sel, valBox, h("button", { class: "act", onclick: async () => {
+        try { await post("/api/memory", { key: sel.value, value: document.getElementById("mv").value }); loadWorld(); }
+        catch (e) { alert("儲存失敗，請檢查內容（年齡需為 5–8）"); } } }, "加入")),
+      auto.length ? [h("h2", {}, "自動記錄（最近問過的）"), h("div", { class: "card" }, auto.map((k) =>
+        h("div", {}, h("b", {}, k.label_zh + "："), (mem[k.key].value || []).map((v) => TOPIC_ZH[v] || v).join("、"))))] : null);
+  }
+
+  // ---- 設定 ----
+  async function loadSettings() {
+    const s = await api("/api/settings");
+    document.getElementById("ret").value = s.retention_days;
+    document.getElementById("cloud").checked = false;
+  }
+  document.getElementById("ret-save").addEventListener("click", async () => {
+    const m = document.getElementById("ret-msg");
+    try { await post("/api/settings", { retention_days: Number(document.getElementById("ret").value) }); m.textContent = "已儲存"; }
+    catch (e) { m.textContent = "請輸入 1–365 的整數"; }
+  });
+  document.getElementById("clear").addEventListener("click", async () => {
+    if (!confirm("確定要清除所有問題紀錄嗎？\n（家長輸入的孩子資料會保留）這個動作無法復原。")) return;
+    await post("/api/data/clear");
+    document.getElementById("data-msg").textContent = "已清除";
+    loaders[document.querySelector("#tabs [aria-selected=true]").dataset.tab]();
+  });
+
+  loadSettings(); select("week");
+})();
+</script>
+</body>
+</html>

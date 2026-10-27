@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>好奇鏡</title>
+<style>
+  :root {
+    --bg: #fff6e0; --ink: #3b2f2f; --accent: #d9462a; --accent-dark: #a82f17; --rec: #c4223a;
+    --card: #ffffff; --soft: #ffe3b3; --blue: #1f6fb2; --green: #3aa675;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Heiti TC", sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 16px 16px 32px; }
+  h1 { margin: 4px 0 0; font-size: 2rem; letter-spacing: .15em; }
+  .sub { margin: 0 0 12px; opacity: .85; font-size: 1.05rem; }
+  main { width: 100%; max-width: 760px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+
+  #talk { width: min(52vw, 230px); height: min(52vw, 230px); border-radius: 50%; border: 0; cursor: pointer;
+    background: radial-gradient(circle at 35% 30%, #ec6a4c, var(--accent)); color: #fff;
+    font: inherit; font-size: 1.5rem; font-weight: 700; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 6px; box-shadow: 0 10px 0 var(--accent-dark), 0 18px 30px #0003;
+    touch-action: none; user-select: none; -webkit-user-select: none; transition: transform .08s, box-shadow .08s; }
+  #talk:active, #talk.rec { transform: translateY(8px); box-shadow: 0 2px 0 var(--accent-dark), 0 6px 14px #0003; }
+  #talk.rec { background: radial-gradient(circle at 35% 30%, #e0505f, var(--rec)); animation: pulse 1s infinite; }
+  #talk svg { width: 64px; height: 64px; }
+  @keyframes pulse { 50% { filter: brightness(1.15); } }
+  #talk:focus-visible, button:focus-visible, input:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
+
+  .row { display: flex; gap: 10px; width: 100%; }
+  input[type=text] { flex: 1; min-width: 0; font: inherit; font-size: 1.4rem; padding: 14px 18px;
+    border-radius: 18px; border: 3px solid var(--soft); background: #fff; color: var(--ink); }
+  button.go { font: inherit; font-size: 1.3rem; font-weight: 700; padding: 0 22px; border-radius: 18px; border: 0;
+    background: var(--blue); color: #fff; cursor: pointer; box-shadow: 0 5px 0 #154f82; }
+  button.go:active { transform: translateY(4px); box-shadow: 0 1px 0 #154f82; }
+  button:disabled { opacity: .5; }
+
+  .cam { display: flex; align-items: center; gap: 12px; font-size: 1.2rem; }
+  .switch { position: relative; width: 62px; height: 34px; }
+  .switch input { opacity: 0; width: 100%; height: 100%; margin: 0; position: absolute; cursor: pointer; z-index: 1; }
+  .switch span { position: absolute; inset: 0; border-radius: 34px; background: #cdbfa6; transition: .15s; }
+  .switch span::after { content: ""; position: absolute; width: 26px; height: 26px; left: 4px; top: 4px;
+    border-radius: 50%; background: #fff; transition: .15s; }
+  .switch input:checked + span { background: var(--green); }
+  .switch input:checked + span::after { transform: translateX(28px); }
+  .switch input:focus-visible + span { outline: 4px solid var(--blue); outline-offset: 3px; }
+  #preview { width: 140px; height: 105px; border-radius: 14px; object-fit: cover; background: #000; display: none; }
+
+  #answer { width: 100%; background: var(--card); border-radius: 28px; padding: 22px 26px; min-height: 120px;
+    box-shadow: 0 6px 0 var(--soft); display: none; flex-direction: column; gap: 14px; }
+  #answer .q { font-size: 1rem; opacity: .8; }
+  #first { font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 800; line-height: 1.35; }
+  #expl { font-size: clamp(1.3rem, 4.5vw, 1.8rem); line-height: 1.5; }
+  #askb { font-size: clamp(1.3rem, 4.5vw, 1.8rem); line-height: 1.5; color: var(--accent-dark); font-weight: 700; }
+  .speaking { background: #fff2b8; border-radius: 10px; }
+  #answer.sensitive #first { color: var(--blue); }
+  #status { font-size: .9rem; opacity: .85; min-height: 1.3em; text-align: center; }
+  #replay { align-self: flex-start; font-size: 1.1rem; padding: 8px 18px; border-radius: 14px; border: 2px solid var(--soft);
+    background: #fff; cursor: pointer; font-family: inherit; }
+  .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin: 0 3px;
+    animation: bounce .8s infinite; }
+  .dot:nth-child(2) { animation-delay: .15s; } .dot:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 50% { transform: translateY(-10px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<h1>好奇鏡</h1>
+<p class="sub">有什麼想知道的嗎？問問看！</p>
+<main>
+  <button id="talk" aria-label="按住說話" type="button">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.94V22h2v-3.06A8 8 0 0 0 20 11h-2z"/></svg>
+    <span id="talklabel">按住說話</span>
+  </button>
+
+  <form class="row" id="form" autocomplete="off">
+    <input type="text" id="text" placeholder="或是打字問我" aria-label="輸入問題" maxlength="80">
+    <button class="go" type="submit" id="send">問問題</button>
+  </form>
+
+  <div class="cam">
+    <label class="switch"><input type="checkbox" id="cam" aria-label="開鏡頭"><span></span></label>
+    <label for="cam">開鏡頭</label>
+    <video id="preview" autoplay playsinline muted></video>
+  </div>
+
+  <section id="answer" aria-live="polite">
+    <div class="q" id="q"></div>
+    <div id="first"></div>
+    <div id="expl"></div>
+    <div id="askb"></div>
+    <button id="replay" type="button">再聽一次</button>
+  </section>
+  <div id="status"></div>
+</main>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const talk = $("talk"), statusEl = $("status"), ans = $("answer");
+  let stream = null, rec = null, chunks = [], recStart = 0, busy = false, camStream = null, lastTexts = [];
+
+  function setStatus(t) { statusEl.textContent = t || ""; }
+
+  // ---------- speech out ----------
+  let voices = [];
+  function loadVoices() { voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
+  if (window.speechSynthesis) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+  function pickVoice() {
+    const norm = (v) => v.lang.replace("_", "-").toLowerCase();
+    return voices.find((v) => norm(v) === "zh-tw") || voices.find((v) => norm(v).startsWith("zh-tw")) ||
+           voices.find((v) => norm(v).startsWith("zh")) || null;
+  }
+  function speakAll(items) {          // items: [[elementId, text], ...] spoken in order
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    const v = pickVoice();
+    items.filter((i) => i[1]).forEach(([id, text]) => {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = "zh-TW"; if (v) u.voice = v; u.rate = 0.9; u.pitch = 1.1;
+      u.onstart = () => $(id).classList.add("speaking");
+      u.onend = u.onerror = () => $(id).classList.remove("speaking");
+      speechSynthesis.speak(u);
+    });
+  }
+
+  // ---------- show answer ----------
+  function showThinking() {
+    ans.style.display = "flex"; ans.className = "";
+    $("q").textContent = ""; $("expl").textContent = ""; $("askb").textContent = "";
+    $("first").innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+    $("replay").style.display = "none";
+  }
+  function show(r) {
+    ans.style.display = "flex";
+    ans.className = r.status === "sensitive" ? "sensitive" : "";
+    $("q").textContent = r.question ? "你問：" + r.question : "";
+    $("first").textContent = r.first_sentence || "";
+    $("expl").textContent = r.explanation || "";
+    $("askb").textContent = r.ask_back || "";
+    $("replay").style.display = "inline-block";
+    lastTexts = [["first", r.first_sentence], ["expl", r.explanation], ["askb", r.ask_back]];
+    speakAll(lastTexts);
+    const l = r.latency_ms || {};
+    const bits = ["共 " + l.total + " 毫秒"];
+    if (l.listen) bits.push("聽 " + l.listen);
+    if (l.vision) bits.push("看 " + l.vision);
+    if (l.recall !== undefined) bits.push("找 " + l.recall);
+    if (l.compose) bits.push("說 " + l.compose);
+    setStatus(bits.join(" · "));
+  }
+  $("replay").onclick = () => speakAll(lastTexts);
+
+  // ---------- camera ----------
+  $("cam").addEventListener("change", async (e) => {
+    if (!e.target.checked) { stopCam(); return; }
+    try {
+      camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+      $("preview").srcObject = camStream; $("preview").style.display = "block";
+    } catch (err) { e.target.checked = false; setStatus("無法開啟鏡頭，請檢查權限"); }
+  });
+  function stopCam() {
+    if (camStream) camStream.getTracks().forEach((t) => t.stop());
+    camStream = null; $("preview").style.display = "none"; $("preview").srcObject = null;
+  }
+  function grabFrame() {
+    return new Promise((resolve) => {
+      const v = $("preview");
+      if (!camStream || !v.videoWidth) return resolve(null);
+      const c = document.createElement("canvas");
+      const s = Math.min(1, 640 / v.videoWidth);
+      c.width = v.videoWidth * s; c.height = v.videoHeight * s;
+      c.getContext("2d").drawImage(v, 0, 0, c.width, c.height);
+      c.toBlob((b) => resolve(b), "image/jpeg", 0.8);
+    });
+  }
+
+  // ---------- ask ----------
+  async function ask(fd) {
+    if (busy) return;
+    busy = true; $("send").disabled = true; setStatus("想一想…"); showThinking();
+    try {
+      const img = await grabFrame();
+      if (img) fd.append("image", img, "frame.jpg");
+      const res = await fetch("/api/ask", { method: "POST", body: fd });
+      if (!res.ok) throw new Error(res.status);
+      show(await res.json());
+    } catch (e) {
+      ans.style.display = "flex";
+      $("first").textContent = "哎呀，我卡住了，再試一次好嗎？";
+      setStatus("連線失敗");
+    } finally { busy = false; $("send").disabled = false; }
+  }
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const t = $("text").value.trim();
+    if (!t) return;
+    const fd = new FormData(); fd.append("mode", "text"); fd.append("text", t);
+    $("text").value = ""; ask(fd);
+  });
+
+  // ---------- voice ----------
+  async function startRec() {
+    if (busy || rec) return;
+    if (!navigator.mediaDevices || !window.MediaRecorder) { setStatus("這個瀏覽器不能錄音，請用打字問我"); return; }
+    try {
+      if (!stream) stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (e) { setStatus("需要允許麥克風才能說話"); return; }
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    const types = ["audio/webm;codecs=opus", "audio/webm", "audio/ogg;codecs=opus", "audio/mp4"];
+    const mt = types.find((t) => MediaRecorder.isTypeSupported(t));
+    chunks = [];
+    rec = new MediaRecorder(stream, mt ? { mimeType: mt } : undefined);
+    rec.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+    rec.onstop = () => {
+      const dur = Date.now() - recStart, type = rec.mimeType || "audio/webm";
+      rec = null; talk.classList.remove("rec"); $("talklabel").textContent = "按住說話";
+      if (dur < 500) { setStatus("按久一點，說完再放開喔"); return; }
+      const ext = type.includes("ogg") ? "ogg" : type.includes("mp4") ? "m4a" : "webm";
+      const fd = new FormData(); fd.append("mode", "voice");
+      fd.append("audio", new Blob(chunks, { type }), "q." + ext);
+      ask(fd);
+    };
+    recStart = Date.now(); rec.start();
+    talk.classList.add("rec"); $("talklabel").textContent = "我在聽…"; setStatus("");
+  }
+  function stopRec() { if (rec && rec.state === "recording") rec.stop(); }
+  talk.addEventListener("pointerdown", (e) => { e.preventDefault(); talk.setPointerCapture(e.pointerId); startRec(); });
+  talk.addEventListener("pointerup", stopRec);
+  talk.addEventListener("pointercancel", stopRec);
+  talk.addEventListener("contextmenu", (e) => e.preventDefault());
+  talk.addEventListener("keydown", (e) => { if ((e.key === " " || e.key === "Enter") && !e.repeat) { e.preventDefault(); startRec(); } });
+  talk.addEventListener("keyup", (e) => { if (e.key === " " || e.key === "Enter") stopRec(); });
+})();
+</script>
+</body>
+</html>
