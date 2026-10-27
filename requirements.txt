@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pyyaml
+jieba
+sentence-transformers
+faster-whisper
+numpy
+opencc-python-reimplemented

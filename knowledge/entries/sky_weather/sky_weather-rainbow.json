@@ -1,0 +1,17 @@
+{
+  "id": "sky_weather-rainbow",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": ["彩虹", "rainbow"],
+  "question_patterns": ["為什麼會有彩虹", "彩虹是怎麼來的", "這是什麼彩虹", "彩虹為什麼有很多顏色", "為什麼下雨後有彩虹"],
+  "first_sentence": "這是彩虹！陽光照到小水滴才會出現。",
+  "facts": ["陽光穿過空氣中的小水滴", "光在水滴裡會分成很多種顏色", "太陽在背後、雨在前面才看得到"],
+  "ask_back": "你猜猜看，彩虹最外面一圈是什麼顏色？",
+  "bridges": {"has_garden": "你家花園用水管噴水時，也可能看到小彩虹喔！"},
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/虹",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-sonnet",
+  "reviewed_by": "",
+  "spot_checked": false
+}

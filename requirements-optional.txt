@@ -1,0 +1,6 @@
+# Optional extras: the hub still works without them (template fallback, no vision).
+transformers
+accelerate
+ultralytics
+open_clip_torch
+llama-cpp-python

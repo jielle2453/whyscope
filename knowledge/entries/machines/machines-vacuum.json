@@ -1,0 +1,17 @@
+{
+  "id": "machines-vacuum",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": ["吸塵器", "vacuum cleaner"],
+  "question_patterns": ["為什麼吸塵器會吸東西", "吸塵器是怎麼吸灰塵的", "這是什麼吸塵器", "吸塵器為什麼會吵", "吸塵器為什麼可以吸地板"],
+  "first_sentence": "這是吸塵器！風扇轉起來就能把灰塵吸進去。",
+  "facts": ["馬達讓風扇很快地轉動", "風扇把空氣吸進機器裡", "灰塵跟著空氣進去，被留在集塵袋裡"],
+  "ask_back": "你覺得吸塵器能吸起一顆大石頭嗎？",
+  "bridges": {"has_dog": "家裡有狗狗的毛，吸塵器也能吸起來喔！"},
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/吸塵器",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-sonnet",
+  "reviewed_by": "",
+  "spot_checked": false
+}
