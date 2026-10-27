@@ -26,7 +26,7 @@ Optional extras (vision, LLM compose) are in `requirements-optional.txt`; the hu
 
 If the checkout path is very long (over about 140 characters), the Windows installer puts the venv at
 `C:\whyscope-venv` instead of `.venv` (CUDA DLLs fail to load from deep paths) and records it in `.venvpath`;
-`scriptsun.ps1` follows that file.
+the run script follows that file.
 
 ## Screenshots
 
