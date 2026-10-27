@@ -10,3 +10,4 @@ models/
 *.png
 !docs/*.png
 .impeccable/
+.venvpath

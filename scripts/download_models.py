@@ -28,8 +28,8 @@ def whisper():
 
 def minilm():
     from huggingface_hub import snapshot_download
-    snapshot_download("sentence-transformers/" + cfg["recall"]["model"],
-                      cache_dir=str(MODELS / "hf"))
+    snapshot_download("sentence-transformers/" + cfg["recall"]["model"], cache_dir=str(MODELS / "hf"),
+                      ignore_patterns=["onnx/*", "openvino/*", "*.h5", "*.ot", "*.msgpack", "tf_model*"])
 
 
 def qwen():
@@ -38,8 +38,19 @@ def qwen():
                       allow_patterns=["*.json", "*.safetensors", "*.txt"])
 
 
+def vision():
+    """Optional: YOLO weights + OpenCLIP weights (skipped quietly if the packages are not installed)."""
+    import open_clip
+    from ultralytics import YOLO
+    YOLO(str(MODELS / cfg["vision"]["yolo_model"]))  # downloads the weights if missing
+    open_clip.create_model_and_transforms(cfg["vision"]["clip_model"], pretrained=cfg["vision"]["clip_pretrained"],
+                                          cache_dir=str(MODELS / "clip"))
+
+
 step("faster-whisper " + cfg["listen"]["model"], whisper)
 step("MiniLM " + cfg["recall"]["model"], minilm)
 if "--no-llm" not in sys.argv:
     step("compose LLM " + cfg["compose"]["model"], qwen)
+if cfg.get("vision", {}).get("enabled", True):
+    step("vision YOLO + CLIP (optional)", vision)
 print("models dir:", MODELS)

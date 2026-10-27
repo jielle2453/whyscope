@@ -18,11 +18,12 @@ vision:
   yolo_model: yolov8n.pt
   clip_model: ViT-B-32
   clip_pretrained: laion2b_s34b_b79k
-  min_confidence: 0.25
+  min_confidence: 0.5     # CLIP softmax over all KB labels; conservative because it is unverified on real photos
 
 recall:
   model: paraphrase-multilingual-MiniLM-L12-v2
   threshold: 0.55
+  coverage_weight: 0.4   # penalty for question details the entry does not mention (0 = off)
 
 compose:
   enabled: true

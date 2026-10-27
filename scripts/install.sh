@@ -11,7 +11,7 @@ $PY -m venv .venv
 VPY=.venv/bin/python
 $VPY -m pip install --quiet --upgrade pip
 if [ $CPU = 0 ] && command -v nvidia-smi >/dev/null 2>&1; then
-  $VPY -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cu128 || $VPY -m pip install --quiet torch
+  $VPY -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cu126 || $VPY -m pip install --quiet torch
 else
   $VPY -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
 fi
@@ -20,6 +20,14 @@ if [ $OPT = 1 ]; then
   grep -v '^#' requirements-optional.txt | grep . | while read -r p; do
     $VPY -m pip install --quiet --only-binary=:all: "$p" || echo "[skip] optional package $p failed to install"
   done
+fi
+if [ $CPU = 0 ] && command -v nvidia-smi >/dev/null 2>&1; then
+  [ "$($VPY -c 'import torch;print(torch.cuda.is_available())')" = "True" ] ||     $VPY -m pip install --quiet --force-reinstall --no-deps torch --index-url https://download.pytorch.org/whl/cu126
+  # ultralytics pulls a CPU torchvision from PyPI; it must match the CUDA torch or YOLO fails on the GPU
+  if $VPY -c "import torchvision" 2>/dev/null; then
+    $VPY -m pip install --quiet --force-reinstall --no-deps torchvision --index-url https://download.pytorch.org/whl/cu126
+  fi
+  echo "torch.cuda.is_available() = $($VPY -c 'import torch;print(torch.cuda.is_available())')"
 fi
 [ $MODELS = 1 ] && $VPY scripts/download_models.py
 echo "Done. Start with: scripts/run.sh"
