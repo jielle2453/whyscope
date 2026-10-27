@@ -24,6 +24,10 @@ Add `-Cpu` / `--cpu` to the installer on machines without an NVIDIA GPU and set 
 Optional extras (vision, LLM compose) are in `requirements-optional.txt`; the hub works without them
 (object from text, explanation from the entry's first fact).
 
+If the checkout path is very long (over about 140 characters), the Windows installer puts the venv at
+`C:\whyscope-venv` instead of `.venv` (CUDA DLLs fail to load from deep paths) and records it in `.venvpath`;
+`scriptsun.ps1` follows that file.
+
 ## Screenshots
 
 - Child page: `docs/img/kid.png` (placeholder)
