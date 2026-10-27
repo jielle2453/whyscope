@@ -1,0 +1,32 @@
+{
+  "id": "plants-rice",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "稻子",
+    "水稻",
+    "rice"
+  ],
+  "question_patterns": [
+    "稻子為什麼種在水田裡",
+    "這是什麼植物",
+    "米飯是從哪裡來的",
+    "稻子長什麼樣子"
+  ],
+  "first_sentence": "稻子種在水田裡，因為它需要很多水。",
+  "facts": [
+    "稻子結的果實，就是我們吃的米",
+    "水稻是世界上很重要的食物之一",
+    "稻穗變黃成熟後，會低低地垂下來"
+  ],
+  "ask_back": "你猜米是從稻子的哪裡來的？",
+  "bridges": {
+    "has_garden": "你家附近有稻田嗎？如果沒有，也可以在公園看看喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/水稻",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

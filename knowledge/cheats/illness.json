@@ -1,0 +1,33 @@
+{
+  "id": "illness",
+  "category": "illness",
+  "category_zh": "生病",
+  "triggers": ["生病", "發燒", "住院", "開刀", "好不了", "癌症", "很痛", "病好了嗎"],
+  "deflection_zh": "身體不舒服要告訴大人，我們去問爸爸媽媽好嗎？",
+  "talking_points": {
+    "5-6": [
+      "簡單說明：生病是身體在努力變好",
+      "說明：醫生和護士會照顧好身體",
+      "告訴孩子：生病不是孩子的錯",
+      "問孩子：有哪裡不舒服嗎？"
+    ],
+    "7-8": [
+      "說明病的原因和治療方式，語氣平靜",
+      "不確定的事情，老實說不知道",
+      "鼓勵孩子把擔心說出來，不要藏著",
+      "可以一起畫卡片，送給生病的人"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「很快就會好」或保證結果",
+    "不要說「打針一定不會痛」這種絕對的話",
+    "不要用嚇人的話解釋生病，例如「會死掉」"
+  ],
+  "sources": [
+    {"title": "衛生福利部", "url": "https://www.mohw.gov.tw/", "publisher": "衛生福利部"},
+    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
+    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

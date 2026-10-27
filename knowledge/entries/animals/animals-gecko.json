@@ -1,0 +1,31 @@
+{
+  "id": "animals-gecko",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "壁虎",
+    "gecko"
+  ],
+  "question_patterns": [
+    "壁虎為什麼能貼在牆上",
+    "這是什麼動物",
+    "為什麼壁虎不會掉下來",
+    "壁虎會不會爬天花板"
+  ],
+  "first_sentence": "壁虎能貼牆，是因為腳底有細毛。",
+  "facts": [
+    "壁虎的腳趾上有很多很小的細毛",
+    "細毛能讓壁虎抓住光滑的牆",
+    "壁虎常吃蚊子和小蟲"
+  ],
+  "ask_back": "壁虎白天還是晚上最愛出來？",
+  "bridges": {
+    "has_garden": "你家有沒有在牆上看過壁虎爬呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/壁虎",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

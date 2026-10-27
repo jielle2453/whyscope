@@ -1,0 +1,33 @@
+{
+  "id": "body-sleep",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "睡覺",
+    "睡眠",
+    "sleep"
+  ],
+  "question_patterns": [
+    "為什麼要睡覺",
+    "這是什麼，眼睛閉起來的時候",
+    "睡覺是什麼",
+    "為什麼不睡覺會很累"
+  ],
+  "first_sentence": "這是睡覺！因為身體累了，要休息充電。",
+  "facts": [
+    "睡覺的時候，身體會修復受傷的地方",
+    "大腦會把白天學的東西整理好",
+    "小朋友比大人需要更多睡眠"
+  ],
+  "ask_back": "你猜睡覺的時候，眼睛是張開還是閉著？",
+  "bridges": {
+    "has_cat": "貓咪每天都睡很多覺，對不對？",
+    "has_dog": "狗狗睡覺的時候，會做夢嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/睡眠",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

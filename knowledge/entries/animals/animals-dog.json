@@ -1,0 +1,32 @@
+{
+  "id": "animals-dog",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "狗",
+    "狗狗",
+    "dog"
+  ],
+  "question_patterns": [
+    "為什麼狗狗會搖尾巴",
+    "這是什麼動物",
+    "狗狗看到我為什麼搖尾巴",
+    "狗狗的鼻子為什麼這麼靈"
+  ],
+  "first_sentence": "這是狗狗！牠搖尾巴，是因為心情好。",
+  "facts": [
+    "狗狗搖尾巴，常常是在表達心情",
+    "狗很早就和人一起生活",
+    "狗的鼻子很靈，能聞到很多味道"
+  ],
+  "ask_back": "你猜狗狗的耳朵和鼻子，哪個比較靈？",
+  "bridges": {
+    "has_dog": "你家的狗狗搖尾巴的時候，是不是很開心呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/狗",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

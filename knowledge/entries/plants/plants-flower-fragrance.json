@@ -1,0 +1,32 @@
+{
+  "id": "plants-flower-fragrance",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "花",
+    "花香",
+    "flower"
+  ],
+  "question_patterns": [
+    "花為什麼會香香的",
+    "這是什麼花",
+    "花的味道是從哪裡來的",
+    "為什麼蜜蜂喜歡聞花"
+  ],
+  "first_sentence": "花有香味，是為了引來昆蟲。",
+  "facts": [
+    "花的香味可以吸引昆蟲來",
+    "蜜蜂和蝴蝶幫花把花粉帶去別的花",
+    "不同的花，香味也不一樣"
+  ],
+  "ask_back": "你猜香香的花，會引來哪種昆蟲？",
+  "bridges": {
+    "has_garden": "你家花園的花香香的，會有蜜蜂來嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/花",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

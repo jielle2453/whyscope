@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-summer-hot-winter-cold",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "四季",
+    "季節",
+    "seasons"
+  ],
+  "question_patterns": [
+    "夏天為什麼這麼熱",
+    "這是什麼季節",
+    "冬天為什麼會冷",
+    "一年為什麼會有四季"
+  ],
+  "first_sentence": "夏天熱冬天冷，是因為地軸是斜的。",
+  "facts": [
+    "地球的地軸是斜斜的",
+    "夏天時，太陽光照得比較直，比較熱",
+    "冬天時，太陽光斜斜照，比較冷"
+  ],
+  "ask_back": "你猜地球繞太陽轉一圈要多久？",
+  "bridges": {
+    "has_garden": "你家院子的花，夏天和冬天開的一樣嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/季節",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

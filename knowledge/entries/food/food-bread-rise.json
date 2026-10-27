@@ -1,0 +1,31 @@
+{
+  "id": "food-bread-rise",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "麵包",
+    "bread"
+  ],
+  "question_patterns": [
+    "為什麼麵包會膨脹變大",
+    "這是什麼，烤箱裡香香的東西",
+    "麵包是什麼做的",
+    "為什麼麵團會變得鬆鬆的"
+  ],
+  "first_sentence": "這是麵包！因為酵母吐氣，麵團就變大。",
+  "facts": [
+    "酵母是很小很小的微生物",
+    "酵母會吃掉麵粉裡的糖，吐出二氧化碳",
+    "烤的時候，氣體受熱會再膨脹"
+  ],
+  "ask_back": "麵團放著不動，會變大還是變小？",
+  "bridges": {
+    "has_dog": "狗狗聞到麵包的香味，會想搖尾巴嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/麵包",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

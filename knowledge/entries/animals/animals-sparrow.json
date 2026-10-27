@@ -1,0 +1,31 @@
+{
+  "id": "animals-sparrow",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "麻雀",
+    "sparrow"
+  ],
+  "question_patterns": [
+    "麻雀為什麼住在我們家附近",
+    "這是什麼鳥",
+    "為什麼麻雀不太怕人",
+    "麻雀都吃什麼"
+  ],
+  "first_sentence": "麻雀住在人家附近，因為找吃的方便。",
+  "facts": [
+    "麻雀常在屋簷和洞裡築巢",
+    "麻雀愛吃種子、穀粒和小蟲",
+    "麻雀跟著人類生活了很久"
+  ],
+  "ask_back": "你猜麻雀最愛吃蟲還是種子？",
+  "bridges": {
+    "has_garden": "你家附近有沒有看過麻雀在地上找吃的呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/麻雀",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,31 @@
+{
+  "id": "machines-washing-machine",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "洗衣機",
+    "washing machine"
+  ],
+  "question_patterns": [
+    "為什麼洗衣機會把衣服洗乾淨",
+    "這是什麼，會轉來轉去的箱子",
+    "洗衣機是什麼",
+    "為什麼甩乾的時候衣服會變乾"
+  ],
+  "first_sentence": "這是洗衣機！因為轉動的水，能沖掉髒污。",
+  "facts": [
+    "洗衣機裡的桶子會轉來轉去",
+    "洗衣粉可以幫忙把髒污拆開",
+    "甩乾的時候，水會被甩出衣服"
+  ],
+  "ask_back": "洗衣機甩衣服的時候，衣服會變乾還是變濕？",
+  "bridges": {
+    "has_dog": "你家狗狗的毛巾，也會用洗衣機洗嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/洗衣機",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

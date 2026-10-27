@@ -1,0 +1,14 @@
+Knowledge entries (knowledge/entries/)
+
+The factual content of the knowledge entries is derived from Chinese Wikipedia
+(https://zh.wikipedia.org), which is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Each entry records its source in the source_url field. Facts are paraphrased;
+no sentences are copied. Derivative entries must remain under CC BY-SA 4.0 and
+credit Chinese Wikipedia and its contributors.
+
+The child-facing wording (question patterns, first sentences, facts as phrased
+for children, ask-back questions and bridges) is original text written for this
+project. It is released under the same CC BY-SA 4.0 terms.

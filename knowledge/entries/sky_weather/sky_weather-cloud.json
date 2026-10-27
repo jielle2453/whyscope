@@ -1,0 +1,31 @@
+{
+  "id": "sky_weather-cloud",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "雲",
+    "cloud"
+  ],
+  "question_patterns": [
+    "雲為什麼會飄在天上",
+    "天上白白的是什麼",
+    "雲是什麼做的",
+    "為什麼有的雲白白的，有的雲灰灰的"
+  ],
+  "first_sentence": "雲能飄在天上，是因為小水滴很輕。",
+  "facts": [
+    "雲是由很多很小的水滴組成",
+    "空氣升高、變冷，水氣會變成小水滴",
+    "雲有很多種，形狀和高度都不一樣"
+  ],
+  "ask_back": "你猜雲會被風吹到哪裡去？",
+  "bridges": {
+    "has_garden": "你家院子上面的雲，有沒有像棉花糖呢？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/雲",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

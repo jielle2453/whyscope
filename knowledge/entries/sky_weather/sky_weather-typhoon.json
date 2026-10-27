@@ -1,0 +1,31 @@
+{
+  "id": "sky_weather-typhoon",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "颱風",
+    "typhoon"
+  ],
+  "question_patterns": [
+    "颱風為什麼會轉圈",
+    "這是什麼天氣",
+    "颱風是從哪裡來的",
+    "颱風為什麼會有很大的風"
+  ],
+  "first_sentence": "颱風會轉圈，是因為地球一直在轉。",
+  "facts": [
+    "颱風在溫暖的大海上形成",
+    "颱風會帶來很大的風和很多雨",
+    "颱風中間有一個比較平靜的眼"
+  ],
+  "ask_back": "颱風是在海上還是山上形成？",
+  "bridges": {
+    "has_dog": "颱風來了，狗狗要待在屋子裡喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/颱風",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

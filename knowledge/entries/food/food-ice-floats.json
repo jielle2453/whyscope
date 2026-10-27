@@ -1,0 +1,31 @@
+{
+  "id": "food-ice-floats",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "冰塊",
+    "ice"
+  ],
+  "question_patterns": [
+    "為什麼冰塊會浮在水上",
+    "這是什麼，透明硬硬的方塊",
+    "冰塊是什麼",
+    "為什麼冰塊放進飲料裡會飄"
+  ],
+  "first_sentence": "這是冰塊！因為冰比水輕，所以會浮起來。",
+  "facts": [
+    "水結成冰的時候，體積會變大",
+    "同樣重的冰，體積比水大一點",
+    "冰塊在水裡慢慢融化，會變成水"
+  ],
+  "ask_back": "冰塊變成水以後，體積會變大還是變小？",
+  "bridges": {
+    "has_garden": "夏天在花園裡，冰塊很快就會融化喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/冰",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "plants-bamboo-fast-growth",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "竹子",
+    "竹",
+    "bamboo"
+  ],
+  "question_patterns": [
+    "竹子為什麼長得這麼快",
+    "這是什麼植物",
+    "竹子是樹嗎",
+    "竹子為什麼是空心的"
+  ],
+  "first_sentence": "竹子長得快，因為地下的莖會冒新芽。",
+  "facts": [
+    "有些竹子一天能長高好幾十公分",
+    "竹子的莖中間是空的，很輕",
+    "竹子的莖有一節一節的環"
+  ],
+  "ask_back": "你猜竹子是樹還是草？",
+  "bridges": {
+    "has_garden": "你家院子有竹子的話，可以比比看誰長得快喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/竹",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

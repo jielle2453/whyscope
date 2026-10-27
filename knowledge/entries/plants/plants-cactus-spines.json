@@ -1,0 +1,31 @@
+{
+  "id": "plants-cactus-spines",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "仙人掌",
+    "cactus"
+  ],
+  "question_patterns": [
+    "仙人掌為什麼長刺",
+    "這是什麼植物",
+    "仙人掌為什麼不怕沒有水喝",
+    "仙人掌的刺會不會扎到人"
+  ],
+  "first_sentence": "仙人掌長刺，是為了少流失水分。",
+  "facts": [
+    "仙人掌的刺其實是變形的葉子",
+    "刺可以減少水分從身體跑掉",
+    "刺也能讓動物不敢來吃它"
+  ],
+  "ask_back": "仙人掌住在雨多的地方，還是很乾的地方？",
+  "bridges": {
+    "has_dog": "狗狗靠近仙人掌很危險，要小心喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/仙人掌",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

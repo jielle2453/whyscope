@@ -1,0 +1,31 @@
+{
+  "id": "body-nails",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "指甲",
+    "fingernail"
+  ],
+  "question_patterns": [
+    "為什麼指甲會一直長",
+    "這是什麼，長在手指頭上的硬硬的東西",
+    "指甲是什麼做的",
+    "為什麼指甲剪了還會再長"
+  ],
+  "first_sentence": "這是指甲！因為指甲根部會一直長出新的。",
+  "facts": [
+    "指甲是用一種叫角蛋白的東西做的",
+    "指甲的根藏在皮膚底下",
+    "手指甲通常比腳趾甲長得快"
+  ],
+  "ask_back": "指甲剪下來的部分，會痛嗎？",
+  "bridges": {
+    "has_cat": "貓咪的爪子也會一直長長嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/指甲",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

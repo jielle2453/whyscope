@@ -1,0 +1,31 @@
+{
+  "id": "sky_weather-hail",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "冰雹",
+    "hail"
+  ],
+  "question_patterns": [
+    "冰雹是什麼",
+    "這硬硬的冰塊是什麼",
+    "為什麼會下冰雹",
+    "冰雹為什麼是一層一層的"
+  ],
+  "first_sentence": "冰雹是雲裡的水結成冰，才掉下來。",
+  "facts": [
+    "冰雹大多在強烈的雷雨雲裡形成",
+    "冰雹是一層一層的冰，慢慢長大",
+    "冰雹掉下來，有時會打壞農作物"
+  ],
+  "ask_back": "你猜冰雹是在雲裡還是地上長成的？",
+  "bridges": {
+    "has_garden": "下冰雹的時候，院子裡的花會不會受傷呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/冰雹",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-moon-follows-me",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "月亮",
+    "視差",
+    "moon"
+  ],
+  "question_patterns": [
+    "月亮為什麼跟著我走",
+    "天上那個亮亮的是什麼",
+    "為什麼月亮跟著車子跑",
+    "為什麼走到哪裡月亮都還在"
+  ],
+  "first_sentence": "月亮跟著我走，是因為它離我們很遠。",
+  "facts": [
+    "月亮離我們非常遠",
+    "離很遠的東西，走路時看起來好像跟著你",
+    "離我們近的東西，看起來會往後飛快跑過"
+  ],
+  "ask_back": "你猜月亮跟你家大樓，哪個比較遠？",
+  "bridges": {
+    "likes_cars": "坐汽車的時候，你會覺得月亮也跟著走嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/視差",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

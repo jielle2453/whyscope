@@ -1,0 +1,31 @@
+{
+  "id": "plants-dandelion",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "蒲公英",
+    "dandelion"
+  ],
+  "question_patterns": [
+    "蒲公英為什麼會飛",
+    "這是什麼花",
+    "蒲公英的白色毛毛是什麼",
+    "蒲公英的種子會飛到哪裡"
+  ],
+  "first_sentence": "蒲公英的種子會飛，是靠身上的小絨毛。",
+  "facts": [
+    "蒲公英的種子有像降落傘的毛",
+    "風會把種子吹到很遠的地方",
+    "蒲公英開黃色的花，很常見"
+  ],
+  "ask_back": "你猜蒲公英的種子靠什麼飛走？",
+  "bridges": {
+    "has_garden": "你家院子有蒲公英的話，可以一起吹吹看喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蒲公英",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

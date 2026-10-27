@@ -1,0 +1,31 @@
+{
+  "id": "body-nosebleed",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "流鼻血",
+    "nosebleed"
+  ],
+  "question_patterns": [
+    "為什麼會流鼻血",
+    "這是什麼紅紅的東西從鼻子流出來",
+    "流鼻血是什麼",
+    "為什麼鼻子會流血"
+  ],
+  "first_sentence": "這是流鼻血！因為鼻子裡的小血管破掉了。",
+  "facts": [
+    "鼻子裡面有很多細細的血管",
+    "鼻子太乾或被碰到，血管比較容易破",
+    "按住鼻翼、身體往前傾，通常就會停"
+  ],
+  "ask_back": "流鼻血的時候，流出來的是什麼顏色？",
+  "bridges": {
+    "has_dog": "你家狗狗的鼻子濕濕的，它也會流鼻血嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/鼻出血",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

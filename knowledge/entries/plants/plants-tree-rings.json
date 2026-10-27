@@ -1,0 +1,32 @@
+{
+  "id": "plants-tree-rings",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "年輪",
+    "樹輪",
+    "tree rings"
+  ],
+  "question_patterns": [
+    "樹幹上的圈圈是什麼",
+    "樹為什麼會有圈圈",
+    "年輪可以拿來算年紀嗎",
+    "為什麼鋸開的樹幹有很多圈"
+  ],
+  "first_sentence": "樹幹有圈圈，是因為每年都長出一圈。",
+  "facts": [
+    "每一圈大約代表樹長大了一年",
+    "春天和夏天長得快，顏色比較淺",
+    "秋天和冬天長得慢，顏色比較深"
+  ],
+  "ask_back": "你猜年輪能告訴我們樹的什麼？",
+  "bridges": {
+    "has_garden": "你家院子的樹，你猜它今年幾歲？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/年輪",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

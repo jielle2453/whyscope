@@ -1,0 +1,32 @@
+{
+  "id": "animals-pigeon",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鴿子",
+    "鴿",
+    "pigeon"
+  ],
+  "question_patterns": [
+    "鴿子為什麼找得到家",
+    "這是什麼鳥",
+    "為什麼鴿子可以幫忙送信",
+    "鴿子怎麼知道回家的路"
+  ],
+  "first_sentence": "鴿子能找到家，是因為很會認路。",
+  "facts": [
+    "信鴿是經過人類培育的鴿子",
+    "信鴿能飛很長的路，再回到自己的鳥巢",
+    "以前人會用信鴿來傳送消息"
+  ],
+  "ask_back": "你猜鴿子會用什麼來認路？",
+  "bridges": {
+    "has_garden": "你家附近有沒有看過鴿子在地上走呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/信鴿",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,31 @@
+{
+  "id": "machines-battery",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電池",
+    "battery"
+  ],
+  "question_patterns": [
+    "為什麼電池能讓玩具動",
+    "這是什麼，圓圓的小東西有電",
+    "電池是什麼",
+    "為什麼電池用久了就沒電"
+  ],
+  "first_sentence": "這是電池！因為裡面的化學變化會產生電。",
+  "facts": [
+    "電池有正負兩端，要對好方向裝",
+    "用久了，裡面的化學材料會越來越少",
+    "電會從電池流到玩具或遙控器裡"
+  ],
+  "ask_back": "電池的兩端，你猜有沒有分正和負？",
+  "bridges": {
+    "likes_cars": "玩具車沒電了，你會先換電池嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/電池",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

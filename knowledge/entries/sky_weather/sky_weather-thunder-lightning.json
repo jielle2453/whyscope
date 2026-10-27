@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-thunder-lightning",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "閃電",
+    "打雷",
+    "lightning"
+  ],
+  "question_patterns": [
+    "打雷為什麼會很大聲",
+    "天上那道亮亮的是什麼",
+    "閃電是從哪裡來的",
+    "為什麼先看到閃電才聽到雷聲"
+  ],
+  "first_sentence": "打雷的聲音，是閃電把空氣震響。",
+  "facts": [
+    "閃電是很大的電，在雲和地之間跑過",
+    "閃電讓空氣突然變得很熱，發出雷聲",
+    "光跑得比聲音快，所以先看到閃電"
+  ],
+  "ask_back": "你猜閃電和雷聲，哪個先到？",
+  "bridges": {
+    "has_cat": "打雷的時候，你家的貓咪會不會躲起來呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/閃電",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

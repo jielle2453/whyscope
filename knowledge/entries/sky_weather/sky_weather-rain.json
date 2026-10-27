@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-rain",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "雨",
+    "下雨",
+    "rain"
+  ],
+  "question_patterns": [
+    "雨為什麼會從天上掉下來",
+    "天上掉下來的水是什麼",
+    "雨是從哪裡來的",
+    "為什麼下雨後地上會有水坑"
+  ],
+  "first_sentence": "雨從雲裡下來，是因為水滴變重。",
+  "facts": [
+    "雲裡有很多很小的水滴",
+    "水滴聚在一起變大變重，就會落下",
+    "雨水流進河裡，最後又回到海裡"
+  ],
+  "ask_back": "你猜雲裡面裝的是什麼？",
+  "bridges": {
+    "has_dog": "下雨的時候，你家的狗狗會不會不想出門呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/雨",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

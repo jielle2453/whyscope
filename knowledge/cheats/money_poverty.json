@@ -1,0 +1,33 @@
+{
+  "id": "money_poverty",
+  "category": "money_poverty",
+  "category_zh": "金錢與貧窮",
+  "triggers": ["沒錢", "很窮", "沒有錢", "買不起", "我們要搬家嗎", "繳不出", "沒飯吃", "爸爸沒有工作"],
+  "deflection_zh": "錢的事情要和大人商量，我們一起去問爸爸媽媽。",
+  "talking_points": {
+    "5-6": [
+      "告訴孩子：家裡的錢是大人會處理的事",
+      "說：沒錢的時候，還是有人會照顧你",
+      "不要讓孩子擔心大人的煩惱",
+      "一起說說：不買東西也可以快樂地玩"
+    ],
+    "7-8": [
+      "簡單說明家裡的錢怎麼用、怎麼存",
+      "說明：有沒有錢，不代表一個人好不好",
+      "讓孩子知道可以說出擔心，不用一個人想",
+      "可以一起做不花錢的事，例如散步或畫畫"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「我們好窮」或「我們快沒錢了」",
+    "不要把大人的壓力丟給孩子",
+    "不要拿別人家的條件來比較"
+  ],
+  "sources": [
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
+    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
+    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

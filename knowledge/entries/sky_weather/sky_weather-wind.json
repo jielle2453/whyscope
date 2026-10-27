@@ -1,0 +1,31 @@
+{
+  "id": "sky_weather-wind",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "風",
+    "wind"
+  ],
+  "question_patterns": [
+    "風為什麼會吹",
+    "吹來涼涼的那個是什麼",
+    "風是從哪裡來的",
+    "為什麼有時候風很大"
+  ],
+  "first_sentence": "風會吹，是因為地面受熱不一樣。",
+  "facts": [
+    "太陽照得不一樣，空氣就會流動",
+    "空氣流動就變成了風",
+    "風可以吹動風車，幫忙發電"
+  ],
+  "ask_back": "風吹很大的時候，你猜樹葉會怎樣？",
+  "bridges": {
+    "rides_bike": "騎腳踏車的時候，你有感覺到風嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/風",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

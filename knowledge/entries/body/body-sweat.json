@@ -1,0 +1,31 @@
+{
+  "id": "body-sweat",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "流汗",
+    "sweat"
+  ],
+  "question_patterns": [
+    "為什麼會流汗",
+    "這是什麼水，身上濕濕的",
+    "流汗是什麼意思",
+    "為什麼跑完身上會濕濕的"
+  ],
+  "first_sentence": "這是流汗！身體太熱，汗就會跑出來。",
+  "facts": [
+    "皮膚下面有很多小小的汗腺",
+    "汗水會從毛孔慢慢跑出來",
+    "汗水變乾時，會帶走身體的熱"
+  ],
+  "ask_back": "流出來的汗，你猜是甜的還是鹹的？",
+  "bridges": {
+    "has_garden": "在花園玩得很熱，你會流很多汗嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/出汗",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

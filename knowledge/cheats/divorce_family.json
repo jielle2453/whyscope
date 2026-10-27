@@ -1,0 +1,33 @@
+{
+  "id": "divorce_family",
+  "category": "divorce_family",
+  "category_zh": "離婚與家庭變動",
+  "triggers": ["爸爸媽媽吵架", "離婚", "爸爸不回家", "媽媽不見了", "搬家", "不要我了", "分開住", "爸爸媽媽會分開嗎"],
+  "deflection_zh": "這件事一定讓你很難過，我們去找爸爸媽媽聊聊好嗎？",
+  "talking_points": {
+    "5-6": [
+      "告訴孩子：這不是你的錯",
+      "說：爸爸媽媽吵架，不代表不愛你",
+      "讓孩子知道：可以說出難過，也可以哭",
+      "說明：每天照顧你的大人還是會在"
+    ],
+    "7-8": [
+      "說明大人的感情問題，不是孩子造成的",
+      "不批評另一方，說「每個人都有難處」",
+      "說明家庭可能改變，但愛不會改變",
+      "問孩子最擔心什麼，一起想想辦法"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「都是你害的」或「你不乖」",
+    "不要在孩子面前說另一方的壞話",
+    "不要要求孩子選擇跟爸爸或媽媽"
+  ],
+  "sources": [
+    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
+    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

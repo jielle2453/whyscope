@@ -1,0 +1,31 @@
+{
+  "id": "animals-giraffe",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "長頸鹿",
+    "giraffe"
+  ],
+  "question_patterns": [
+    "長頸鹿為什麼脖子這麼長",
+    "這是什麼動物",
+    "長頸鹿吃什麼",
+    "長頸鹿是不是最高的動物"
+  ],
+  "first_sentence": "長頸鹿脖子長，為了吃高處的葉子。",
+  "facts": [
+    "長頸鹿是陸地上最高的動物",
+    "長頸鹿常吃高高的樹葉",
+    "長頸鹿脖子的骨頭數，跟人一樣多"
+  ],
+  "ask_back": "你猜長頸鹿和大象，誰比較高？",
+  "bridges": {
+    "likes_cars": "汽車很高，長頸鹿比汽車還高嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/長頸鹿",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

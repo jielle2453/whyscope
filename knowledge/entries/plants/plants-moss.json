@@ -1,0 +1,32 @@
+{
+  "id": "plants-moss",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "青苔",
+    "苔蘚",
+    "moss"
+  ],
+  "question_patterns": [
+    "青苔為什麼長在石頭上",
+    "這綠綠的是什麼",
+    "青苔是植物嗎",
+    "為什麼青苔喜歡濕濕的地方"
+  ],
+  "first_sentence": "青苔喜歡潮濕，因為它沒有真正的根。",
+  "facts": [
+    "青苔沒有真正的根，靠身體吸水",
+    "青苔很小，常長在石頭和牆上",
+    "青苔不開花，用小小的孢子繁殖"
+  ],
+  "ask_back": "你猜青苔喜歡乾的地方，還是濕的地方？",
+  "bridges": {
+    "has_garden": "你家院子的石頭上，有沒有長青苔呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/苔蘚",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

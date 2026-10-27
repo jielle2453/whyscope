@@ -1,0 +1,31 @@
+{
+  "id": "animals-bee",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蜜蜂",
+    "honeybee"
+  ],
+  "question_patterns": [
+    "蜜蜂為什麼會跳舞",
+    "這是什麼昆蟲",
+    "蜜蜂怎麼知道花在哪裡",
+    "為什麼蜜蜂要採花"
+  ],
+  "first_sentence": "蜜蜂會跳舞，是為了告訴同伴花在哪。",
+  "facts": [
+    "蜜蜂用舞蹈告訴同伴花的方向",
+    "蜜蜂把花蜜帶回家，做成蜂蜜",
+    "蜜蜂幫花把花粉帶到另一朵花"
+  ],
+  "ask_back": "蜜蜂最愛採的東西，你猜是什麼？",
+  "bridges": {
+    "has_garden": "你家花園的花，有沒有蜜蜂來採蜜呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蜜蜂",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

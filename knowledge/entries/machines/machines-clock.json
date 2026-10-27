@@ -1,0 +1,31 @@
+{
+  "id": "machines-clock",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "時鐘",
+    "clock"
+  ],
+  "question_patterns": [
+    "為什麼時鐘的指針會一直走",
+    "這是什麼，掛在牆上會滴答的東西",
+    "時鐘是什麼",
+    "為什麼時鐘可以告訴我們時間"
+  ],
+  "first_sentence": "這是時鐘！因為齒輪帶著指針，一格一格走。",
+  "facts": [
+    "時鐘裡有很多齒輪，一個帶著一個轉",
+    "石英錶靠小晶體規律地振動來計時",
+    "一小時有六十分，一分鐘有六十秒"
+  ],
+  "ask_back": "時鐘的三根指針，哪一根走最快？",
+  "bridges": {
+    "has_dog": "你家的狗狗，知道什麼時候該吃飯嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/時鐘",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

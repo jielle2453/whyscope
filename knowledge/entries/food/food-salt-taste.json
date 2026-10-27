@@ -1,0 +1,31 @@
+{
+  "id": "food-salt-taste",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "鹽",
+    "salt"
+  ],
+  "question_patterns": [
+    "為什麼鹽會鹹",
+    "這是什麼白白的小粒粒",
+    "鹽是什麼",
+    "為什麼菜裡放了鹽，就變好吃"
+  ],
+  "first_sentence": "這是鹽！因為舌頭碰到它，就會嚐到鹹。",
+  "facts": [
+    "鹽的主要成分叫氯化鈉",
+    "鹽放進水裡，會慢慢溶解不見",
+    "舌頭上有味覺的地方，能感覺鹹味"
+  ],
+  "ask_back": "鹽放進湯裡，湯會變鹹還是變甜？",
+  "bridges": {
+    "has_dog": "狗狗的點心不能加鹽喔，你知道為什麼嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/食鹽",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

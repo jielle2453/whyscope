@@ -1,0 +1,32 @@
+{
+  "id": "machines-bicycle",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "腳踏車",
+    "自行車",
+    "bicycle"
+  ],
+  "question_patterns": [
+    "為什麼腳踏車不會倒",
+    "這是什麼，兩個輪子的車",
+    "腳踏車是什麼",
+    "為什麼騎車的時候，車子比較不會倒"
+  ],
+  "first_sentence": "這是腳踏車！車把左右轉，就能保持平衡。",
+  "facts": [
+    "騎得越快，車子通常越穩",
+    "騎車的人會不停微調方向",
+    "車把一轉，前輪就會跟著轉"
+  ],
+  "ask_back": "腳踏車有幾個輪子？你猜猜看。",
+  "bridges": {
+    "rides_bike": "你騎腳踏車的時候，車把是怎麼轉的呢？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/自行車",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

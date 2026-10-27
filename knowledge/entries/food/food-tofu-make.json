@@ -1,0 +1,31 @@
+{
+  "id": "food-tofu-make",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "豆腐",
+    "tofu"
+  ],
+  "question_patterns": [
+    "為什麼豆漿會變成豆腐",
+    "這是什麼，白白軟軟、方方的東西",
+    "豆腐是什麼做的",
+    "為什麼豆腐會變成一塊一塊的"
+  ],
+  "first_sentence": "這是豆腐！因為豆漿遇到鹵水，就會凝固。",
+  "facts": [
+    "豆腐是用黃豆磨成的豆漿做的",
+    "豆漿遇到鹵水，蛋白質會聚在一起",
+    "把水壓出來，就變成一塊一塊的"
+  ],
+  "ask_back": "豆腐是用什麼豆子做的？",
+  "bridges": {
+    "has_garden": "花園裡可以種黃豆嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/豆腐",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

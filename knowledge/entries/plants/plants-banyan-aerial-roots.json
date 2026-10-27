@@ -1,0 +1,32 @@
+{
+  "id": "plants-banyan-aerial-roots",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "榕樹",
+    "氣根",
+    "banyan"
+  ],
+  "question_patterns": [
+    "榕樹為什麼有鬍鬚一樣的根",
+    "這是什麼樹",
+    "榕樹的根為什麼從樹上垂下來",
+    "為什麼榕樹會長出柱子一樣的根"
+  ],
+  "first_sentence": "榕樹的氣根垂下來，是為了撐住枝條。",
+  "facts": [
+    "氣根從樹枝往下長，像鬍鬚",
+    "氣根碰到土，就會變成支撐的柱子",
+    "氣根也能吸收空氣中的水分"
+  ],
+  "ask_back": "你猜榕樹的氣根，是往上長還是往下長？",
+  "bridges": {
+    "has_garden": "你家院子有沒有看過垂下來的樹根呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/榕樹",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "animals-ant",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "螞蟻",
+    "蟻",
+    "ant"
+  ],
+  "question_patterns": [
+    "螞蟻為什麼要排隊走",
+    "這是什麼蟲",
+    "螞蟻怎麼知道要走哪條路",
+    "螞蟻為什麼一隻接一隻走"
+  ],
+  "first_sentence": "螞蟻排成一列走，是因為會留下氣味。",
+  "facts": [
+    "螞蟻會留下氣味，當作走路的記號",
+    "同伴聞到氣味，就會跟著走",
+    "找到食物的螞蟻，會留下記號讓同伴來"
+  ],
+  "ask_back": "螞蟻留記號，你猜是用氣味還是顏色？",
+  "bridges": {
+    "has_garden": "你家院子裡有沒有看過一排螞蟻呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/螞蟻",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

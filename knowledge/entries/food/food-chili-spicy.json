@@ -1,0 +1,31 @@
+{
+  "id": "food-chili-spicy",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "辣椒",
+    "chili"
+  ],
+  "question_patterns": [
+    "為什麼辣椒會辣",
+    "這是什麼，紅紅長長的東西",
+    "辣椒是什麼",
+    "為什麼吃辣會覺得熱熱的"
+  ],
+  "first_sentence": "這是辣椒！因為辣椒素會刺激舌頭。",
+  "facts": [
+    "辣椒素會碰到會感覺熱的地方",
+    "辣是一種痛和熱的感覺，不是味道",
+    "吃辣的時候，喝水不太能減少辣感"
+  ],
+  "ask_back": "吃辣的時候，舌頭會覺得熱嗎？",
+  "bridges": {
+    "has_dog": "狗狗也能吃辣嗎？你猜猜看。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/辣椒",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

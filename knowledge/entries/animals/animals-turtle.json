@@ -1,0 +1,32 @@
+{
+  "id": "animals-turtle",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "烏龜",
+    "龜",
+    "turtle"
+  ],
+  "question_patterns": [
+    "烏龜為什麼背上有殼",
+    "這是什麼動物",
+    "烏龜的殼是什麼做的",
+    "為什麼烏龜可以縮進殼裡"
+  ],
+  "first_sentence": "烏龜背上有殼，因為殼和骨頭長在一起。",
+  "facts": [
+    "烏龜的殼是由肋骨和脊椎連起來的",
+    "殼外面有一層硬硬的角質片",
+    "烏龜縮進殼裡，就能保護身體"
+  ],
+  "ask_back": "你猜烏龜會不會游泳？",
+  "bridges": {
+    "has_garden": "你家附近的池塘，有沒有烏龜在曬太陽呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/烏龜",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

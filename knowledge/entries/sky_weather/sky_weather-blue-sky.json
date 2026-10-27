@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-blue-sky",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "天空",
+    "藍天",
+    "sky"
+  ],
+  "question_patterns": [
+    "天空為什麼是藍色的",
+    "這是什麼顏色的天",
+    "為什麼天不是綠色的",
+    "藍藍的天空是怎麼來的"
+  ],
+  "first_sentence": "天空是藍的，因為藍光很容易散開。",
+  "facts": [
+    "陽光看起來白白的，其實有很多顏色",
+    "藍色的光比較容易被空氣散到四面八方",
+    "我們抬頭看天，就看到滿天的藍色"
+  ],
+  "ask_back": "你猜陽光裡面有幾種顏色？",
+  "bridges": {
+    "has_garden": "你家院子裡的天空，今天是藍色的嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/瑞利散射",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

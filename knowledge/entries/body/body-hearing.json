@@ -1,0 +1,31 @@
+{
+  "id": "body-hearing",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "耳朵",
+    "hearing"
+  ],
+  "question_patterns": [
+    "為什麼耳朵能聽到聲音",
+    "這是什麼，長在頭兩邊的東西",
+    "耳朵是做什麼的",
+    "為什麼我可以聽到音樂"
+  ],
+  "first_sentence": "這是耳朵！因為空氣振動，才能聽到聲音。",
+  "facts": [
+    "聲音其實是空氣一下一下地振動",
+    "耳朵裡的鼓膜會跟著一起震動",
+    "震動一路傳到腦袋，我們就聽懂了"
+  ],
+  "ask_back": "耳朵裡面有一層薄膜，你猜它像什麼？",
+  "bridges": {
+    "has_dog": "狗狗能聽到比我們更高的聲音，你知道嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/聽覺",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

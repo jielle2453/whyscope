@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-sunset-red-sky",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "晚霞",
+    "夕陽",
+    "sunset"
+  ],
+  "question_patterns": [
+    "太陽下山為什麼天會變紅",
+    "天上紅紅的是什麼",
+    "夕陽為什麼是紅色的",
+    "為什麼傍晚天空會變橘色"
+  ],
+  "first_sentence": "傍晚天變紅，因為陽光穿過很厚的空氣。",
+  "facts": [
+    "傍晚時，陽光要穿過更厚的空氣",
+    "藍色的光容易被空氣散開",
+    "紅色和橘色的光比較能穿過來"
+  ],
+  "ask_back": "傍晚的天空，你猜會變成什麼顏色？",
+  "bridges": {
+    "has_garden": "你家院子看夕陽的時候，天空顏色有變嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/晚霞",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

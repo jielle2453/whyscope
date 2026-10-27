@@ -1,0 +1,31 @@
+{
+  "id": "machines-balloon",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "氣球",
+    "balloon"
+  ],
+  "question_patterns": [
+    "為什麼氣球會飄起來",
+    "這是什麼，有很多顏色、會飄的圓東西",
+    "氣球是什麼",
+    "為什麼有些氣球會往下掉"
+  ],
+  "first_sentence": "這是氣球！因為裝了氦氣，比空氣輕。",
+  "facts": [
+    "空氣也有重量，只是我們感覺不到",
+    "氦氣比空氣輕，所以會往上飄",
+    "裝的是空氣的氣球，不會往上飄"
+  ],
+  "ask_back": "裝空氣的氣球，還會飄起來嗎？",
+  "bridges": {
+    "has_dog": "狗狗看到氣球飄起來，會想追嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/氣球",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

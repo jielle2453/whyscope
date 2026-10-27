@@ -1,0 +1,31 @@
+{
+  "id": "animals-spider",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蜘蛛",
+    "spider"
+  ],
+  "question_patterns": [
+    "蜘蛛為什麼要織網",
+    "這是什麼蟲",
+    "蜘蛛是昆蟲嗎",
+    "蜘蛛的絲是從哪裡來的"
+  ],
+  "first_sentence": "蜘蛛會織網，是為了抓住飛來的蟲。",
+  "facts": [
+    "蜘蛛從肚子後面吐出絲，織成網",
+    "蜘蛛有八隻腳，不是昆蟲",
+    "蜘蛛絲又細又結實"
+  ],
+  "ask_back": "你猜蜘蛛有幾隻腳？",
+  "bridges": {
+    "has_garden": "你家院子的角落，有沒有看過蜘蛛網呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蜘蛛",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

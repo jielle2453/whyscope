@@ -1,0 +1,31 @@
+{
+  "id": "food-milk-origin",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "牛奶",
+    "milk"
+  ],
+  "question_patterns": [
+    "牛奶是從哪裡來的",
+    "這是什麼，白白的飲料",
+    "牛奶是什麼",
+    "為什麼牛會有牛奶"
+  ],
+  "first_sentence": "這是牛奶！因為奶牛生了小牛，就會產奶。",
+  "facts": [
+    "奶牛要生下小牛，才會產奶",
+    "牛奶是在奶牛的乳房裡做出來的",
+    "牛奶要經過消毒，才會送到店裡"
+  ],
+  "ask_back": "牛奶是從牛的哪個地方來的？",
+  "bridges": {
+    "has_garden": "花園裡有沒有看過牛呢？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/牛奶",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

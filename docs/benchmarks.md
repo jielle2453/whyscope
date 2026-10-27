@@ -165,3 +165,30 @@ Threshold sweep (accuracy / false answers on non-in_kb / false abstains on in_kb
 | 0.65 | 85.0% | 2 | 16 |
 | 0.7 | 82.5% | 0 | 21 |
 | 0.75 | 75.0% | 0 | 30 |
+
+### Abstention run 2026-10-28 05:08
+
+- 120 questions, threshold 0.55, entries in index: 93, embedding device: cuda
+- accuracy: 110/120 = 91.7%
+- in_kb answered with the correct kb_id: 48/48
+
+| kind | n | predicted answer | predicted abstain | correct |
+|---|---|---|---|---|
+| in_kb | 50 | 48 | 2 | 48/50 |
+| near_kb | 25 | 7 | 18 | 18/25 |
+| out_kb | 30 | 1 | 29 | 29/30 |
+| nonsense | 15 | 0 | 15 | 15/15 |
+
+Threshold sweep (accuracy / false answers on non-in_kb / false abstains on in_kb):
+
+| threshold | accuracy | false answers | false abstains |
+|---|---|---|---|
+| 0.35 | 65.8% | 41 | 0 |
+| 0.4 | 70.8% | 35 | 0 |
+| 0.45 | 75.8% | 28 | 1 |
+| 0.5 | 85.0% | 17 | 1 |
+| 0.55 | 91.7% | 8 | 2 |
+| 0.6 | 90.8% | 4 | 7 |
+| 0.65 | 85.0% | 2 | 16 |
+| 0.7 | 82.5% | 0 | 21 |
+| 0.75 | 75.0% | 0 | 30 |

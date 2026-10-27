@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-shadow",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "影子",
+    "陰影",
+    "shadow"
+  ],
+  "question_patterns": [
+    "影子為什麼會跟著我",
+    "這黑黑的是什麼",
+    "為什麼影子有時候長有時候短",
+    "影子是從哪裡來的"
+  ],
+  "first_sentence": "影子出現，是因為身體擋住了光。",
+  "facts": [
+    "光是直直走的，碰到東西就會被擋住",
+    "太陽高高的時候，影子比較短",
+    "太陽低低的時候，影子會拉得比較長"
+  ],
+  "ask_back": "你猜早上的影子，比中午的長還是短？",
+  "bridges": {
+    "has_dog": "狗狗在太陽下跑，影子也會跟著跑喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/陰影",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "bullying",
+  "category": "bullying",
+  "category_zh": "霸凌",
+  "triggers": ["被欺負", "同學欺負我", "不跟我玩", "被笑", "被取綽號", "不想去學校", "被罵", "被打"],
+  "deflection_zh": "被欺負很難過，請馬上告訴爸爸媽媽或老師。",
+  "talking_points": {
+    "5-6": [
+      "先說：你說出來很勇敢，這不是你的錯",
+      "問清楚：是誰、在哪裡、發生什麼事",
+      "告訴孩子：被欺負時要找大人幫忙",
+      "和老師聯絡，一起想辦法保護孩子"
+    ],
+    "7-8": [
+      "說明欺負別人的人，也可能需要幫助",
+      "教孩子說「我不喜歡這樣」，然後離開",
+      "紀錄事情的時間、地點與經過",
+      "和老師討論，不要只教孩子忍耐"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「忍一忍就好」或「男生不要哭」",
+    "不要叫孩子去打回去",
+    "不要說「是不是你也有問題」"
+  ],
+  "sources": [
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
+    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"},
+    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

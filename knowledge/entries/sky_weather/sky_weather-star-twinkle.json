@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-star-twinkle",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "星星",
+    "星",
+    "star"
+  ],
+  "question_patterns": [
+    "星星為什麼會一閃一閃",
+    "天上一閃一閃的是什麼",
+    "星星是什麼做的",
+    "為什麼星星看起來很小"
+  ],
+  "first_sentence": "星星一閃一閃，是因為空氣在動。",
+  "facts": [
+    "星星離我們很遠，光很微弱",
+    "空氣流動，會讓星光看起來一閃一閃",
+    "星星自己會發光，像很遠的太陽"
+  ],
+  "ask_back": "你猜星星是自己發光，還是靠別的光？",
+  "bridges": {
+    "has_garden": "晚上在院子看星星，會不會看到它一閃一閃？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/閃爍",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "animals-whale",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鯨魚",
+    "鯨",
+    "whale"
+  ],
+  "question_patterns": [
+    "鯨魚為什麼要浮上來",
+    "這是什麼動物",
+    "鯨魚是魚嗎",
+    "鯨魚為什麼能住在海裡"
+  ],
+  "first_sentence": "鯨魚要浮上來換氣，因為牠用肺呼吸。",
+  "facts": [
+    "鯨魚是哺乳動物，不是魚",
+    "鯨魚用肺呼吸，所以要浮到水面",
+    "鯨魚媽媽會餵寶寶喝奶"
+  ],
+  "ask_back": "你猜鯨魚是魚還是哺乳動物？",
+  "bridges": {
+    "has_dog": "狗狗也是哺乳動物喔，你猜狗狗會不會喝奶？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/鯨魚",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

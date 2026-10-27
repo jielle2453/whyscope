@@ -1,0 +1,32 @@
+{
+  "id": "body-yawn",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "打哈欠",
+    "yawn"
+  ],
+  "question_patterns": [
+    "為什麼會打哈欠",
+    "這是什麼，嘴巴張得好大",
+    "打哈欠是什麼意思",
+    "為什麼看到別人打哈欠，我也想打"
+  ],
+  "first_sentence": "這是打哈欠！科學家猜是為了讓腦袋降溫。",
+  "facts": [
+    "打哈欠的原因還沒有完全確定",
+    "有一個說法是讓大腦降溫",
+    "看到別人打哈欠，自己也會想打"
+  ],
+  "ask_back": "打哈欠的時候，眼睛會變成什麼樣子？",
+  "bridges": {
+    "has_cat": "貓咪也會打哈欠嗎？你看過嗎？",
+    "has_sibling": "兄弟姊妹打哈欠的時候，你也會跟著打嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/打哈欠",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

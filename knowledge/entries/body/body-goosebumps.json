@@ -1,0 +1,31 @@
+{
+  "id": "body-goosebumps",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "雞皮疙瘩",
+    "goosebumps"
+  ],
+  "question_patterns": [
+    "為什麼會起雞皮疙瘩",
+    "這是什麼小疙瘩",
+    "雞皮疙瘩是什麼",
+    "為什麼聽到好聽的歌，手臂會起雞皮疙瘩"
+  ],
+  "first_sentence": "這是雞皮疙瘩！因為覺得冷，毛就豎起來。",
+  "facts": [
+    "皮膚下有很小的肌肉，會拉動毛根",
+    "很多動物靠毛豎起來保暖或嚇人",
+    "害怕或感動的時候，也會起雞皮疙瘩"
+  ],
+  "ask_back": "起雞皮疙瘩的時候，皮膚摸起來像什麼？",
+  "bridges": {
+    "has_cat": "你家的貓咪生氣的時候，毛會豎起來嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/雞皮疙瘩",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

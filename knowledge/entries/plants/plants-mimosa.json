@@ -1,0 +1,31 @@
+{
+  "id": "plants-mimosa",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "含羞草",
+    "mimosa"
+  ],
+  "question_patterns": [
+    "含羞草為什麼一碰葉子就合起來",
+    "這是什麼植物",
+    "含羞草會害羞嗎",
+    "為什麼含羞草的葉子會閉起來"
+  ],
+  "first_sentence": "含羞草碰到就合葉，可能是為了保護自己。",
+  "facts": [
+    "含羞草的葉子碰到，會慢慢合起來",
+    "合起葉子，可能是為了躲開傷害",
+    "過一陣子，葉子會再慢慢打開"
+  ],
+  "ask_back": "你猜碰到含羞草，葉子會怎麼做？",
+  "bridges": {
+    "has_garden": "你家院子有沒有種會動的植物呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/含羞草",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

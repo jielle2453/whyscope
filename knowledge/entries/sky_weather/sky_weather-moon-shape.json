@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-moon-shape",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "月亮",
+    "月相",
+    "moon"
+  ],
+  "question_patterns": [
+    "月亮為什麼會變胖變瘦",
+    "天上這個圓圓的是什麼",
+    "月亮的形狀為什麼不一樣",
+    "為什麼月亮有時候是彎彎的"
+  ],
+  "first_sentence": "月亮變胖變瘦，是我們看到的亮面不同。",
+  "facts": [
+    "月亮自己不發光，是反射太陽的光",
+    "月亮繞著地球轉，我們看到的亮面會改變",
+    "大約一個月，月亮就變化一整圈"
+  ],
+  "ask_back": "你猜月亮自己會發光嗎？",
+  "bridges": {
+    "has_garden": "晚上在院子看月亮，它的樣子有沒有變呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/月相",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

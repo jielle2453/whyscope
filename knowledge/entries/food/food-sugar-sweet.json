@@ -1,0 +1,31 @@
+{
+  "id": "food-sugar-sweet",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "糖",
+    "sugar"
+  ],
+  "question_patterns": [
+    "為什麼糖是甜的",
+    "這是什麼，白白的甜甜粉",
+    "糖是什麼做的",
+    "為什麼吃了糖，嘴巴會覺得甜甜的"
+  ],
+  "first_sentence": "這是糖！因為它會讓舌頭感到甜甜的。",
+  "facts": [
+    "糖是用甘蔗或甜菜做出來的",
+    "吃太多糖，牙齒容易蛀掉",
+    "身體會把糖變成能量，讓我們有力氣"
+  ],
+  "ask_back": "你猜糖是從甘蔗還是從樹上來的？",
+  "bridges": {
+    "has_cat": "貓咪的舌頭，會覺得糖甜嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/糖",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

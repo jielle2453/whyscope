@@ -1,0 +1,32 @@
+{
+  "id": "plants-seed-germination",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "種子",
+    "發芽",
+    "seed germination"
+  ],
+  "question_patterns": [
+    "種子為什麼會發芽",
+    "這是什麼種子",
+    "種子怎麼變成植物",
+    "為什麼種子泡水會變大"
+  ],
+  "first_sentence": "種子發芽，是因為吸飽了水。",
+  "facts": [
+    "種子吸飽水，裡面的小胚芽就開始長",
+    "發芽還需要空氣和適合的溫度",
+    "小芽會先長出根，再長出葉子"
+  ],
+  "ask_back": "你猜種子發芽時，先長根還是先長葉？",
+  "bridges": {
+    "has_garden": "你家院子種的種子，會先長出什麼呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/種子",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

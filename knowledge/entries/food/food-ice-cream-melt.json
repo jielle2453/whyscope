@@ -1,0 +1,31 @@
+{
+  "id": "food-ice-cream-melt",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "冰淇淋",
+    "ice cream"
+  ],
+  "question_patterns": [
+    "為什麼冰淇淋會融化",
+    "這是什麼，冷冷甜甜的東西",
+    "冰淇淋是什麼",
+    "為什麼冰淇淋放久了會流下來"
+  ],
+  "first_sentence": "這是冰淇淋！因為熱空氣會讓它慢慢融化。",
+  "facts": [
+    "冰淇淋裡有很多很小的冰晶",
+    "熱會從周圍的空氣，跑進冰淇淋裡",
+    "變成液體以後，就會慢慢流下來"
+  ],
+  "ask_back": "冰淇淋放在太陽下，會變硬還是變軟？",
+  "bridges": {
+    "has_garden": "在花園裡吃冰淇淋，要趕快吃喔！"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/冰淇淋",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

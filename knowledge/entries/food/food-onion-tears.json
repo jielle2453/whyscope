@@ -1,0 +1,31 @@
+{
+  "id": "food-onion-tears",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "洋蔥",
+    "onion"
+  ],
+  "question_patterns": [
+    "為什麼切洋蔥會流眼淚",
+    "這是什麼，一層一層的圓圓蔬菜",
+    "洋蔥是什麼",
+    "為什麼洋蔥切開會有味道"
+  ],
+  "first_sentence": "這是洋蔥！因為切開後，氣體會刺激眼睛。",
+  "facts": [
+    "洋蔥裡的酵素，切開後會產生氣體",
+    "眼睛被刺激，就會流出眼淚來保護",
+    "洋蔥長在地下，一層一層包著"
+  ],
+  "ask_back": "洋蔥是長在地上還是地下？",
+  "bridges": {
+    "has_dog": "狗狗不能吃洋蔥喔，你知道為什麼嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/洋蔥",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,36 @@
+{
+  "id": "self_harm",
+  "category": "self_harm",
+  "category_zh": "傷害自己",
+  "urgent": true,
+  "triggers": ["不想活", "想死", "想消失", "不要活了", "割自己", "傷害自己", "活著沒意思"],
+  "deflection_zh": "你的感覺很重要，請馬上去找大人，現在就去！",
+  "talking_points": {
+    "5-6": [
+      "立刻陪在孩子身邊，不要留他一個人",
+      "說：你說出來很勇敢，我們一起想辦法",
+      "收好危險物品，例如刀、藥，保持安全",
+      "撥打 1925 安心專線（24 小時免付費）",
+      "或撥打 1995 生命線；危急請撥 119"
+    ],
+    "7-8": [
+      "認真聽孩子說，不要急著否定或批評",
+      "問清楚：是否已經做了傷害自己的事",
+      "立刻告訴其他大人，並請專業的人協助",
+      "撥打 1925 安心專線（24 小時免付費）",
+      "撥打 1995 生命線；危急請撥 119"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「不要這樣想」或「你只是想太多」",
+    "不要用威脅或指責的話",
+    "不要答應「我不會告訴別人」來保密"
+  ],
+  "sources": [
+    {"title": "衛生福利部", "url": "https://www.mohw.gov.tw/", "publisher": "衛生福利部"},
+    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"},
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

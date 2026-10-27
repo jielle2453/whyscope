@@ -1,0 +1,33 @@
+{
+  "id": "scary_news",
+  "category": "scary_news",
+  "category_zh": "令人害怕的新聞",
+  "triggers": ["地震新聞", "地震", "新聞", "海嘯", "颱風", "電視說", "災難", "火災"],
+  "deflection_zh": "這個新聞讓你害怕嗎？我們一起問爸爸媽媽好嗎？",
+  "talking_points": {
+    "5-6": [
+      "先問：你聽到什麼？有什麼感覺？",
+      "說：現在我們在家很安全，大人會照顧",
+      "不要一直看新聞畫面，可以先關掉電視",
+      "說明：這種事情很少發生，大人會幫忙"
+    ],
+    "7-8": [
+      "說明事情發生的原因，語氣平穩",
+      "用地圖看看事情在哪裡，離我們多遠",
+      "說明大人怎麼準備，例如地震包與避難",
+      "鼓勵孩子用畫畫或遊戲表達心情"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「世界末日」或「很快會再來」",
+    "不要讓孩子獨自看新聞",
+    "不要說「不要怕，這沒什麼」"
+  ],
+  "sources": [
+    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"},
+    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"},
+    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

@@ -1,0 +1,32 @@
+{
+  "id": "sky_weather-dew",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "露水",
+    "露",
+    "dew"
+  ],
+  "question_patterns": [
+    "草上亮晶晶的是什麼",
+    "這是什麼水",
+    "露水為什麼會出現",
+    "早上草地為什麼濕濕的"
+  ],
+  "first_sentence": "草上有露水，是因為晚上空氣變冷。",
+  "facts": [
+    "露水是水氣碰到冷的草葉變成的",
+    "露水常在清晨的草上看到",
+    "太陽出來後，露水會慢慢變成水氣"
+  ],
+  "ask_back": "你猜露水多半在什麼時候出現？",
+  "bridges": {
+    "has_dog": "早上帶狗狗去散步，草上會有露水喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/露",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

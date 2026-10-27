@@ -1,0 +1,33 @@
+{
+  "id": "machines-traffic-light",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "紅綠燈",
+    "交通號誌",
+    "traffic light"
+  ],
+  "question_patterns": [
+    "為什麼紅綠燈會變顏色",
+    "這是什麼，路口上有三個顏色的燈",
+    "紅綠燈是什麼",
+    "為什麼要等綠燈才能過馬路"
+  ],
+  "first_sentence": "這是紅綠燈！燈輪流亮，讓車和人輪流走。",
+  "facts": [
+    "紅燈停，綠燈走，黃燈要準備停",
+    "紅燈和綠燈的順序，是固定的",
+    "有些路口的燈會發出聲音，幫助看不見的人"
+  ],
+  "ask_back": "紅綠燈裡，哪一個顏色代表要停？",
+  "bridges": {
+    "rides_bike": "騎腳踏車經過路口，要先看哪個燈？",
+    "likes_cars": "汽車看到紅燈，要怎麼做呢？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/交通號誌",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

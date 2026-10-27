@@ -1,0 +1,31 @@
+{
+  "id": "body-hair",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "頭髮",
+    "hair"
+  ],
+  "question_patterns": [
+    "為什麼頭髮會變長",
+    "這是什麼，長在頭上的東西",
+    "頭髮是什麼做的",
+    "為什麼剪頭髮不會痛"
+  ],
+  "first_sentence": "這是頭髮！因為毛囊會不停長出新的毛。",
+  "facts": [
+    "頭髮是從皮膚裡的毛囊長出來的",
+    "頭髮主要是一種叫角蛋白的東西",
+    "剪頭髮不會痛，因為剪的部分沒有神經"
+  ],
+  "ask_back": "頭髮剪掉以後，還會再長出來嗎？",
+  "bridges": {
+    "has_dog": "狗狗的毛也會一直長長嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/頭髮",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

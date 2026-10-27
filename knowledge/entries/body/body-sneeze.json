@@ -1,0 +1,32 @@
+{
+  "id": "body-sneeze",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "打噴嚏",
+    "噴嚏",
+    "sneeze"
+  ],
+  "question_patterns": [
+    "為什麼會打噴嚏",
+    "這是什麼，呵啾一聲",
+    "打噴嚏是什麼",
+    "為什麼鼻子癢癢就會打噴嚏"
+  ],
+  "first_sentence": "這是打噴嚏！因為鼻子有灰塵，要把它趕走。",
+  "facts": [
+    "鼻子裡有細細的毛，可以擋住灰塵",
+    "花粉或感冒的小病毒，也會讓鼻子癢",
+    "打噴嚏的時候，空氣會很快衝出來"
+  ],
+  "ask_back": "打噴嚏的時候，空氣會從哪裡衝出來？",
+  "bridges": {
+    "has_dog": "你家的狗狗也會打噴嚏嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/打噴嚏",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

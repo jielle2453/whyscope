@@ -1,0 +1,31 @@
+{
+  "id": "machines-toilet",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "馬桶",
+    "toilet"
+  ],
+  "question_patterns": [
+    "為什麼按一下馬桶就會沖水",
+    "這是什麼，廁所裡白白的大杯子",
+    "馬桶是做什麼的",
+    "為什麼沖下去的東西會不見"
+  ],
+  "first_sentence": "這是馬桶！因為水衝下來，髒東西就被帶走。",
+  "facts": [
+    "水箱裡存著水，按下去就會放出來",
+    "沖下去的水會流到污水處理廠",
+    "馬桶的彎管裡，會留一點水擋住臭味"
+  ],
+  "ask_back": "廁所的水，是從哪裡流進來的？",
+  "bridges": {
+    "has_cat": "貓咪的廁所，也要常常清理喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/馬桶",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

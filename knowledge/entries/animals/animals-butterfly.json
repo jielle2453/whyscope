@@ -1,0 +1,31 @@
+{
+  "id": "animals-butterfly",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蝴蝶",
+    "butterfly"
+  ],
+  "question_patterns": [
+    "蝴蝶翅膀為什麼有顏色",
+    "這是什麼昆蟲",
+    "蝴蝶是從哪裡來的",
+    "為什麼蝴蝶翅膀摸起來粉粉的"
+  ],
+  "first_sentence": "蝴蝶翅膀的顏色，是來自很小的鱗片。",
+  "facts": [
+    "蝴蝶翅膀上蓋著很多小小的鱗片",
+    "有些顏色，是鱗片反射光線造成的",
+    "蝴蝶是毛毛蟲長大變成的"
+  ],
+  "ask_back": "毛毛蟲長大以後，會變成什麼？",
+  "bridges": {
+    "has_garden": "你家花園的花開了，會有蝴蝶飛來嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蝴蝶",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

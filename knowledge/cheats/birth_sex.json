@@ -1,0 +1,33 @@
+{
+  "id": "birth_sex",
+  "category": "birth_sex",
+  "category_zh": "出生與性別",
+  "triggers": ["寶寶怎麼來的", "寶寶從哪裡來", "我是怎麼來的", "媽媽肚子裡怎麼了", "為什麼男生女生不一樣", "怎麼生出來的", "懷孕是什麼", "身體哪裡不一樣"],
+  "deflection_zh": "這個問題很棒，我們回家一起問爸爸媽媽好嗎？",
+  "talking_points": {
+    "5-6": [
+      "先問孩子：你是從哪裡聽來的？",
+      "用正確的名字說身體部位，不用綽號",
+      "簡單說：寶寶在媽媽肚子裡慢慢長大",
+      "告訴孩子：身體隱私要自己保護好"
+    ],
+    "7-8": [
+      "說明男生女生身體的不同，語氣自然",
+      "寶寶由爸爸的精子與媽媽的卵子結合而來",
+      "說明懷孕約九個月，寶寶在肚子裡長大",
+      "提醒：身體被碰觸不舒服，要告訴大人"
+    ]
+  },
+  "what_not_to_say": [
+    "不要用「撿來的」或「神送來的」等說法",
+    "不要笑孩子的問題，或因害羞而迴避",
+    "不要用嚇人的話，例如「不能亂問」"
+  ],
+  "sources": [
+    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
+    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

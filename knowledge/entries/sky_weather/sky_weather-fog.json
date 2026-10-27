@@ -1,0 +1,31 @@
+{
+  "id": "sky_weather-fog",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "霧",
+    "fog"
+  ],
+  "question_patterns": [
+    "霧為什麼白白的",
+    "這白白的是什麼",
+    "霧是從哪裡來的",
+    "為什麼早上常常起霧"
+  ],
+  "first_sentence": "霧是地面附近的雲，因為空氣冷了。",
+  "facts": [
+    "霧是貼近地面的小水滴",
+    "空氣變冷，水氣就會變成小水滴",
+    "太陽出來後，霧慢慢會散掉"
+  ],
+  "ask_back": "你猜早上的霧，等太陽出來會怎樣？",
+  "bridges": {
+    "likes_cars": "霧很大的時候，汽車要開慢一點喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/霧",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

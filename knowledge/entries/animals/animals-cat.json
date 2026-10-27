@@ -1,0 +1,32 @@
+{
+  "id": "animals-cat",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "貓",
+    "貓咪",
+    "cat"
+  ],
+  "question_patterns": [
+    "貓咪的眼睛為什麼會發光",
+    "這是什麼動物",
+    "為什麼晚上貓咪的眼睛亮亮的",
+    "貓咪在黑黑的地方看得到嗎"
+  ],
+  "first_sentence": "貓咪眼睛會發光，因為有反光的膜。",
+  "facts": [
+    "貓在晚上看東西，比人清楚很多",
+    "眼睛後面有一層膜，能把光反射回去",
+    "光線暗的時候，貓的瞳孔會變大"
+  ],
+  "ask_back": "你猜貓咪白天還是晚上比較愛玩？",
+  "bridges": {
+    "has_cat": "你家的貓咪晚上眼睛也會亮亮的嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/貓",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

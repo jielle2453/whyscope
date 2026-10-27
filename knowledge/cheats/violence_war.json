@@ -1,0 +1,33 @@
+{
+  "id": "violence_war",
+  "category": "violence_war",
+  "category_zh": "暴力與戰爭",
+  "triggers": ["打架", "打仗", "戰爭", "被打", "流血", "有壞人", "槍", "轟炸"],
+  "deflection_zh": "這件事讓你害怕嗎？請告訴爸爸媽媽一起聊聊。",
+  "talking_points": {
+    "5-6": [
+      "先問：你聽到什麼？心裡有什麼感覺？",
+      "告訴孩子：現在我們是安全的，有大人在",
+      "不要把畫面說太細，簡單說就好",
+      "用地圖指給孩子看，那裡離我們很遠"
+    ],
+    "7-8": [
+      "說明壞事很少發生，大人正努力處理",
+      "不要貼「壞人」標籤，說明事情的原因",
+      "鼓勵孩子用畫畫或玩遊戲表達感受",
+      "一起做一件能幫助別人的小事"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「不要怕，這沒什麼」",
+    "不要讓孩子自己一個人看新聞畫面",
+    "不要說「壞人會來抓你」之類嚇唬的話"
+  ],
+  "sources": [
+    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"},
+    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"},
+    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

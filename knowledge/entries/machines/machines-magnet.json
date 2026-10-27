@@ -1,0 +1,31 @@
+{
+  "id": "machines-magnet",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "磁鐵",
+    "magnet"
+  ],
+  "question_patterns": [
+    "為什麼磁鐵會吸東西",
+    "這是什麼，會吸鐵的石頭",
+    "磁鐵是什麼",
+    "為什麼冰箱門上可以貼磁鐵"
+  ],
+  "first_sentence": "這是磁鐵！因為它有磁力，能吸住鐵。",
+  "facts": [
+    "磁鐵的兩端，磁力最強",
+    "同極會互相推開，不同極會互相吸",
+    "鐵和部分金屬會被磁鐵吸住"
+  ],
+  "ask_back": "磁鐵隔著一張紙，還能吸東西嗎？",
+  "bridges": {
+    "likes_cars": "你的玩具車裡如果有鐵，磁鐵會把它吸過來嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/磁鐵",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

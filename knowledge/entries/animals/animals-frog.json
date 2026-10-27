@@ -1,0 +1,31 @@
+{
+  "id": "animals-frog",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "青蛙",
+    "frog"
+  ],
+  "question_patterns": [
+    "青蛙為什麼呱呱叫",
+    "這是什麼動物",
+    "青蛙小時候長什麼樣",
+    "為什麼青蛙要住在水邊"
+  ],
+  "first_sentence": "青蛙呱呱叫，是公蛙想找母蛙。",
+  "facts": [
+    "很多公青蛙會叫，來吸引母蛙",
+    "青蛙小時候叫蝌蚪，住在水裡",
+    "青蛙的皮膚濕濕的，也能幫忙呼吸"
+  ],
+  "ask_back": "你猜青蛙小時候住在水裡還是土裡？",
+  "bridges": {
+    "has_garden": "你家附近有水池的話，晚上就可能聽到青蛙叫喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/青蛙",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

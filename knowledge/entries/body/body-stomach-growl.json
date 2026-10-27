@@ -1,0 +1,32 @@
+{
+  "id": "body-stomach-growl",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "肚子叫",
+    "stomach growl"
+  ],
+  "question_patterns": [
+    "為什麼肚子會叫",
+    "這是什麼咕嚕咕嚕聲",
+    "肚子叫是什麼意思",
+    "為什麼我沒吃飯，肚子就會叫"
+  ],
+  "first_sentence": "這是肚子叫！因為肚子空空，胃就會動。",
+  "facts": [
+    "胃和腸子會自己收縮，推著食物走",
+    "胃空的時候，裡面的空氣和液體會晃動",
+    "吃飽以後，肚子通常就不太叫了"
+  ],
+  "ask_back": "肚子叫的時候，胃是空的還是滿的？",
+  "bridges": {
+    "likes_dinosaurs": "恐龍肚子餓的時候，會不會也咕嚕叫呢？",
+    "has_cat": "貓咪肚子餓的時候，也會叫嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/飢餓",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

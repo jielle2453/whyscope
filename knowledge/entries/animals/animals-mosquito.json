@@ -1,0 +1,31 @@
+{
+  "id": "animals-mosquito",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蚊子",
+    "mosquito"
+  ],
+  "question_patterns": [
+    "蚊子為什麼要叮人",
+    "這是什麼蟲",
+    "只有雌蚊子會叮人嗎",
+    "蚊子寶寶住在哪裡"
+  ],
+  "first_sentence": "蚊子叮人，是雌蚊要吸血來生蛋。",
+  "facts": [
+    "只有雌蚊子會吸血",
+    "雌蚊吸了血，才能慢慢生出蛋",
+    "蚊子的寶寶住在水裡"
+  ],
+  "ask_back": "你猜蚊子的寶寶住在水裡還是土裡？",
+  "bridges": {
+    "has_dog": "你家的狗狗也會被蚊子叮嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蚊子",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

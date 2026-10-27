@@ -1,0 +1,31 @@
+{
+  "id": "food-popcorn-pop",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "爆米花",
+    "popcorn"
+  ],
+  "question_patterns": [
+    "為什麼爆米花會爆開",
+    "這是什麼，白白軟軟、香香的小東西",
+    "爆米花是什麼",
+    "為什麼玉米會變成爆米花"
+  ],
+  "first_sentence": "這是爆米花！因為玉米裡的水變蒸氣就爆開。",
+  "facts": [
+    "玉米粒外殼很硬，裡面藏著一點水",
+    "加熱後，水變成蒸氣，壓力越來越大",
+    "外殼突然破開，玉米就膨起來"
+  ],
+  "ask_back": "爆開以後，爆米花會變大還是變小？",
+  "bridges": {
+    "has_cat": "貓咪聽到爆米花爆開的聲音，會嚇一跳嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/爆米花",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

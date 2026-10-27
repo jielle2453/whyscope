@@ -1,0 +1,31 @@
+{
+  "id": "plants-bark",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "樹皮",
+    "bark"
+  ],
+  "question_patterns": [
+    "樹皮為什麼粗粗的",
+    "這個粗粗的皮是什麼",
+    "樹皮有什麼用",
+    "為什麼樹要穿著樹皮"
+  ],
+  "first_sentence": "樹皮像一件外套，是為了保護樹木。",
+  "facts": [
+    "樹皮能擋住蟲子和一些病菌",
+    "樹皮可以減少水分流失",
+    "有些樹皮很厚，能擋住火"
+  ],
+  "ask_back": "你猜樹皮摸起來是軟的還是硬的？",
+  "bridges": {
+    "has_garden": "你家院子的樹，樹皮是粗的還是滑的呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/樹皮",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

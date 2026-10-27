@@ -1,0 +1,31 @@
+{
+  "id": "machines-fridge",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "冰箱",
+    "refrigerator"
+  ],
+  "question_patterns": [
+    "為什麼冰箱裡會冷",
+    "這是什麼，裡面涼涼的大箱子",
+    "冰箱是做什麼的",
+    "為什麼冰箱要插電"
+  ],
+  "first_sentence": "這是冰箱！因為熱氣被搬到外面，裡面就冷。",
+  "facts": [
+    "冰箱裡有一種很容易變成氣的液體",
+    "液體變成氣的時候，會吸走周圍的熱",
+    "熱氣會從冰箱後面或下面排出去"
+  ],
+  "ask_back": "冰箱的後面摸起來，是熱的還是冷的？",
+  "bridges": {
+    "has_cat": "你家的貓咪喜歡躲在冰箱旁邊嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/冰箱",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,31 @@
+{
+  "id": "food-banana-black",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "香蕉",
+    "banana"
+  ],
+  "question_patterns": [
+    "為什麼香蕉會變黑",
+    "這是什麼，彎彎黃黃的水果",
+    "香蕉是什麼",
+    "為什麼香蕉放久了皮會有斑點"
+  ],
+  "first_sentence": "這是香蕉！因為香蕉熟了，皮會變黑。",
+  "facts": [
+    "香蕉熟了，皮裡的綠色會慢慢不見",
+    "香蕉皮碰傷時，裡面的酵素會讓它變黑",
+    "香蕉會放出一種氣，讓旁邊的水果變熟"
+  ],
+  "ask_back": "香蕉熟了以後，會變得比較甜還是比較苦？",
+  "bridges": {
+    "has_dog": "狗狗也可以吃香蕉嗎？你猜猜看。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/香蕉",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

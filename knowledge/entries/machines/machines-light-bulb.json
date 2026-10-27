@@ -1,0 +1,32 @@
+{
+  "id": "machines-light-bulb",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電燈",
+    "燈泡",
+    "light bulb"
+  ],
+  "question_patterns": [
+    "為什麼電燈會亮",
+    "這是什麼，掛在天花板上的圓圓東西",
+    "電燈是什麼",
+    "為什麼按開關，燈就會亮"
+  ],
+  "first_sentence": "這是電燈！因為電流經過，燈就會發亮。",
+  "facts": [
+    "舊式的燈泡裡，有一條細細的燈絲",
+    "燈絲變得很熱，就會發出光",
+    "現在很多電燈改用LED，比較省電"
+  ],
+  "ask_back": "電燈的燈泡，你猜是什麼形狀的？",
+  "bridges": {
+    "likes_dinosaurs": "恐龍的時代，還沒有電燈喔，你知道嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/電燈",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "body-baby-teeth",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "換牙",
+    "乳牙",
+    "baby teeth"
+  ],
+  "question_patterns": [
+    "為什麼會換牙",
+    "這是什麼，鬆鬆的小牙齒",
+    "換牙是什麼意思",
+    "為什麼小牙齒會掉下來"
+  ],
+  "first_sentence": "這是換牙！因為大牙要長出來，乳牙才會鬆。",
+  "facts": [
+    "小朋友大約六歲左右開始換牙",
+    "乳牙的根會慢慢被吸收，就變得鬆",
+    "換好以後，會長出比較大、要用很久的牙"
+  ],
+  "ask_back": "你猜大人的牙齒，比小朋友多還是少？",
+  "bridges": {
+    "has_sibling": "你有沒有看過兄弟姊妹在換牙？",
+    "likes_dinosaurs": "恐龍也會換牙嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/乳牙",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

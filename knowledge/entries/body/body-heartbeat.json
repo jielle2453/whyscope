@@ -1,0 +1,32 @@
+{
+  "id": "body-heartbeat",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "心跳",
+    "heartbeat"
+  ],
+  "question_patterns": [
+    "為什麼會心跳",
+    "這是什麼咚咚咚的聲音",
+    "心跳是什麼意思",
+    "為什麼跑很快，心會跳得很快"
+  ],
+  "first_sentence": "這是心跳！因為心臟一縮，血才能流到全身。",
+  "facts": [
+    "心臟大約像一個拳頭那麼大",
+    "小朋友的心跳，通常比大人快一些",
+    "運動或害怕的時候，心跳會變快"
+  ],
+  "ask_back": "你猜心臟在胸口的左邊還是右邊？",
+  "bridges": {
+    "rides_bike": "騎腳踏車騎很快的時候，心跳會怎麼樣？",
+    "has_dog": "狗狗的心也會咚咚咚地跳嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/心跳",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

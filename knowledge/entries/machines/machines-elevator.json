@@ -1,0 +1,31 @@
+{
+  "id": "machines-elevator",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電梯",
+    "elevator"
+  ],
+  "question_patterns": [
+    "為什麼電梯會上下動",
+    "這是什麼，會上上下下的小房間",
+    "電梯是什麼",
+    "為什麼按按鈕，電梯就會到那一層"
+  ],
+  "first_sentence": "這是電梯！因為馬達拉動鋼索，箱子就升降。",
+  "facts": [
+    "電梯上面有很粗的鋼索",
+    "電梯另一邊有重物，可以幫忙省力",
+    "電梯有煞車，可以讓它穩穩停住"
+  ],
+  "ask_back": "電梯按鈕上的數字，代表什麼？",
+  "bridges": {
+    "has_garden": "坐電梯到樓上，和爬樓梯，哪個比較快呢？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/電梯",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

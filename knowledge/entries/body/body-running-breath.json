@@ -1,0 +1,33 @@
+{
+  "id": "body-running-breath",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "喘氣",
+    "呼吸",
+    "breathing"
+  ],
+  "question_patterns": [
+    "為什麼跑步會喘",
+    "這是什麼呼呼的聲音",
+    "喘氣是什麼意思",
+    "為什麼跑很快，就會喘喘的"
+  ],
+  "first_sentence": "這是喘氣！因為跑步時，身體需要更多氧氣。",
+  "facts": [
+    "我們吸進的氧氣，會送到肌肉去用",
+    "跑得快，心跳和呼吸都會變快",
+    "停下來休息，呼吸就會慢慢變慢"
+  ],
+  "ask_back": "喘的時候，呼吸會變快還是變慢？",
+  "bridges": {
+    "rides_bike": "騎腳踏車騎很久，也會喘喘的嗎？",
+    "has_dog": "狗狗跑完，也會吐出舌頭喘氣嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/呼吸",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "plants-fallen-leaves",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "落葉",
+    "樹葉",
+    "fallen leaves"
+  ],
+  "question_patterns": [
+    "樹葉為什麼會掉下來",
+    "這是什麼葉子",
+    "為什麼樹葉會全部掉光",
+    "落在地上的葉子會去哪裡"
+  ],
+  "first_sentence": "樹葉落下，是為了在乾季或冬天省水。",
+  "facts": [
+    "有些樹在冬天會把葉子全部掉光",
+    "掉葉子可以少讓水分從葉子跑掉",
+    "落在地上的葉子，慢慢變成土裡的養分"
+  ],
+  "ask_back": "落在地上的葉子，最後會變成什麼？",
+  "bridges": {
+    "has_garden": "你家院子的落葉，最後會慢慢變成土喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/落葉",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

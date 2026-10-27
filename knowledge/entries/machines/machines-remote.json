@@ -1,0 +1,31 @@
+{
+  "id": "machines-remote",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "遙控器",
+    "remote control"
+  ],
+  "question_patterns": [
+    "為什麼按遙控器，電視就會換台",
+    "這是什麼，有很多按鈕的小方塊",
+    "遙控器是什麼",
+    "為什麼遙控器不用線也能控制"
+  ],
+  "first_sentence": "這是遙控器！按下按鍵，就會發出紅外線。",
+  "facts": [
+    "遙控器發出的紅外線，我們看不到",
+    "電視上的小窗口，會感應到這種光",
+    "電池沒電了，遙控器就不聽話了"
+  ],
+  "ask_back": "遙控器發出的光，你看得到嗎？",
+  "bridges": {
+    "has_cat": "貓咪看到遙控器，會想用爪子去按嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/遙控器",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

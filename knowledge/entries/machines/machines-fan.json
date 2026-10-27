@@ -1,0 +1,31 @@
+{
+  "id": "machines-fan",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電風扇",
+    "electric fan"
+  ],
+  "question_patterns": [
+    "為什麼電風扇會轉",
+    "這是什麼，會呼呼吹風的東西",
+    "電風扇是什麼",
+    "為什麼開電風扇會涼涼的"
+  ],
+  "first_sentence": "這是電風扇！馬達一轉，葉片就跟著轉。",
+  "facts": [
+    "電流進入馬達，馬達就會轉動",
+    "扇葉轉動，會推著空氣往前跑",
+    "風吹在身上，汗水會比較快乾"
+  ],
+  "ask_back": "風扇轉得越快，風會越大嗎？",
+  "bridges": {
+    "has_cat": "貓咪看到電風扇轉，會想去抓嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/電風扇",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

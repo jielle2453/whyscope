@@ -1,0 +1,31 @@
+{
+  "id": "plants-sunflower",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "向日葵",
+    "sunflower"
+  ],
+  "question_patterns": [
+    "向日葵為什麼會跟著太陽轉",
+    "這是什麼花",
+    "向日葵為什麼總是朝著太陽",
+    "向日葵的種子可以吃嗎"
+  ],
+  "first_sentence": "向日葵跟著太陽轉，是為了曬到更多陽光。",
+  "facts": [
+    "年輕的向日葵，花會跟著太陽轉",
+    "長大以後，花大多朝向東邊",
+    "向日葵的種子可以吃，也能榨油"
+  ],
+  "ask_back": "你猜向日葵的種子能不能吃？",
+  "bridges": {
+    "has_garden": "你家院子種向日葵的話，它會跟著太陽轉喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/向日葵",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

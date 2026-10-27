@@ -1,0 +1,32 @@
+{
+  "id": "food-soda-bubbles",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "汽水",
+    "碳酸飲料",
+    "soda"
+  ],
+  "question_patterns": [
+    "為什麼汽水會有泡泡",
+    "這是什麼，打開會嘶嘶響的飲料",
+    "汽水是什麼",
+    "為什麼打開汽水，會冒出很多氣泡"
+  ],
+  "first_sentence": "這是汽水！因為裡面有很多二氧化碳氣體。",
+  "facts": [
+    "裝瓶時，汽水會被壓進很多二氧化碳",
+    "打開瓶蓋，壓力變小，氣泡就跑出來",
+    "溫度越高，氣泡跑得越快"
+  ],
+  "ask_back": "打開汽水瓶，你猜會有聲音嗎？",
+  "bridges": {
+    "has_sibling": "汽水的泡泡很好玩，你和兄弟姊妹會搶著喝嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/碳酸飲料",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

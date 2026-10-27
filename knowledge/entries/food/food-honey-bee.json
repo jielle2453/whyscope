@@ -1,0 +1,31 @@
+{
+  "id": "food-honey-bee",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "蜂蜜",
+    "honey"
+  ],
+  "question_patterns": [
+    "為什麼蜂蜜是甜的",
+    "這是什麼，黃黃的流得很慢的東西",
+    "蜂蜜是什麼",
+    "為什麼蜂蜜不會壞掉"
+  ],
+  "first_sentence": "這是蜂蜜！因為蜜蜂把花蜜慢慢釀成的。",
+  "facts": [
+    "蜜蜂從花朵裡吸取花蜜，帶回蜂巢",
+    "蜜蜂搧動翅膀，讓蜂蜜的水分變少",
+    "蜂蜜水分很少，細菌不容易生長"
+  ],
+  "ask_back": "蜜蜂住的房子，你猜叫什麼名字？",
+  "bridges": {
+    "has_garden": "花園裡的花，會有蜜蜂來嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/蜂蜜",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

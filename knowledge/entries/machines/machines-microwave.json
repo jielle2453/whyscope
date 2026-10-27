@@ -1,0 +1,31 @@
+{
+  "id": "machines-microwave",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "微波爐",
+    "microwave oven"
+  ],
+  "question_patterns": [
+    "為什麼微波爐能讓食物變熱",
+    "這是什麼嗡嗡叫的箱子",
+    "微波爐是什麼",
+    "為什麼微波爐裡不能放金屬"
+  ],
+  "first_sentence": "這是微波爐！因為水分被晃動，食物就變熱。",
+  "facts": [
+    "微波爐會發出一種看不到的波",
+    "食物裡的水分子被晃得很快，就會發熱",
+    "金屬放進去會冒火花，很危險"
+  ],
+  "ask_back": "微波爐門上的玻璃，是用來做什麼的？",
+  "bridges": {
+    "has_sibling": "你會幫家人用微波爐熱牛奶嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/微波爐",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

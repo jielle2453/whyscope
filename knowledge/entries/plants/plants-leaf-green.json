@@ -1,0 +1,32 @@
+{
+  "id": "plants-leaf-green",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "葉子",
+    "樹葉",
+    "leaf"
+  ],
+  "question_patterns": [
+    "葉子為什麼是綠色的",
+    "這是什麼葉子",
+    "為什麼樹葉不是紅色的",
+    "葉子為什麼會變黃"
+  ],
+  "first_sentence": "葉子是綠色的，因為有葉綠素。",
+  "facts": [
+    "葉綠素可以幫植物用陽光做食物",
+    "葉綠素吸收紅光和藍光，綠光大多反射出來",
+    "葉綠素變少時，葉子就會變黃"
+  ],
+  "ask_back": "葉子最愛曬的是什麼？",
+  "bridges": {
+    "has_garden": "你家院子裡，有沒有不是綠色的葉子呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/葉綠素",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

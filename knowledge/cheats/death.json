@@ -1,0 +1,33 @@
+{
+  "id": "death",
+  "category": "death",
+  "category_zh": "死亡",
+  "triggers": ["死掉", "過世", "去世", "為什麼人會死", "死了", "天堂", "不會動了", "人死了會去哪裡"],
+  "deflection_zh": "這個問題很重要，我們一起去問爸爸媽媽好嗎？",
+  "talking_points": {
+    "5-6": [
+      "用「死掉」這個詞，不用「睡著了」",
+      "說明死掉的身體不會再動，也不會痛",
+      "告訴孩子：哭或生氣都是正常的",
+      "問孩子：你最擔心的是什麼？"
+    ],
+    "7-8": [
+      "說明死亡是身體的生命停止運作",
+      "多數人是年紀很大或生病才會死",
+      "不知道的事，可以老實說「我也不確定」",
+      "可以一起畫圖，回想一起的回憶"
+    ]
+  },
+  "what_not_to_say": [
+    "不要說「睡著了」或「去很遠的地方」",
+    "不要說「不要哭」或「別想了」",
+    "不要保證「家人一定不會死」"
+  ],
+  "sources": [
+    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
+    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
+    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+  ],
+  "author": "claude-haiku",
+  "reviewed_by": ""
+}

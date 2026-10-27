@@ -1,0 +1,32 @@
+{
+  "id": "plants-fruit-sweet",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "果實",
+    "水果",
+    "fruit"
+  ],
+  "question_patterns": [
+    "水果為什麼會甜",
+    "這是什麼水果",
+    "果實為什麼會變甜",
+    "為什麼生的水果吃起來酸酸的"
+  ],
+  "first_sentence": "果實會甜，是為了引動物來吃。",
+  "facts": [
+    "果實裡的種子，要靠動物帶到別的地方",
+    "果實成熟時，澱粉會慢慢變成糖",
+    "沒成熟的果實，通常比較酸或澀"
+  ],
+  "ask_back": "你猜香蕉變甜的時候，皮是什麼顏色？",
+  "bridges": {
+    "has_garden": "你家院子的果樹，果實成熟會變甜嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/果實",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

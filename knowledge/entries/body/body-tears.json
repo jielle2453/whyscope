@@ -1,0 +1,31 @@
+{
+  "id": "body-tears",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "眼淚",
+    "tears"
+  ],
+  "question_patterns": [
+    "為什麼會流眼淚",
+    "這是什麼水，從眼睛流出來",
+    "眼淚是什麼",
+    "為什麼哭的時候眼淚會流很多"
+  ],
+  "first_sentence": "這是眼淚！因為眼睛需要水，才不會乾。",
+  "facts": [
+    "眼淚可以洗掉眼睛裡的小灰塵",
+    "眼淚裡有可以殺菌的東西",
+    "哭得很厲害，眼淚就會流得比較多"
+  ],
+  "ask_back": "你猜眼淚嚐起來是甜的還是鹹的？",
+  "bridges": {
+    "has_cat": "貓咪的眼睛也會濕濕的嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/眼淚",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

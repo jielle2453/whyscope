@@ -1,0 +1,31 @@
+{
+  "id": "food-apple-turns-brown",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "蘋果",
+    "apple"
+  ],
+  "question_patterns": [
+    "為什麼蘋果切開會變黃",
+    "這是什麼，切開會變黃的水果",
+    "蘋果是什麼",
+    "為什麼蘋果放久了顏色會怪怪的"
+  ],
+  "first_sentence": "這是蘋果！因為果肉碰到空氣，就會變黃。",
+  "facts": [
+    "蘋果裡有一種酵素，遇到空氣會起反應",
+    "泡在檸檬汁裡，比較不容易變黃",
+    "變黃的蘋果，通常還是可以吃"
+  ],
+  "ask_back": "蘋果切開放著，你猜會變黃還是變藍？",
+  "bridges": {
+    "has_dog": "狗狗吃蘋果，要先把果核拿掉喔。"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/褐變",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

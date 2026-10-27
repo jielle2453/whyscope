@@ -1,0 +1,31 @@
+{
+  "id": "animals-goldfish",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "金魚",
+    "goldfish"
+  ],
+  "question_patterns": [
+    "金魚為什麼有很多顏色",
+    "這是什麼魚",
+    "金魚是從哪裡來的",
+    "金魚為什麼是紅色的"
+  ],
+  "first_sentence": "金魚顏色多，是因為人慢慢培育出來的。",
+  "facts": [
+    "金魚是從鯽魚慢慢培育來的",
+    "金魚起源於中國，養了很多年",
+    "人挑選顏色漂亮的魚來養，就有很多顏色"
+  ],
+  "ask_back": "你猜金魚最常見的顏色是什麼？",
+  "bridges": {
+    "has_cat": "你家的貓咪看到金魚，會不會一直盯著看呀？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/金魚",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}

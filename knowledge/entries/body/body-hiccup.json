@@ -1,0 +1,31 @@
+{
+  "id": "body-hiccup",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "打嗝",
+    "hiccup"
+  ],
+  "question_patterns": [
+    "為什麼會打嗝",
+    "這是什麼嗝嗝聲",
+    "打嗝是什麼呀",
+    "為什麼打嗝會嗝嗝響"
+  ],
+  "first_sentence": "這是打嗝！因為胸口下面的膜突然跳了一下。",
+  "facts": [
+    "橫膈膜是幫助我們呼吸的一塊膜",
+    "膜突然一抽，空氣就很快被吸進來",
+    "空氣撞到喉嚨的小門，就發出嗝聲"
+  ],
+  "ask_back": "打嗝的時候，會發出什麼聲音？",
+  "bridges": {
+    "has_dog": "狗狗打嗝的時候，肚子也會一抽一抽嗎？"
+  },
+  "age": "5-8",
+  "source_url": "https://zh.wikipedia.org/wiki/打嗝",
+  "source_license": "CC BY-SA 4.0",
+  "author": "claude-haiku",
+  "reviewed_by": "",
+  "spot_checked": false
+}
