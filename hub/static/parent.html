@@ -196,6 +196,10 @@
   nav .tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--lav-ink); }
   nav .badge { position: absolute; top: 8px; left: calc(50% + 6px); min-width: 20px; height: 20px; border-radius: 10px; background: var(--rose-ink); color: #fff; font-size: 12px; display: grid; place-items: center; padding: 0 5px; }
   nav .badge[hidden] { display: none; }
+  nav .gap { flex: 0 0 64px; height: 100%; }
+  nav .fab { position: absolute; left: calc(50% - 28px); top: -22px; width: 56px; height: 56px; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; color: #fff;
+             background: linear-gradient(135deg,#7C6CFF,#5B4AB8); box-shadow: 0 6px 16px rgba(43,42,74,.22), 0 1px 3px rgba(43,42,74,.16); }
+  nav .fab svg { width: 28px; height: 28px; }
 
   /* settings sheet */
   #sheet { position: fixed; inset: 0; z-index: 50; overflow-y: auto; display: none; background: linear-gradient(160deg, #F6EEFF 0%, #FDE9F1 35%, #FFF2E6 70%, #E9F3FF 100%); }
@@ -239,9 +243,12 @@
 <nav data-i18n-aria="mainMenu" aria-label="Main menu"><div class="in" role="tablist">
   <button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">Home</span></button>
   <button class="tab" role="tab" data-tab="moments" data-i18n-aria="tabMoments" aria-label="Moments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span data-i18n="tabMoments">Moments</span></button>
+  <span class="gap" aria-hidden="true"></span>
   <button class="tab" role="tab" data-tab="cheats" data-i18n-aria="parentCheat" aria-label="Parent cheat sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg><span data-i18n="tabCheats">Cheats</span><span class="badge" id="cheatbadge" hidden></span></button>
   <button class="tab" role="tab" data-tab="kid" data-i18n-aria="tabKid" aria-label="Child"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-i18n="tabKid">Child</span></button>
-</div></nav>
+</div>
+  <button class="fab" type="button" id="fab" data-i18n-aria="askWhyscope" aria-label="Ask Whyscope"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+</nav>
 
 <div id="sheet" role="dialog" data-i18n-aria="settings" aria-label="Settings" aria-modal="true"><div class="in" id="sheetin"></div></div>
 <div class="toast" id="toast" role="status"></div>
@@ -264,7 +271,7 @@
   const T = {
     en: { title: "Whyscope | Parent", brand: "Whyscope", myChild: "My child", langGroup: "Language", settings: "Settings", timeRange: "Time range",
       day: "Day", week: "Week", month: "Month", mainMenu: "Main menu", tabWeek: "Home", tabCheats: "Cheats", parentCheat: "Parent cheat sheet", tabKid: "Child",
-      tabMoments: "Moments", fPhotos: "Photos", fUnsure: "Unsure", fParents: "For parents", noMatch: "Nothing here yet", momentsEmpty: "Turn on photos in Settings to keep the world your child sees.",
+      tabMoments: "Moments", askWhyscope: "Ask Whyscope", fPhotos: "Photos", fUnsure: "Unsure", fParents: "For parents", noMatch: "Nothing here yet", momentsEmpty: "Turn on photos in Settings to keep the world your child sees.",
       momentsNone: "No photos yet. Photos your child takes will show up here.", openSettings: "Open Settings",
       avatar: "Avatar", av_girl: "Girl", av_boy: "Boy", av_emoji: "Emoji", photos: "Photos",
       photosToggle: "Keep the photos my child takes (stays on this device, never uploaded)",
@@ -295,7 +302,7 @@
       cloud: "Cloud backup", cloudOff: "Off", cloudSoon: "Coming in Stage II", data: "Data", export: "Export", clear: "Clear",
       clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device" },
     zh: { title: "好奇鏡｜家長", brand: "好奇鏡", myChild: "我的孩子", langGroup: "語言", settings: "設定", timeRange: "時間範圍",
-      day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
+      day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", askWhyscope: "問好奇鏡", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
       tabMoments: "時刻", fPhotos: "有照片", fUnsure: "不確定", fParents: "轉給家長", noMatch: "這裡還沒有東西", momentsEmpty: "在設定裡打開相片，留住孩子眼中的世界",
       momentsNone: "還沒有相片，孩子拍的相片會出現在這裡", openSettings: "打開設定",
       avatar: "頭像", av_girl: "女孩", av_boy: "男孩", av_emoji: "表情符號", photos: "相片",
@@ -352,6 +359,7 @@
     renderChrome(); render();
     if ($("#sheet").classList.contains("open")) openSheet();
   }
+  $("#fab").addEventListener("click", () => { location.href = "/kid" + (LANG ? "?lang=" + LANG : ""); });
   $("#lang").addEventListener("click", (e) => {
     const b = e.target.closest("[data-lang]"); if (!b) return;
     LANG = b.dataset.lang;
