@@ -106,17 +106,12 @@
   .filters .chip[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
   .day { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 2px 14px; margin: 16px 0 8px; }
   .ev { border-radius: 24px; }
-  .evrow { display: flex; align-items: center; }
-  .evrow > button[data-ev] { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; min-height: 64px; padding: 8px 14px; background: none; border: 0; text-align: left; }
-  .thb { flex: none; width: 72px; height: 72px; margin: 6px 10px 6px 0; padding: 0; border: 0; border-radius: 18px; overflow: hidden; background: var(--lav); box-shadow: var(--shadow); }
-  .thb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(.15) saturate(1.05); }
+  button.ev { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 8px 14px; text-align: left; }
   .ev .em { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 19px; flex: none; }
   .ev .nm { flex: 1; font-size: 14.5px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ev .st { font-size: 18px; flex: none; }
   .ev .tm { font-size: 12.5px; color: var(--body); flex: none; min-width: 48px; text-align: right; }
-  .ev .more { display: none; padding: 0 14px 14px 72px; font-size: 14.5px; color: var(--body); }
-  .ev.open .more { display: block; }
-  .more .q { font-weight: 700; color: var(--ink); margin-bottom: 4px; } .more .a { margin-bottom: 4px; } .more .b { color: var(--peach-d); font-weight: 600; }
+  .tl { display: flex; flex-direction: column; gap: 12px; }
 
   /* cheats */
   .cheat { border-radius: var(--r); overflow: hidden; margin-bottom: 16px; }
@@ -170,10 +165,8 @@
   .pol .cap { font-style: italic; font-weight: 600; color: var(--ink); font-size: 14px; line-height: 1.3; margin-top: 10px; padding: 0 2px;
               display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
   .pol .dt { font-size: 12.5px; color: var(--cap); padding: 0 2px; margin-top: 2px; }
-  .moments { display: flex; gap: 14px; padding: 6px 4px 0; align-items: flex-start; }
-  .mcol { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
-  .mcol:nth-child(2) { margin-top: 26px; }
-  button.pol { width: 100%; border: 0; text-align: left; display: block; transform: rotate(var(--rot, 0deg)); transition: transform .15s; }
+  .tl button.pol { width: min(100%, 300px); align-self: center; margin: 4px 0; }
+  button.pol { border: 0; text-align: left; display: block; transform: rotate(var(--rot, 0deg)); transition: transform .15s; }
   button.pol:active:not(:disabled) { transform: rotate(var(--rot, 0deg)) scale(.97); }
   #polwrap { position: fixed; inset: 0; z-index: 70; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(43,42,74,.5);
              -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); overflow-y: auto; }
@@ -182,6 +175,9 @@
   .polcard .pol { padding: 12px 12px 16px; transform: rotate(var(--rot, 0deg)); }
   .polcard .pol .cap { font-size: 17px; -webkit-line-clamp: 4; }
   .polcard .ans { font-size: 14.5px; color: var(--body); margin: 10px 2px 0; padding-top: 10px; border-top: 1px dashed #DDD6F0; }
+  .polcard .ans.b { margin-top: 6px; padding-top: 0; border-top: 0; color: var(--peach-d); font-weight: 600; }
+  .pol .nph { display: flex; align-items: center; justify-content: center; padding: 14px 0 4px; }
+  .pol .nph .em { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; }
   .polcard .acts { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
   .polx { position: absolute; top: -14px; right: -6px; z-index: 2; background: #fff; box-shadow: var(--shadow); }
   .swt { position: relative; width: 56px; height: 32px; flex: none; border: 0; padding: 0; border-radius: 16px; background: #D9D4EE; transition: background .2s; }
@@ -194,15 +190,10 @@
   nav { position: fixed; left: 16px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30; max-width: 488px; margin: 0 auto; height: 72px; border-radius: 36px;
         background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
   nav .in { height: 100%; display: flex; align-items: center; padding: 0 8px; }
-  nav .grp { flex: 1; min-width: 0; height: 100%; display: flex; justify-content: space-around; }
-  nav .tab { flex: 1; max-width: 76px; min-width: 0; height: 100%; border: 0; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 12.5px; font-weight: 700; color: var(--cap); position: relative; }
+  nav .tab { flex: 1 1 0; min-width: 0; height: 100%; border: 0; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 12.5px; font-weight: 700; color: var(--cap); position: relative; padding: 0; }
   nav .tab svg { width: 24px; height: 24px; }
   nav .tab[aria-selected="true"] { color: var(--lav-ink); }
   nav .tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--lav-ink); }
-  nav .slot { flex: 0 0 64px; height: 100%; position: relative; }
-  nav .fab { position: absolute; left: 50%; top: -22px; width: 56px; height: 56px; margin-left: -28px; border: 0; border-radius: 50%; color: #fff; font-size: 26px; line-height: 1; padding: 0;
-             background: linear-gradient(135deg, #7C6CFF, #5B4AB8); box-shadow: 0 8px 20px rgba(96,80,140,0.22); display: grid; place-items: center; }
-  nav .fab:active { transform: scale(.96); }
   nav .badge { position: absolute; top: 8px; left: calc(50% + 6px); min-width: 20px; height: 20px; border-radius: 10px; background: var(--rose-ink); color: #fff; font-size: 12px; display: grid; place-items: center; padding: 0 5px; }
   nav .badge[hidden] { display: none; }
 
@@ -246,12 +237,10 @@
 </div>
 
 <nav data-i18n-aria="mainMenu" aria-label="Main menu"><div class="in" role="tablist">
-  <div class="grp"><button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="This week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">This week</span></button>
-  <button class="tab" role="tab" data-tab="log" data-i18n-aria="tabLog" aria-label="Log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg><span data-i18n="tabLog">Log</span></button>
-  <button class="tab" role="tab" data-tab="moments" data-i18n-aria="tabMoments" aria-label="Moments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span data-i18n="tabMoments">Moments</span></button></div>
-  <div class="slot"><button class="fab" data-add="1" data-i18n-aria="addChild" aria-label="Add to child's world">＋</button></div>
-  <div class="grp"><button class="tab" role="tab" data-tab="cheats" data-i18n-aria="parentCheat" aria-label="Parent cheat sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg><span data-i18n="tabCheats">Cheats</span><span class="badge" id="cheatbadge" hidden></span></button>
-  <button class="tab" role="tab" data-tab="kid" data-i18n-aria="tabKid" aria-label="Child"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-i18n="tabKid">Child</span></button></div>
+  <button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">Home</span></button>
+  <button class="tab" role="tab" data-tab="moments" data-i18n-aria="tabMoments" aria-label="Moments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span data-i18n="tabMoments">Moments</span></button>
+  <button class="tab" role="tab" data-tab="cheats" data-i18n-aria="parentCheat" aria-label="Parent cheat sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg><span data-i18n="tabCheats">Cheats</span><span class="badge" id="cheatbadge" hidden></span></button>
+  <button class="tab" role="tab" data-tab="kid" data-i18n-aria="tabKid" aria-label="Child"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-i18n="tabKid">Child</span></button>
 </div></nav>
 
 <div id="sheet" role="dialog" data-i18n-aria="settings" aria-label="Settings" aria-modal="true"><div class="in" id="sheetin"></div></div>
@@ -274,8 +263,8 @@
   // ---------- i18n (chrome only; knowledge-base / child text stays Chinese) ----------
   const T = {
     en: { title: "Whyscope | Parent", brand: "Whyscope", myChild: "My child", langGroup: "Language", settings: "Settings", timeRange: "Time range",
-      day: "Day", week: "Week", month: "Month", mainMenu: "Main menu", tabWeek: "Week", tabLog: "Log", tabCheats: "Cheats", parentCheat: "Parent cheat sheet", tabKid: "Child",
-      tabMoments: "Moments", momentsTitle: "The world through your child's eyes", momentsEmpty: "Turn on photos in Settings to keep the world your child sees.",
+      day: "Day", week: "Week", month: "Month", mainMenu: "Main menu", tabWeek: "Home", tabCheats: "Cheats", parentCheat: "Parent cheat sheet", tabKid: "Child",
+      tabMoments: "Moments", fPhotos: "Photos", fUnsure: "Unsure", fParents: "For parents", noMatch: "Nothing here yet", momentsEmpty: "Turn on photos in Settings to keep the world your child sees.",
       momentsNone: "No photos yet. Photos your child takes will show up here.", openSettings: "Open Settings",
       avatar: "Avatar", av_girl: "Girl", av_boy: "Boy", av_emoji: "Emoji", photos: "Photos",
       photosToggle: "Keep the photos my child takes (stays on this device, never uploaded)",
@@ -283,7 +272,7 @@
       photosDelete: "Delete all photos", photosDeleteAsk: "Delete all photos on this device?", photosDeleted: "Photos deleted",
       delOne: "Delete this photo", delOneAsk: "Delete this photo for good?", delYes: "Yes, delete", close: "Close", photoAlt: "Photo your child took",
       openPhoto: (q) => "Open photo: " + q,
-      addChild: "Add to child's world", connecting: "Connecting", connected: "Connected", offline: "Offline",
+      connecting: "Connecting", connected: "Connected", offline: "Offline",
       cheatsUnread: (n) => n + " cheat sheets not read yet",
       tp_animals: "Animals", tp_plants: "Plants", tp_sky_weather: "Sky & weather", tp_body: "Body", tp_machines: "Machines", tp_food: "Food", tp_other: "Other",
       wd: ["M", "T", "W", "T", "F", "S", "S"], wdFull: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], today: "Today", yesterday: "Yesterday",
@@ -295,8 +284,8 @@
       explained: (b, o) => "Explained " + o + (b ? " using " + b : ""),
       noQ: "No questions yet. Go ask Whyscope!", whys: "whys", vsLast: "vs last week", topics: "Topics", talkAbout: "Talk about", unsure: "I wasn't sure", examples: "Examples used",
       talked: "Talked ✓", talkedDone: "Talked ✓", talkedAria: (x) => "Talked: " + x, allTalked: "All talked about 👍", noUnsure: "No unanswered questions 👍",
-      viewLog: (n, c) => n + " " + c + ", view log", sparkAria: (l) => "Questions per day over the last 7 days: " + l, donutAria: "Share of topics",
-      filterBy: "Filter by topic", all: "All", noCatch: "(didn't catch that)", qPrefix: "Q: ",
+      viewLog: (n, c) => n + " " + c + ", view moments", sparkAria: (l) => "Questions per day over the last 7 days: " + l, donutAria: "Share of topics",
+      filterBy: "Filter by topic", all: "All", noCatch: "(didn't catch that)",
       noCheats: "Nothing that needs a special chat", childAge: "Child's age", age56: "Ages 5–6", age78: "Ages 7–8", childAsked: (q) => "Child asked: “" + q + "”",
       callAria: (n, num) => "Call " + n + " " + num, line1925: "Support line", line1995: "Lifeline", avoid: "Avoid saying", sources: "Sources",
       childWorld: "Child's world", age: "Age", yearsOld: (a) => a + " years old", name: "Name", namePh: "Child's name (only you can see it)", nameAria: "Child's name",
@@ -306,8 +295,8 @@
       cloud: "Cloud backup", cloudOff: "Off", cloudSoon: "Coming in Stage II", data: "Data", export: "Export", clear: "Clear",
       clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device" },
     zh: { title: "好奇鏡｜家長", brand: "好奇鏡", myChild: "我的孩子", langGroup: "語言", settings: "設定", timeRange: "時間範圍",
-      day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", tabLog: "紀錄", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
-      tabMoments: "相片", momentsTitle: "留住孩子看到的世界", momentsEmpty: "在設定裡打開相片，留住孩子眼中的世界",
+      day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
+      tabMoments: "時刻", fPhotos: "有照片", fUnsure: "不確定", fParents: "轉給家長", noMatch: "這裡還沒有東西", momentsEmpty: "在設定裡打開相片，留住孩子眼中的世界",
       momentsNone: "還沒有相片，孩子拍的相片會出現在這裡", openSettings: "打開設定",
       avatar: "頭像", av_girl: "女孩", av_boy: "男孩", av_emoji: "表情符號", photos: "相片",
       photosToggle: "留住孩子拍的相片（只存在這台裝置，不會上傳）",
@@ -315,7 +304,7 @@
       photosDelete: "刪除所有相片", photosDeleteAsk: "真的要刪除這台裝置上的所有相片嗎？", photosDeleted: "相片已刪除",
       delOne: "刪除這張相片", delOneAsk: "確定永久刪除這張相片？", delYes: "確定刪除", close: "關閉", photoAlt: "孩子拍的相片",
       openPhoto: (q) => "打開相片：" + q,
-      addChild: "新增孩子的世界", connecting: "連線中", connected: "已連線", offline: "未連線",
+      connecting: "連線中", connected: "已連線", offline: "未連線",
       cheatsUnread: (n) => n + " 張小抄還沒看",
       tp_animals: "動物", tp_plants: "植物", tp_sky_weather: "天氣與天空", tp_body: "身體", tp_machines: "機器與家電", tp_food: "食物", tp_other: "其他",
       wd: ["一", "二", "三", "四", "五", "六", "日"], wdFull: ["日", "一", "二", "三", "四", "五", "六"], today: "今天", yesterday: "昨天",
@@ -325,8 +314,8 @@
       explained: (b, o) => "用" + b + "解釋了" + o,
       noQ: "還沒有問題，去問問好奇鏡吧", whys: "個為什麼", vsLast: "比上週", topics: "主題", talkAbout: "可以聊聊看", unsure: "我答不出來", examples: "用過的例子",
       talked: "聊過了 ✓", talkedDone: "已聊過 ✓", talkedAria: (x) => "聊過了：" + x, allTalked: "都聊過了 👍", noUnsure: "沒有答不出來的問題 👍",
-      viewLog: (n, c) => n + " " + c + " 個，看紀錄", sparkAria: (l) => "最近七天每天的問題數：" + l, donutAria: "問題的主題比例",
-      filterBy: "用主題篩選", all: "全部", noCatch: "（沒聽清楚）", qPrefix: "問：",
+      viewLog: (n, c) => n + " " + c + " 個，看時刻", sparkAria: (l) => "最近七天每天的問題數：" + l, donutAria: "問題的主題比例",
+      filterBy: "用主題篩選", all: "全部", noCatch: "（沒聽清楚）",
       noCheats: "沒有需要你特別聊的問題", childAge: "孩子的年齡", age56: "5–6 歲", age78: "7–8 歲", childAsked: (q) => "孩子問：「" + q + "」",
       callAria: (n, num) => "撥打" + n + " " + num, line1925: "安心專線", line1995: "生命線", avoid: "不要說", sources: "來源",
       childWorld: "孩子的世界", age: "年齡", yearsOld: (a) => a + " 歲", name: "名字", namePh: "孩子的名字（只有你看得到）", nameAria: "孩子的名字",
@@ -389,7 +378,7 @@
                    rides_bike: ["🚲", "會騎腳踏車", "腳踏車", "lav"] };
   const STATUS = { answered: ["✅", "x"], abstained: ["❓", "x"], sensitive: ["🛡️", "x"] };
 
-  const S = { tab: "week", filter: null, ageSeg: null, open: new Set(), data: null };
+  const S = { tab: "week", topic: null, kind: "all", ageSeg: null, data: null };
 
   // ---------- helpers ----------
   const pd = (ts) => new Date(ts);
@@ -470,56 +459,52 @@
     return h;
   }
 
-  // ---------- 紀錄 ----------
-  function viewLog() {
-    const ev = S.data.ev, topics = Object.keys(TOPIC).filter((t) => ev.some((e) => e.topic === t));
-    let h = '<div class="filters" role="group" aria-label="' + esc(tr("filterBy")) + '"><button class="chip" data-filter="" aria-pressed="' + (!S.filter) + '">' + tr("all") + '</button>' +
-      topics.map((t) => '<button class="chip" data-filter="' + esc(t) + '" aria-pressed="' + (S.filter === t) + '">' + topicOf(t)[0] + " " + esc(topicName(t)) + "</button>").join("") + "</div>";
-    const rows = ev.filter((e) => !S.filter || e.topic === S.filter).sort((a, b) => (a.ts < b.ts ? 1 : -1));
-    if (!rows.length) return h + '<div class="card">' + empty(tr("noQ"), "chars") + "</div>";
+  // ---------- 時刻 / Moments: one timeline (photos + plain events) ----------
+  const polRot = (id) => (((id * 7919) % 61) / 10 - 3).toFixed(1);   // -3.0..3.0 deg, the same for an id every time
+  const polDate = (ts) => { const d = pd(ts); return dayLabel(d) + " " + hm(d); };
+  // events plus any stored photo that fell outside the event window
+  const allItems = () => { const ev = S.data.ev, ids = new Set(ev.map((e) => e.id)); return ev.map((e) => Object.assign({}, e, { snapshot: !!e.snapshot })).concat((S.data.snaps || []).filter((x) => !ids.has(x.id)).map((x) => Object.assign({}, x, { snapshot: true }))); };
+  const KINDS = [["all", "all"], ["photos", "fPhotos"], ["unsure", "fUnsure"], ["parents", "fParents"]];
+  const kindOk = { all: () => true, photos: (e) => e.snapshot, unsure: (e) => e.status === "abstained", parents: (e) => e.status === "sensitive" };
+  function viewMoments() {
+    const all = allItems();
+    if (!all.length) {
+      const on = S.data.set.snapshots;
+      return '<div class="card">' + empty(on ? tr("momentsNone") : tr("momentsEmpty"), "chars", on ? "" : '<button class="btn" data-opensettings="1">' + esc(tr("openSettings")) + "</button>") + "</div>";
+    }
+    let h = '<div class="filters" role="group" aria-label="' + esc(tr("filterBy")) + '">' + KINDS.map((k, i) => '<button class="chip" data-filter="' + (k[0] === "all" ? "" : k[0]) + '" aria-pressed="' + (S.kind === k[0] && !S.topic) + '">' + esc(tr(k[1])) + "</button>" + (i === 0 && S.topic ? '<button class="chip" data-tfilter="1" aria-pressed="true">' + topicOf(S.topic)[0] + " " + esc(topicName(S.topic)) + " ✕</button>" : "")).join("") + "</div>";
+    const rows = all.filter((e) => kindOk[S.kind](e) && (!S.topic || e.topic === S.topic)).sort((a, b) => (a.ts < b.ts ? 1 : -1));
+    if (!rows.length) return h + '<div class="card">' + empty(tr("noMatch"), "chars") + "</div>";
     const groups = {};
     rows.forEach((e) => { const d = pd(e.ts); (groups[dayKey(d)] = groups[dayKey(d)] || { d, list: [] }).list.push(e); });
     Object.keys(groups).sort().reverse().forEach((k) => {
       const g = groups[k];
-      h += '<div class="day">' + esc(dayLabel(g.d)) + '</div><div class="list">' + g.list.map((e) => {
-        const st = STATUS[e.status] || ["", ""], name = e.status === "answered" ? e.object : (e.question || tr("noCatch")), open = S.open.has(e.id);
-        const em = e.emoji || (e.status === "sensitive" ? "🛡️" : "❓");
-        return '<div class="ev' + (open ? " open" : "") + '"><div class="evrow"><button data-ev="' + e.id + '" aria-expanded="' + open + '"><span class="em" style="background:' + pal(e.status === "sensitive" ? "rose" : e.status === "abstained" ? "lemon" : topicOf(e.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + '</span><span class="nm">' + esc(name) +
-          '</span><span class="st" role="img" aria-label="' + (st[1] ? esc(tr("st_" + e.status)) : "") + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + '</span></button>' + (e.snapshot ? '<button class="thb" data-pol="' + e.id + '" aria-label="' + esc(tr("openPhoto", e.question || "")) + '"><img src="/api/snapshots/' + e.id + '.jpg" alt="" loading="lazy"></button>' : "") + '</div><div class="more"><div class="q">' + tr("qPrefix") + esc(e.question || "—") + "</div>" +
-          (e.status === "answered" ? '<div class="a">' + esc((e.first_sentence || "") + (e.explanation || "")) + '</div><div class="b">' + esc(e.ask_back || "") + "</div>" : '<div class="a">' + esc(e.first_sentence || "") + "</div>") + "</div></div>";
+      h += '<div class="day">' + esc(dayLabel(g.d)) + '</div><div class="tl">' + g.list.map((e) => {
+        if (e.snapshot) return '<button class="pol" style="--rot:' + polRot(e.id) + 'deg" data-pol="' + e.id + '" aria-label="' + esc(tr("openPhoto", e.question || "")) + '"><div class="ph"><img src="/api/snapshots/' + e.id +
+          '.jpg" alt="" loading="lazy" decoding="async"></div><div class="cap">' + esc(e.question || tr("noCatch")) + '</div><div class="dt">' + hm(pd(e.ts)) + "</div></button>";
+        const st = STATUS[e.status] || ["", ""], em = e.emoji || (e.status === "sensitive" ? "🛡️" : e.status === "abstained" ? "❓" : topicOf(e.topic)[0]);
+        return '<button class="ev" data-pol="' + e.id + '"><span class="em" style="background:' + pal(e.status === "sensitive" ? "rose" : e.status === "abstained" ? "lemon" : topicOf(e.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + '</span><span class="nm">' + esc(e.question || e.object || tr("noCatch")) +
+          '</span><span class="st" role="img" aria-label="' + (st[1] ? esc(tr("st_" + e.status)) : "") + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + "</span></button>";
       }).join("") + "</div>";
     });
     return h;
   }
-
-  // ---------- 相片 / Moments ----------
-  const polRot = (id) => (((id * 7919) % 61) / 10 - 3).toFixed(1);   // -3.0..3.0 deg, the same for an id every time
-  const polDate = (ts) => { const d = pd(ts); return dayLabel(d) + " " + hm(d); };
-  function viewMoments() {
-    const snaps = S.data.snaps || [];
-    if (!snaps.length) {
-      const on = S.data.set.snapshots;
-      return '<div class="card">' + empty(on ? tr("momentsNone") : tr("momentsEmpty"), "chars", on ? "" : '<button class="btn" data-opensettings="1">' + esc(tr("openSettings")) + "</button>") + "</div>";
-    }
-    const cols = ["", ""];
-    snaps.forEach((e, i) => {
-      cols[i % 2] += '<button class="pol" style="--rot:' + polRot(e.id) + 'deg" data-pol="' + e.id + '" aria-label="' + esc(tr("openPhoto", e.question || "")) + '"><div class="ph"><img src="/api/snapshots/' + e.id +
-        '.jpg" alt="" decoding="async"></div><div class="cap">' + esc(e.question || "") + '</div><div class="dt">' + esc(polDate(e.ts)) + "</div></button>";
-    });
-    return "<h2>" + tr("momentsTitle") + '</h2><div class="moments"><div class="mcol">' + cols[0] + '</div><div class="mcol">' + cols[1] + "</div></div>";
-  }
   let polFrom = null;
   function closePol() { const w = $("#polwrap"); if (!w.classList.contains("open")) return; w.classList.remove("open"); w.innerHTML = ""; if (polFrom && polFrom.isConnected) polFrom.focus({ preventScroll: true }); polFrom = null; }
   function openPol(id, from) {
-    const p = (S.data.snaps || []).find((x) => x.id === id) || S.data.ev.find((x) => x.id === id); if (!p) return;
+    const p = allItems().find((x) => x.id === id); if (!p) return;
     polFrom = from || null;
-    const w = $("#polwrap");
+    const w = $("#polwrap"), photo = p.snapshot;
+    const em = p.emoji || (p.status === "sensitive" ? "🛡️" : p.status === "abstained" ? "❓" : topicOf(p.topic)[0]);
+    const ans = (p.status === "answered" ? (p.first_sentence || "") + (p.explanation || "") : p.first_sentence || "");
     w.innerHTML = '<div class="polcard"><button class="icon-btn polx" id="polx" aria-label="' + esc(tr("close")) + '"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-      '<figure class="pol" style="--rot:' + (polRot(id) / 2).toFixed(1) + 'deg"><div class="ph"><img src="/api/snapshots/' + id + '.jpg" alt="' + esc(tr("photoAlt")) + '"></div><figcaption><div class="cap">' + esc(p.question || "") +
-      '</div><div class="dt">' + esc(polDate(p.ts)) + "</div>" + (p.first_sentence ? '<div class="ans">' + esc(p.first_sentence) + "</div>" : "") + '</figcaption></figure>' +
-      '<div class="acts" id="polacts"><button class="btn danger" id="poldel">🗑️ ' + esc(tr("delOne")) + "</button></div></div>";
+      '<figure class="pol" style="--rot:' + (polRot(id) / 2).toFixed(1) + 'deg">' + (photo ? '<div class="ph"><img src="/api/snapshots/' + id + '.jpg" alt="' + esc(tr("photoAlt")) + '"></div>' :
+        '<div class="nph"><span class="em" style="background:' + pal(p.status === "sensitive" ? "rose" : p.status === "abstained" ? "lemon" : topicOf(p.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + "</span></div>") + '<figcaption><div class="cap">' + esc(p.question || tr("noCatch")) +
+      '</div><div class="dt">' + esc(polDate(p.ts)) + "</div>" + (ans ? '<div class="ans">' + esc(ans) + "</div>" : "") + (p.status === "answered" && p.ask_back ? '<div class="ans b">' + esc(p.ask_back) + "</div>" : "") + '</figcaption></figure>' +
+      (photo ? '<div class="acts" id="polacts"><button class="btn danger" id="poldel">🗑️ ' + esc(tr("delOne")) + "</button></div>" : "") + "</div>";
     w.classList.add("open"); $("#polx").focus();
     $("#polx").onclick = closePol;
+    if (!photo) return;
     $("#poldel").onclick = () => {
       $("#polacts").innerHTML = '<b style="color:#fff;width:100%;text-align:center">' + esc(tr("delOneAsk")) + '</b><button class="btn solid" id="polyes">' + esc(tr("delYes")) + '</button><button class="btn" id="polno">' + esc(tr("clearNo")) + "</button>";
       $("#polno").onclick = () => openPol(id, polFrom);
@@ -554,7 +539,7 @@
   function viewKid() {
     const m = S.data.mem, v = (k) => (m[k] || {}).value, on = (k) => { const x = v(k); return x === true || (typeof x === "string" && x.trim() !== ""); };
     const age = v("child_age") || 6;
-    let h = '<h2 id="kidchips">' + tr("childWorld") + '</h2><div class="toggles">' + Object.keys(BRIDGE).map((k) => { const p = pal(BRIDGE[k][3]); return '<button class="tg" data-mem="' + k + '" aria-pressed="' + on(k) + '" style="--pa:' + p[0] + ";--pi:" + p[1] + ";--pd:" + p[2] + '"><span class="em" aria-hidden="true">' + BRIDGE[k][0] + "</span>" + tr("br_" + k) + "</button>"; }).join("") + "</div>";
+    let h = '<h2>' + tr("childWorld") + '</h2><div class="toggles">' + Object.keys(BRIDGE).map((k) => { const p = pal(BRIDGE[k][3]); return '<button class="tg" data-mem="' + k + '" aria-pressed="' + on(k) + '" style="--pa:' + p[0] + ";--pi:" + p[1] + ";--pd:" + p[2] + '"><span class="em" aria-hidden="true">' + BRIDGE[k][0] + "</span>" + tr("br_" + k) + "</button>"; }).join("") + "</div>";
     h += "<h2>" + tr("age") + '</h2><div class="ages" role="group" aria-label="' + esc(tr("age")) + '">' + [5, 6, 7, 8].map((a) => '<button data-age="' + a + '" aria-pressed="' + (age === a) + '" aria-label="' + esc(tr("yearsOld", a)) + '">' + a + "</button>").join("") + "</div>";
     h += "<h2>" + tr("name") + '</h2><input class="txt" id="cname" maxlength="12" placeholder="' + esc(tr("namePh")) + '" aria-label="' + esc(tr("nameAria")) + '" value="' + esc(v("child_name") || "") + '">';
     h += '<p class="note">' + tr("nameNote") + "</p>";
@@ -567,7 +552,7 @@
   }
 
   // ---------- render / events ----------
-  const VIEWS = { week: viewWeek, log: viewLog, moments: viewMoments, cheats: viewCheats, kid: viewKid };
+  const VIEWS = { week: viewWeek, moments: viewMoments, cheats: viewCheats, kid: viewKid };
   let animNext = true;   // fade+rise only on first paint and tab switches, not on every refresh
   function render() {
     if (!S.data) return;
@@ -583,15 +568,14 @@
   async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); devKey = "offline"; renderChrome(); } }
 
   document.addEventListener("click", async (e) => {
-    const t = e.target.closest("[data-tab],[data-add],[data-period],[data-topic],[data-filter],[data-ev],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age],[data-pol],[data-avatar],[data-opensettings]");
+    const t = e.target.closest("[data-tab],[data-period],[data-topic],[data-filter],[data-tfilter],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age],[data-pol],[data-avatar],[data-opensettings]");
     if (!t) return;
     try {
       if (t.dataset.tab) go(t.dataset.tab);
-      else if (t.dataset.add) { go("kid"); const hh = $("#kidchips"); if (hh) hh.scrollIntoView({ block: "start" }); const first = $(".tg"); if (first) first.focus({ preventScroll: true }); }
       else if (t.dataset.period) { if (t.dataset.period !== "week") toast(tr("soon")); }
-      else if (t.dataset.topic !== undefined) { S.filter = t.dataset.topic; go("log"); }
-      else if (t.dataset.filter !== undefined) { S.filter = t.dataset.filter || null; render(); }
-      else if (t.dataset.ev) { const id = +t.dataset.ev; S.open.has(id) ? S.open.delete(id) : S.open.add(id); render(); }
+      else if (t.dataset.topic !== undefined) { S.topic = t.dataset.topic; S.kind = "all"; go("moments"); }
+      else if (t.dataset.filter !== undefined) { S.kind = t.dataset.filter || "all"; S.topic = null; render(); }
+      else if (t.dataset.tfilter) { S.topic = null; render(); }
       else if (t.dataset.pol) openPol(+t.dataset.pol, t);
       else if (t.dataset.opensettings) openSheet();
       else if (t.dataset.avatar) { await post("/api/memory", { key: "avatar", value: t.dataset.avatar }); await refresh(); }
@@ -652,7 +636,7 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closePol(); $("#sheet").classList.remove("open"); } });
 
   // ---------- start ----------
-  const h0 = location.hash.slice(1); if (VIEWS[h0]) S.tab = h0;
+  const h0 = location.hash.slice(1) === "log" ? "moments" : location.hash.slice(1); if (VIEWS[h0]) S.tab = h0;
   applyLang();
   refresh();
   setInterval(refresh, 30000);
