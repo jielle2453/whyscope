@@ -42,9 +42,9 @@ and `triggers_en` into `knowledge/sensitive_rules.json`.
   ≤ 45 words; banned-term → plain-phrase map in English (reflect→bounce back, evaporate→turn into water in the air,
   bacteria→tiny tiny bugs, molecules→tiny bits, gravity→the pull of the Earth, oxygen→the air we breathe,
   vibrate→wiggle very fast, reflex→happens by itself, nutrients→good stuff in food, carbon dioxide→the gas that makes bubbles…);
-  a common-words list `hub/data/common_words_en.txt` built offline from the Dolch + Fry 1,000 lists (public domain,
-  write them into the file from memory, no download) plus all words in the English entries; max 2 uncommon words
-  per sentence. English few-shot prompt for Qwen in the Whyscope voice. Ask-back pattern: contains "?" and one of
+  a common-words set built programmatically at startup (`wording.common_words_en()`) from all words in the `en` fields
+  of the entries plus the plain phrases (no hand-written word list); max 2 uncommon words per sentence, a word longer
+  than 9 letters outside the set counts double. English few-shot prompt for Qwen in the Whyscope voice. Ask-back pattern: contains "?" and one of
   "do you think", "or", "guess", "can you", "is it", "does". Reaction lines in English ("Good question!", "Oh, you noticed!")
   at most 1 in 3. Age rules identical. Template fallback `template_explanation(entry, age, lang)`.
 - `report.py` / cheats API: return the `en` content when `lang=en`.

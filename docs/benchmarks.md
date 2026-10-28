@@ -268,3 +268,43 @@ Threshold sweep (accuracy / false answers on non-in_kb / false abstains on in_kb
 | 0.65 | 85.0% | 2 | 16 |
 | 0.7 | 82.5% | 0 | 21 |
 | 0.75 | 75.0% | 0 | 30 |
+
+### Abstention run (en) 2026-10-28 13:12
+
+- 60 questions, threshold 0.55, entries in index: 93, embedding device: cuda
+- accuracy: 56/60 = 93.3%
+- in_kb answered with the correct kb_id: 23/23
+
+| kind | n | predicted answer | predicted abstain | correct |
+|---|---|---|---|---|
+| in_kb | 25 | 23 | 2 | 23/25 |
+| near_kb | 12 | 2 | 10 | 10/12 |
+| out_kb | 15 | 0 | 15 | 15/15 |
+| nonsense | 8 | 0 | 8 | 8/8 |
+
+Threshold sweep (accuracy / false answers on non-in_kb / false abstains on in_kb):
+
+| threshold | accuracy | false answers | false abstains |
+|---|---|---|---|
+| 0.35 | 85.0% | 8 | 1 |
+| 0.4 | 88.3% | 6 | 1 |
+| 0.45 | 91.7% | 4 | 1 |
+| 0.5 | 95.0% | 2 | 1 |
+| 0.55 | 93.3% | 2 | 2 |
+| 0.6 | 91.7% | 1 | 4 |
+| 0.65 | 91.7% | 0 | 5 |
+| 0.7 | 86.7% | 0 | 8 |
+| 0.75 | 80.0% | 0 | 12 |
+
+## English mode (2026-10-28)
+
+Server in gpu mode (RTX laptop), Qwen2.5-1.5B-Instruct compose, faster-whisper small.
+
+- `eval/run_abstention.py --lang en` (60 questions, threshold 0.55): 56/60 = 93.3 % (in_kb 23/25, near_kb 10/12, out_kb 15/15,
+  nonsense 8/8; every answered in_kb question picked the right entry, 23/23). Full table in the run above.
+- `eval/check_answers.py --lang en --age 6`: 10/10 pass (12-word sentences, <= 45 spoken words, <= 2 uncommon words per
+  sentence, no banned term, guessable ask-back); `--age 8 --bridges has_dog,has_garden,has_sibling`: 12/12 pass;
+  first sentence 7-21 ms, full answer about 1.2-1.5 s (LLM compose on GPU, template fallback when it breaks a rule).
+- All 279 English facts of the 93 entries: 276 pass the sentence rule as they are, 3 are cut at a clause by the template.
+- Voice: a Windows SAPI WAV of "why do cats eyes glow at night" is transcribed as "Why do cats eyes glow at night?" (language=en, listen 625 ms) and answered with the cat entry.
+- Safety: "why do parents fight" is sensitive in English (English triggers now also match plain inflections, e.g. "fight" for "fighting").

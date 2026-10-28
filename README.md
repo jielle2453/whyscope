@@ -18,7 +18,13 @@ parent instead of guessing. See [docs/safety.md](docs/safety.md).
 powershell -ExecutionPolicy Bypass -File scripts\install.ps1   # venv + deps + models (Linux/macOS: scripts/install.sh)
 scripts\run.ps1                                                  # serves http://localhost:8000  (scripts/run.sh)
 # open http://localhost:8000/kid  (child)   and   http://localhost:8000/parent  (parent)
+# English is the default (questions, answers, speech); add ?lang=zh for Chinese: http://localhost:8000/kid?lang=zh
 ```
+
+Language: the child and parent pages start in English. The "EN / 中" toggle (or `?lang=zh`) switches the page and the
+answer language and also saves the server default (`POST /api/settings {"language": "zh"}`); `POST /api/ask` takes an
+optional `lang` ("en" | "zh", default = that setting). Speech recognition (faster-whisper) and the browser voice follow the
+language; English answers use an en-US voice (Natural / Aria / Jenny / Samantha / Google US English first).
 
 Add `-Cpu` / `--cpu` to the installer on machines without an NVIDIA GPU and set `mode: cpu` in `config.yaml`.
 Optional extras (vision, LLM compose) are in `requirements-optional.txt`; the hub works without them
@@ -33,11 +39,11 @@ the run script follows that file.
 Taken in the built-in browser at 390 x 844 (phone portrait) with demo data (`scripts/seed_demo.py`: 29 real
 questions, back-dated over two weeks; the child is called 小安 only on the parent page).
 
-UI chrome is English by default (`?lang=en`); the pill toggle "EN / 中" in each header switches to Chinese and is remembered in `localStorage.whyscope_lang`. Answers, questions and cheat-sheet talking points stay in Chinese.
+English is the default (`?lang=en`); the pill toggle "EN / 中" in each header switches to Chinese and is remembered in `localStorage.whyscope_lang`. In English mode the questions, answers, talk-about lines and cheat-sheet talking points are English too.
 
 | Child: answer | Parent: Week | Parent: Cheats |
 |---|---|---|
-| ![kid answer](docs/screens/v3-kid-en.png) | ![parent week](docs/screens/v3-parent-week-en.png) | ![parent cheats](docs/screens/v3-parent-cheats-en.png) |
+| ![kid answer](docs/screens/v3-kid-en-answer.png) | ![parent week](docs/screens/v3-parent-week-en.png) | ![parent cheats](docs/screens/v3-parent-cheats-en.png) |
 
 ## How an answer is spoken (product pass 1)
 
@@ -55,6 +61,13 @@ Any LLM output that breaks a rule, repeats the first sentence or adds knowledge 
 deterministic rewrite of the entry's own facts. Check it yourself with the server running:
 `python eval/check_answers.py --age 6` (and `--age 8`).
 
+English mode has its own rules in the same file: at most 12 words per sentence, at most 2 explanation sentences (1 for
+ages 5-6), at most 45 spoken words, a plain-phrase map for about 15 science terms (reflect -> bounce back, ...), and at
+most 2 uncommon words per sentence (a word longer than 9 letters counts double). "Common words" are not a hand-written
+list: the set is built at startup from every word in the English fields of the knowledge entries plus the plain
+phrases. The question back must contain "?" and one of "do you think", "or", "guess", "can you", "is it", "does".
+Check: `python eval/check_answers.py --lang en --age 6` and `python eval/run_abstention.py --lang en`.
+
 ## Architecture in brief
 
 `listen -> safety -> vision -> recall -> compose -> log`. The first sentence always comes verbatim from the
@@ -68,7 +81,7 @@ The binding contract is [docs/spec.md](docs/spec.md).
 hub/            FastAPI service (server, pipeline, listen, safety, vision, recall, compose, wording, emoji, memory, report, db)
 hub/static/     kid.html (child) and parent.html (parent), single-file pages, no CDNs
 knowledge/      entries/<topic>/*.json (CC BY-SA 4.0), cheats/*.json, sensitive_rules.json
-eval/           run_latency.py, run_abstention.py, check_answers.py, abstention_set.jsonl
+eval/           run_latency.py, run_abstention.py, check_answers.py, abstention_set.jsonl, abstention_set_en.jsonl
 scripts/        install and run scripts, download_models.py, build_common_chars.py, seed_demo.py
 docs/           spec, architecture, models, safety, hardware, roadmap, benchmarks
 config.yaml     mode (cpu | gpu | hailo), models, thresholds, retention
@@ -81,6 +94,8 @@ config.yaml     mode (cpu | gpu | hailo), models, thresholds, retention
 .venv\Scripts\python eval\run_abstention.py     # answer/abstain accuracy on eval/abstention_set.jsonl
 .venv\Scripts\python eval\run_latency.py --url http://127.0.0.1:8000   # same, through a running server (adds http_first_ms)
 .venv\Scripts\python eval\check_answers.py --age 6   # child-voice rules on 10 real answers (server running)
+.venv\Scripts\python eval\check_answers.py --lang en   # the same in English (eval/abstention_set_en.jsonl)
+.venv\Scripts\python evalun_abstention.py --lang en  # English answer/abstain accuracy
 ```
 
 ## License
