@@ -1,23 +1,25 @@
-"""Compose explanation + question back from an entry's facts.
+"""Compose explanation + question back from an entry's facts, in the Whyscope voice.
 
 The first sentence is NEVER produced here (the pipeline speaks entry.first_sentence verbatim).
-LLM (Qwen2.5-1.5B-Instruct via transformers on CUDA, or llama-cpp GGUF on CPU) rewrites facts into
-<=2 short sentences; a jieba grounding check guards it; any failure/timeout -> template fallback.
+LLM (Qwen2.5-1.5B-Instruct via transformers on CUDA, or llama-cpp GGUF on CPU) rewrites facts into short, plain
+sentences; jieba grounding + novelty checks and the wording rules of hub/wording.py guard it; any failure or timeout
+falls back to `template_explanation` (deterministic, facts only, jargon replaced by plain phrases).
 """
 import json
 import re
 import threading
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutTimeout
-from pathlib import Path
 
+from . import wording
 from .config import resolve, to_trad, torch_device
+from .safety import askback_ok
 
 STOP = {"的", "了", "是", "在", "有", "會", "可以", "和", "也", "都", "就", "很", "把", "被", "讓", "跟", "著",
         "一起", "這", "那", "什麼", "嗎", "呢", "吧", "啊", "它", "牠", "他", "她", "我", "你", "們", "個", "種",
         "些", "更", "還", "又", "但", "而", "與", "及", "或", "到", "從", "為", "因為", "所以", "以", "於", "用",
         "要", "能", "對", "給", "不", "沒有", "然後", "如果", "就是", "還是", "比較", "非常"}
 _SENT = re.compile(r"[^。！？!?；;\n]+")
-NOVELTY_MIN = 0.75  # share of the explanation's content bigrams that must come from the entry's own text
+NOVELTY_MIN = 0.85  # share of EACH sentence's content bigrams that must come from the entry's own text
 BAD_ASKBACK = re.compile(r"你家|你的|你今天|你喜歡|你開心|你難過|朋友|媽媽|爸爸|哥哥|姐姐|弟弟|妹妹|同學|老師")
 
 
@@ -55,10 +57,101 @@ def novelty_ok(text: str, source: str, min_ratio: float) -> bool:
     return not tb or len(tb & _runs_bigrams(source)) / len(tb) >= min_ratio
 
 
-def template(entry: dict) -> dict:
-    """Spec fallback: facts[0] + the entry's own question back."""
-    return {"explanation": entry["facts"][0], "ask_back": entry.get("ask_back", ""),
-            "bridge_used": None, "source": "template"}
+FILLER = {"變得", "慢慢", "一樣", "通常", "常常", "其實", "大約", "比較", "可能", "所以", "因為", "這樣", "一直", "越來越",
+          "好像", "就會", "才會", "才能", "能夠", "知道", "看到", "看起來", "跑掉", "掉下來", "起來", "出來", "很多", "一些",
+          "小朋友", "我們", "大家", "牠們", "自己", "樣子", "東西", "有時候", "時候", "地方", "身體"}
+
+
+def novel_tokens(sentence: str, source: str) -> list:
+    """Content words of the sentence that the source text never uses (a 1.5B model's 'new knowledge')."""
+    return [t for t in content_tokens(sentence) if t not in source and t not in FILLER and len(t) > 1]
+
+
+def _plain_bigrams(s: str) -> set:
+    t = re.sub(r"[\W_]+", "", s)
+    return {t[i:i + 2] for i in range(len(t) - 1)}
+
+
+def repeats(sentence: str, spoken: str, ratio: float = 0.5) -> bool:
+    """True if the sentence mostly restates what was already said (e.g. the first sentence)."""
+    sb = _plain_bigrams(sentence)
+    return bool(sb) and len(sb & _plain_bigrams(spoken)) / len(sb) >= ratio
+
+
+# ---------------------------------------------------------------- deterministic pieces
+def _fit(sents: list, budget: int) -> list:
+    """Longest prefix of `sents` whose spoken length fits the budget (at least the first one)."""
+    out, used = [], 0
+    for s in sents:
+        n = wording.chars_of(s)
+        if out and used + n > budget:
+            break
+        out.append(s)
+        used += n
+    return out
+
+
+def template_explanation(entry: dict, age: int, budget: int = wording.MAX_TOTAL_CHARS) -> str:
+    """Deterministic fallback: facts[0] (+ facts[1] for 7-8), jargon replaced, <=18 chars per sentence."""
+    facts = [wording.plainify(f).strip("。！？ ") for f in entry["facts"]]
+    fresh = [f for f in facts if not repeats(f, entry["first_sentence"])]
+    facts = fresh or facts   # do not just say the first sentence again
+    good = [f for f in facts if not wording.check_text(f, 1)]
+    if not good:  # cut a long fact at its first / last clause
+        for f in facts:
+            for part in [p for p in re.split(r"[，、,]", f) if p]:
+                if not wording.check_text(part, 1):
+                    good.append(part)
+        good = good or [min(facts, key=len)]
+    want = 1 if age <= 6 else 2
+    picked = _fit(good[:want], budget)
+    if len(picked) < want and len(good) > 1 and want == 2 and wording.chars_of(good[0]) > budget:
+        picked = [min(good, key=wording.chars_of)]
+    return "".join(s + "。" for s in picked)
+
+
+def pick_ask_back(entry: dict, bridges: list, use_bridge: bool):
+    """(ask_back, bridge_key|None). Bridge text comes from the KB; every ask-back is made guessable."""
+    if use_bridge:
+        for k, v in entry.get("bridges", {}).items():
+            if k in bridges and askback_ok(v):
+                return wording.guessable(v), k
+    ask = entry.get("ask_back", "")
+    if not ask or not askback_ok(ask):
+        ask = f"你覺得{entry['labels'][0]}還有什麼好玩的地方嗎？"
+    return wording.guessable(ask), None
+
+
+def template(entry: dict, age: int = 6, bridges=(), use_bridge=False, budget=wording.MAX_TOTAL_CHARS) -> dict:
+    ask, key = pick_ask_back(entry, list(bridges), use_bridge)
+    return {"explanation": template_explanation(entry, age, budget), "ask_back": ask, "bridge_used": key,
+            "source": "template"}
+
+
+# ---------------------------------------------------------------- the model
+SYSTEM = ("你是「好奇鏡」，一位溫柔的大人，在跟5到8歲的孩子說話。規則：\n"
+          "1. 只能用「事實」裡的資訊，不可以加入新知識或新詞，盡量沿用事實的字詞。\n"
+          "2. 每一句最多18個字，講具體的東西，用小朋友聽得懂的話，不用科學名詞。\n"
+          "3. 不誇獎孩子，不說「我覺得」「我喜歡」，不問孩子今天、心情、家人或朋友的事。\n"
+          "4. ask_back 是一個小朋友可以猜的問題（可以回答是或不是，或二選一），不超過25個字。\n"
+          "5. 用台灣繁體中文，只輸出一個JSON，不要其他文字。")
+# three few-shot turns in the Whyscope voice: (age, facts, output)
+SHOTS = [
+    (5, ["蚊子的嘴巴像一根細細的針", "只有蚊子媽媽會吸血"],
+     {"explanation": "蚊子的嘴巴像細細的針。", "ask_back": "你猜蚊子是用嘴巴吸血，還是用腳吸血？"}),
+    (6, ["殼可以保護蝸牛軟軟的身體", "殼會跟著蝸牛一起長大"],
+     {"explanation": "殼會保護蝸牛軟軟的身體。", "ask_back": "你覺得蝸牛下雨天會出來嗎？"}),
+    (8, ["雲是很多小水滴飄在天空", "水滴變大變重，就會掉下來"],
+     {"explanation": "雲是很多小水滴。因為水滴變重了，所以會掉下來。", "ask_back": "你覺得雲裡的水滴越多，雨會變大還是變小？"}),
+]
+
+
+def _user_msg(age, facts, said=""):
+    rule = ("explanation 只寫1句，句子要短，要具體" if age <= 6
+            else "explanation 寫2句，把兩個事實各說一句；事實裡有原因的話，才用一次「因為…所以…」")
+    fl = "\n".join(f"- {f}" for f in facts)
+    said = f"已經說過：{said}（不要再說一次）\n" if said else ""
+    return f"孩子{age}歲。\n事實：\n{fl}\n{said}{rule}，每句不超過18個字，事實裡沒有的東西不要說。輸出JSON：{{\"explanation\":…,\"ask_back\":…}}"
 
 
 class Composer:
@@ -68,6 +161,7 @@ class Composer:
         self.backend = None          # "transformers" | "llama" | None
         self.ready = False
         self.error = None
+        self.last_reject = ""
         self._pool = ThreadPoolExecutor(max_workers=1)
         self._timeouts = 0
         self._skipped = 0
@@ -90,7 +184,7 @@ class Composer:
         if not gguf:
             return False
         from llama_cpp import Llama  # optional dependency
-        self.llm = Llama(model_path=str(gguf), n_ctx=1024, verbose=False)
+        self.llm = Llama(model_path=str(gguf), n_ctx=1536, verbose=False)
         self.backend, self.ready = "llama", True
         return True
 
@@ -116,20 +210,13 @@ class Composer:
         self._generate([{"role": "user", "content": "hi"}], 4)  # warm-up (CUDA kernels)
 
     # ---- generation ----
-    def _prompt(self, entry, age, bridges):
-        nl = chr(10)
-        facts = nl.join(f"- {f}" for f in entry["facts"])
-        bl = {k: v for k, v in entry.get("bridges", {}).items() if k in bridges}
-        bridge_txt = nl.join(f"{k}: {v}" for k, v in bl.items()) or "（無）"
-        sys = ("你是給5到8歲孩子的科學小幫手。只能使用「事實」裡的資訊，不可以加入事實裡沒有的新知識或新詞。"
-               "盡量沿用事實的原句和字詞，只做簡化。用台灣繁體中文。只輸出一個JSON，不要其他文字。")
-        example = ('{"explanation": "殼可以保護蝸牛軟軟的身體。", "ask_back": "你覺得蝸牛下雨天會出來嗎？", '
-                   '"bridge_used": null}')
-        user = (f"例子{nl}事實：{nl}- 殼可以保護蝸牛軟軟的身體{nl}- 殼會跟著蝸牛一起長大{nl}輸出：{example}{nl}{nl}"
-                f"現在{nl}孩子年齡：{age}歲{nl}事實：{nl}{facts}{nl}可用的連結（key: 句子）：{nl}{bridge_txt}{nl}"
-                "輸出JSON，explanation 最多2句、全部不超過40字，只用事實；ask_back 是一個關於這個東西的問句，"
-                f"不超過30字；bridge_used 是上面某個key或 null。{nl}參考的問句：{entry.get('ask_back', '')}")
-        return sys, user
+    def _messages(self, entry, age):
+        msgs = [{"role": "system", "content": SYSTEM}]
+        for a, facts, out in SHOTS:
+            msgs.append({"role": "user", "content": _user_msg(a, facts)})
+            msgs.append({"role": "assistant", "content": json.dumps(out, ensure_ascii=False)})
+        msgs.append({"role": "user", "content": _user_msg(age, entry["facts"], entry["first_sentence"])})
+        return msgs
 
     def _generate(self, msgs, max_new) -> str:
         """Run the LLM on chat messages; returns raw JSON-ish text (assistant output is prefilled with '{')."""
@@ -145,10 +232,8 @@ class Composer:
                                       stop_strings=["}"], tokenizer=self.tok)
         return prefill + self.tok.decode(out[0][ids["input_ids"].shape[1]:], skip_special_tokens=True)
 
-    def _run(self, entry, age, bridges) -> str:
-        sys, user = self._prompt(entry, age, bridges)
-        msgs = [{"role": "system", "content": sys}, {"role": "user", "content": user}]
-        return self._generate(msgs, int(self.cfg.get("max_new_tokens", 120)))
+    def _run(self, entry, age) -> str:
+        return self._generate(self._messages(entry, age), int(self.cfg.get("max_new_tokens", 120)))
 
     @staticmethod
     def _parse(raw: str):
@@ -160,53 +245,70 @@ class Composer:
         except Exception:
             return None
 
-    def _validate(self, d, entry, bridges):
+    def _reject(self, why):
+        self.last_reject = why
+        return None
+
+    def _validate(self, d, entry, age, bridges, use_bridge, budget):
         """Return a clean result dict or None if the model output is unusable."""
         if not isinstance(d, dict):
             return None
         source = " ".join(entry["facts"] + [entry["first_sentence"]] + list(entry.get("labels", [])))
         exp = to_trad(str(d.get("explanation", "")).strip())
-        sents = [s.strip() for s in _SENT.findall(exp) if s.strip()][:2]
+        sents = _fit([s.strip() for s in _SENT.findall(exp) if s.strip()][:1 if age <= 6 else 2], budget)
         exp = "。".join(sents) + "。" if sents else ""
-        # spec 8.5 grounding (shared content token) plus a stricter no-new-knowledge check
-        if (not exp or len(exp) > 40 or not grounded(exp, entry["facts"])
-                or not novelty_ok(exp, source, NOVELTY_MIN)):
-            return None
-        bkey = d.get("bridge_used")
-        bridge = entry.get("bridges", {})
-        if bkey in bridge and bkey in bridges:
-            ask = bridge[bkey]            # bridge text comes from the KB verbatim
-        else:
-            bkey = None
-            ask = to_trad(str(d.get("ask_back", "")).strip())
+        # spec 8.5 grounding (shared content token) plus a stricter no-new-knowledge check. Comparisons the model
+        # invents ("像雨衣") are NOT allowed: in testing they produced false statements.
+        if not exp:
+            return self._reject("empty")
+        if not grounded(exp, entry["facts"]):
+            return self._reject("not grounded: " + exp)
+        bad = [s for s in sents if not novelty_ok(s, source, NOVELTY_MIN) or len(novel_tokens(s, source)) > 0]
+        if bad:
+            return self._reject(f"new knowledge: {bad[0]} {novel_tokens(bad[0], source)}")
+        if any(repeats(s, entry["first_sentence"]) for s in sents):
+            return self._reject("repeats the first sentence: " + exp)
+        exp = wording.plainify(exp)
+        probs = wording.check_text(exp, 1 if age <= 6 else 2)
+        if probs or wording.chars_of(exp) > budget:
+            return self._reject(f"wording {probs} / budget {budget}: {exp}")
+        ask, bkey = pick_ask_back(entry, bridges, use_bridge)
+        if not bkey:   # the model may propose its own ask-back; it must pass every guard, else the entry's is used
+            mine = to_trad(str(d.get("ask_back", "")).strip())
             asrc = source + " " + entry.get("ask_back", "")
-            if (not ask or len(ask) > 30 or not ask.endswith(("？", "?")) or BAD_ASKBACK.search(ask)
-                    or not novelty_ok(ask, asrc, NOVELTY_MIN)):
-                ask = entry.get("ask_back", "")
+            if (mine and len(mine) <= wording.ASKBACK_MAX and mine.endswith(("？", "?"))
+                    and wording.ask_ok_pattern(mine) and askback_ok(mine) and not BAD_ASKBACK.search(mine)
+                    and not wording.NOT_ALLOWED.search(mine) and not wording.has_banned(mine)
+                    and not wording.check_text(mine, 1)
+                    and novelty_ok(mine, asrc, 0.75)):
+                ask = mine
         return {"explanation": exp, "ask_back": ask, "bridge_used": bkey, "source": "llm"}
 
-    def compose(self, entry: dict, age: int, bridges: list) -> dict:
+    def compose(self, entry: dict, age: int, bridges: list, use_bridge: bool = False,
+                budget: int = wording.MAX_TOTAL_CHARS) -> dict:
         """Return {explanation, ask_back, bridge_used, source}; never raises, never blocks > timeout.
 
         Circuit breaker: after 2 consecutive timeouts (a CPU-only machine) the LLM is skipped for 10 requests
         and then probed again, so a slow model does not add the full timeout to every answer."""
+        tpl = lambda why="": {**template(entry, age, bridges, use_bridge, budget),  # noqa: E731
+                              "source": "template" + (f"({why})" if why else "")}
         if not (self.cfg.get("enabled", True) and self.ready):
-            return template(entry)
+            return tpl()
         if self._timeouts >= 2 and self._skipped < 10:
             self._skipped += 1
-            return {**template(entry), "source": "template(llm-too-slow)"}
+            return tpl("llm-too-slow")
         self._skipped = 0
         try:
-            fut = self._pool.submit(self._run, entry, age, bridges)
+            fut = self._pool.submit(self._run, entry, age)
             raw = fut.result(timeout=float(self.cfg.get("timeout_s", 6.0)))
             self._timeouts = 0
-            res = self._validate(self._parse(raw), entry, bridges)
-            return res or {**template(entry), "source": "template(grounding)"}
+            res = self._validate(self._parse(raw), entry, age, bridges, use_bridge, budget)
+            return res or tpl("grounding")
         except FutTimeout:
             self._timeouts += 1
-            return {**template(entry), "source": "template(timeout)"}
+            return tpl("timeout")
         except Exception:
-            return {**template(entry), "source": "template(error)"}
+            return tpl("error")
 
 
 def cfg_mode(cfg):

@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 data/
+!hub/data/
 models/
 *.db
 *.wav
@@ -9,5 +10,6 @@ models/
 *.jpg
 *.png
 !docs/*.png
+!docs/screens/*.png
 .impeccable/
 .venvpath
