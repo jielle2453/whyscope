@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "ice cream"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does ice cream melt",
+      "why is my ice cream melting",
+      "why does ice cream get soft",
+      "why is ice cream runny"
+    ],
+    "first_sentence": "This is ice cream! Warm air makes it slowly melt.",
+    "facts": [
+      "Ice cream has lots of tiny bits of ice inside.",
+      "Heat from the air around it sneaks inside the ice cream.",
+      "Once it melts, it turns to a liquid and drips down."
+    ],
+    "ask_back": "Do you think ice cream melts faster in the sun, or in the shade?",
+    "bridges": {
+      "has_garden": "Eating ice cream in the garden? Eat it fast before it melts!"
+    }
+  }
 }

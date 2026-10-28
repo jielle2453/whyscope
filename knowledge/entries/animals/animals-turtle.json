@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "turtle"
+    ],
+    "question_patterns": [
+      "why does a turtle have a shell",
+      "what is this",
+      "why is the turtle shell so hard",
+      "can a turtle come out of its shell"
+    ],
+    "first_sentence": "A turtle's shell is joined to its bones to keep it safe.",
+    "facts": [
+      "A turtle's shell is made from ribs and a spine.",
+      "The outside of the shell is hard, like a helmet.",
+      "A turtle can pull its head and legs into its shell."
+    ],
+    "ask_back": "Do you think a turtle can walk fast, or slowly?",
+    "bridges": {
+      "has_garden": "Have you ever seen a turtle in a garden or pond?"
+    }
+  }
 }

@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "cat"
+    ],
+    "question_patterns": [
+      "why do cats' eyes glow",
+      "what is this",
+      "why do cats' eyes shine at night",
+      "how can a cat see in the dark"
+    ],
+    "first_sentence": "A cat's eyes glow because they bounce light back.",
+    "facts": [
+      "Cats can see much better than people in the dark.",
+      "A shiny layer behind a cat's eyes bounces light back.",
+      "When it is dark, a cat's pupils get very big."
+    ],
+    "ask_back": "Do you think a cat's eyes look bigger in the dark, or in the sun?",
+    "bridges": {
+      "has_cat": "You have a cat! Have you seen its eyes shine at night?"
+    }
+  }
 }

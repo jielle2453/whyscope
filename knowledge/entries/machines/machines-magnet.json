@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "magnet"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does a magnet stick",
+      "why does the magnet pull metal",
+      "how does a magnet work",
+      "why does a magnet grab things"
+    ],
+    "first_sentence": "This is a magnet! It has a pull, so it grabs iron.",
+    "facts": [
+      "A magnet is strongest at its two ends.",
+      "Two of the same ends push apart, and different ends pull together.",
+      "Iron and some other metals stick to a magnet."
+    ],
+    "ask_back": "Do you think a magnet will stick to wood, or to metal?",
+    "bridges": {
+      "likes_cars": "If your toy car has iron in it, will a magnet pull it closer?"
+    }
+  }
 }

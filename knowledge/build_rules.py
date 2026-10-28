@@ -19,6 +19,7 @@ def main() -> None:
             "id": cheat["id"],
             "category_zh": cheat["category_zh"],
             "triggers": cheat["triggers"],
+            "triggers_en": cheat["en"]["triggers"],
             "urgent": bool(cheat.get("urgent", False)),
         })
     OUT_PATH.write_text(

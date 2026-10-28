@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "goosebumps",
+      "goose bumps"
+    ],
+    "question_patterns": [
+      "what are these bumps on my skin",
+      "what is this",
+      "why do I get goosebumps",
+      "why does my skin get bumpy",
+      "why do my arms get bumps"
+    ],
+    "first_sentence": "This is goosebumps! Tiny hairs stand up when you feel cold.",
+    "facts": [
+      "Tiny muscles under your skin pull on each hair.",
+      "Many animals fluff up their fur to stay warm.",
+      "You can also get goosebumps when you feel scared or moved."
+    ],
+    "ask_back": "Do you think goosebumps are for keeping warm, or for scaring things?",
+    "bridges": {
+      "has_cat": "When your cat gets angry, does its fur stand up?"
+    }
+  }
 }

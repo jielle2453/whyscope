@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "chili",
+      "chili pepper"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does the chili burn my mouth",
+      "why is chili spicy",
+      "why does pepper make my mouth hot",
+      "why is my tongue burning"
+    ],
+    "first_sentence": "This is a chili! Its special stuff makes your mouth burn.",
+    "facts": [
+      "Spicy is a feeling of heat and pain, not a taste.",
+      "The special stuff touches places that feel hot.",
+      "Drinking water does not really take the spice away."
+    ],
+    "ask_back": "Do you think a chili is hotter than a banana, or cooler?",
+    "bridges": {
+      "has_dog": "Can dogs eat spicy food too? Take a guess!"
+    }
+  }
 }

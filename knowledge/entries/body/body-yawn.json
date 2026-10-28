@@ -28,5 +28,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "yawn",
+      "yawning"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do I yawn",
+      "why do people yawn",
+      "why do I keep yawning",
+      "why do I yawn when I am sleepy"
+    ],
+    "first_sentence": "This is a yawn! Scientists think it cools your brain down.",
+    "facts": [
+      "Nobody is totally sure why we yawn yet.",
+      "One idea is that a yawn helps your big brain stay cool.",
+      "Seeing someone yawn can make you yawn too."
+    ],
+    "ask_back": "Do you think you yawn more when you are tired, or when you are hungry?",
+    "bridges": {
+      "has_cat": "Do cats yawn too? Have you ever seen one?",
+      "has_sibling": "When your brother or sister yawns, do you yawn too?"
+    }
+  }
 }

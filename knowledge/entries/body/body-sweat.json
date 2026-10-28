@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sweat",
+      "sweating"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do I sweat",
+      "why am I so sweaty",
+      "why do I get sweaty when I play",
+      "why does my skin get wet"
+    ],
+    "first_sentence": "This is sweat! Your body gets hot, so water comes out.",
+    "facts": [
+      "Your skin has lots of tiny tubes that make sweat.",
+      "Sweat slowly comes out through tiny holes in your skin.",
+      "When sweat dries, it takes the heat away from your body."
+    ],
+    "ask_back": "Do you think you sweat more on a hot day, or a cold day?",
+    "bridges": {
+      "has_garden": "Do you sweat a lot when you play in the garden?"
+    }
+  }
 }

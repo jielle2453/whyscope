@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "fruit"
+    ],
+    "question_patterns": [
+      "why is fruit sweet",
+      "what is this",
+      "why does fruit taste so good",
+      "why are some fruits sour"
+    ],
+    "first_sentence": "Fruit tastes sweet to make animals want to eat it.",
+    "facts": [
+      "Seeds in fruit get carried far away by animals.",
+      "As fruit gets ripe, it slowly turns sweet.",
+      "Fruit that is not ripe is often sour or bitter."
+    ],
+    "ask_back": "Do you think a ripe banana tastes sweet, or sour?",
+    "bridges": {
+      "has_garden": "Have you picked fruit from a tree in your garden?"
+    }
+  }
 }

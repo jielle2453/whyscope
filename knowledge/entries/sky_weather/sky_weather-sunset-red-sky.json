@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sunset"
+    ],
+    "question_patterns": [
+      "why is the sky red at sunset",
+      "what is this",
+      "why is the sky orange at night",
+      "why does the sky turn red"
+    ],
+    "first_sentence": "The sky turns red at sunset because sunlight passes through thick air.",
+    "facts": [
+      "At sunset, sunlight has to go through more air.",
+      "Blue light gets spread out by the air on the way.",
+      "Red and orange light can reach our eyes."
+    ],
+    "ask_back": "Do you think the sky is redder at sunset, or at noon?",
+    "bridges": {
+      "has_garden": "Have you watched a red sunset from your garden?"
+    }
+  }
 }

@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "clock"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does a clock work",
+      "why does a clock tick",
+      "how does a clock know the time",
+      "what makes the clock move"
+    ],
+    "first_sentence": "This is a clock! Gears turn the hands round and round.",
+    "facts": [
+      "A clock has many gears, and each one turns the next.",
+      "Some clocks use a tiny crystal that wiggles to keep time.",
+      "One hour has sixty minutes, and one minute has sixty seconds."
+    ],
+    "ask_back": "Do you think the big hand moves faster than the little hand, or slower?",
+    "bridges": {
+      "has_dog": "Does your dog know when it is time to eat?"
+    }
+  }
 }

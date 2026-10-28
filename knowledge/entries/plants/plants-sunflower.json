@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sunflower"
+    ],
+    "question_patterns": [
+      "why does a sunflower follow the sun",
+      "what is this",
+      "why does a sunflower turn",
+      "why do sunflowers face the sun"
+    ],
+    "first_sentence": "Sunflowers turn to follow the sun to get more sunshine.",
+    "facts": [
+      "Young sunflowers turn their heads to follow the sun.",
+      "Grown-up sunflowers mostly face toward the east.",
+      "Sunflower seeds can be eaten, and some make oil."
+    ],
+    "ask_back": "Do you think a sunflower turns to the sun, or to the moon?",
+    "bridges": {
+      "has_garden": "Have you seen sunflowers in a garden? Which way were they facing?"
+    }
+  }
 }

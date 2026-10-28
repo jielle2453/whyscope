@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "leaf"
+    ],
+    "question_patterns": [
+      "why are leaves green",
+      "what is this",
+      "why is a leaf green",
+      "why do leaves have a green color"
+    ],
+    "first_sentence": "Leaves are green because they have green stuff inside them.",
+    "facts": [
+      "The green stuff helps plants make food from sunlight.",
+      "It soaks up red and blue light, and bounces green light back.",
+      "When there is less green stuff, leaves turn yellow."
+    ],
+    "ask_back": "Do you think plants make food from sunlight, or from sand?",
+    "bridges": {
+      "has_garden": "Have you picked a green leaf from a plant in your garden?"
+    }
+  }
 }

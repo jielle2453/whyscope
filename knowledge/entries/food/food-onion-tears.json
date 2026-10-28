@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "onion"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do onions make me cry",
+      "why does an onion make my eyes water",
+      "why do I cry when I cut onions",
+      "why do onions make tears"
+    ],
+    "first_sentence": "This is an onion! Cutting it makes a stinging gas for eyes.",
+    "facts": [
+      "Onions have a special juice that makes a gas when cut.",
+      "Your eyes make tears to wash the gas away and protect them.",
+      "Onions grow under the ground, in layers wrapped around each other."
+    ],
+    "ask_back": "Do you think onions grow on top of the ground, or under it?",
+    "bridges": {
+      "has_dog": "Dogs must not eat onions. Do you know why?"
+    }
+  }
 }

@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "honey"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is honey sticky",
+      "how is honey made",
+      "why do bees make honey",
+      "where does honey come from"
+    ],
+    "first_sentence": "This is honey! Bees slowly turn flower juice into honey.",
+    "facts": [
+      "Bees sip sweet juice from flowers and carry it home.",
+      "Bees flap their wings to make the honey less watery.",
+      "Honey has very little water, so germs cannot grow in it easily."
+    ],
+    "ask_back": "Do you think honey stays good for a long time, or goes bad fast?",
+    "bridges": {
+      "has_garden": "Will bees come to the flowers in your garden?"
+    }
+  }
 }

@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "cactus"
+    ],
+    "question_patterns": [
+      "why does a cactus have spikes",
+      "what is this",
+      "why is the cactus so prickly",
+      "why does a cactus have sharp needles"
+    ],
+    "first_sentence": "A cactus has spikes so it can keep its water inside.",
+    "facts": [
+      "A cactus spike is really a leaf that changed shape.",
+      "Spikes stop water from leaving the cactus's body.",
+      "Spikes also keep animals from wanting to eat it."
+    ],
+    "ask_back": "Do you think a cactus lives in a wet place, or a dry place?",
+    "bridges": {
+      "has_dog": "Dogs can get poked by cactus spikes. Would your dog touch one?"
+    }
+  }
 }

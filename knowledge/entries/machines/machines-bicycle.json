@@ -28,5 +28,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "bicycle",
+      "bike"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does a bike stay up",
+      "why does a bike not fall over",
+      "how do bikes work",
+      "why doesn't a bike fall down"
+    ],
+    "first_sentence": "This is a bike! Turning the handlebars keeps you balanced.",
+    "facts": [
+      "The faster you ride, the steadier the bike feels.",
+      "Riders keep making tiny turns to stay balanced.",
+      "When you turn the handlebars, the front wheel turns too."
+    ],
+    "ask_back": "Do you think a bike feels steadier when it is going fast, or slow?",
+    "bridges": {
+      "rides_bike": "When you ride your bike, how do you turn the handlebars?"
+    }
+  }
 }

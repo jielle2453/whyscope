@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "ice",
+      "ice cube"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does ice float",
+      "why is ice on top of water",
+      "why do ice cubes float",
+      "why does the ice not sink"
+    ],
+    "first_sentence": "This is ice! It floats because ice is lighter than water.",
+    "facts": [
+      "When water freezes, it takes up more space.",
+      "The same weight of ice takes up more room than water.",
+      "Ice melts slowly in water and turns back into water."
+    ],
+    "ask_back": "Do you think an ice cube sinks in water, or floats?",
+    "bridges": {
+      "has_garden": "In summer in the garden, ice melts fast, right?"
+    }
+  }
 }

@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "butterfly"
+    ],
+    "question_patterns": [
+      "why does a butterfly have colors",
+      "what is this",
+      "why are butterfly wings so pretty",
+      "how do butterflies get their colors"
+    ],
+    "first_sentence": "A butterfly's colors come from tiny scales on its wings.",
+    "facts": [
+      "Tiny scales cover a butterfly's wings like little tiles.",
+      "Some colors come from light bouncing off the scales.",
+      "A butterfly grows up from a caterpillar."
+    ],
+    "ask_back": "Do you think a butterfly's wings are heavy, or light?",
+    "bridges": {
+      "has_garden": "Have you seen a butterfly in your garden?"
+    }
+  }
 }

@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "moon"
+    ],
+    "question_patterns": [
+      "why does the moon follow me",
+      "what is this",
+      "why does the moon go with me in the car",
+      "why is the moon walking with us"
+    ],
+    "first_sentence": "The moon follows you because it is very, very far away.",
+    "facts": [
+      "The moon is very far from us.",
+      "Things that are far away seem to walk with you.",
+      "Things close by seem to zoom past when you move."
+    ],
+    "ask_back": "Do you think the moon is closer than a tree, or farther away?",
+    "bridges": {
+      "likes_cars": "You like cars! Do you think the moon follows the car too?"
+    }
+  }
 }

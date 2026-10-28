@@ -2,7 +2,16 @@
   "id": "scary_news",
   "category": "scary_news",
   "category_zh": "令人害怕的新聞",
-  "triggers": ["地震新聞", "地震", "新聞", "海嘯", "颱風", "電視說", "災難", "火災"],
+  "triggers": [
+    "地震新聞",
+    "地震",
+    "新聞",
+    "海嘯",
+    "颱風",
+    "電視說",
+    "災難",
+    "火災"
+  ],
   "deflection_zh": "這個新聞讓你害怕嗎？我們一起問爸爸媽媽好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要說「不要怕，這沒什麼」"
   ],
   "sources": [
-    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"},
-    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"},
-    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+    {
+      "title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop",
+      "url": "https://sesameworkshop.org/",
+      "publisher": "Sesame Workshop"
+    },
+    {
+      "title": "UNICEF, for every child",
+      "url": "https://www.unicef.org/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "Mental Health Conditions - HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx",
+      "publisher": "AAP HealthyChildren"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "Does that news scare you? Let's ask mom or dad together, okay?",
+    "triggers": [
+      "earthquake news",
+      "earthquake",
+      "tsunami",
+      "typhoon",
+      "the news said",
+      "on tv it said",
+      "disaster",
+      "there was a fire",
+      "a big flood",
+      "the news is scary"
+    ],
+    "talking_points": {
+      "5-6": [
+        "First ask: what did you hear? How do you feel?",
+        "Say: we are safe at home, and grown-ups are taking care of us.",
+        "Don't keep watching news pictures; turn off the TV first.",
+        "Explain that these things rarely happen, and grown-ups help."
+      ],
+      "7-8": [
+        "Explain what happened calmly, in a steady voice.",
+        "Use a map to show where it happened and how far away it is.",
+        "Explain how grown-ups prepare, such as with an emergency kit and drills.",
+        "Encourage drawing or play to express feelings."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'it's the end of the world' or 'it will happen again soon'.",
+      "Don't let your child watch the news alone.",
+      "Don't say 'don't be scared, it's nothing'."
+    ]
+  }
 }

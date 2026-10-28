@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "rice",
+      "cooked rice"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is rice soft",
+      "why does rice get soft when cooked",
+      "why is my rice so squishy",
+      "why does rice get big"
+    ],
+    "first_sentence": "This is rice! Rice grains drink water, so they get soft.",
+    "facts": [
+      "Rice grains are full of a stuff that drinks water.",
+      "When cooked, the grains soak up water and grow bigger.",
+      "Rice gets hard again if it sits out for a long time."
+    ],
+    "ask_back": "Do you think rice gets bigger after cooking, or smaller?",
+    "bridges": {
+      "has_garden": "Could you grow a bowl of rice in your garden?"
+    }
+  }
 }

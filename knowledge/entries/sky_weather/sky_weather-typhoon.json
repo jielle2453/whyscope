@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "typhoon"
+    ],
+    "question_patterns": [
+      "why does a typhoon spin",
+      "what is this",
+      "why is the wind so strong in a typhoon",
+      "what is a typhoon"
+    ],
+    "first_sentence": "A typhoon spins because the Earth turns all the time.",
+    "facts": [
+      "A typhoon forms over warm sea water.",
+      "A typhoon brings strong winds and lots of rain.",
+      "The middle of a typhoon is calm, like an eye."
+    ],
+    "ask_back": "Do you think a typhoon starts over warm water, or cold water?",
+    "bridges": {
+      "has_dog": "Your dog should stay inside in a typhoon. Does yours hide when it storms?"
+    }
+  }
 }

@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "nosebleed",
+      "bloody nose"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is my nose bleeding",
+      "why does my nose bleed",
+      "why does blood come out of my nose",
+      "what is this red stuff from my nose"
+    ],
+    "first_sentence": "This is a nosebleed! A tiny blood tube in your nose broke.",
+    "facts": [
+      "Your nose has lots of very thin blood tubes inside.",
+      "A dry or bumped nose breaks the tubes more easily.",
+      "Pinch your nose and lean forward, and it usually stops."
+    ],
+    "ask_back": "Do you think a nosebleed hurts more than a scratch, or less?",
+    "bridges": {
+      "has_dog": "Your dog's nose is wet. Can it get a nosebleed too?"
+    }
+  }
 }

@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "banyan tree"
+    ],
+    "question_patterns": [
+      "why does the banyan have roots hanging down",
+      "what is this",
+      "why are there roots in the air",
+      "why do tree roots come down"
+    ],
+    "first_sentence": "A banyan tree grows hanging roots to hold up its branches.",
+    "facts": [
+      "Air roots grow down from the branches, like a beard.",
+      "When an air root touches the soil, it becomes a pillar.",
+      "Air roots can also soak up water from the air."
+    ],
+    "ask_back": "Do you think the banyan's roots start high in the tree, or in the ground?",
+    "bridges": {
+      "has_garden": "Have you seen a big tree with roots hanging down?"
+    }
+  }
 }

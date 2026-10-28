@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "flower"
+    ],
+    "question_patterns": [
+      "why do flowers smell nice",
+      "what is this",
+      "why does a flower have a smell",
+      "why do flowers smell so good"
+    ],
+    "first_sentence": "Flowers smell nice to bring bugs to come visit.",
+    "facts": [
+      "A flower's smell can draw bugs to come near.",
+      "Bees and butterflies carry flower dust from flower to flower.",
+      "Each kind of flower has its own smell."
+    ],
+    "ask_back": "Do you think bees like flowers that smell sweet?",
+    "bridges": {
+      "has_garden": "Have you smelled a flower in your garden? Was it sweet?"
+    }
+  }
 }

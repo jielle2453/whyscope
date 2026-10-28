@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "washing machine",
+      "washer"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does the washing machine clean clothes",
+      "why does the washer spin",
+      "how does a washing machine work",
+      "why do clothes get clean in the machine"
+    ],
+    "first_sentence": "This is a washing machine! Spinning water washes the dirt off.",
+    "facts": [
+      "The drum inside turns around and around.",
+      "Soap helps break up the dirt so it can wash away.",
+      "When it spins fast, water is thrown out of the clothes."
+    ],
+    "ask_back": "Do you think a washing machine cleans better with soap, or without?",
+    "bridges": {
+      "has_dog": "Do you wash your dog's towel in the washing machine too?"
+    }
+  }
 }

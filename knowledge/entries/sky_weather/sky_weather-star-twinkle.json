@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "star"
+    ],
+    "question_patterns": [
+      "why do stars twinkle",
+      "what is this",
+      "why do stars blink",
+      "why does a star shine and sparkle"
+    ],
+    "first_sentence": "Stars twinkle because the air moves and bends their light.",
+    "facts": [
+      "Stars are very far away, so their light is weak.",
+      "When the air moves, the star's light seems to blink.",
+      "Stars make their own light, like very far suns."
+    ],
+    "ask_back": "Do you think stars are closer than the moon, or farther away?",
+    "bridges": {
+      "has_garden": "Have you looked for stars in the sky above your garden?"
+    }
+  }
 }

@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "elevator",
+      "lift"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does an elevator go up",
+      "why does the elevator move",
+      "how does an elevator work",
+      "why does the elevator go up and down"
+    ],
+    "first_sentence": "This is an elevator! A motor pulls cables to lift the box.",
+    "facts": [
+      "Strong steel cables hold up the elevator box.",
+      "A heavy weight on the other side helps lift it.",
+      "Brakes can stop the box so it stays still."
+    ],
+    "ask_back": "Do you think an elevator is faster than the stairs, or slower?",
+    "bridges": {
+      "has_garden": "Which is faster to get upstairs, the elevator or the stairs?"
+    }
+  }
 }

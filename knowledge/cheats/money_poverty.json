@@ -2,7 +2,16 @@
   "id": "money_poverty",
   "category": "money_poverty",
   "category_zh": "金錢與貧窮",
-  "triggers": ["沒錢", "很窮", "沒有錢", "買不起", "我們要搬家嗎", "繳不出", "沒飯吃", "爸爸沒有工作"],
+  "triggers": [
+    "沒錢",
+    "很窮",
+    "沒有錢",
+    "買不起",
+    "我們要搬家嗎",
+    "繳不出",
+    "沒飯吃",
+    "爸爸沒有工作"
+  ],
   "deflection_zh": "錢的事情要和大人商量，我們一起去問爸爸媽媽。",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要拿別人家的條件來比較"
   ],
   "sources": [
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
-    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
-    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"}
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    },
+    {
+      "title": "UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "UNICEF, for every child",
+      "url": "https://www.unicef.org/",
+      "publisher": "UNICEF"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "That's a worry to share with grown-ups. Let's ask mom or dad together, okay?",
+    "triggers": [
+      "we have no money",
+      "we are so poor",
+      "we don't have any money",
+      "we can't afford it",
+      "are we going to move",
+      "we can't pay the bills",
+      "we have no food",
+      "daddy doesn't have a job",
+      "we don't have enough money",
+      "we are broke"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Tell your child: grown-ups take care of money at home.",
+        "Say: even when money is tight, people still take care of you.",
+        "Don't let your child worry about grown-up problems.",
+        "Talk about how you can have fun without buying things."
+      ],
+      "7-8": [
+        "Briefly explain how the family's money is spent and saved.",
+        "Explain that having money doesn't decide whether a person is good.",
+        "Let them know they can share worries and don't have to think alone.",
+        "Do free things together, like walking or drawing."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'we are so poor' or 'we're about to run out of money'.",
+      "Don't pass grown-up pressure on to your child.",
+      "Don't compare your family with other families."
+    ]
+  }
 }

@@ -3,7 +3,15 @@
   "category": "self_harm",
   "category_zh": "傷害自己",
   "urgent": true,
-  "triggers": ["不想活", "想死", "想消失", "不要活了", "割自己", "傷害自己", "活著沒意思"],
+  "triggers": [
+    "不想活",
+    "想死",
+    "想消失",
+    "不要活了",
+    "割自己",
+    "傷害自己",
+    "活著沒意思"
+  ],
   "deflection_zh": "你的感覺很重要，請馬上去找大人，現在就去！",
   "talking_points": {
     "5-6": [
@@ -27,10 +35,56 @@
     "不要答應「我不會告訴別人」來保密"
   ],
   "sources": [
-    {"title": "衛生福利部", "url": "https://www.mohw.gov.tw/", "publisher": "衛生福利部"},
-    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"},
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+    {
+      "title": "衛生福利部",
+      "url": "https://www.mohw.gov.tw/",
+      "publisher": "衛生福利部"
+    },
+    {
+      "title": "Mental Health Conditions - HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx",
+      "publisher": "AAP HealthyChildren"
+    },
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "Your feelings matter a lot. Please find a grown-up right now, okay?",
+    "triggers": [
+      "i don't want to live",
+      "i want to die",
+      "i want to disappear",
+      "i don't want to be alive",
+      "life is no fun",
+      "i want to hurt myself",
+      "i want to cut myself",
+      "kill myself",
+      "i wish i was gone",
+      "i don't want to be here"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Stay right next to the child; don't leave them alone.",
+        "Say: you were brave to tell me, and we will work it out together.",
+        "Put away dangerous things, like knives and medicine, to keep them safe.",
+        "Call 1925 (24-hour toll-free helpline) or 1995 Lifeline; in an emergency, call 119."
+      ],
+      "7-8": [
+        "Listen closely; don't rush to disagree or criticize.",
+        "Ask directly: have they already hurt themselves?",
+        "Tell another grown-up right away, and ask a professional to help.",
+        "Call 1925 (24-hour toll-free helpline) or 1995 Lifeline; in an emergency, call 119."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'don't think like that' or 'you're overthinking it'.",
+      "Don't use threats or blame.",
+      "Don't promise 'I won't tell anyone' to keep it secret."
+    ]
+  }
 }

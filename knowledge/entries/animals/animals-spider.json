@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "spider"
+    ],
+    "question_patterns": [
+      "why does a spider make a web",
+      "what is this",
+      "why is there a spider web",
+      "why does a spider spin a web"
+    ],
+    "first_sentence": "A spider makes a web to catch bugs that fly by.",
+    "facts": [
+      "A spider spins silk from its back end.",
+      "A spider has eight legs, so it is not an insect.",
+      "Spider silk is very thin, but also very strong."
+    ],
+    "ask_back": "Do you think a spider can catch a fly in its web?",
+    "bridges": {
+      "has_garden": "Have you seen a spider web in your garden?"
+    }
+  }
 }

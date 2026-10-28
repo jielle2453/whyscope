@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "dew"
+    ],
+    "question_patterns": [
+      "why is there dew on the grass",
+      "what is this",
+      "why is the grass wet in the morning",
+      "where does dew come from"
+    ],
+    "first_sentence": "Dew forms on grass because the air gets cold at night.",
+    "facts": [
+      "Dew is water from the air that touches cold grass.",
+      "You often see dew on grass early in the morning.",
+      "When the sun rises, dew goes back into the air."
+    ],
+    "ask_back": "Do you think dew is on the grass at noon, or in the morning?",
+    "bridges": {
+      "has_dog": "Has your dog ever run through wet grass in the morning?"
+    }
+  }
 }

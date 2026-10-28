@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "toilet"
+    ],
+    "question_patterns": [
+      "what is this",
+      "where does the poop go",
+      "why does the toilet flush",
+      "how does a toilet work",
+      "why does the water go down"
+    ],
+    "first_sentence": "This is a toilet! Water flushes down and takes the mess away.",
+    "facts": [
+      "Water is kept in a tank, ready to push down.",
+      "The water goes down pipes to a place that cleans it.",
+      "A bent pipe keeps a little water to block smells."
+    ],
+    "ask_back": "Do you think a toilet uses water to push the mess away, or air?",
+    "bridges": {
+      "has_cat": "Cat litter boxes need cleaning too, right?"
+    }
+  }
 }

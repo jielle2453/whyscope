@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "microwave",
+      "microwave oven"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does the microwave make food hot",
+      "how does a microwave work",
+      "why does the microwave hum",
+      "why is my food hot in the microwave"
+    ],
+    "first_sentence": "This is a microwave! Shaking water makes the food get hot.",
+    "facts": [
+      "The microwave makes a kind of wave you cannot see.",
+      "Water in food shakes very fast, and that makes heat.",
+      "Metal inside makes sparks, which is dangerous."
+    ],
+    "ask_back": "Do you think a microwave can heat a cup of water fast, or slow?",
+    "bridges": {
+      "has_sibling": "Do you help your family heat milk in the microwave?"
+    }
+  }
 }

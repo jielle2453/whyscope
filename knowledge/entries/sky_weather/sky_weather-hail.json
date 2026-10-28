@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "hail"
+    ],
+    "question_patterns": [
+      "why does hail fall from the sky",
+      "what is this",
+      "why are there ice balls falling",
+      "why is hail so hard"
+    ],
+    "first_sentence": "Hail forms when water freezes high up in storm clouds.",
+    "facts": [
+      "Hail is made of many layers of ice.",
+      "Hail grows bigger each time it is blown up in the storm.",
+      "Hail can fall and break the plants farmers grow."
+    ],
+    "ask_back": "Do you think hail is soft like snow, or hard like ice?",
+    "bridges": {
+      "has_garden": "Have you ever seen hail fall in your garden?"
+    }
+  }
 }

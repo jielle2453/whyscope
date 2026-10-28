@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "gecko"
+    ],
+    "question_patterns": [
+      "how does a gecko stick to walls",
+      "what is this",
+      "why can a gecko walk on a wall",
+      "why does a gecko not fall down"
+    ],
+    "first_sentence": "Geckos stick to walls because their toes have tiny hairs.",
+    "facts": [
+      "A gecko's toes have many very tiny hairs.",
+      "The tiny hairs can hold on to a smooth wall.",
+      "Geckos eat mosquitoes and other small bugs."
+    ],
+    "ask_back": "Do you think a gecko can walk up a glass window?",
+    "bridges": {
+      "has_garden": "Have you seen a little lizard on a wall near your home?"
+    }
+  }
 }

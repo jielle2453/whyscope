@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "nails",
+      "fingernails"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do nails grow",
+      "why do my nails grow back",
+      "why do nails keep growing",
+      "why do I need to cut my nails"
+    ],
+    "first_sentence": "These are nails! Roots under your skin keep making new nail.",
+    "facts": [
+      "Nails are made of the same hard stuff as hair.",
+      "The root of your nail hides under your skin.",
+      "Fingernails usually grow faster than toenails."
+    ],
+    "ask_back": "Do you think nails grow faster on your hand, or on your foot?",
+    "bridges": {
+      "has_cat": "Do cat claws keep growing long too?"
+    }
+  }
 }

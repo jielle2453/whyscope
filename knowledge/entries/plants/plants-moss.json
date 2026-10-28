@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "moss"
+    ],
+    "question_patterns": [
+      "why does moss grow on rocks",
+      "what is this",
+      "why is moss so green and soft",
+      "why does moss like wet places"
+    ],
+    "first_sentence": "Moss likes wet places because it has no real roots.",
+    "facts": [
+      "Moss has no real roots, so it drinks through its body.",
+      "Moss is very small and grows on stones and walls.",
+      "Moss makes no flowers; it grows from tiny dust-like bits."
+    ],
+    "ask_back": "Do you think moss likes to be dry, or wet?",
+    "bridges": {
+      "has_garden": "Have you seen green moss on a wall or rock near home?"
+    }
+  }
 }

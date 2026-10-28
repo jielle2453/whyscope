@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "wind"
+    ],
+    "question_patterns": [
+      "why does the wind blow",
+      "what is this",
+      "why is there wind",
+      "what makes the wind"
+    ],
+    "first_sentence": "Wind blows because the sun warms the ground in different ways.",
+    "facts": [
+      "The sun warms some places more than others.",
+      "Moving air is what we feel as wind.",
+      "Wind can turn a windmill to make electricity."
+    ],
+    "ask_back": "Do you think the wind is stronger on a hill, or in a flat field?",
+    "bridges": {
+      "rides_bike": "You ride a bike! Have you felt the wind on your face?"
+    }
+  }
 }

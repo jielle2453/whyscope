@@ -2,7 +2,16 @@
   "id": "illness",
   "category": "illness",
   "category_zh": "生病",
-  "triggers": ["生病", "發燒", "住院", "開刀", "好不了", "癌症", "很痛", "病好了嗎"],
+  "triggers": [
+    "生病",
+    "發燒",
+    "住院",
+    "開刀",
+    "好不了",
+    "癌症",
+    "很痛",
+    "病好了嗎"
+  ],
   "deflection_zh": "身體不舒服要告訴大人，我們去問爸爸媽媽好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要用嚇人的話解釋生病，例如「會死掉」"
   ],
   "sources": [
-    {"title": "衛生福利部", "url": "https://www.mohw.gov.tw/", "publisher": "衛生福利部"},
-    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
-    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"}
+    {
+      "title": "衛生福利部",
+      "url": "https://www.mohw.gov.tw/",
+      "publisher": "衛生福利部"
+    },
+    {
+      "title": "HealthyChildren.org - From the American Academy of Pediatrics",
+      "url": "https://www.healthychildren.org/",
+      "publisher": "AAP HealthyChildren"
+    },
+    {
+      "title": "UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/",
+      "publisher": "UNICEF"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "Thank you for telling me. Let's ask mom or dad together, okay?",
+    "triggers": [
+      "i am sick",
+      "i have a fever",
+      "i have to go to the hospital",
+      "i need an operation",
+      "will i get better",
+      "it hurts so much",
+      "i have cancer",
+      "my mom is sick",
+      "i am in the hospital",
+      "my body still hurts"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Explain simply: being sick means the body is working hard to get better.",
+        "Say: doctors and nurses will take good care of your body.",
+        "Tell your child that getting sick is never the child's fault.",
+        "Ask: is there anywhere that feels uncomfortable?"
+      ],
+      "7-8": [
+        "Explain the cause and treatment calmly, in a steady voice.",
+        "If you don't know something, honestly say you're not sure.",
+        "Encourage them to share worries instead of keeping them inside.",
+        "Make cards together to send to someone who is sick."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't promise 'you'll get better soon' or guarantee results.",
+      "Don't say 'the shot will never hurt' as if it's certain.",
+      "Don't scare them with words like 'you will die' when explaining illness."
+    ]
+  }
 }

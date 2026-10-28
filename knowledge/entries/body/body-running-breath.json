@@ -29,5 +29,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "breathing hard",
+      "panting"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why am I breathing so fast",
+      "why do I breathe hard when I run",
+      "why am I panting",
+      "why is my breath so fast"
+    ],
+    "first_sentence": "This is panting! Running needs more air, so you breathe faster.",
+    "facts": [
+      "The air you breathe in goes to your muscles to use.",
+      "When you run fast, your heart and breath both speed up.",
+      "Rest for a while, and your breathing slowly slows down."
+    ],
+    "ask_back": "Do you think you breathe faster after a long run, or after a nap?",
+    "bridges": {
+      "rides_bike": "After riding your bike a long way, do you get puffed out?",
+      "has_dog": "Does your dog pant with its tongue out after running?"
+    }
+  }
 }

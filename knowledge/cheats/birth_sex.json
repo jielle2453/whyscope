@@ -2,7 +2,16 @@
   "id": "birth_sex",
   "category": "birth_sex",
   "category_zh": "出生與性別",
-  "triggers": ["寶寶怎麼來的", "寶寶從哪裡來", "我是怎麼來的", "媽媽肚子裡怎麼了", "為什麼男生女生不一樣", "怎麼生出來的", "懷孕是什麼", "身體哪裡不一樣"],
+  "triggers": [
+    "寶寶怎麼來的",
+    "寶寶從哪裡來",
+    "我是怎麼來的",
+    "媽媽肚子裡怎麼了",
+    "為什麼男生女生不一樣",
+    "怎麼生出來的",
+    "懷孕是什麼",
+    "身體哪裡不一樣"
+  ],
   "deflection_zh": "這個問題很棒，我們回家一起問爸爸媽媽好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要用嚇人的話，例如「不能亂問」"
   ],
   "sources": [
-    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
-    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+    {
+      "title": "UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "HealthyChildren.org - From the American Academy of Pediatrics",
+      "url": "https://www.healthychildren.org/",
+      "publisher": "AAP HealthyChildren"
+    },
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "That is a really good question! Let's ask your mom or dad together, okay?",
+    "triggers": [
+      "where do babies come from",
+      "how was i made",
+      "how do babies get in the tummy",
+      "why are boys and girls different",
+      "what does pregnant mean",
+      "why is mommy's tummy so big",
+      "how did i come out of mommy",
+      "what are private parts",
+      "where did i come from",
+      "how does a baby grow"
+    ],
+    "talking_points": {
+      "5-6": [
+        "First ask: where did you hear that?",
+        "Use the correct names for body parts, not nicknames.",
+        "Keep it simple: a baby grows inside mommy's tummy for a long time.",
+        "Tell your child their private body parts are theirs to protect."
+      ],
+      "7-8": [
+        "Explain how boys' and girls' bodies are different, in a calm, natural tone.",
+        "A baby starts when a sperm from dad joins an egg from mom.",
+        "Explain that pregnancy lasts about nine months while the baby grows.",
+        "Remind them: if someone touches them in a way that feels wrong, tell a grown-up."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say the baby was found somewhere or sent by God.",
+      "Don't laugh at the question or avoid it out of embarrassment.",
+      "Don't scare them with words like 'you must never ask that'."
+    ]
+  }
 }

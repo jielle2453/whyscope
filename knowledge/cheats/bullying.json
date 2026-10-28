@@ -2,7 +2,16 @@
   "id": "bullying",
   "category": "bullying",
   "category_zh": "霸凌",
-  "triggers": ["被欺負", "同學欺負我", "不跟我玩", "被笑", "被取綽號", "不想去學校", "被罵", "被打"],
+  "triggers": [
+    "被欺負",
+    "同學欺負我",
+    "不跟我玩",
+    "被笑",
+    "被取綽號",
+    "不想去學校",
+    "被罵",
+    "被打"
+  ],
   "deflection_zh": "被欺負很難過，請馬上告訴爸爸媽媽或老師。",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,57 @@
     "不要說「是不是你也有問題」"
   ],
   "sources": [
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
-    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"},
-    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"}
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    },
+    {
+      "title": "Mental Health Conditions - HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx",
+      "publisher": "AAP HealthyChildren"
+    },
+    {
+      "title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop",
+      "url": "https://sesameworkshop.org/",
+      "publisher": "Sesame Workshop"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "I'm sorry you feel hurt. Please tell a grown-up right away, okay?",
+    "triggers": [
+      "someone is mean to me",
+      "kids are picking on me",
+      "they call me names",
+      "they won't play with me",
+      "they laughed at me",
+      "i don't want to go to school",
+      "a kid hit me",
+      "they pushed me",
+      "nobody plays with me",
+      "they made fun of me",
+      "they teased me"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Say: you were brave to tell me. This is not your fault.",
+        "Ask calmly: who was it, where was it, and what happened?",
+        "Tell your child to find a grown-up when someone is mean to them.",
+        "Contact the teacher and work together to keep your child safe."
+      ],
+      "7-8": [
+        "Remember that children who bully others may also need help.",
+        "Teach your child to say 'I don't like that' and then walk away.",
+        "Write down the dates, places, and what happened.",
+        "Talk with the teacher; don't only teach your child to put up with it."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'just bear it' or 'boys shouldn't cry'.",
+      "Don't tell your child to hit back.",
+      "Don't ask 'maybe you did something to cause it?'"
+    ]
+  }
 }

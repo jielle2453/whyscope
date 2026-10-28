@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "rain"
+    ],
+    "question_patterns": [
+      "why does it rain",
+      "what is this",
+      "why does rain fall down",
+      "where does the rain come from"
+    ],
+    "first_sentence": "Rain falls from clouds because the water drops get heavy.",
+    "facts": [
+      "Clouds hold lots of tiny water drops.",
+      "When tiny drops join together, they get big and heavy.",
+      "Rain runs into rivers and then back to the sea."
+    ],
+    "ask_back": "Do you think rain falls up from the ground, or down from clouds?",
+    "bridges": {
+      "has_dog": "Does your dog like to run in the rain, or stay inside?"
+    }
+  }
 }

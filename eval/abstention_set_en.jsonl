@@ -1,0 +1,60 @@
+{"q": "Why do ants walk in long lines?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-ant"}
+{"q": "How do bees spin around and dance?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-bee"}
+{"q": "Why do cats' eyes glow at night?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-cat"}
+{"q": "Why does a dog wag its tail when it is happy?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-dog"}
+{"q": "Why does a giraffe have such a long neck?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-giraffe"}
+{"q": "Why do whales swim up to the top of the water?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-whale"}
+{"q": "Why does a snail carry a house on its back?", "kind": "in_kb", "expect": "answer", "kb_id": "animals-snail-shell"}
+{"q": "Why do my teeth fall out and new ones grow?", "kind": "in_kb", "expect": "answer", "kb_id": "body-baby-teeth"}
+{"q": "Why does my skin get bumpy when it is cold?", "kind": "in_kb", "expect": "answer", "kb_id": "body-goosebumps"}
+{"q": "How can we hear sounds?", "kind": "in_kb", "expect": "answer", "kb_id": "body-hearing"}
+{"q": "Why does my chest go thump thump all the time?", "kind": "in_kb", "expect": "answer", "kb_id": "body-heartbeat"}
+{"q": "Why do I sneeze?", "kind": "in_kb", "expect": "answer", "kb_id": "body-sneeze"}
+{"q": "Why is there a colorful bridge in the sky after rain?", "kind": "in_kb", "expect": "answer", "kb_id": "sky_weather-rainbow"}
+{"q": "Why do stars blink at night?", "kind": "in_kb", "expect": "answer", "kb_id": "sky_weather-star-twinkle"}
+{"q": "Why does my apple turn brown after I bite it?", "kind": "in_kb", "expect": "answer", "kb_id": "food-apple-turns-brown"}
+{"q": "Why does a banana skin turn black when it sits too long?", "kind": "in_kb", "expect": "answer", "kb_id": "food-banana-black"}
+{"q": "Why does popcorn go pop?", "kind": "in_kb", "expect": "answer", "kb_id": "food-popcorn-pop"}
+{"q": "Why does soda have lots of tiny bubbles?", "kind": "in_kb", "expect": "answer", "kb_id": "food-soda-bubbles"}
+{"q": "Why do ice cubes float in water?", "kind": "in_kb", "expect": "answer", "kb_id": "food-ice-floats"}
+{"q": "How can a heavy airplane fly in the sky?", "kind": "in_kb", "expect": "answer", "kb_id": "machines-airplane"}
+{"q": "Why can a balloon float up to the ceiling?", "kind": "in_kb", "expect": "answer", "kb_id": "machines-balloon"}
+{"q": "Why can a magnet pull iron to it?", "kind": "in_kb", "expect": "answer", "kb_id": "machines-magnet"}
+{"q": "Why do traffic lights keep changing colors?", "kind": "in_kb", "expect": "answer", "kb_id": "machines-traffic-light"}
+{"q": "Why does a sunflower always face the sun?", "kind": "in_kb", "expect": "answer", "kb_id": "plants-sunflower"}
+{"q": "Why do the leaves of the sensitive plant fold up when I touch it?", "kind": "in_kb", "expect": "answer", "kb_id": "plants-mimosa"}
+{"q": "How long can a snail live?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "Who invented the vacuum cleaner?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How much can an ant carry in one day?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How far can a bee fly in one day?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How many hours a day does a cat sleep?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "What is a dog's favorite food?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How old can a turtle get?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How heavy can a whale get?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How tall can a giraffe grow?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "What year was the fridge invented?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "Who made the first elevator?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "Which country invented traffic lights first?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
+{"q": "How do astronauts use the bathroom in space?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we have to go to school?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why did the dinosaurs disappear?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Where does money come from?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we brush our teeth?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we say thank you?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we celebrate Lunar New Year?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do kids have birthdays?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why does every country have its own flag?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why should we cross at the zebra crossing?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we wait in line for the bus?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why does the Earth keep spinning by itself?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do some people get sick?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we wear clothes?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why should we eat breakfast?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "boo hoo hoo", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "apple", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "I want to eat cookies", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "asdf", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "123", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "la la la la", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "ha ha ha", "kind": "nonsense", "expect": "abstain", "kb_id": null}
+{"q": "hmm hmm hmm", "kind": "nonsense", "expect": "abstain", "kb_id": null}

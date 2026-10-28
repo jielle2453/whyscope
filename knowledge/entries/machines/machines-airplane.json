@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "airplane",
+      "plane"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does a plane fly",
+      "why does a plane fly",
+      "how do planes stay up",
+      "why does the plane fly in the sky"
+    ],
+    "first_sentence": "This is a plane! Its wings push air down, so it rises.",
+    "facts": [
+      "Engines push the plane forward very fast.",
+      "The plane must go fast enough before it can lift off.",
+      "The shape of the wings makes air push the plane up."
+    ],
+    "ask_back": "Do you think a plane can fly with no wings, or not?",
+    "bridges": {
+      "likes_cars": "Cars go very fast. Why can't they fly like planes?"
+    }
+  }
 }

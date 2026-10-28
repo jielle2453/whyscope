@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "shadow"
+    ],
+    "question_patterns": [
+      "why do I have a shadow",
+      "what is this",
+      "why does my shadow follow me",
+      "why is there a dark shape on the ground"
+    ],
+    "first_sentence": "A shadow appears because your body blocks the light.",
+    "facts": [
+      "Light goes in straight lines, so it cannot go around you.",
+      "When the sun is high, your shadow is short.",
+      "When the sun is low, your shadow gets very long."
+    ],
+    "ask_back": "Do you think a shadow is short at noon, or long?",
+    "bridges": {
+      "has_dog": "Your dog has a shadow too! Did you see it on the ground?"
+    }
+  }
 }

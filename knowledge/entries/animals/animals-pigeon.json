@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "pigeon"
+    ],
+    "question_patterns": [
+      "why can a pigeon find its home",
+      "what is this",
+      "how do pigeons find their way home",
+      "why do pigeons fly so far"
+    ],
+    "first_sentence": "Pigeons find their way home because they are very good at it.",
+    "facts": [
+      "Some pigeons were trained by people to find home.",
+      "A pigeon can fly far and still find its nest.",
+      "Long ago, people sent messages by pigeon."
+    ],
+    "ask_back": "Do you think a pigeon can find its way home in the rain?",
+    "bridges": {
+      "has_garden": "Have you seen pigeons walking around in your garden?"
+    }
+  }
 }

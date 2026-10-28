@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "remote",
+      "remote control"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does the remote work",
+      "why does the remote change the tv",
+      "how does the remote talk to the tv",
+      "why does a button change the channel"
+    ],
+    "first_sentence": "This is a remote! Buttons send invisible light to the TV.",
+    "facts": [
+      "The light from a remote is one we cannot see.",
+      "A small window on the TV can catch this light.",
+      "When the battery is empty, the remote stops working."
+    ],
+    "ask_back": "Do you think a TV remote works without batteries, or not?",
+    "bridges": {
+      "has_cat": "Would your cat try to push the remote buttons with its paw?"
+    }
+  }
 }

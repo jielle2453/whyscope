@@ -28,5 +28,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "soda",
+      "fizzy drink"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does soda have bubbles",
+      "why is soda fizzy",
+      "why do sodas bubble",
+      "where do the bubbles come from"
+    ],
+    "first_sentence": "This is soda! Gas is pushed in, so it fizzes and bubbles.",
+    "facts": [
+      "Soda has lots of the gas that makes bubbles in it.",
+      "When you open the cap, the push gets smaller and bubbles come out.",
+      "Warm soda loses its bubbles faster than cold soda."
+    ],
+    "ask_back": "Do you think soda stays fizzy longer in the fridge, or on the table?",
+    "bridges": {
+      "has_sibling": "Do you and your brother or sister race to drink soda?"
+    }
+  }
 }

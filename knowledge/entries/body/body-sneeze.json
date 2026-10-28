@@ -28,5 +28,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sneeze",
+      "sneezing"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do I sneeze",
+      "why do I sneeze so much",
+      "why does my nose tickle",
+      "why did I sneeze"
+    ],
+    "first_sentence": "This is a sneeze! Tickly dust makes your nose blow air out.",
+    "facts": [
+      "Tiny hairs inside your nose can catch dust.",
+      "Flower dust or a sick germ can also tickle your nose.",
+      "When you sneeze, air rushes out very fast."
+    ],
+    "ask_back": "Do you think a sneeze is louder than a cough, or quieter?",
+    "bridges": {
+      "has_dog": "Does your dog sneeze too?"
+    }
+  }
 }

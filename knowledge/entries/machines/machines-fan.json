@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "fan",
+      "electric fan"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does the fan spin",
+      "how does a fan make wind",
+      "why does the fan blow air",
+      "how does a fan work"
+    ],
+    "first_sentence": "This is a fan! A motor spins, so the blades spin too.",
+    "facts": [
+      "Electricity goes into the motor and makes it turn.",
+      "The spinning blades push air forward, making wind.",
+      "Wind on your skin helps sweat dry faster."
+    ],
+    "ask_back": "Do you think a fan feels cooler in front of it, or behind it?",
+    "bridges": {
+      "has_cat": "Does your cat want to catch the spinning fan?"
+    }
+  }
 }

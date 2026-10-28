@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "fallen leaves"
+    ],
+    "question_patterns": [
+      "why do leaves fall off trees",
+      "what is this",
+      "why do trees lose their leaves",
+      "why are leaves on the ground"
+    ],
+    "first_sentence": "Leaves fall in dry or cold times to save water.",
+    "facts": [
+      "Some trees drop all their leaves in winter.",
+      "Fewer leaves means less water leaves the tree.",
+      "Fallen leaves slowly turn into soil that helps plants."
+    ],
+    "ask_back": "Do you think a tree needs more water in summer, or in winter?",
+    "bridges": {
+      "has_garden": "Have you played in a pile of fallen leaves in your garden?"
+    }
+  }
 }

@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "dandelion"
+    ],
+    "question_patterns": [
+      "why do dandelion seeds fly",
+      "what is this",
+      "why does a dandelion have fluff",
+      "how do dandelion seeds travel so far"
+    ],
+    "first_sentence": "Dandelion seeds fly because they have tiny fluffy parachutes.",
+    "facts": [
+      "Each dandelion seed has a little fluffy parachute.",
+      "The wind blows the seeds far away to new places.",
+      "Dandelions have bright yellow flowers you often see."
+    ],
+    "ask_back": "Do you think a dandelion seed can fly in the wind, or sink?",
+    "bridges": {
+      "has_garden": "Have you blown a dandelion in your garden? Where did it go?"
+    }
+  }
 }

@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "fridge",
+      "refrigerator"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is the fridge cold",
+      "how does a fridge make things cold",
+      "why does the fridge hum",
+      "how does a fridge work"
+    ],
+    "first_sentence": "This is a fridge! Heat goes outside, so the inside gets cold.",
+    "facts": [
+      "Inside, a special liquid turns into gas very easily.",
+      "When liquid turns into gas, it pulls heat from nearby.",
+      "The heat leaves through the back or bottom of the fridge."
+    ],
+    "ask_back": "Do you think the back of a fridge gets warm, or cold?",
+    "bridges": {
+      "has_cat": "Does your cat like to hide next to the fridge?"
+    }
+  }
 }

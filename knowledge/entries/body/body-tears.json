@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "tears",
+      "crying"
+    ],
+    "question_patterns": [
+      "what is this",
+      "what is this water in my eyes",
+      "why do my eyes get wet",
+      "why do I have tears",
+      "why do eyes need water"
+    ],
+    "first_sentence": "This is a tear! Your eyes need water to stay wet.",
+    "facts": [
+      "Tears can wash tiny dust bits out of your eyes.",
+      "Tears have special stuff inside that fights germs.",
+      "When you cry hard, more tears come out."
+    ],
+    "ask_back": "Do you think tears taste salty, or sweet?",
+    "bridges": {
+      "has_cat": "Do a cat's eyes get wet and shiny too?"
+    }
+  }
 }

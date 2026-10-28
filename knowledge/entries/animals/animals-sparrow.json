@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sparrow"
+    ],
+    "question_patterns": [
+      "why do sparrows live near people",
+      "what is this",
+      "why are sparrows around our house",
+      "why do birds live near houses"
+    ],
+    "first_sentence": "Sparrows live near people because they find food easily there.",
+    "facts": [
+      "Sparrows often build nests under roofs and in holes.",
+      "Sparrows love seeds, grains, and tiny bugs to eat.",
+      "Sparrows have lived with people for a long time."
+    ],
+    "ask_back": "Do you think a sparrow likes to eat seeds, or fish?",
+    "bridges": {
+      "has_garden": "Have you seen a sparrow hopping around your garden?"
+    }
+  }
 }

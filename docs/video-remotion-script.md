@@ -1,39 +1,47 @@
-# Whyscope — Stage I demo video (Remotion), 2:55
+# Whyscope — product film (Remotion), 2:55
 
-Output: 1920×1080, 30 fps, MP4, English narration (local TTS, replaceable by a human voice-over), Chinese on-screen
-only where the child speaks/types. Footage of the app is recorded automatically with Playwright at 390×844
-(phone frame) against the running prototype; everything else is drawn by Remotion.
+Style: a product launch film, not a walkthrough. Dark, quiet cold open → light floods in at the reveal → pastel
+world. Kinetic typography, slow parallax on a phone mockup, one big idea per beat, music-driven cuts, soft UI
+ticks. English narration (calm, warm, few words). Chinese appears only inside the phone (what the child
+says) with small English captions. 1920×1080, 30 fps, MP4.
 
-| # | Time | On screen | Narration (English) | 製作備註 |
+| # | Time | Beat | On screen | Narration |
 |---|---|---|---|---|
-| 1 | 0:00–0:08 | Pastel gradient, magnifying-glass logo draws itself, "Whyscope 好奇鏡" fades in, subtitle "A why-tool for kids aged 5–8, on-device". | A five-year-old asks about seventy-six questions an hour. Most of them start with "why". | Remotion 標題卡。 |
-| 2 | 0:08–0:28 | Three big numbers animate up: **76** questions/hour, **36.7%** of "why" questions get a real explanation, **50%** fully answered by a voice assistant. Small source line. | Adults explain only about a third of them. And when a child turns to a smart speaker, only half of the questions get a complete answer, mostly because the speaker cannot see what the child is pointing at. | 數字卡，來源 Chouinard 2007、Frazier 2009、Lovato 2019。 |
-| 3 | 0:28–0:45 | Three icons slide in: eye (sees), ear (listens), speech bubble with "?" (asks back). Then a phone frame appears with the kid page idle. | Whyscope is a small device that sees, listens, answers in a child's words, and asks one question back. Everything runs on the device. No audio or image ever leaves the home. | 三步驟圖示 + 手機框。 |
-| 4 | 0:45–1:10 | **Clip A** (Playwright): kid page, text "為什麼蝸牛有殼" typed, first sentence appears immediately with the 🐌 disc, then explanation, then the orange "你猜猜看" ask-back. Caption overlay translates: "This is a snail! The shell is its home." / "Guess: does a snail come out in the rain, or hide in its shell?" | Here a child asks why a snail has a shell. The first sentence is spoken within a few milliseconds, straight from a curated kids' knowledge base. A small on-device language model adds one more sentence, and then Whyscope asks the child to guess. | 字幕用英文翻譯覆蓋，保留中文原畫面。 |
-| 5 | 1:10–1:30 | **Clip B** (Playwright, fake mic): the mic button pressed, waveform moves, transcript "為什麼貓的眼睛晚上會發光" appears, answer card. Caption: "Why do cats' eyes glow at night?" | It also listens. The child holds the button and speaks. Speech recognition runs locally, and the answer uses only words a seven-year-old knows. Scientific terms are rewritten automatically: "reflect" becomes "bounce the light back". | 用 Chrome 假麥克風旗標餵 WAV；若失敗改用打字畫面並在旁白省略「holds the button」。 |
-| 6 | 1:30–1:48 | **Clip C**: "為什麼人會死" typed → soft card "這個問題很重要，我們一起去問爸爸媽媽好嗎？" then "為什麼股票會跌" → "我不確定，我們一起去問爸爸媽媽好嗎？". Captions in English. | Some questions belong to parents. Death, violence, where babies come from: Whyscope gently hands them back to a grown-up. And when it does not know, it says so instead of guessing. | 兩段短片接在一起。 |
-| 7 | 1:48–2:15 | **Clip D**: parent page, 本週 tab: big number, sparkline, emoji topic row, swipe through "可以聊聊看" cards; tap 小抄 tab showing the cheat sheet for the death question with the 5–6 / 7–8 toggle. Callout boxes in English: "This week: 22 whys", "Talk about: snail, rainbow", "Parent cheat sheet". | Parents get a weekly curiosity report: how many whys, which topics, and three questions to talk about at dinner. For the sensitive ones, a cheat sheet with age-appropriate talking points and sources. Only topic counts are stored. Never transcripts, never recordings. | 錄製時用 seed 的示範資料，數字才好看。 |
-| 8 | 2:15–2:35 | Architecture diagram animates: camera + mic → Raspberry Pi 5 + ASUS UGen300 (Hailo-10H) box with four chips (YOLO detection + pose, Whisper, Qwen2.5-1.5B, CLIP) → speaker; a dotted line to "Parent web app on home Wi-Fi". Badge "Battlefield Lightning". | Today the prototype runs on a laptop. In Stage Two it moves to a Raspberry Pi 5 with the ASUS UGen300: vision, English speech and the language model on the Hailo-10H, Mandarin speech and retrieval on the CPU. Two and a half watts, battery-friendly, and it never bricks if a server goes away. | Remotion 畫的架構圖。 |
-| 9 | 2:35–2:50 | Five metric tiles with targets: first word ≤ 2.5 s · child Mandarin CER ≤ 20 % · pointing ≥ 85 % · abstention error ≤ 10 % · energy per question. Under them: "Measured today on a laptop: first sentence 8 ms, abstention 91.7 %". | In four weeks we will measure five numbers on the real hardware: first-word latency, children's speech accuracy, pointing accuracy, how often it wrongly answers, and energy per question. Two of them we already measured today. | 已量數字來自 docs/benchmarks.md。 |
-| 10 | 2:50–2:55 | Logo, "Whyscope — point at it, ask why.", GitHub URL, team name placeholder. | Point at it. Ask why. Whyscope. | 結尾卡。 |
+| 1 | 0:00–0:14 | **Cold open** | Near-black indigo. A cursor blinks. Questions type themselves and stack up, faster and faster, in a child's handwriting-style font, mixing 中文 and English: 「為什麼蝸牛有殼？」 "Why is the sky blue?" 「為什麼月亮跟著我走？」 "Why do cats' eyes glow?" … Soft tick on each. They fill the screen. | *(silence, then)* Seventy-six questions an hour. |
+| 2 | 0:14–0:26 | **The problem** | All questions dim except one: "Why?" It hangs alone. Three lines fade in beneath, one at a time: "Most get a shrug." "Smart speakers can't see what she's pointing at." "Curiosity fades." | Most of them get a shrug. The speaker in the kitchen can't see what she's pointing at. And little by little, the questions stop. |
+| 3 | 0:26–0:40 | **Reveal** | A warm light blooms from the centre; the dark dissolves into the pastel gradient. The magnifying-glass logo draws itself, then the word **Whyscope** settles under it. A phone rises from below with parallax, idle kid screen glowing. Tagline fades: **Point at it. Ask why.** | Meet Whyscope. A small companion for the biggest word in a child's vocabulary. |
+| 4 | 0:40–0:58 | **It sees.** | Headline "It sees." slides in from the left; the phone tilts 8°. Inside: camera toggle on, a toy snail in frame, the 🐌 disc pops, "你問：為什麼蝸牛有殼". Caption: "Why does the snail have a shell?" | Point at anything. Whyscope looks with you. |
+| 5 | 0:58–1:16 | **It answers like a kind grown-up.** | Headline. Inside the phone the first sentence lands instantly in big type: 「這是蝸牛！殼是牠的家。」 then the explanation. Floating callouts: "First words in 8 ms", "Words a 6-year-old knows", "Facts from a curated kids' knowledge base". Caption translation. | It answers in seconds, in words a six-year-old already knows. Every fact comes from a knowledge base built for children. |
+| 6 | 1:16–1:32 | **Then it asks you to guess.** | The peach "你猜猜看" block glows; the ask-back appears line by line: 「猜猜看，你家的狗狗有毛，蝸牛為什麼沒有毛呢？」 Caption. A small chip "uses what parents told it: 🐶 has a dog". | And then it turns the question around. Guess first. Because the thinking is the point. |
+| 7 | 1:32–1:48 | **It listens.** | Headline. Phone: the mic disc breathes, waveform swells with a spoken question, transcript 「為什麼貓的眼睛晚上會發光」, answer card with 🐱. Caption "Why do cats' eyes glow at night?" Callout: "Speech recognition on the device". | Hold the button and just ask. The listening happens right here, on the device. |
+| 8 | 1:48–2:04 | **It knows what's for grown-ups.** | Phone: 「為什麼人會死」 → the soft card 「這個問題很重要，我們一起去問爸爸媽媽好嗎？」 Cut to the parent phone receiving a cheat-sheet notification with the 5–6 / 7–8 toggle. Caption. | Some questions belong to you. Whyscope hands them back gently, and gives you a few words to start with. |
+| 9 | 2:04–2:24 | **For parents: a week of wonder.** | Second phone slides in beside the first: the parent home with the big number, sparkline, emoji topic discs; cards swipe: 🐌 蝸牛 → "Talk about: does a snail come out in the rain?". Callouts: "22 whys this week", "3 things to talk about at dinner", "Only topics are stored. Never recordings." | Every week, a curiosity report. What she wondered about. Three things to talk about at dinner. Only the topics are kept. Never her voice, never her face. |
+| 10 | 2:24–2:40 | **Everything stays home.** | Pastel fades to a clean white studio. The ASUS UGen300 module and a Raspberry Pi 5 appear as flat illustrations, assembling into a small device; a badge "Hailo-10H · 2.5 W". Three lines: "On-device. No cloud." "No subscription needed." "Never bricks." Small footer: "Prototype on a laptop today · UGen300 in Stage II". | It runs on a two-and-a-half-watt chip, at home, without the cloud. No subscription. Nothing to switch off when a company disappears. |
+| 11 | 2:40–2:50 | **Proof** | Five tiles flip in: first word ≤ 2.5 s · child speech CER ≤ 20 % · pointing ≥ 85 % · wrong answers ≤ 10 % · energy per question. Two tiles stamp "measured today: 8 ms", "91.7 %". | Five numbers we will measure on the real hardware. Two of them, we already have. |
+| 12 | 2:50–2:55 | **Close** | Logo, **Point at it. Ask why.**, "Whyscope 好奇鏡", GitHub URL, team name. Music resolves. | Whyscope. |
 
-## Narration word count
+Narration ≈ 210 words. Music carries the rest.
 
-About 390 words → 2:40 at a calm pace, leaving room for the clips to breathe.
+## Sound
 
-## Production plan
+- Music: one calm, hopeful piano/ambient track, 3 minutes, building at the reveal (0:26) and resolving at the end.
+  Needs a licence-free file (CC0 or CC BY with credit in the description). **I need your OK before downloading any
+  track; or drop an MP3 you own into `video/music/`.**
+- UI ticks and the "bloom" whoosh: synthesised locally with a small Python script (sine/noise envelopes), no downloads.
+- Narration: local TTS (Kokoro, warm English voice) at −6 dB under the music; replaceable with your own recording.
 
-1. `video/record.ts` (Playwright): starts from the running server, seeds demo data into a throw-away DB, records
-   Clips A–D as WebM at 390×844 (device scale 2), using `--use-fake-device-for-media-stream` and
-   `--use-file-for-fake-audio-capture=<wav>` for Clip B.
-2. `video/narration/`: one WAV per scene generated by local TTS (Kokoro, English voice; fallback Windows SAPI).
-   Durations feed the Remotion timeline so scenes stretch to the narration.
-3. `video/src/`: Remotion compositions — Title, Numbers, ThreeSteps, PhoneClip (phone frame + caption overlay),
-   Architecture, Metrics, Closing; `Root.tsx` sequences them from `scenes.json`.
-4. `npx remotion render` → `video/out/whyscope-stage1.mp4`. Upload to YouTube as unlisted.
+## Production
 
-## Things to decide
+1. `video/record.ts` (Playwright): records the four phone clips against the running prototype with seeded demo data;
+   Clip 7 uses Chrome's fake-microphone flag fed with a WAV of the question.
+2. `video/src/`: Remotion compositions — ColdOpen, Problem, Reveal, FeatureBeat (headline + phone mockup + clip +
+   callouts, reused for beats 4–9), StaysHome, Proof, Close. Phone mockup is an SVG frame with rounded corners,
+   subtle reflection and parallax.
+3. `scenes.json` holds timings; narration WAV durations stretch each beat.
+4. `npx remotion render` → `video/out/whyscope-film.mp4`; upload unlisted.
 
-- Voice: synthetic English (ready today) vs. your own recording (replace `video/narration/*.wav`, timeline re-fits).
-- Team name and GitHub URL on the closing card.
-- Whether to show the laptop demo honestly as "laptop today" (recommended) or crop to the phone frame only.
+## Decisions needed
+
+1. Music: let me download a CC0 track (I will name it and credit it), or you supply one.
+2. Narration: synthetic English voice now; you can replace it later.
+3. Team name + GitHub URL for the close (repo must be public first).

@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "bread",
+      "dough"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does bread get big",
+      "why does dough rise",
+      "how does bread get fluffy",
+      "why is bread puffy"
+    ],
+    "first_sentence": "This is bread! Tiny bugs breathe out gas, so dough gets bigger.",
+    "facts": [
+      "Yeast is a tiny living bug that lives in the dough.",
+      "The bugs eat sugar in the flour and breathe out a gas.",
+      "When the bread bakes, the gas gets hot and puffs up more."
+    ],
+    "ask_back": "Do you think bread would get bigger in a cold room, or a warm room?",
+    "bridges": {
+      "has_dog": "When dogs smell bread, do they wag their tails?"
+    }
+  }
 }

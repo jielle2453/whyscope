@@ -2,16 +2,54 @@
   "id": "animals-snail-shell",
   "topic": "animals",
   "topic_zh": "動物",
-  "labels": ["蝸牛", "snail"],
-  "question_patterns": ["為什麼蝸牛有殼", "蝸牛的殼是什麼", "蝸牛為什麼背著房子", "這是什麼蝸牛", "蝸牛為什麼要背殼"],
+  "labels": [
+    "蝸牛",
+    "snail"
+  ],
+  "question_patterns": [
+    "為什麼蝸牛有殼",
+    "蝸牛的殼是什麼",
+    "蝸牛為什麼背著房子",
+    "這是什麼蝸牛",
+    "蝸牛為什麼要背殼"
+  ],
   "first_sentence": "這是蝸牛！殼是牠的家。",
-  "facts": ["殼可以保護蝸牛軟軟的身體", "天氣太乾的時候，蝸牛會躲進殼裡", "殼會跟著蝸牛一起長大"],
+  "facts": [
+    "殼可以保護蝸牛軟軟的身體",
+    "天氣太乾的時候，蝸牛會躲進殼裡",
+    "殼會跟著蝸牛一起長大"
+  ],
   "ask_back": "你覺得蝸牛下雨天會出來，還是躲在殼裡？",
-  "bridges": {"has_dog": "你家的狗狗有毛，蝸牛為什麼沒有毛呢？", "has_sibling": "你會不會也想有一個可以躲進去的小房子？"},
+  "bridges": {
+    "has_dog": "你家的狗狗有毛，蝸牛為什麼沒有毛呢？",
+    "has_sibling": "你會不會也想有一個可以躲進去的小房子？"
+  },
   "age": "5-8",
   "source_url": "https://zh.wikipedia.org/wiki/蝸牛",
   "source_license": "CC BY-SA 4.0",
   "author": "claude-sonnet",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "snail"
+    ],
+    "question_patterns": [
+      "why does a snail have a shell",
+      "what is this",
+      "why does the snail carry a house",
+      "what is the shell for"
+    ],
+    "first_sentence": "This is a snail! Its shell keeps its soft body safe.",
+    "facts": [
+      "The shell keeps the snail's soft body safe.",
+      "When it is too dry, the snail hides inside.",
+      "The shell grows with the snail."
+    ],
+    "ask_back": "Do you think a snail comes out in the rain, or hides in its shell?",
+    "bridges": {
+      "has_dog": "Your dog has fur. Why do you think a snail has none?",
+      "has_sibling": "You share a home with your sibling. A snail carries its own."
+    }
+  }
 }

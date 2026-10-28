@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "hair"
+    ],
+    "question_patterns": [
+      "what is this hair",
+      "what is this",
+      "why does hair grow",
+      "why does my hair grow back",
+      "why does hair keep growing"
+    ],
+    "first_sentence": "This is hair! Tiny roots in your skin keep making new hair.",
+    "facts": [
+      "Hair is made of a hard stuff, like your nails.",
+      "The roots under your skin push hair up and out.",
+      "Cutting hair does not hurt, since hair cannot feel."
+    ],
+    "ask_back": "Do you think hair grows faster in summer, or in winter?",
+    "bridges": {
+      "has_dog": "Does your dog's hair keep growing too?"
+    }
+  }
 }

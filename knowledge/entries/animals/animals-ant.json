@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "ant"
+    ],
+    "question_patterns": [
+      "why do ants walk in a line",
+      "what is this",
+      "why do ants follow each other",
+      "how do ants find food"
+    ],
+    "first_sentence": "Ants walk in a line because they leave smell trails.",
+    "facts": [
+      "Ants leave a smell on the ground to mark the way.",
+      "When other ants smell it, they follow the same path.",
+      "An ant that finds food leaves a mark for its friends."
+    ],
+    "ask_back": "Do you think ants walk in a line, or in circles?",
+    "bridges": {
+      "has_garden": "Have you seen ants walking in your garden?"
+    }
+  }
 }

@@ -2,7 +2,16 @@
   "id": "violence_war",
   "category": "violence_war",
   "category_zh": "暴力與戰爭",
-  "triggers": ["打架", "打仗", "戰爭", "被打", "流血", "有壞人", "槍", "轟炸"],
+  "triggers": [
+    "打架",
+    "打仗",
+    "戰爭",
+    "被打",
+    "流血",
+    "有壞人",
+    "槍",
+    "轟炸"
+  ],
   "deflection_zh": "這件事讓你害怕嗎？請告訴爸爸媽媽一起聊聊。",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要說「壞人會來抓你」之類嚇唬的話"
   ],
   "sources": [
-    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"},
-    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"},
-    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+    {
+      "title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop",
+      "url": "https://sesameworkshop.org/",
+      "publisher": "Sesame Workshop"
+    },
+    {
+      "title": "UNICEF, for every child",
+      "url": "https://www.unicef.org/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "Mental Health Conditions - HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx",
+      "publisher": "AAP HealthyChildren"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "Does that make you scared? Please tell mom or dad, and talk together.",
+    "triggers": [
+      "fighting",
+      "a fight",
+      "war",
+      "someone got hit",
+      "blood",
+      "bad guys",
+      "a gun",
+      "bombs",
+      "people are shooting",
+      "soldiers"
+    ],
+    "talking_points": {
+      "5-6": [
+        "First ask: what did you hear? How did it make you feel?",
+        "Tell your child: we are safe now, and grown-ups are here.",
+        "Don't describe the pictures in detail; keep it short and simple.",
+        "Show on a map where it is, far away from where we live."
+      ],
+      "7-8": [
+        "Explain that bad things rarely happen, and grown-ups are working to stop them.",
+        "Don't label people as 'bad guys'; explain what caused the problem.",
+        "Encourage drawing or play to express feelings.",
+        "Do one small helpful thing for someone together."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'don't be scared, it's nothing'.",
+      "Don't let your child watch news pictures alone.",
+      "Don't say 'bad guys will come and take you' or other scary threats."
+    ]
+  }
 }

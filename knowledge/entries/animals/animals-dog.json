@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "dog"
+    ],
+    "question_patterns": [
+      "why does a dog wag its tail",
+      "what is this",
+      "why does my dog wag its tail",
+      "what does a wagging tail mean"
+    ],
+    "first_sentence": "This is a dog! It wags its tail because it is happy.",
+    "facts": [
+      "Dogs wag their tails to show how they feel.",
+      "Dogs and people have lived together for a very long time.",
+      "A dog's nose is so good it can smell many things."
+    ],
+    "ask_back": "Do you think a dog wags its tail when it is happy, or sleepy?",
+    "bridges": {
+      "has_dog": "You have a dog! Does yours wag its tail when you come home?"
+    }
+  }
 }

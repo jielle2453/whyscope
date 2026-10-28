@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "seed"
+    ],
+    "question_patterns": [
+      "why does a seed start to grow",
+      "what is this",
+      "why do seeds grow into plants",
+      "how does a seed start to grow"
+    ],
+    "first_sentence": "A seed starts to grow because it drank lots of water.",
+    "facts": [
+      "Inside a seed is a tiny baby plant waiting to grow.",
+      "A new plant also needs air and some warmth.",
+      "The new plant grows roots first, then leaves."
+    ],
+    "ask_back": "Do you think a seed grows faster in water, or in a dry box?",
+    "bridges": {
+      "has_garden": "Have you planted a seed in a cup or in your garden?"
+    }
+  }
 }

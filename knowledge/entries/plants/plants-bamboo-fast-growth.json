@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "bamboo"
+    ],
+    "question_patterns": [
+      "why does bamboo grow so fast",
+      "what is this",
+      "why is the bamboo so tall",
+      "how does bamboo grow so quickly"
+    ],
+    "first_sentence": "Bamboo grows fast because its underground stems make new shoots.",
+    "facts": [
+      "Some bamboo grows over a foot taller in one day.",
+      "Bamboo stems are empty inside, so they are light.",
+      "Bamboo stems have little rings all along them."
+    ],
+    "ask_back": "Do you think bamboo is empty inside, or solid like a stick?",
+    "bridges": {
+      "has_garden": "Have you seen tall bamboo in a park or garden?"
+    }
+  }
 }

@@ -29,5 +29,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sleep",
+      "sleeping"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why do I need to sleep",
+      "why do we sleep",
+      "why do I get sleepy",
+      "why do I have to go to bed"
+    ],
+    "first_sentence": "This is sleep! Your body gets tired, so it rests and recharges.",
+    "facts": [
+      "While you sleep, your body fixes places that got hurt.",
+      "Your brain sorts out what you learned during the day.",
+      "Kids need more sleep than grown-ups do."
+    ],
+    "ask_back": "Do you think you sleep more at night, or in the daytime?",
+    "bridges": {
+      "has_cat": "Cats sleep a lot every day, right?",
+      "has_dog": "Do you think dogs dream when they sleep?"
+    }
+  }
 }

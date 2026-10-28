@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "bark"
+    ],
+    "question_patterns": [
+      "why does a tree have bark",
+      "what is this",
+      "why is tree skin so rough",
+      "what is bark for"
+    ],
+    "first_sentence": "Tree bark is like a coat that keeps the tree safe.",
+    "facts": [
+      "Bark can keep out bugs and some germs.",
+      "Bark helps keep water inside the tree.",
+      "Some bark is very thick and can block fire."
+    ],
+    "ask_back": "Do you think tree bark is soft, or hard and rough?",
+    "bridges": {
+      "has_garden": "Have you touched the bark of a tree in your garden?"
+    }
+  }
 }

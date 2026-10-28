@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "frog"
+    ],
+    "question_patterns": [
+      "why does a frog croak",
+      "what is this",
+      "why do frogs make that noise",
+      "why do frogs sing at night"
+    ],
+    "first_sentence": "Frogs croak because boy frogs want to find girl frogs.",
+    "facts": [
+      "Many boy frogs croak to call the girl frogs.",
+      "Baby frogs are tadpoles that live in water first.",
+      "A frog's skin is wet and helps it breathe."
+    ],
+    "ask_back": "Do you think a frog's skin is dry, or wet?",
+    "bridges": {
+      "has_garden": "Have you heard frogs croaking in your garden at night?"
+    }
+  }
 }

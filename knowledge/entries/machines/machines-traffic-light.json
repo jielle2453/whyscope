@@ -29,5 +29,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "traffic light",
+      "stoplight"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does the light change colors",
+      "what do the colors mean",
+      "why is the light red",
+      "what does the traffic light do"
+    ],
+    "first_sentence": "This is a traffic light! Lights take turns so cars stay safe.",
+    "facts": [
+      "Red means stop, green means go, and yellow means get ready.",
+      "The order of red and green lights is always the same.",
+      "Some crossings make a sound to help people who cannot see."
+    ],
+    "ask_back": "Do you think a yellow light means go fast, or get ready to stop?",
+    "bridges": {
+      "rides_bike": "When you ride your bike to a crossing, which light do you look at first?",
+      "likes_cars": "What should a car do when the light is red?"
+    }
+  }
 }

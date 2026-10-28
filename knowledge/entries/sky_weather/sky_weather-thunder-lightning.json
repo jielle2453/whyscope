@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "lightning"
+    ],
+    "question_patterns": [
+      "why does thunder boom",
+      "what is this",
+      "what is lightning",
+      "why do we hear thunder after lightning"
+    ],
+    "first_sentence": "Thunder is loud because lightning shakes the air very hard.",
+    "facts": [
+      "Lightning is a huge spark of electricity.",
+      "Lightning makes the air super hot, so it booms.",
+      "We see lightning first because light is faster than sound."
+    ],
+    "ask_back": "Do you think you see lightning before you hear thunder, or after?",
+    "bridges": {
+      "has_cat": "Does your cat hide when it thunders?"
+    }
+  }
 }

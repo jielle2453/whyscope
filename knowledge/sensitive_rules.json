@@ -13,6 +13,18 @@
         "懷孕是什麼",
         "身體哪裡不一樣"
       ],
+      "triggers_en": [
+        "where do babies come from",
+        "how was i made",
+        "how do babies get in the tummy",
+        "why are boys and girls different",
+        "what does pregnant mean",
+        "why is mommy's tummy so big",
+        "how did i come out of mommy",
+        "what are private parts",
+        "where did i come from",
+        "how does a baby grow"
+      ],
       "urgent": false
     },
     {
@@ -27,6 +39,19 @@
         "不想去學校",
         "被罵",
         "被打"
+      ],
+      "triggers_en": [
+        "someone is mean to me",
+        "kids are picking on me",
+        "they call me names",
+        "they won't play with me",
+        "they laughed at me",
+        "i don't want to go to school",
+        "a kid hit me",
+        "they pushed me",
+        "nobody plays with me",
+        "they made fun of me",
+        "they teased me"
       ],
       "urgent": false
     },
@@ -43,6 +68,19 @@
         "不會動了",
         "人死了會去哪裡"
       ],
+      "triggers_en": [
+        "why do people die",
+        "someone died",
+        "my grandpa died",
+        "where do dead people go",
+        "is heaven real",
+        "they are not moving anymore",
+        "why did he die",
+        "is grandma dead",
+        "what happens when you die",
+        "will everyone die",
+        "died"
+      ],
       "urgent": false
     },
     {
@@ -57,6 +95,18 @@
         "不要我了",
         "分開住",
         "爸爸媽媽會分開嗎"
+      ],
+      "triggers_en": [
+        "mom and dad are fighting",
+        "are my parents getting divorced",
+        "dad doesn't come home",
+        "mom is gone",
+        "we are moving",
+        "they don't want me anymore",
+        "my parents are splitting up",
+        "dad moved out",
+        "we have to live apart",
+        "my family is breaking up"
       ],
       "urgent": false
     },
@@ -73,6 +123,18 @@
         "很痛",
         "病好了嗎"
       ],
+      "triggers_en": [
+        "i am sick",
+        "i have a fever",
+        "i have to go to the hospital",
+        "i need an operation",
+        "will i get better",
+        "it hurts so much",
+        "i have cancer",
+        "my mom is sick",
+        "i am in the hospital",
+        "my body still hurts"
+      ],
       "urgent": false
     },
     {
@@ -87,6 +149,18 @@
         "繳不出",
         "沒飯吃",
         "爸爸沒有工作"
+      ],
+      "triggers_en": [
+        "we have no money",
+        "we are so poor",
+        "we don't have any money",
+        "we can't afford it",
+        "are we going to move",
+        "we can't pay the bills",
+        "we have no food",
+        "daddy doesn't have a job",
+        "we don't have enough money",
+        "we are broke"
       ],
       "urgent": false
     },
@@ -103,6 +177,18 @@
         "神會保護我嗎",
         "耶穌"
       ],
+      "triggers_en": [
+        "where is god",
+        "is there a god",
+        "who is god",
+        "is god real",
+        "what is jesus",
+        "who is buddha",
+        "why do we pray",
+        "why do people go to temple",
+        "will god protect me",
+        "does god see me"
+      ],
       "urgent": false
     },
     {
@@ -118,6 +204,18 @@
         "災難",
         "火災"
       ],
+      "triggers_en": [
+        "earthquake news",
+        "earthquake",
+        "tsunami",
+        "typhoon",
+        "the news said",
+        "on tv it said",
+        "disaster",
+        "there was a fire",
+        "a big flood",
+        "the news is scary"
+      ],
       "urgent": false
     },
     {
@@ -131,6 +229,18 @@
         "割自己",
         "傷害自己",
         "活著沒意思"
+      ],
+      "triggers_en": [
+        "i don't want to live",
+        "i want to die",
+        "i want to disappear",
+        "i don't want to be alive",
+        "life is no fun",
+        "i want to hurt myself",
+        "i want to cut myself",
+        "kill myself",
+        "i wish i was gone",
+        "i don't want to be here"
       ],
       "urgent": true
     },
@@ -146,6 +256,18 @@
         "有壞人",
         "槍",
         "轟炸"
+      ],
+      "triggers_en": [
+        "fighting",
+        "a fight",
+        "war",
+        "someone got hit",
+        "blood",
+        "bad guys",
+        "a gun",
+        "bombs",
+        "people are shooting",
+        "soldiers"
       ],
       "urgent": false
     }

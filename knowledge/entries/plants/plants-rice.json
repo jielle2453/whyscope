@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "rice"
+    ],
+    "question_patterns": [
+      "why does rice grow in water",
+      "what is this",
+      "why is rice planted in wet fields",
+      "where does rice come from"
+    ],
+    "first_sentence": "Rice grows in wet fields because it needs lots of water.",
+    "facts": [
+      "Rice grains are the seeds we eat for food.",
+      "Rice is one of the most important foods in the world.",
+      "When rice is ready, the stalks bend down low."
+    ],
+    "ask_back": "Do you think rice grows on a tree, or in a wet field?",
+    "bridges": {
+      "has_garden": "Have you eaten rice at home? It grows in wet fields!"
+    }
+  }
 }

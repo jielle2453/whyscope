@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "bee"
+    ],
+    "question_patterns": [
+      "why do bees dance",
+      "what is this",
+      "how do bees find flowers",
+      "why do bees buzz around flowers"
+    ],
+    "first_sentence": "Bees dance to show their friends where flowers are.",
+    "facts": [
+      "A bee dances to tell its friends which way to go.",
+      "Bees bring sweet flower juice home and make honey.",
+      "A bee carries flower dust from one flower to another."
+    ],
+    "ask_back": "Do you think bees like bright flowers, or dark ones?",
+    "bridges": {
+      "has_garden": "Have you seen a bee buzzing in your garden?"
+    }
+  }
 }

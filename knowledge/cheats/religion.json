@@ -2,7 +2,16 @@
   "id": "religion",
   "category": "religion",
   "category_zh": "宗教與信仰",
-  "triggers": ["神在哪裡", "有沒有神", "上帝", "菩薩", "佛祖", "為什麼要拜拜", "神會保護我嗎", "耶穌"],
+  "triggers": [
+    "神在哪裡",
+    "有沒有神",
+    "上帝",
+    "菩薩",
+    "佛祖",
+    "為什麼要拜拜",
+    "神會保護我嗎",
+    "耶穌"
+  ],
   "deflection_zh": "這個問題很好，我們一起問爸爸媽媽好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要拿不同宗教的人來比較好壞"
   ],
   "sources": [
-    {"title": "UNICEF, for every child", "url": "https://www.unicef.org/", "publisher": "UNICEF"},
-    {"title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop", "url": "https://sesameworkshop.org/", "publisher": "Sesame Workshop"},
-    {"title": "衛生福利部", "url": "https://www.mohw.gov.tw/", "publisher": "衛生福利部"}
+    {
+      "title": "UNICEF, for every child",
+      "url": "https://www.unicef.org/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "Parenting Resources, Activities, & Early Childhood Development Support - Sesame Workshop",
+      "url": "https://sesameworkshop.org/",
+      "publisher": "Sesame Workshop"
+    },
+    {
+      "title": "衛生福利部",
+      "url": "https://www.mohw.gov.tw/",
+      "publisher": "衛生福利部"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "That's a wonderful question! Let's ask mom or dad together, okay?",
+    "triggers": [
+      "where is god",
+      "is there a god",
+      "who is god",
+      "is god real",
+      "what is jesus",
+      "who is buddha",
+      "why do we pray",
+      "why do people go to temple",
+      "will god protect me",
+      "does god see me"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Answer in your own words, based on your family's beliefs.",
+        "Say: every family believes differently, and each belief deserves respect.",
+        "Don't criticize other people's gods or people who have no faith.",
+        "Ask your child: where did you hear about that?"
+      ],
+      "7-8": [
+        "Explain that the world has many different religions and beliefs.",
+        "Faith is something people lean on, and not everyone believes the same.",
+        "Respect people who have faith, and people who do not.",
+        "For questions you can't answer, say we can find the answer together."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'God doesn't exist' or 'praying is all fake'.",
+      "Don't use faith to scare, like 'you'll be punished if you're naughty'.",
+      "Don't rank people of different religions as good or bad."
+    ]
+  }
 }

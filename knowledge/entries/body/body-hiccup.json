@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "hiccup",
+      "hiccups"
+    ],
+    "question_patterns": [
+      "what is this",
+      "what is this hiccup",
+      "why do I hiccup",
+      "why do I keep hiccuping",
+      "what makes the hic sound"
+    ],
+    "first_sentence": "This is a hiccup! A muscle under your chest jumps suddenly.",
+    "facts": [
+      "A thin muscle under your lungs helps you breathe.",
+      "When it jumps suddenly, air rushes in very fast.",
+      "The air hits a little door in your throat, and it goes hic!"
+    ],
+    "ask_back": "Do you think a drink of water can stop your hiccups, or not?",
+    "bridges": {
+      "has_dog": "When your dog hiccups, does its tummy jump too?"
+    }
+  }
 }

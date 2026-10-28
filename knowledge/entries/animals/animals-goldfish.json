@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "goldfish"
+    ],
+    "question_patterns": [
+      "why do goldfish have so many colors",
+      "what is this",
+      "why is the goldfish orange",
+      "how did goldfish get their colors"
+    ],
+    "first_sentence": "Goldfish have many colors because people chose the pretty ones.",
+    "facts": [
+      "Goldfish came from a fish called a crucian carp.",
+      "They started in China and were kept as pets for years.",
+      "People kept the prettiest fish, so many colors grew."
+    ],
+    "ask_back": "Do you think goldfish live in the sea, or in ponds?",
+    "bridges": {
+      "has_cat": "You have a cat! Do you think it would like to watch goldfish?"
+    }
+  }
 }

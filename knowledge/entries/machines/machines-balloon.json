@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "balloon"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does a balloon float",
+      "why does my balloon go up",
+      "why do balloons fly",
+      "why does the balloon stay in the air"
+    ],
+    "first_sentence": "This is a balloon! Light gas inside makes it float up.",
+    "facts": [
+      "Air has weight too, but we cannot feel it.",
+      "The light gas inside is lighter than the air around it.",
+      "A balloon filled with plain air will not float up."
+    ],
+    "ask_back": "Do you think a balloon filled with air will float, or sink?",
+    "bridges": {
+      "has_dog": "Would your dog want to chase a floating balloon?"
+    }
+  }
 }

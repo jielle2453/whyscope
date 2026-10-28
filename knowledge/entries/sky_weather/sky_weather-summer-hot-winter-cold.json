@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "four seasons"
+    ],
+    "question_patterns": [
+      "why is summer hot and winter cold",
+      "what is this",
+      "why is it cold in winter",
+      "why do we have seasons"
+    ],
+    "first_sentence": "Summer is hot and winter is cold because Earth leans a little.",
+    "facts": [
+      "The Earth leans a little, like a tilted spinning top.",
+      "In summer, sunlight hits us more straight on, so it is hot.",
+      "In winter, sunlight comes in at a slant, so it is cold."
+    ],
+    "ask_back": "Do you think it is hotter in summer, or in winter?",
+    "bridges": {
+      "has_garden": "Have you seen flowers in your garden in summer or in winter?"
+    }
+  }
 }

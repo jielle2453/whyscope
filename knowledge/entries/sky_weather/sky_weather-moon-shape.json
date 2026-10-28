@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "moon"
+    ],
+    "question_patterns": [
+      "why does the moon change shape",
+      "what is this",
+      "why is the moon sometimes thin",
+      "why is the moon round some nights"
+    ],
+    "first_sentence": "The moon looks thin or round because we see different lit parts.",
+    "facts": [
+      "The moon does not make its own light.",
+      "It shines by bouncing back light from the sun.",
+      "Over one month, the moon goes through all its shapes."
+    ],
+    "ask_back": "Do you think the moon makes its own light, or uses the sun's light?",
+    "bridges": {
+      "has_garden": "Have you looked up at the moon from your garden at night?"
+    }
+  }
 }

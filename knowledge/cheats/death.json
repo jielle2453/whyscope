@@ -2,7 +2,16 @@
   "id": "death",
   "category": "death",
   "category_zh": "死亡",
-  "triggers": ["死掉", "過世", "去世", "為什麼人會死", "死了", "天堂", "不會動了", "人死了會去哪裡"],
+  "triggers": [
+    "死掉",
+    "過世",
+    "去世",
+    "為什麼人會死",
+    "死了",
+    "天堂",
+    "不會動了",
+    "人死了會去哪裡"
+  ],
   "deflection_zh": "這個問題很重要，我們一起去問爸爸媽媽好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,57 @@
     "不要保證「家人一定不會死」"
   ],
   "sources": [
-    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"},
-    {"title": "Mental Health Conditions - HealthyChildren.org", "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx", "publisher": "AAP HealthyChildren"}
+    {
+      "title": "UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    },
+    {
+      "title": "Mental Health Conditions - HealthyChildren.org",
+      "url": "https://www.healthychildren.org/English/health-issues/conditions/emotional-problems/Pages/default.aspx",
+      "publisher": "AAP HealthyChildren"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "That's a big question, and it's okay to wonder. Let's ask mom or dad.",
+    "triggers": [
+      "why do people die",
+      "someone died",
+      "my grandpa died",
+      "where do dead people go",
+      "is heaven real",
+      "they are not moving anymore",
+      "why did he die",
+      "is grandma dead",
+      "what happens when you die",
+      "will everyone die",
+      "died"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Say 'died', not 'went to sleep'.",
+        "Explain that a body that has died will not move or feel pain anymore.",
+        "Tell your child that crying or feeling angry is normal.",
+        "Ask: what worries you the most?"
+      ],
+      "7-8": [
+        "Explain that death means the body's life has stopped working.",
+        "Most people die when they are very old or very sick.",
+        "If you don't know something, honestly say 'I'm not sure'.",
+        "Draw pictures together and remember happy times you shared."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'they're sleeping' or 'they went somewhere far away'.",
+      "Don't say 'stop crying' or 'stop thinking about it'.",
+      "Don't promise 'our family will never die'."
+    ]
+  }
 }

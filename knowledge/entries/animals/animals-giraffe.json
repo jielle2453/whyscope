@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "giraffe"
+    ],
+    "question_patterns": [
+      "why does a giraffe have a long neck",
+      "what is this",
+      "why is the giraffe so tall",
+      "why does a giraffe eat leaves up high"
+    ],
+    "first_sentence": "A giraffe has a long neck to reach leaves up high.",
+    "facts": [
+      "A giraffe is the tallest animal on land.",
+      "A giraffe often eats leaves from very tall trees.",
+      "A giraffe's neck has as many bones as a person's."
+    ],
+    "ask_back": "Do you think a giraffe eats grass on the ground, or leaves up high?",
+    "bridges": {
+      "likes_cars": "You like cars! Is a giraffe taller than a car?"
+    }
+  }
 }

@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "ears",
+      "hearing"
+    ],
+    "question_patterns": [
+      "what is this ear",
+      "what is this",
+      "how do ears hear",
+      "why can I hear",
+      "how do I hear sounds"
+    ],
+    "first_sentence": "This is an ear! Sound makes the air wiggle, so we hear.",
+    "facts": [
+      "Sound is air that wiggles back and forth, again and again.",
+      "Inside your ear, a thin skin wiggles with the sound.",
+      "The wiggles travel to your brain, and you know what it is."
+    ],
+    "ask_back": "Do you think a dog's ears hear better than yours, or worse?",
+    "bridges": {
+      "has_dog": "Did you know dogs can hear higher sounds than you?"
+    }
+  }
 }

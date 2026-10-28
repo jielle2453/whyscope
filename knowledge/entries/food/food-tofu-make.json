@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "tofu"
+    ],
+    "question_patterns": [
+      "what is this",
+      "what is tofu made of",
+      "how is tofu made",
+      "why is tofu soft and white",
+      "where does tofu come from"
+    ],
+    "first_sentence": "This is tofu! Soy milk becomes solid when salty water is added.",
+    "facts": [
+      "Tofu is made from soy milk, which is made from yellow soybeans.",
+      "Tiny bits inside soy milk gather together and clump.",
+      "Pressing out the water turns it into soft blocks."
+    ],
+    "ask_back": "Do you think tofu is made from beans, or from rice?",
+    "bridges": {
+      "has_garden": "Can you grow yellow soybeans in your garden?"
+    }
+  }
 }

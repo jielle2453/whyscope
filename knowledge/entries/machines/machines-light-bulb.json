@@ -28,5 +28,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "light bulb",
+      "lamp"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does the light turn on",
+      "how does a light bulb work",
+      "why does the lamp glow",
+      "how does a light get bright"
+    ],
+    "first_sentence": "This is a light bulb! Electricity makes a thin wire glow.",
+    "facts": [
+      "Old bulbs have a thin wire inside that gets very hot.",
+      "When the wire gets hot, it gives off light.",
+      "Many lights now use LED bulbs, which save electricity."
+    ],
+    "ask_back": "Do you think a light bulb gets hot when it is on, or stays cold?",
+    "bridges": {
+      "likes_dinosaurs": "Dinosaurs lived long before lights were made, did you know that?"
+    }
+  }
 }

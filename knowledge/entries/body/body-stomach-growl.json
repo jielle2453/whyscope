@@ -28,5 +28,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "tummy growl",
+      "stomach growl"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does my tummy growl",
+      "why does my stomach make noise",
+      "why does my belly rumble",
+      "why is my tummy so noisy"
+    ],
+    "first_sentence": "This is a tummy growl! Your empty tummy squeezes and gurgles.",
+    "facts": [
+      "Your stomach and gut squeeze on their own to move food.",
+      "When your tummy is empty, air and juice slosh around.",
+      "After you eat, your tummy usually stops growling."
+    ],
+    "ask_back": "Do you think a tummy growls more before lunch, or after lunch?",
+    "bridges": {
+      "likes_dinosaurs": "Do you think a dinosaur's tummy growled when it was hungry?",
+      "has_cat": "Does your cat meow when its tummy is hungry?"
+    }
+  }
 }

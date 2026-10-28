@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "fog"
+    ],
+    "question_patterns": [
+      "why is there fog outside",
+      "what is this",
+      "why can't I see far in the fog",
+      "why is the air so foggy"
+    ],
+    "first_sentence": "Fog is a cloud near the ground, because the air got cold.",
+    "facts": [
+      "Fog is tiny water drops sitting close to the ground.",
+      "When the air gets cold, water turns into tiny drops.",
+      "When the sun comes out, fog slowly goes away."
+    ],
+    "ask_back": "Do you think fog is thicker in the morning, or at lunch?",
+    "bridges": {
+      "likes_cars": "You like cars! Do cars turn on their lights in thick fog?"
+    }
+  }
 }

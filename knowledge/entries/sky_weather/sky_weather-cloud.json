@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "cloud"
+    ],
+    "question_patterns": [
+      "why do clouds float in the sky",
+      "what is this",
+      "why are clouds so light",
+      "why does a cloud stay up high"
+    ],
+    "first_sentence": "Clouds float because their tiny water drops are very light.",
+    "facts": [
+      "A cloud is made of many tiny water drops.",
+      "When air rises and gets cold, tiny drops form.",
+      "There are many kinds of clouds with different shapes."
+    ],
+    "ask_back": "Do you think a cloud is heavy, or light enough to float?",
+    "bridges": {
+      "has_garden": "Have you looked for shapes in the clouds above your garden?"
+    }
+  }
 }

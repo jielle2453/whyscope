@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "whale"
+    ],
+    "question_patterns": [
+      "why does a whale come up for air",
+      "what is this",
+      "why do whales swim up to breathe",
+      "why does a whale blow water"
+    ],
+    "first_sentence": "A whale comes up for air because it cannot breathe underwater.",
+    "facts": [
+      "A whale is an animal like us, not a fish.",
+      "A whale breathes air, so it swims up to the top.",
+      "A mama whale gives her baby milk to drink."
+    ],
+    "ask_back": "Do you think a whale can breathe underwater, or not?",
+    "bridges": {
+      "has_dog": "Your dog can swim too! Does it like the water?"
+    }
+  }
 }

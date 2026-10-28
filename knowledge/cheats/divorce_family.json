@@ -2,7 +2,16 @@
   "id": "divorce_family",
   "category": "divorce_family",
   "category_zh": "離婚與家庭變動",
-  "triggers": ["爸爸媽媽吵架", "離婚", "爸爸不回家", "媽媽不見了", "搬家", "不要我了", "分開住", "爸爸媽媽會分開嗎"],
+  "triggers": [
+    "爸爸媽媽吵架",
+    "離婚",
+    "爸爸不回家",
+    "媽媽不見了",
+    "搬家",
+    "不要我了",
+    "分開住",
+    "爸爸媽媽會分開嗎"
+  ],
   "deflection_zh": "這件事一定讓你很難過，我們去找爸爸媽媽聊聊好嗎？",
   "talking_points": {
     "5-6": [
@@ -24,10 +33,56 @@
     "不要要求孩子選擇跟爸爸或媽媽"
   ],
   "sources": [
-    {"title": "HealthyChildren.org - From the American Academy of Pediatrics", "url": "https://www.healthychildren.org/", "publisher": "AAP HealthyChildren"},
-    {"title": "UNICEF Parenting", "url": "https://www.unicef.org/parenting/", "publisher": "UNICEF"},
-    {"title": "兒福聯盟", "url": "https://www.children.org.tw/", "publisher": "兒福聯盟"}
+    {
+      "title": "HealthyChildren.org - From the American Academy of Pediatrics",
+      "url": "https://www.healthychildren.org/",
+      "publisher": "AAP HealthyChildren"
+    },
+    {
+      "title": "UNICEF Parenting",
+      "url": "https://www.unicef.org/parenting/",
+      "publisher": "UNICEF"
+    },
+    {
+      "title": "兒福聯盟",
+      "url": "https://www.children.org.tw/",
+      "publisher": "兒福聯盟"
+    }
   ],
   "author": "claude-haiku",
-  "reviewed_by": ""
+  "reviewed_by": "",
+  "en": {
+    "deflection": "That must feel really hard. Let's go talk with mom and dad together, okay?",
+    "triggers": [
+      "mom and dad are fighting",
+      "are my parents getting divorced",
+      "dad doesn't come home",
+      "mom is gone",
+      "we are moving",
+      "they don't want me anymore",
+      "my parents are splitting up",
+      "dad moved out",
+      "we have to live apart",
+      "my family is breaking up"
+    ],
+    "talking_points": {
+      "5-6": [
+        "Tell your child: this is not your fault.",
+        "Say: when parents argue, it doesn't mean they stop loving you.",
+        "Let your child know it's okay to feel sad and to cry.",
+        "Explain that the grown-ups who take care of them every day are still there."
+      ],
+      "7-8": [
+        "Explain that grown-up relationship problems are not caused by the child.",
+        "Don't criticize the other parent; say 'everyone has difficult times'.",
+        "Explain that the family may change, but love does not.",
+        "Ask what they worry about most, and think of ways to help together."
+      ]
+    },
+    "what_not_to_say": [
+      "Don't say 'it's all your fault' or 'you were naughty'.",
+      "Don't speak badly about the other parent in front of your child.",
+      "Don't ask your child to choose between dad and mom."
+    ]
+  }
 }

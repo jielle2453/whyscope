@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "apple",
+      "brown apple"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does my apple turn brown",
+      "why is my apple brown",
+      "why do apples go brown",
+      "why did the apple change color"
+    ],
+    "first_sentence": "This is an apple! Air touching the inside makes it brown.",
+    "facts": [
+      "The apple has a special juice that reacts with air.",
+      "Dipping it in lemon juice slows the browning down.",
+      "A brown apple is usually still fine to eat."
+    ],
+    "ask_back": "Do you think an apple turns brown faster in the sun, or in the fridge?",
+    "bridges": {
+      "has_dog": "Dogs can eat apples if you take out the core first, right?"
+    }
+  }
 }

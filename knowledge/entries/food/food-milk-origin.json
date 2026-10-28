@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "milk"
+    ],
+    "question_patterns": [
+      "what is this",
+      "where does milk come from",
+      "how does milk come",
+      "why does a cow make milk",
+      "where does milk come out of"
+    ],
+    "first_sentence": "This is milk! Cows make milk after they have a baby cow.",
+    "facts": [
+      "A cow must have a baby before it can make milk.",
+      "Milk is made inside a special part of the cow.",
+      "Milk is heated to kill germs before it goes to the store."
+    ],
+    "ask_back": "Do you think milk comes from a cow, or from a tree?",
+    "bridges": {
+      "has_garden": "Have you ever seen a cow in a garden?"
+    }
+  }
 }

@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "salt"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is salt salty",
+      "why does salt taste salty",
+      "why do chips taste salty",
+      "why does salt make food taste good"
+    ],
+    "first_sentence": "This is salt! It tastes salty when your tongue touches it.",
+    "facts": [
+      "Salt is made of two kinds of tiny bits mixed together.",
+      "When salt goes in water, it slowly melts away and disappears.",
+      "Your tongue has special spots that feel the salty taste."
+    ],
+    "ask_back": "Do you think salt makes food taste sweet, or salty?",
+    "bridges": {
+      "has_dog": "Dog treats must not have salt. Do you know why?"
+    }
+  }
 }

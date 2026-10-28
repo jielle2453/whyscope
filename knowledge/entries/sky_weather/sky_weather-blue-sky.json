@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "blue sky"
+    ],
+    "question_patterns": [
+      "why is the sky blue",
+      "what is this",
+      "why is the sky so blue",
+      "why does the sky look blue"
+    ],
+    "first_sentence": "The sky is blue because blue light spreads out in the air.",
+    "facts": [
+      "Sunlight looks white, but it has many colors inside.",
+      "Blue light bounces all over the air more than other colors.",
+      "When we look up, we see the blue sky."
+    ],
+    "ask_back": "Do you think the sky looks blue in the day, or at night?",
+    "bridges": {
+      "has_garden": "Have you looked up at the blue sky from your garden?"
+    }
+  }
 }

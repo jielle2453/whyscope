@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "sugar"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why is sugar sweet",
+      "why does sugar taste sweet",
+      "where does sugar come from",
+      "why do cookies taste sweet"
+    ],
+    "first_sentence": "This is sugar! Your tongue tastes sweet when it touches sugar.",
+    "facts": [
+      "Sugar comes from sugarcane or sugar beets.",
+      "Eating too much sugar can give your teeth holes.",
+      "Your body turns sugar into energy, so you have strength."
+    ],
+    "ask_back": "Do you think sugar tastes sweet, or sour?",
+    "bridges": {
+      "has_cat": "Does a cat's tongue think sugar tastes sweet?"
+    }
+  }
 }

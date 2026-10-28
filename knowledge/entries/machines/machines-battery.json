@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "battery",
+      "batteries"
+    ],
+    "question_patterns": [
+      "what is this",
+      "how does a battery work",
+      "why does a battery make power",
+      "why do toys need batteries",
+      "what is inside a battery"
+    ],
+    "first_sentence": "This is a battery! Stuff inside it changes to make electricity.",
+    "facts": [
+      "The plus and minus ends must face the right way.",
+      "The stuff inside slowly gets used up over time.",
+      "The power flows from the battery into a toy or remote."
+    ],
+    "ask_back": "Do you think a toy car works better with new batteries, or old ones?",
+    "bridges": {
+      "likes_cars": "If your toy car stops, would you change its batteries first?"
+    }
+  }
 }

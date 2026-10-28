@@ -27,5 +27,27 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "popcorn"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does popcorn pop",
+      "why does corn make popcorn",
+      "why does popcorn jump",
+      "how does popcorn pop"
+    ],
+    "first_sentence": "This is popcorn! Steam from water inside makes it pop open.",
+    "facts": [
+      "A corn seed has a hard shell with a little water inside.",
+      "When it gets hot, the water becomes steam and pushes harder.",
+      "Then the shell suddenly cracks, and the corn puffs up."
+    ],
+    "ask_back": "Do you think popcorn pops more when it is hot, or cold?",
+    "bridges": {
+      "has_cat": "Would your cat jump when popcorn pops with a loud bang?"
+    }
+  }
 }

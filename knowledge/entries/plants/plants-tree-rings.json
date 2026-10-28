@@ -28,5 +28,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "tree rings"
+    ],
+    "question_patterns": [
+      "why does a tree have rings",
+      "what is this",
+      "why are there circles in a tree trunk",
+      "what do tree rings tell us"
+    ],
+    "first_sentence": "Tree trunks have rings because the tree adds one each year.",
+    "facts": [
+      "Each ring shows about one year of the tree growing.",
+      "Spring and summer rings are light, because the tree grows fast.",
+      "Fall and winter rings are dark, because the tree grows slowly."
+    ],
+    "ask_back": "Do you think a tree with more rings is older, or younger?",
+    "bridges": {
+      "has_garden": "Have you seen a tree stump in a garden with rings on it?"
+    }
+  }
 }

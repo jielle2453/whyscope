@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "mimosa"
+    ],
+    "question_patterns": [
+      "why do mimosa leaves close",
+      "what is this",
+      "why does this plant fold up",
+      "why do mimosa leaves fold when touched"
+    ],
+    "first_sentence": "The mimosa folds its leaves when touched, to keep itself safe.",
+    "facts": [
+      "When a mimosa leaf is touched, it slowly folds up.",
+      "Folding up may help the plant hide from harm.",
+      "After a while, the leaves slowly open again."
+    ],
+    "ask_back": "Do you think a mimosa leaf closes when you touch it, or stays open?",
+    "bridges": {
+      "has_garden": "Have you touched a mimosa plant in your garden?"
+    }
+  }
 }

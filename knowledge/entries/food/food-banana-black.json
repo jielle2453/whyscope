@@ -27,5 +27,28 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "banana",
+      "black banana"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does my banana turn black",
+      "why is my banana black",
+      "why do bananas get black spots",
+      "why are bananas getting dark"
+    ],
+    "first_sentence": "This is a banana! It turns black when it is too ripe.",
+    "facts": [
+      "The green color in the peel slowly goes away.",
+      "If the peel gets bumped, a special juice turns it black.",
+      "A banana gives off a gas that makes other fruit ripen."
+    ],
+    "ask_back": "Do you think a very ripe banana tastes sweeter, or more sour?",
+    "bridges": {
+      "has_dog": "Can dogs eat bananas too? Can you guess?"
+    }
+  }
 }

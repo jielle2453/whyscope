@@ -29,5 +29,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "baby teeth",
+      "losing teeth"
+    ],
+    "question_patterns": [
+      "why do my teeth fall out",
+      "what is this",
+      "why do kids lose teeth",
+      "why are my teeth wiggly",
+      "why do baby teeth fall out"
+    ],
+    "first_sentence": "This is a baby tooth! Big new teeth push it out.",
+    "facts": [
+      "Kids start losing baby teeth around age six.",
+      "The root of a baby tooth slowly goes away, so it wiggles.",
+      "A bigger tooth grows in its place and lasts a long time."
+    ],
+    "ask_back": "Do you think a wiggly tooth falls out soon, or stays for years?",
+    "bridges": {
+      "has_sibling": "Have you seen your brother or sister lose a tooth?",
+      "likes_dinosaurs": "Do you think dinosaurs lost baby teeth too?"
+    }
+  }
 }

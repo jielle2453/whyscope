@@ -28,5 +28,29 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "heartbeat",
+      "heart"
+    ],
+    "question_patterns": [
+      "what is this",
+      "why does my heart go thump",
+      "why does my chest beat",
+      "why is my heart beating fast",
+      "what is a heartbeat"
+    ],
+    "first_sentence": "This is your heartbeat! Your heart squeezes to send blood everywhere.",
+    "facts": [
+      "Your heart is about as big as your fist.",
+      "Kids' hearts usually beat a bit faster than grown-ups'.",
+      "When you run or feel scared, your heart beats faster."
+    ],
+    "ask_back": "Do you think your heart beats faster when you run, or when you sleep?",
+    "bridges": {
+      "rides_bike": "When you ride your bike really fast, what happens to your heart?",
+      "has_dog": "Does your dog's heart go thump-thump too?"
+    }
+  }
 }

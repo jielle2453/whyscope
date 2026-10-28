@@ -27,5 +27,26 @@
   "source_license": "CC BY-SA 4.0",
   "author": "claude-haiku",
   "reviewed_by": "",
-  "spot_checked": false
+  "spot_checked": false,
+  "en": {
+    "labels": [
+      "mosquito"
+    ],
+    "question_patterns": [
+      "why do mosquitoes bite",
+      "what is this",
+      "why does a mosquito bite me",
+      "why do mosquitoes want blood"
+    ],
+    "first_sentence": "Mosquitoes bite people because girl mosquitoes need blood for eggs.",
+    "facts": [
+      "Only girl mosquitoes drink blood from people.",
+      "After a blood drink, she can slowly make eggs.",
+      "Baby mosquitoes live in water."
+    ],
+    "ask_back": "Do you think a mosquito's baby lives in the water, or on land?",
+    "bridges": {
+      "has_dog": "Mosquitoes bite dogs too! Has your dog ever been bitten?"
+    }
+  }
 }
