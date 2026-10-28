@@ -35,11 +35,11 @@ questions, back-dated over two weeks; the child is called 小安 only on the par
 
 | Child: idle | Child: answer | Parent: 本週 |
 |---|---|---|
-| ![kid idle](docs/screens/kid-idle.png) | ![kid answer](docs/screens/kid-answer.png) | ![parent week](docs/screens/parent-week.png) |
+| ![kid idle](docs/screens/v2-kid-idle.png) | ![kid answer](docs/screens/v2-kid-answer.png) | ![parent week](docs/screens/v2-parent-week.png) |
 
 | Parent: 紀錄 | Parent: 小抄 (urgent card) | Parent: 孩子 |
 |---|---|---|
-| ![parent log](docs/screens/parent-log.png) | ![parent cheats](docs/screens/parent-cheats.png) | ![parent child](docs/screens/parent-child.png) |
+| ![parent log](docs/screens/v2-parent-log.png) | ![parent cheats](docs/screens/v2-parent-cheats.png) | ![parent child](docs/screens/v2-parent-child.png) |
 
 ## How an answer is spoken (product pass 1)
 
