@@ -2,257 +2,399 @@
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>好奇鏡｜家長頁面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F2A44">
+<title>好奇鏡｜家長</title>
 <style>
-  :root { --bg: #f6f3ec; --ink: #2d2a26; --muted: #6a645b; --card: #fff; --line: #e3ddd0; --accent: #1f6fb2;
-          --warm: #b8431f; --ok: #2c7a56; --warn-bg: #fff1ec; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
-    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Heiti TC", sans-serif; }
-  header { padding: 18px 20px 0; max-width: 980px; margin: 0 auto; }
-  h1 { font-size: 1.5rem; margin: 0; }
-  header p { margin: 2px 0 12px; color: var(--muted); font-size: .95rem; }
-  nav { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 2px solid var(--line); }
-  nav button { font: inherit; padding: 10px 18px; border: 0; background: none; cursor: pointer; color: var(--muted);
-    border-bottom: 3px solid transparent; margin-bottom: -2px; font-weight: 600; }
-  nav button[aria-selected=true] { color: var(--accent); border-bottom-color: var(--accent); }
-  main { max-width: 980px; margin: 0 auto; padding: 18px 20px 48px; }
-  section.panel { display: none; } section.panel.on { display: block; }
-  h2 { font-size: 1.15rem; margin: 22px 0 8px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
-  .stats { display: flex; gap: 12px; flex-wrap: wrap; }
-  .stat { flex: 1 1 140px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
-  .stat b { display: block; font-size: 2rem; line-height: 1.1; }
-  .stat span { color: var(--muted); font-size: .9rem; }
-  .bar { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
-  .bar .name { width: 7em; flex: none; } .bar .n { width: 2.5em; text-align: right; color: var(--muted); }
-  .bar .track { flex: 1; background: #ece6d8; border-radius: 6px; height: 16px; overflow: hidden; }
-  .bar .fill { height: 100%; background: var(--accent); border-radius: 6px; }
-  ul.plain { margin: 0; padding-left: 1.2em; } ul.plain li { margin: 4px 0; }
-  .empty { color: var(--muted); font-style: italic; }
-  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); font-size: .93rem; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { background: #efeadd; position: sticky; top: 0; }
-  .tablewrap { overflow-x: auto; }
-  .tag { display: inline-block; padding: 1px 9px; border-radius: 10px; font-size: .8rem; font-weight: 700; }
-  .tag.answered { background: #dff3e8; color: var(--ok); } .tag.abstained { background: #fdecc8; color: #8a5a00; }
-  .tag.sensitive { background: #fde0d8; color: var(--warm); }
-  .urgent { background: var(--warm); color: #fff; padding: 2px 10px; border-radius: 10px; font-size: .8rem; margin-left: 8px; }
-  button.act, a.btn { font: inherit; padding: 7px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent);
-    color: #fff; cursor: pointer; text-decoration: none; display: inline-block; }
-  button.act.secondary, a.btn.secondary { background: #fff; color: var(--accent); }
-  button.act.danger { background: #fff; border-color: var(--warm); color: var(--warm); }
-  button.act:disabled { opacity: .55; cursor: default; }
-  input, select { font: inherit; padding: 6px 10px; border: 1px solid #cbc3b1; border-radius: 8px; background: #fff; color: var(--ink); }
-  .agetabs { display: inline-flex; gap: 0; margin: 6px 0; }
-  .agetabs button { font: inherit; padding: 4px 14px; border: 1px solid var(--accent); background: #fff; color: var(--accent); cursor: pointer; }
-  .agetabs button:first-child { border-radius: 8px 0 0 8px; } .agetabs button:last-child { border-radius: 0 8px 8px 0; }
-  .agetabs button.on { background: var(--accent); color: #fff; }
-  .cheat h3 { margin: 0 0 4px; font-size: 1.05rem; } .cheat .q { color: var(--muted); font-size: .9rem; margin-bottom: 6px; }
-  .cheat.done { opacity: .65; }
-  .nots { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 8px; }
-  .note { font-size: .9rem; color: var(--muted); }
-  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
-  .settings { margin-top: 36px; border-top: 2px solid var(--line); padding-top: 4px; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  :root { --navy: #1F2A44; --cream: #FBF8F2; --orange: #F28C28; --orange-ink: #9A4E00; --sky: #2E86AB; --sky-ink: #1D6483;
+          --sky-soft: #E3F1F7; --card: #FFFFFF; --muted: #596175; --line: #E6E0D2; --soft: #F1ECE0; --green: #1F8A4C; --red: #C62828;
+          --red-soft: #FDECEC; --r: 20px; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body { background: var(--cream); color: var(--navy); font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Heiti TC", system-ui, sans-serif;
+         font-size: 16px; line-height: 1.45; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  #app { max-width: 520px; margin: 0 auto; min-height: 100vh; min-height: 100dvh; padding: 0 16px 104px; position: relative; }
+
+  /* top bar */
+  .top { position: sticky; top: 0; z-index: 20; background: var(--cream); display: flex; align-items: center; gap: 10px; padding: 12px 0 10px; }
+  .top .logo { width: 38px; height: 38px; flex: none; }
+  .top .who { flex: 1; min-width: 0; font-size: 20px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .top .who small { display: block; font-size: 16px; font-weight: 500; color: var(--muted); }
+  .dev { display: flex; align-items: center; gap: 6px; font-size: 16px; color: var(--muted); }
+  .dev i { width: 12px; height: 12px; border-radius: 50%; background: #9AA3B5; }
+  .dev.ok i { background: #2FB66A; }
+  .icon-btn { width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--soft); display: grid; place-items: center; flex: none; }
+  .icon-btn svg { width: 26px; height: 26px; }
+
+  /* cards & text */
+  .card { background: var(--card); border-radius: var(--r); padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(31,42,68,.07); }
+  h2 { font-size: 18px; margin: 20px 2px 10px; display: flex; align-items: center; gap: 8px; }
+  h2 .n { margin-left: auto; font-size: 16px; font-weight: 600; color: var(--muted); }
+  .hero { display: flex; align-items: flex-end; gap: 14px; }
+  .hero .big { font-size: 84px; font-weight: 800; line-height: .95; letter-spacing: -2px; }
+  .hero .lbl { font-size: 18px; font-weight: 700; padding-bottom: 6px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 14px; font-size: 16px; font-weight: 700; border: 0;
+          background: var(--soft); color: var(--navy); }
+  .chip.up { background: #E1F4E8; color: #14673A; } .chip.down { background: #FDEBD6; color: #8A4300; }
+  .spark { width: 100%; height: 92px; display: block; margin-top: 8px; }
+  .spark text { font-size: 13px; fill: #596175; }
+  .row { display: flex; align-items: center; gap: 12px; }
+  .wrapchips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .talk-btn { min-height: 48px; border-radius: 999px; border: 2px solid var(--sky); background: #fff; color: var(--sky-ink); font-weight: 700; padding: 0 18px; }
+  .talk-btn:active { background: var(--sky-soft); }
+  .done { opacity: .5; }
+
+  /* donut */
+  .donut-row { display: flex; align-items: center; gap: 14px; }
+  .donut { width: 150px; height: 150px; flex: none; }
+  .donut circle.seg { cursor: pointer; transition: stroke-width .15s; }
+  .donut circle.seg:hover, .donut circle.seg:focus { stroke-width: 8.5; outline: none; }
+  .legend { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .legend button { display: flex; align-items: center; gap: 8px; min-height: 40px; border: 0; background: none; text-align: left; border-radius: 12px; padding: 0 6px; font-size: 16px; }
+  .legend button:active { background: var(--soft); }
+  .legend .dotc { width: 12px; height: 12px; border-radius: 4px; flex: none; }
+  .legend b { margin-left: auto; font-size: 18px; }
+
+  /* swipe cards */
+  .swipe { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px; padding: 2px 2px 10px; margin: 0 -16px; padding-left: 16px; padding-right: 16px; scrollbar-width: none; }
+  .swipe::-webkit-scrollbar { display: none; }
+  .tcard { scroll-snap-align: start; flex: 0 0 78%; background: var(--card); border-radius: var(--r); padding: 16px; box-shadow: 0 2px 10px rgba(31,42,68,.07); display: flex; flex-direction: column; gap: 6px; }
+  .tcard .em { font-size: 42px; line-height: 1; }
+  .tcard .obj { font-size: 26px; font-weight: 800; }
+  .tcard .ask { font-size: 17px; color: var(--orange-ink); font-weight: 600; flex: 1; }
+  .list { background: var(--card); border-radius: var(--r); overflow: hidden; box-shadow: 0 2px 10px rgba(31,42,68,.07); }
+  .li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid var(--line); }
+  .li:first-child { border-top: 0; }
+  .li .em { font-size: 28px; flex: none; }
+  .li .tx { flex: 1; min-width: 0; font-size: 17px; }
+  .li .tx small { display: block; font-size: 16px; color: var(--muted); }
+
+  /* empty */
+  .empty { text-align: center; padding: 26px 10px; color: var(--muted); }
+  .empty svg { width: 132px; height: 110px; display: block; margin: 0 auto 8px; }
+  .empty p { margin: 0; font-size: 17px; }
+
+  /* log */
+  .filters { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters .chip { flex: none; min-height: 44px; border: 2px solid transparent; }
+  .filters .chip[aria-pressed="true"] { background: var(--navy); color: #fff; }
+  .day { font-size: 16px; font-weight: 700; color: var(--muted); margin: 14px 4px 6px; }
+  .ev { border-top: 1px solid var(--line); }
+  .ev:first-child { border-top: 0; }
+  .ev > button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 8px 14px; background: none; border: 0; text-align: left; }
+  .ev .em { font-size: 30px; flex: none; }
+  .ev .nm { flex: 1; font-size: 18px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ev .st { font-size: 22px; flex: none; }
+  .ev .tm { font-size: 16px; color: var(--muted); flex: none; min-width: 48px; text-align: right; }
+  .ev .more { display: none; padding: 0 14px 14px 56px; font-size: 16px; }
+  .ev.open .more { display: block; }
+  .more .q { font-weight: 700; margin-bottom: 4px; } .more .a { margin-bottom: 4px; } .more .b { color: var(--orange-ink); font-weight: 600; }
+
+  /* cheats */
+  .seg { display: flex; background: var(--soft); border-radius: 999px; padding: 4px; margin-bottom: 14px; }
+  .seg button { flex: 1; min-height: 44px; border: 0; background: none; border-radius: 999px; font-weight: 700; color: var(--muted); }
+  .seg button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+  .cheat { background: var(--card); border-radius: var(--r); overflow: hidden; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(31,42,68,.07); }
+  .cheat .hd { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: #fff; font-weight: 800; font-size: 19px; }
+  .cheat .hd .em { font-size: 28px; }
+  .cheat .hd .when { margin-left: auto; font-size: 16px; font-weight: 500; opacity: .95; }
+  .cheat .bd { padding: 14px 16px 16px; }
+  .cheat .said { font-size: 16px; color: var(--muted); margin: 0 0 8px; }
+  .cheat ul { margin: 0 0 12px; padding-left: 22px; } .cheat li { margin-bottom: 6px; font-size: 17px; }
+  .nosay { background: var(--soft); color: #4A5266; border-radius: 14px; padding: 10px 14px; margin-bottom: 12px; font-size: 16px; }
+  .nosay b { display: block; margin-bottom: 2px; }
+  .nosay ul { margin: 0; padding-left: 20px; } .nosay li { font-size: 16px; margin: 2px 0; }
+  .srcs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .srcs a { font-size: 16px; color: var(--sky-ink); background: var(--sky-soft); border-radius: 999px; padding: 6px 12px; text-decoration: none; min-height: 36px; display: inline-flex; align-items: center; }
+  .cheat.urgent { border: 3px solid var(--red); } .cheat.urgent .bd { background: var(--red-soft); }
+  .tel { display: flex; gap: 10px; margin-bottom: 12px; }
+  .tel a { flex: 1; min-height: 56px; border-radius: 16px; background: var(--red); color: #fff; font-weight: 800; font-size: 20px; text-decoration: none; display: grid; place-items: center; text-align: center; line-height: 1.15; }
+  .tel a small { display: block; font-size: 16px; font-weight: 600; }
+  .okbtn { width: 100%; min-height: 52px; border-radius: 999px; border: 2px solid var(--green); background: #fff; color: var(--green); font-weight: 800; }
+  .okbtn[disabled] { background: #E1F4E8; border-color: #E1F4E8; }
+
+  /* kid tab */
+  .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tg { min-height: 64px; border-radius: 18px; border: 2px solid var(--line); background: #fff; display: flex; align-items: center; gap: 10px; padding: 0 14px; font-size: 17px; font-weight: 700; text-align: left; }
+  .tg .em { font-size: 28px; } .tg[aria-pressed="true"] { background: var(--sky-soft); border-color: var(--sky); color: var(--sky-ink); }
+  .ages { display: flex; gap: 10px; }
+  .ages button { flex: 1; min-height: 72px; border-radius: 20px; border: 2px solid var(--line); background: #fff; font-size: 30px; font-weight: 800; }
+  .ages button[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  input.txt { width: 100%; min-height: 52px; border-radius: 16px; border: 2px solid var(--line); padding: 0 14px; font: inherit; font-size: 18px; background: #fff; color: var(--navy); }
+  input.txt:focus { outline: 3px solid var(--sky); border-color: var(--sky); }
+  .note { color: var(--muted); font-size: 16px; margin: 10px 2px 0; }
+  .recent { font-size: 17px; background: var(--soft); border-radius: 999px; padding: 6px 12px; font-weight: 600; }
+
+  /* tab bar */
+  nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+  nav .in { max-width: 520px; margin: 0 auto; display: flex; }
+  nav button { flex: 1; min-height: 68px; border: 0; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 16px; font-weight: 700; color: var(--muted); position: relative; }
+  nav button svg { width: 28px; height: 28px; }
+  nav button[aria-selected="true"] { color: var(--navy); }
+  nav button[aria-selected="true"]::before { content: ""; position: absolute; top: 0; width: 44px; height: 4px; border-radius: 0 0 4px 4px; background: var(--orange); }
+  nav .badge { position: absolute; top: 6px; left: calc(50% + 8px); min-width: 22px; height: 22px; border-radius: 11px; background: var(--red); color: #fff; font-size: 14px; display: grid; place-items: center; padding: 0 5px; }
+
+  /* settings sheet */
+  #sheet { position: fixed; inset: 0; z-index: 50; background: var(--cream); overflow-y: auto; display: none; }
+  #sheet.open { display: block; }
+  #sheet .in { max-width: 520px; margin: 0 auto; padding: 12px 16px 40px; }
+  .range { width: 100%; height: 44px; accent-color: var(--sky); }
+  .ticks { display: flex; justify-content: space-between; font-size: 16px; font-weight: 700; padding: 0 2px; }
+  .btn { min-height: 52px; border-radius: 16px; border: 2px solid var(--line); background: #fff; padding: 0 18px; font-weight: 700; text-decoration: none; color: var(--navy); display: inline-flex; align-items: center; justify-content: center; }
+  .btn.danger { border-color: var(--red); color: var(--red); }
+  .btn.solid { background: var(--red); color: #fff; border-color: var(--red); }
+  .switch-off { display: flex; align-items: center; gap: 12px; opacity: .6; }
+  .switch-off .sw { width: 56px; height: 32px; border-radius: 16px; background: #C9C2B3; position: relative; flex: none; }
+  .switch-off .sw::after { content: ""; position: absolute; left: 4px; top: 4px; width: 24px; height: 24px; border-radius: 50%; background: #fff; }
+  .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); background: var(--navy); color: #fff; border-radius: 999px; padding: 10px 20px; z-index: 60; font-weight: 700; opacity: 0; transition: opacity .25s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-<header>
-  <h1>好奇鏡 · 家長頁面</h1>
-  <p>看看孩子這週好奇了什麼，也能陪他一起聊。所有資料只存在這台機器上。</p>
-  <nav role="tablist" id="tabs">
-    <button role="tab" data-tab="week" aria-selected="true">本週</button>
-    <button role="tab" data-tab="log" aria-selected="false">問題紀錄</button>
-    <button role="tab" data-tab="cheats" aria-selected="false">家長小抄</button>
-    <button role="tab" data-tab="world" aria-selected="false">孩子的世界</button>
-  </nav>
-</header>
-<main>
-  <section class="panel on" id="p-week"></section>
-  <section class="panel" id="p-log"></section>
-  <section class="panel" id="p-cheats"></section>
-  <section class="panel" id="p-world"></section>
+<div id="app">
+  <header class="top">
+    <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="好奇鏡標誌"><circle cx="27" cy="27" r="19" fill="#E3F1F7" stroke="#1F2A44" stroke-width="5"/><path d="M41 41l15 15" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/><path d="M21 22.5a6.5 6.5 0 1 1 9.4 5.8c-2 1-3.4 2.1-3.4 4.2" fill="none" stroke="#2E86AB" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="38.5" r="2.6" fill="#2E86AB"/></svg>
+    <div class="who" id="who">我的孩子<small>好奇鏡</small></div>
+    <div class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">連線中</span></div>
+    <button class="icon-btn" id="gear" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+  </header>
+  <main id="view" aria-live="polite"></main>
+</div>
 
-  <section class="settings" id="settings">
-    <h2>設定</h2>
-    <div class="card">
-      <div class="row">
-        <label for="ret">紀錄保存天數</label>
-        <input type="number" id="ret" min="1" max="365" style="width:6em">
-        <button class="act" id="ret-save">儲存</button>
-        <span class="note" id="ret-msg"></span>
-      </div>
-      <div class="row">
-        <label><input type="checkbox" id="cloud" disabled> 雲端備援（把問題送到雲端 AI）</label>
-        <span class="note">尚未開放</span>
-      </div>
-      <div class="row">
-        <button class="act danger" id="clear">清除所有紀錄</button>
-        <a class="btn secondary" href="/api/data/export" download="whyscope-export.json">匯出 JSON</a>
-        <span class="note" id="data-msg"></span>
-      </div>
-      <p class="note">錄音與鏡頭畫面不會被儲存，只留下問題文字與回答。</p>
-    </div>
-  </section>
-</main>
+<nav aria-label="主要選單"><div class="in" role="tablist">
+  <button role="tab" data-tab="week" aria-label="本週"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>本週</button>
+  <button role="tab" data-tab="log" aria-label="紀錄"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>紀錄</button>
+  <button role="tab" data-tab="cheats" aria-label="小抄"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg>小抄<span class="badge" id="cheatbadge" hidden></span></button>
+  <button role="tab" data-tab="kid" aria-label="孩子"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>孩子</button>
+</div></nav>
+
+<div id="sheet" role="dialog" aria-label="設定" aria-modal="true"><div class="in" id="sheetin"></div></div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 (function () {
-  const TOPIC_ZH = { animals: "動物", plants: "植物", sky_weather: "天氣與天空", body: "身體", machines: "機器與家電", food: "食物" };
-  const CAT_ZH = { death: "死亡", birth_sex: "出生與性別", violence_war: "暴力與戰爭", divorce_family: "家庭變動", illness: "生病", self_harm: "自我傷害", money_poverty: "金錢", religion: "宗教", bullying: "霸凌", scary_news: "可怕的新聞" };
-  const STATUS_ZH = { answered: "已回答", abstained: "不確定", sensitive: "敏感話題" };
-  let memInfo = null, ageGroup = "5-6";
+  "use strict";
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const api = async (path, opts) => {
+    const r = await fetch(path, Object.assign({ cache: "no-store" }, opts || {}));
+    if (!r.ok) throw new Error(path + " " + r.status);
+    return r.headers.get("content-type") && r.headers.get("content-type").includes("json") ? r.json() : r;
+  };
+  const post = (path, body) => api(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
 
-  // ---- tiny DOM helpers (all text goes through textContent, never innerHTML) ----
-  function h(tag, attrs, ...kids) {
-    const e = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs || {})) {
-      if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
-      else if (v !== false && v != null) e.setAttribute(k, v === true ? "" : v);
+  const TOPIC = { animals: ["🐾", "動物", "#F28C28"], plants: ["🌱", "植物", "#5BAE6A"], sky_weather: ["🌤️", "天氣", "#2E86AB"],
+                  body: ["🧒", "身體", "#E5677E"], machines: ["⚙️", "機器", "#1F2A44"], food: ["🍎", "食物", "#B07CC6"] };
+  const CAT = { death: ["🕯️", "#5B6478"], birth_sex: ["👶", "#C2527A"], violence_war: ["🛡️", "#8A5A2B"], divorce_family: ["🏠", "#3F7FA6"],
+                illness: ["🤒", "#2E8B6A"], self_harm: ["🆘", "#C62828"], money_poverty: ["💰", "#9A6B00"], religion: ["🙏", "#7A5AA6"],
+                bullying: ["🧸", "#D2691E"], scary_news: ["📰", "#4A5266"] };
+  const BRIDGE = { has_dog: ["🐶", "有養狗", "你家的狗"], has_cat: ["🐱", "有養貓", "你家的貓"], has_sibling: ["👧", "有兄弟姊妹", "兄弟姊妹"],
+                   likes_dinosaurs: ["🦖", "喜歡恐龍", "恐龍"], likes_cars: ["🚗", "喜歡車車", "車車"], has_garden: ["🌿", "家裡有植物", "家裡的植物"],
+                   rides_bike: ["🚲", "會騎腳踏車", "腳踏車"] };
+  const STATUS = { answered: ["✅", "答了"], abstained: ["❓", "不確定"], sensitive: ["🛡️", "轉給家長"] };
+
+  const S = { tab: "week", filter: null, ageSeg: null, open: new Set(), data: null };
+
+  // ---------- helpers ----------
+  const pd = (ts) => new Date(ts);
+  const dayKey = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  function dayLabel(d) {
+    const t = new Date(), y = new Date(Date.now() - 864e5), wd = "日一二三四五六"[d.getDay()];
+    return dayKey(d) === dayKey(t) ? "今天" : dayKey(d) === dayKey(y) ? "昨天" : (d.getMonth() + 1) + "/" + d.getDate() + " 週" + wd;
+  }
+  const hm = (d) => String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+  function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 1800); }
+  const emptySvg = '<svg viewBox="0 0 132 110" aria-hidden="true"><circle cx="60" cy="52" r="34" fill="#E3F1F7" stroke="#1F2A44" stroke-width="5"/><path d="M85 77l24 24" stroke="#F28C28" stroke-width="10" stroke-linecap="round"/><path d="M48 44a12 12 0 1 1 17 10.5c-3 1.5-5 3.5-5 7" fill="none" stroke="#2E86AB" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="72" r="3.6" fill="#2E86AB"/></svg>';
+  const empty = (t) => '<div class="empty">' + emptySvg + "<p>" + esc(t) + "</p></div>";
+  const topicOf = (t) => TOPIC[t] || ["🔍", t || "其他", "#888"];
+
+  // ---------- data ----------
+  async function load() {
+    const [rep, ev, ch, mem, set, hz] = await Promise.all([
+      api("/api/report/week"), api("/api/events?days=14"), api("/api/cheats"), api("/api/memory"), api("/api/settings"),
+      api("/healthz").catch(() => null)]);
+    S.data = { rep, ev, ch, mem: mem.memory || {}, memEmoji: mem.emoji || {}, set, ok: !!hz };
+    $("#dev").classList.toggle("ok", !!hz); $("#devl").textContent = hz ? "已連線" : "未連線";
+    const nm = (S.data.mem.child_name || {}).value;
+    $("#who").innerHTML = esc(nm || "我的孩子") + "<small>好奇鏡</small>";
+    const undone = ch.filter((c) => !c.cheat_done).length;
+    const b = $("#cheatbadge"); b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", undone + " 張小抄還沒看");
+  }
+
+  // ---------- 本週 ----------
+  function spark(daily) {
+    const W = 320, H = 92, px = 14, top = 12, bot = 22, max = Math.max(1, ...daily.map((d) => d.count));
+    const x = (i) => px + (i * (W - 2 * px)) / 6, y = (c) => top + (1 - c / max) * (H - top - bot);
+    const pts = daily.map((d, i) => [x(i), y(d.count)]);
+    const line = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+    const area = line + " L" + x(6) + " " + (H - bot) + " L" + x(0) + " " + (H - bot) + " Z";
+    return '<svg class="spark" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="最近七天每天的問題數：' + daily.map((d) => d.count).join("、") + '">' +
+      '<path d="' + area + '" fill="#E3F1F7"/><path d="' + line + '" fill="none" stroke="#2E86AB" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+      pts.map((p, i) => '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="' + (i === 6 ? 6 : 4) + '" fill="' + (i === 6 ? "#F28C28" : "#2E86AB") + '"/>' +
+        '<text x="' + p[0] + '" y="' + (H - 5) + '" text-anchor="middle">' + daily[i].weekday + "</text>").join("") + "</svg>";
+  }
+  function donut(topics) {
+    const total = topics.reduce((a, t) => a + t.count, 0); let acc = 0;
+    const segs = topics.map((t) => {
+      const frac = (t.count / total) * 100, col = topicOf(t.topic)[2];
+      const s = '<circle class="seg" cx="21" cy="21" r="15.915" fill="none" stroke="' + col + '" stroke-width="7" stroke-dasharray="' + Math.max(0, frac - 0.8).toFixed(2) + " " + (100 - Math.max(0, frac - 0.8)).toFixed(2) +
+        '" stroke-dashoffset="' + (25 - acc).toFixed(2) + '" data-topic="' + esc(t.topic) + '" tabindex="0" role="button" aria-label="' + esc(topicOf(t.topic)[1]) + " " + t.count + ' 個，看紀錄"/>';
+      acc += frac; return s;
+    }).join("");
+    return '<svg class="donut" viewBox="0 0 42 42" role="group" aria-label="問題的主題比例">' +
+      '<circle cx="21" cy="21" r="15.915" fill="none" stroke="#F1ECE0" stroke-width="7"/>' + segs +
+      '<text x="21" y="22.6" text-anchor="middle" font-size="9" font-weight="800" fill="#1F2A44">' + total + '</text></svg>';
+  }
+  function viewWeek() {
+    const { rep } = S.data, d = rep.total;
+    if (!d) return '<div class="card">' + empty("還沒有問題，去問問好奇鏡吧") + "</div>";
+    const diff = d - rep.prev_total;
+    const chip = rep.prev_total > 0 ? '<span class="chip ' + (diff >= 0 ? "up" : "down") + '">比上週 ' + (diff >= 0 ? "+" : "−") + Math.abs(diff) + "</span>" : "";
+    let h = '<div class="card"><div class="hero"><div class="big" aria-label="' + d + ' 個為什麼">' + d + '</div><div class="lbl">個為什麼</div><div style="margin-left:auto;padding-bottom:6px">' + chip + "</div></div>" + spark(rep.daily) + "</div>";
+    if (rep.topics.length) {
+      h += '<h2>主題</h2><div class="card"><div class="donut-row">' + donut(rep.topics) + '<div class="legend">' +
+        rep.topics.map((t) => '<button data-topic="' + esc(t.topic) + '" aria-label="' + esc(topicOf(t.topic)[1]) + " " + t.count + ' 個，看紀錄"><span class="dotc" style="background:' + topicOf(t.topic)[2] + '"></span>' + topicOf(t.topic)[0] + " " + esc(topicOf(t.topic)[1]) + "<b>" + t.count + "</b></button>").join("") + "</div></div></div>";
     }
-    for (const k of kids.flat(Infinity)) if (k != null) e.append(k.nodeType ? k : document.createTextNode(String(k)));
-    return e;
-  }
-  const api = async (url, opt) => { const r = await fetch(url, opt); if (!r.ok) throw new Error(url + " " + r.status); return r.json(); };
-  const post = (url, body, method) => api(url, { method: method || "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
-  const empty = (t) => h("p", { class: "empty" }, t);
-  const safeUrl = (u) => /^https?:\/\//i.test(u || "") ? u : null;
-  const fmtTs = (s) => (s || "").replace("T", " ").slice(0, 16);
-  function panel(id, ...kids) { document.getElementById("p-" + id).replaceChildren(...kids.flat(Infinity).filter((k) => k != null)); }
-
-  // ---- tabs ----
-  const loaders = { week: loadWeek, log: loadLog, cheats: loadCheats, world: loadWorld };
-  document.querySelectorAll("#tabs button").forEach((b) => b.addEventListener("click", () => select(b.dataset.tab)));
-  function select(name) {
-    document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === name));
-    document.querySelectorAll("section.panel").forEach((p) => p.classList.toggle("on", p.id === "p-" + name));
-    loaders[name]().catch((e) => panel(name, empty("讀取失敗：" + e.message)));
+    const talk = rep.talk_about.filter((t) => !t.talked).slice(0, 3);
+    h += '<h2>可以聊聊看</h2>';
+    h += talk.length ? '<div class="swipe">' + talk.map((t) => '<div class="tcard"><div class="em" aria-hidden="true">' + esc(t.emoji) + '</div><div class="obj">' + esc(t.object) + '</div><div class="ask">' + esc(t.ask_back) +
+      '</div><button class="talk-btn" data-talked="' + t.event_id + '" aria-label="聊過了：' + esc(t.object) + '">聊過了 ✓</button></div>').join("") + "</div>" : '<div class="card"><div class="empty" style="padding:6px"><p>都聊過了 👍</p></div></div>';
+    const un = rep.unanswered.filter((u) => !u.talked);
+    h += '<h2>我答不出來<span class="n">' + un.length + "</span></h2>";
+    h += un.length ? '<div class="list">' + un.slice(0, 6).map((u) => '<div class="li"><span class="em" aria-hidden="true">❓</span><div class="tx">' + esc(u.question) + '</div><button class="talk-btn" data-talked="' + u.event_id + '" aria-label="聊過了：' + esc(u.question) + '">聊過了 ✓</button></div>').join("") + "</div>" : '<div class="card"><div class="empty" style="padding:6px"><p>沒有答不出來的問題 👍</p></div></div>';
+    if (rep.bridges_used.length) {
+      h += "<h2>用過的例子</h2><div class=\"wrapchips\">" + rep.bridges_used.map((b) => '<span class="chip">' + esc(b.emoji) + " 用" + esc((BRIDGE[b.key] || [])[2] || "") + "解釋了" + esc(b.objects.slice(0, 2).join("、")) + "</span>").join("") + "</div>";
+    }
+    return h;
   }
 
-  // ---- 本週 ----
-  async function loadWeek() {
-    const r = await api("/api/report/week");
-    const max = Math.max(1, ...Object.values(r.by_topic));
-    const topics = Object.entries(r.by_topic);
-    panel("week",
-      h("div", { class: "stats" },
-        stat(r.total, "本週問題總數"), stat(r.answered, "已回答"), stat(r.sensitive, "轉給家長的敏感話題"), stat(r.unanswered.length, "不確定的問題")),
-      h("h2", {}, "問了哪些主題"),
-      topics.length ? h("div", { class: "card" }, topics.map(([t, n]) =>
-        h("div", { class: "bar" }, h("span", { class: "name" }, TOPIC_ZH[t] || t),
-          h("span", { class: "track" }, h("span", { class: "fill", style: "width:" + Math.round(n / max * 100) + "%", display: null })),
-          h("span", { class: "n" }, n)))) : empty("這週還沒有問題。"),
-      h("h2", {}, "可以聊聊看"),
-      r.talk_about.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.talk_about.map((t) =>
-        h("li", {}, h("b", {}, t.object || "（未知）"), "（" + (TOPIC_ZH[t.topic] || t.topic || "") + "，問了 " + t.count + " 次）",
-          t.ask_back ? " → 你可以問他：" + t.ask_back : "")))) : empty("還沒有可聊的話題。"),
-      h("h2", {}, "沒能回答的問題"),
-      r.unanswered.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.unanswered.map((u) =>
-        h("li", {}, u.question, h("span", { class: "note" }, "　" + fmtTs(u.ts)))))) : empty("沒有。"),
-      h("h2", {}, "用上的孩子小世界連結"),
-      r.bridges_used.length ? h("div", { class: "card" }, h("ul", { class: "plain" }, r.bridges_used.map((b) =>
-        h("li", {}, b.label_zh + "：" + b.count + " 次")))) : empty("還沒有用到。可在「孩子的世界」分頁加入資料。"));
-  }
-  const stat = (n, label) => h("div", { class: "stat" }, h("b", {}, n), h("span", {}, label));
-
-  // ---- 問題紀錄 ----
-  async function loadLog() {
-    const ev = await api("/api/events?days=30");
-    panel("log", h("h2", {}, "最近 30 天的問題（共 " + ev.length + " 筆）"),
-      ev.length ? h("div", { class: "tablewrap" }, h("table", {},
-        h("thead", {}, h("tr", {}, ["時間", "問題", "狀態", "主題", "回答", "耗時"].map((t) => h("th", {}, t)))),
-        h("tbody", {}, ev.map((e) => h("tr", {},
-          h("td", {}, fmtTs(e.ts)), h("td", {}, e.question || ""),
-          h("td", {}, h("span", { class: "tag " + e.status }, STATUS_ZH[e.status] || e.status)),
-          h("td", {}, TOPIC_ZH[e.topic] || e.topic || CAT_ZH[e.sensitive_category] || e.sensitive_category || ""),
-          h("td", {}, [e.first_sentence, e.explanation].filter(Boolean).join(" ")),
-          h("td", {}, e.latency_total_ms != null ? e.latency_total_ms + " ms" : "")))))) : empty("還沒有紀錄。"));
+  // ---------- 紀錄 ----------
+  function viewLog() {
+    const ev = S.data.ev, topics = Object.keys(TOPIC).filter((t) => ev.some((e) => e.topic === t));
+    let h = '<div class="filters" role="group" aria-label="用主題篩選"><button class="chip" data-filter="" aria-pressed="' + (!S.filter) + '">全部</button>' +
+      topics.map((t) => '<button class="chip" data-filter="' + esc(t) + '" aria-pressed="' + (S.filter === t) + '">' + topicOf(t)[0] + " " + esc(topicOf(t)[1]) + "</button>").join("") + "</div>";
+    const rows = ev.filter((e) => !S.filter || e.topic === S.filter).sort((a, b) => (a.ts < b.ts ? 1 : -1));
+    if (!rows.length) return h + '<div class="card">' + empty("還沒有問題，去問問好奇鏡吧") + "</div>";
+    const groups = {};
+    rows.forEach((e) => { const d = pd(e.ts); (groups[dayKey(d)] = groups[dayKey(d)] || { d, list: [] }).list.push(e); });
+    Object.keys(groups).sort().reverse().forEach((k) => {
+      const g = groups[k];
+      h += '<div class="day">' + esc(dayLabel(g.d)) + '</div><div class="list">' + g.list.map((e) => {
+        const st = STATUS[e.status] || ["", ""], name = e.status === "answered" ? e.object : (e.question || "（沒聽清楚）"), open = S.open.has(e.id);
+        const em = e.emoji || (e.status === "sensitive" ? "🛡️" : "❓");
+        return '<div class="ev' + (open ? " open" : "") + '"><button data-ev="' + e.id + '" aria-expanded="' + open + '"><span class="em" aria-hidden="true">' + esc(em) + '</span><span class="nm">' + esc(name) +
+          '</span><span class="st" role="img" aria-label="' + st[1] + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + '</span></button><div class="more"><div class="q">問：' + esc(e.question || "—") + "</div>" +
+          (e.status === "answered" ? '<div class="a">' + esc((e.first_sentence || "") + (e.explanation || "")) + '</div><div class="b">' + esc(e.ask_back || "") + "</div>" : '<div class="a">' + esc(e.first_sentence || "") + "</div>") + "</div></div>";
+      }).join("") + "</div>";
+    });
+    return h;
   }
 
-  // ---- 家長小抄 ----
-  async function loadCheats() {
-    if (!memInfo) memInfo = await api("/api/memory");
-    const age = (memInfo.memory.child_age || {}).value;
-    if (age >= 7) ageGroup = "7-8";
-    const list = await api("/api/cheats?days=30");
-    const ageBtns = h("div", { class: "agetabs" }, ["5-6", "7-8"].map((g) =>
-      h("button", { class: g === ageGroup ? "on" : "", onclick: () => { ageGroup = g; loadCheats(); } }, g + " 歲")));
-    panel("cheats",
-      h("h2", {}, "家長小抄"),
-      h("p", { class: "note" }, "孩子問到比較沈重或需要大人陪伴的話題時，好奇鏡不會回答，而是請他回來問你。這裡幫你準備好怎麼聊。"),
-      ageBtns,
-      list.length ? list.map(cheatCard) : empty("目前沒有需要聊的敏感話題。"));
-  }
-  function cheatCard(c) {
-    const pts = (c.talking_points || {})[ageGroup] || Object.values(c.talking_points || {})[0] || [];
-    const srcs = (c.sources || []).map((s) => { const u = safeUrl(s.url);
-      return h("li", {}, u ? h("a", { href: u, target: "_blank", rel: "noopener noreferrer" }, s.title || u) : (s.title || ""),
-        s.publisher ? "（" + s.publisher + "）" : ""); });
-    return h("div", { class: "card cheat" + (c.cheat_done ? " done" : "") },
-      h("h3", {}, c.category_zh, c.urgent ? h("span", { class: "urgent" }, "需要立即關心") : null),
-      h("div", { class: "q" }, fmtTs(c.ts) + "　孩子問：「" + (c.question || "") + "」"),
-      c.has_cheat_sheet ? [
-        h("b", {}, "可以這樣說（" + ageGroup + " 歲）"),
-        pts.length ? h("ul", { class: "plain" }, pts.map((p) => h("li", {}, p))) : empty("這個年齡層還沒有建議。"),
-        (c.what_not_to_say || []).length ? h("div", { class: "nots" }, h("b", {}, "盡量避免"),
-          h("ul", { class: "plain" }, c.what_not_to_say.map((p) => h("li", {}, p)))) : null,
-        srcs.length ? [h("b", {}, "資料來源"), h("ul", { class: "plain" }, srcs)] : null
-      ] : empty("這個類別的小抄還沒準備好。"),
-      h("div", { class: "row" }, h("button", { class: "act", disabled: c.cheat_done,
-        onclick: async () => { await post("/api/cheats/" + c.event_id + "/done"); loadCheats(); } }, c.cheat_done ? "已聊過" : "已聊過")));
+  // ---------- 小抄 ----------
+  function viewCheats() {
+    const ch = S.data.ch;
+    if (!ch.length) return '<div class="card">' + empty("沒有需要你特別聊的問題") + "</div>";
+    const age = (S.data.mem.child_age || {}).value;
+    if (!S.ageSeg) S.ageSeg = age && age >= 7 ? "7-8" : "5-6";
+    const sorted = ch.slice().sort((a, b) => (a.cheat_done - b.cheat_done) || (b.urgent - a.urgent) || (b.event_id - a.event_id));
+    let h = '<div class="seg" role="group" aria-label="孩子的年齡"><button data-seg="5-6" aria-pressed="' + (S.ageSeg === "5-6") + '">5–6 歲</button><button data-seg="7-8" aria-pressed="' + (S.ageSeg === "7-8") + '">7–8 歲</button></div>';
+    h += sorted.map((c) => {
+      const [em, col] = CAT[c.category] || ["💬", "#4A5266"], pts = (c.talking_points || {})[S.ageSeg] || (c.talking_points || {})["5-6"] || [];
+      const d = pd(c.ts);
+      return '<article class="cheat' + (c.urgent ? " urgent" : "") + (c.cheat_done ? " done" : "") + '"><div class="hd" style="background:' + (c.urgent ? "#C62828" : col) + '"><span class="em" aria-hidden="true">' + em + "</span>" + esc(c.category_zh) +
+        '<span class="when">' + esc(dayLabel(d)) + " " + hm(d) + '</span></div><div class="bd"><p class="said">孩子問：「' + esc(c.question) + "」</p>" +
+        (c.urgent ? '<div class="tel"><a href="tel:1925" aria-label="撥打安心專線 1925"><span>1925<small>安心專線</small></span></a><a href="tel:1995" aria-label="撥打生命線 1995"><span>1995<small>生命線</small></span></a></div>' : "") +
+        (pts.length ? "<ul>" + pts.map((p) => "<li>" + esc(p) + "</li>").join("") + "</ul>" : "") +
+        ((c.what_not_to_say || []).length ? '<div class="nosay"><b>🚫 不要說</b><ul>' + c.what_not_to_say.map((p) => "<li>" + esc(p) + "</li>").join("") + "</ul></div>" : "") +
+        ((c.sources || []).length ? '<div class="srcs">' + c.sources.map((s) => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.publisher || s.title || "來源") + " ↗</a>").join("") + "</div>" : "") +
+        '<button class="okbtn" data-cheat="' + c.event_id + '"' + (c.cheat_done ? " disabled" : "") + ">" + (c.cheat_done ? "已聊過 ✓" : "聊過了 ✓") + "</button></div></article>";
+    }).join("");
+    return h;
   }
 
-  // ---- 孩子的世界 ----
-  async function loadWorld() {
-    memInfo = await api("/api/memory");
-    const mem = memInfo.memory, labels = Object.fromEntries(memInfo.keys.map((k) => [k.key, k]));
-    const set = memInfo.keys.filter((k) => mem[k.key]);
-    const sel = h("select", { id: "mk" }, memInfo.keys.map((k) => h("option", { value: k.key }, k.label_zh)));
-    const valBox = h("span", {});
-    const renderVal = () => {
-      const k = labels[sel.value];
-      const inp = k.type === "bool" ? h("select", { id: "mv" }, h("option", { value: "true" }, "是"), h("option", { value: "false" }, "否"))
-        : h("input", { id: "mv", type: k.type === "int" ? "number" : "text", min: 5, max: 8, placeholder: k.type === "int" ? "5–8" : "請輸入" });
-      valBox.replaceChildren(inp);
+  // ---------- 孩子 ----------
+  function viewKid() {
+    const m = S.data.mem, v = (k) => (m[k] || {}).value, on = (k) => { const x = v(k); return x === true || (typeof x === "string" && x.trim() !== ""); };
+    const age = v("child_age") || 6;
+    let h = '<h2>孩子的世界</h2><div class="toggles">' + Object.keys(BRIDGE).map((k) => '<button class="tg" data-mem="' + k + '" aria-pressed="' + on(k) + '"><span class="em" aria-hidden="true">' + BRIDGE[k][0] + "</span>" + BRIDGE[k][1] + "</button>").join("") + "</div>";
+    h += '<h2>年齡</h2><div class="ages" role="group" aria-label="年齡">' + [5, 6, 7, 8].map((a) => '<button data-age="' + a + '" aria-pressed="' + (age === a) + '" aria-label="' + a + ' 歲">' + a + "</button>").join("") + "</div>";
+    h += '<h2>名字</h2><input class="txt" id="cname" maxlength="12" placeholder="孩子的名字（只有你看得到）" aria-label="孩子的名字" value="' + esc(v("child_name") || "") + '">';
+    h += '<p class="note">Whyscope 只用這些來舉例，不會對孩子說出名字。</p>';
+    const ro = (v("recent_objects") || []).slice(0, 8);
+    if (ro.length) h += '<h2>最近常問</h2><div class="wrapchips">' + ro.map((o) => '<span class="recent">' + esc((S.data.memEmoji || {})[o] || "🔍") + " " + esc(o) + "</span>").join("") + "</div>";
+    return h;
+  }
+
+  // ---------- render / events ----------
+  const VIEWS = { week: viewWeek, log: viewLog, cheats: viewCheats, kid: viewKid };
+  function render() {
+    if (!S.data) return;
+    document.querySelectorAll("nav button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === S.tab));
+    const active = document.activeElement && document.activeElement.id === "cname";
+    if (active) return;   // never re-render under a field the parent is typing in
+    $("#view").innerHTML = VIEWS[S.tab]();
+  }
+  function go(tab) { S.tab = tab; history.replaceState(null, "", "#" + tab); render(); window.scrollTo(0, 0); }
+  async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); $("#devl").textContent = "未連線"; } }
+
+  document.addEventListener("click", async (e) => {
+    const t = e.target.closest("[data-tab],[data-topic],[data-filter],[data-ev],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age]");
+    if (!t) return;
+    try {
+      if (t.dataset.tab) go(t.dataset.tab);
+      else if (t.dataset.topic !== undefined) { S.filter = t.dataset.topic; go("log"); }
+      else if (t.dataset.filter !== undefined) { S.filter = t.dataset.filter || null; render(); }
+      else if (t.dataset.ev) { const id = +t.dataset.ev; S.open.has(id) ? S.open.delete(id) : S.open.add(id); render(); }
+      else if (t.dataset.talked) { await post("/api/events/" + t.dataset.talked + "/talked"); toast("好，記下來了"); await refresh(); }
+      else if (t.dataset.seg) { S.ageSeg = t.dataset.seg; render(); }
+      else if (t.dataset.cheat) { await post("/api/cheats/" + t.dataset.cheat + "/done"); toast("好，記下來了"); await refresh(); }
+      else if (t.dataset.mem) {
+        const k = t.dataset.mem, was = t.getAttribute("aria-pressed") === "true";
+        if (was) await api("/api/memory?key=" + k, { method: "DELETE" });
+        else await post("/api/memory", { key: k, value: k === "has_sibling" ? "有" : true });
+        await refresh();
+      } else if (t.dataset.age) { await post("/api/memory", { key: "child_age", value: +t.dataset.age }); await refresh(); }
+    } catch (err) { toast("沒有成功，請再試一次"); }
+  });
+  document.addEventListener("change", async (e) => {
+    if (e.target.id === "cname") {
+      const val = e.target.value.trim();
+      try { if (val) await post("/api/memory", { key: "child_name", value: val }); else await api("/api/memory?key=child_name", { method: "DELETE" }); toast("已儲存"); await load(); $("#who").innerHTML = esc(val || "我的孩子") + "<small>好奇鏡</small>"; }
+      catch (err) { toast("沒有成功，請再試一次"); }
+    }
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest && e.target.closest(".donut circle.seg")) e.target.dispatchEvent(new MouseEvent("click", { bubbles: true })); });
+
+  // ---------- settings sheet ----------
+  const RET = [7, 30, 90];
+  function openSheet() {
+    const set = S.data.set, ri = Math.max(0, RET.indexOf(set.retention_days));
+    $("#sheetin").innerHTML = '<div class="row" style="margin-bottom:6px"><button class="icon-btn" id="back" aria-label="回上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><h2 style="margin:0;font-size:22px">設定</h2></div>' +
+      '<h2>紀錄保存多久</h2><div class="card"><input class="range" id="ret" type="range" min="0" max="2" step="1" value="' + ri + '" aria-label="紀錄保存天數"><div class="ticks"><span>7 天</span><span>30 天</span><span>90 天</span></div><p class="note" id="retnote">目前：' + set.retention_days + " 天，過了就自動刪除</p></div>" +
+      '<h2>雲端後備</h2><div class="card"><div class="switch-off"><span class="sw" aria-hidden="true"></span><span>關閉　<small style="color:var(--muted);font-size:16px">Stage II 才會有</small></span></div></div>' +
+      '<h2>資料</h2><div class="card" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/api/data/export" download="whyscope-export.json">⬇️ 匯出</a><button class="btn danger" id="clear">🗑️ 清除</button></div>' +
+      '<p class="note" id="ver">版本 ' + esc(set.version || "") + " · 模式 " + esc(set.mode || "") + " · 資料只存在這台裝置</p>";
+    $("#sheet").classList.add("open"); $("#back").focus();
+    $("#back").onclick = () => $("#sheet").classList.remove("open");
+    $("#ret").onchange = async (e) => { const d = RET[+e.target.value]; try { await post("/api/settings", { retention_days: d }); $("#retnote").textContent = "目前：" + d + " 天，過了就自動刪除"; toast("已儲存"); await load(); } catch (err) { toast("沒有成功"); } };
+    $("#clear").onclick = () => {
+      $("#clear").outerHTML = '<span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>真的要清除所有紀錄嗎？</b><button class="btn solid" id="yes">確定清除</button><button class="btn" id="no">不要</button></span>';
+      $("#no").onclick = openSheet;
+      $("#yes").onclick = async () => { try { await post("/api/data/clear"); toast("已清除"); await refresh(); } catch (err) { toast("沒有成功"); } $("#sheet").classList.remove("open"); };
     };
-    sel.addEventListener("change", renderVal); renderVal();
-    const auto = (memInfo.auto_keys || []).filter((k) => mem[k.key]);
-    panel("world",
-      h("h2", {}, "孩子的世界"),
-      h("p", { class: "note" }, "你填的資料會讓好奇鏡把答案連到孩子熟悉的事物（例如家裡的狗狗）。孩子的名字只顯示在這個頁面，裝置不會念出來。"),
-      set.length ? h("div", { class: "tablewrap" }, h("table", {}, h("thead", {}, h("tr", {}, ["項目", "內容", ""].map((t) => h("th", {}, t)))),
-        h("tbody", {}, set.map((k) => { const v = mem[k.key].value;
-          return h("tr", {}, h("td", {}, k.label_zh), h("td", {}, v === true ? "是" : v === false ? "否" : String(v)),
-            h("td", {}, h("button", { class: "act danger", onclick: async () => { await post("/api/memory?key=" + encodeURIComponent(k.key), null, "DELETE"); loadWorld(); } }, "刪除"))); })))) : empty("還沒有資料。"),
-      h("h2", {}, "新增或更新"),
-      h("div", { class: "row" }, sel, valBox, h("button", { class: "act", onclick: async () => {
-        try { await post("/api/memory", { key: sel.value, value: document.getElementById("mv").value }); loadWorld(); }
-        catch (e) { alert("儲存失敗，請檢查內容（年齡需為 5–8）"); } } }, "加入")),
-      auto.length ? [h("h2", {}, "自動記錄（最近問過的）"), h("div", { class: "card" }, auto.map((k) =>
-        h("div", {}, h("b", {}, k.label_zh + "："), (mem[k.key].value || []).map((v) => TOPIC_ZH[v] || v).join("、"))))] : null);
   }
+  $("#gear").onclick = () => S.data && openSheet();
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("#sheet").classList.remove("open"); });
 
-  // ---- 設定 ----
-  async function loadSettings() {
-    const s = await api("/api/settings");
-    document.getElementById("ret").value = s.retention_days;
-    document.getElementById("cloud").checked = false;
-  }
-  document.getElementById("ret-save").addEventListener("click", async () => {
-    const m = document.getElementById("ret-msg");
-    try { await post("/api/settings", { retention_days: Number(document.getElementById("ret").value) }); m.textContent = "已儲存"; }
-    catch (e) { m.textContent = "請輸入 1–365 的整數"; }
-  });
-  document.getElementById("clear").addEventListener("click", async () => {
-    if (!confirm("確定要清除所有問題紀錄嗎？\n（家長輸入的孩子資料會保留）這個動作無法復原。")) return;
-    await post("/api/data/clear");
-    document.getElementById("data-msg").textContent = "已清除";
-    loaders[document.querySelector("#tabs [aria-selected=true]").dataset.tab]();
-  });
-
-  loadSettings(); select("week");
+  // ---------- start ----------
+  const h0 = location.hash.slice(1); if (VIEWS[h0]) S.tab = h0;
+  refresh();
+  setInterval(refresh, 30000);
+  window.addEventListener("hashchange", () => { const t = location.hash.slice(1); if (VIEWS[t] && t !== S.tab) go(t); });
 })();
 </script>
 </body>

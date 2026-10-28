@@ -19,7 +19,7 @@ STOP = {"的", "了", "是", "在", "有", "會", "可以", "和", "也", "都",
         "些", "更", "還", "又", "但", "而", "與", "及", "或", "到", "從", "為", "因為", "所以", "以", "於", "用",
         "要", "能", "對", "給", "不", "沒有", "然後", "如果", "就是", "還是", "比較", "非常"}
 _SENT = re.compile(r"[^。！？!?；;\n]+")
-NOVELTY_MIN = 0.85  # share of EACH sentence's content bigrams that must come from the entry's own text
+NOVELTY_MIN = 0.75  # share of EACH sentence's content bigrams that must come from the entry's own text
 BAD_ASKBACK = re.compile(r"你家|你的|你今天|你喜歡|你開心|你難過|朋友|媽媽|爸爸|哥哥|姐姐|弟弟|妹妹|同學|老師")
 
 
@@ -63,8 +63,18 @@ FILLER = {"變得", "慢慢", "一樣", "通常", "常常", "其實", "大約", 
 
 
 def novel_tokens(sentence: str, source: str) -> list:
-    """Content words of the sentence that the source text never uses (a 1.5B model's 'new knowledge')."""
-    return [t for t in content_tokens(sentence) if t not in source and t not in FILLER and len(t) > 1]
+    """Words of the sentence that the source never uses and that could carry NEW knowledge.
+
+    Synonym verbs / adjectives / adverbs / particles ("透過", "形成", "快速") are tolerated (at most 2 per sentence),
+    new nouns and numbers ("慣性", "角質片", "三十") never are: they are what a 1.5B model invents."""
+    import jieba.posseg as pseg
+    nouns, other = [], []
+    for w in pseg.lcut(sentence):
+        t = w.word
+        if (not t.strip() or len(t) < 2 or t in source or t in FILLER or t in STOP or re.fullmatch(r"[\W_]+", t)):
+            continue
+        (other if w.flag[:1] in ("v", "d", "a", "p", "c", "u", "r", "z") else nouns).append(t)
+    return nouns + (other if len(other) > 2 else [])
 
 
 def _plain_bigrams(s: str) -> set:
@@ -114,7 +124,7 @@ def pick_ask_back(entry: dict, bridges: list, use_bridge: bool):
     """(ask_back, bridge_key|None). Bridge text comes from the KB; every ask-back is made guessable."""
     if use_bridge:
         for k, v in entry.get("bridges", {}).items():
-            if k in bridges and askback_ok(v):
+            if k in bridges and askback_ok(v) and v.strip().endswith(("？", "?")):   # only real questions
                 return wording.guessable(v), k
     ask = entry.get("ask_back", "")
     if not ask or not askback_ok(ask):

@@ -124,6 +124,12 @@ Parent-entered booleans/strings: `has_dog`, `has_cat`, `has_sibling` (string: e.
 - `GET/POST/DELETE /api/memory` → §5 keys.
 - `GET /api/settings`, `POST /api/settings` (retention_days, cloud_fallback=false), `POST /api/data/clear`, `GET /api/data/export`.
 - `GET /kid`, `GET /parent` serve the static pages. `GET /healthz`.
+- Product pass 1 additions (all existing fields are kept): `POST /api/ask` returns after recall/safety with `pending`,
+  `pending_id`, `first_sentence_ms`, `reaction`, `emoji`, `event_id`, `reason` (abstained: unsure | not_heard | no_question) and
+  empty `explanation`/`ask_back`; `GET /api/ask/{pending_id}` returns the full answer (`pending: false`) or 202
+  `{"pending": true}`; `POST /api/ask?wait=1` blocks and returns the full answer; `POST /api/events/{id}/talked`;
+  `/api/events` rows gain `emoji`, `topic_zh`, `talked`; `/api/report/week` gains `daily`, `prev_total`, `topics` and event
+  ids/emoji on `talk_about`/`unanswered`; `/api/settings` gains `version` and `topics`; `events.talked` column.
 
 ## 7. SQLite schema (data/whyscope.db)
 

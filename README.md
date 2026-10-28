@@ -30,9 +30,32 @@ the run script follows that file.
 
 ## Screenshots
 
-- Child page: `docs/img/kid.png` (placeholder)
-- Parent page, 本週: `docs/img/parent-week.png` (placeholder)
-- Parent page, 家長小抄: `docs/img/parent-cheats.png` (placeholder)
+Taken in the built-in browser at 390 x 844 (phone portrait) with demo data (`scripts/seed_demo.py`: 29 real
+questions, back-dated over two weeks; the child is called 小安 only on the parent page).
+
+| Child: idle | Child: answer | Parent: 本週 |
+|---|---|---|
+| ![kid idle](docs/screens/kid-idle.png) | ![kid answer](docs/screens/kid-answer.png) | ![parent week](docs/screens/parent-week.png) |
+
+| Parent: 紀錄 | Parent: 小抄 (urgent card) | Parent: 孩子 |
+|---|---|---|
+| ![parent log](docs/screens/parent-log.png) | ![parent cheats](docs/screens/parent-cheats.png) | ![parent child](docs/screens/parent-child.png) |
+
+## How an answer is spoken (product pass 1)
+
+`POST /api/ask` returns after safety and recall (about 10 ms for text, about 330 ms for voice including ASR) with the
+verbatim first sentence, `pending: true` and a `pending_id`; the explanation and the question back are composed in the
+background and fetched with `GET /api/ask/{pending_id}` (HTTP 202 until ready; `?wait=1` on the POST gives the old
+single-response behaviour). `kid.html` speaks the first sentence at once, polls every 300 ms (up to 8 s) and then speaks
+the rest, sentence by sentence, with the sentence being spoken highlighted.
+
+The voice rules live in `hub/wording.py` and are enforced in code: at most 18 characters per sentence, one explanation
+sentence for ages 5-6 and two for 7-8, first sentence plus explanation at most 60 characters, no science jargon
+(replaced by plain phrases), at most 2 uncommon characters per sentence, no device feelings or flattery, and every
+question back is guessable (嗎 / 還是 / 猜 / 你覺得) and never asks about the child's day, feelings, family or friends.
+Any LLM output that breaks a rule, repeats the first sentence or adds knowledge that is not in the entry is replaced by a
+deterministic rewrite of the entry's own facts. Check it yourself with the server running:
+`python eval/check_answers.py --age 6` (and `--age 8`).
 
 ## Architecture in brief
 
@@ -44,11 +67,11 @@ The binding contract is [docs/spec.md](docs/spec.md).
 ## Repo map
 
 ```
-hub/            FastAPI service (server, pipeline, listen, safety, vision, recall, compose, memory, report, db)
+hub/            FastAPI service (server, pipeline, listen, safety, vision, recall, compose, wording, emoji, memory, report, db)
 hub/static/     kid.html (child) and parent.html (parent), single-file pages, no CDNs
 knowledge/      entries/<topic>/*.json (CC BY-SA 4.0), cheats/*.json, sensitive_rules.json
-eval/           run_latency.py, run_abstention.py, abstention_set.jsonl
-scripts/        install and run scripts, download_models.py
+eval/           run_latency.py, run_abstention.py, check_answers.py, abstention_set.jsonl
+scripts/        install and run scripts, download_models.py, build_common_chars.py, seed_demo.py
 docs/           spec, architecture, models, safety, hardware, roadmap, benchmarks
 config.yaml     mode (cpu | gpu | hailo), models, thresholds, retention
 ```
@@ -58,6 +81,8 @@ config.yaml     mode (cpu | gpu | hailo), models, thresholds, retention
 ```
 .venv\Scripts\python eval\run_latency.py        # per-stage mean / p95, appends to docs/benchmarks.md
 .venv\Scripts\python eval\run_abstention.py     # answer/abstain accuracy on eval/abstention_set.jsonl
+.venv\Scripts\python eval\run_latency.py --url http://127.0.0.1:8000   # same, through a running server (adds http_first_ms)
+.venv\Scripts\python eval\check_answers.py --age 6   # child-voice rules on 10 real answers (server running)
 ```
 
 ## License

@@ -101,7 +101,7 @@ def main():
     startup = time.perf_counter() - t0
     p.ask("為什麼蝸牛有殼", log=False)           # warm-up, discarded
     for _ in range(3):                          # a few more warm-ups so the CUDA kernels / caches are hot
-        p.ask_first("為什麼會有彩虹", log=False)
+        p.ask("為什麼會有彩虹", log=False)
     rows, sources, statuses = [], [], []
     for q in QUESTIONS:
         r1 = p.ask_first(q, log=False)            # phase 1: first sentence
