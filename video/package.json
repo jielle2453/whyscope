@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "studio": "remotion studio",
-    "render": "remotion render Film out/whyscope-film.mp4 --codec=h264 --crf=18 --log=error",
-    "still": "remotion still"
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Film out/whyscope-film.mp4 --codec=h264 --crf=18 --log=error",
+    "timeline": "node scripts/build-timeline.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.539",
