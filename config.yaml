@@ -24,6 +24,7 @@ recall:
   model: paraphrase-multilingual-MiniLM-L12-v2
   threshold: 0.55
   coverage_weight: 0.4   # penalty for question details the entry does not mention (0 = off)
+  coverage_weight_en: 0.8  # English questions carry more filler words, so uncovered detail words weigh more
 
 compose:
   enabled: true

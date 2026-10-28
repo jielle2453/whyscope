@@ -151,7 +151,7 @@ class Pipeline:
 
         # 4. recall
         t = time.perf_counter()
-        entry, score = self.recall.search(text, obj)
+        entry, score = self.recall.search(text, "zh", obj)
         lat["recall"] = _ms(t)
         r["confidence"] = round(score, 3)
         if entry is None or score < float(self.cfg["recall"]["threshold"]):

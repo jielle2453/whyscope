@@ -1,7 +1,7 @@
 """Abstention evaluation: recall + safety only (no ASR, no LLM) against eval/abstention_set.jsonl.
 
 Prints overall accuracy, a 4-row confusion table by kind, and a threshold sweep; appends to docs/benchmarks.md.
-Safety hits count as "abstain" (the device does not answer). Usage: python eval/run_abstention.py [--no-write]
+Safety hits count as "abstain" (the device does not answer). Usage: python eval/run_abstention.py [--lang zh|en] [--no-write]
 """
 import json
 import sys
@@ -17,9 +17,10 @@ KINDS = ["in_kb", "near_kb", "out_kb", "nonsense"]
 
 
 def main():
-    f = ROOT / "eval" / "abstention_set.jsonl"
+    lang = sys.argv[sys.argv.index("--lang") + 1] if "--lang" in sys.argv else "zh"
+    f = ROOT / "eval" / ("abstention_set.jsonl" if lang == "zh" else f"abstention_set_{lang}.jsonl")
     if not f.exists():
-        print("eval/abstention_set.jsonl not found - nothing to evaluate yet (spec section 4 describes the format).")
+        print(f"{f.name} not found - nothing to evaluate yet (spec section 4 describes the format).")
         return
     from hub.config import load_config
     from hub.recall import Recall
@@ -31,8 +32,8 @@ def main():
     items = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
     res = []
     for it in items:
-        hit = sf.check(it["q"])
-        entry, score = (None, 0.0) if hit else rc.search(it["q"])
+        hit = sf.check(it["q"], lang)
+        entry, score = (None, 0.0) if hit else rc.search(it["q"], lang)
         res.append({**it, "safety": bool(hit), "score": score, "kb_pred": entry["id"] if entry else None})
 
     def pred(r, t):
@@ -45,7 +46,7 @@ def main():
     right_kb = [r for r in res if r["kind"] == "in_kb" and pred(r, thr) == "answer"]
     kb_ok = sum(r["kb_pred"] == r.get("kb_id") for r in right_kb)
 
-    out = [f"### Abstention run {time.strftime('%Y-%m-%d %H:%M')}",
+    out = [f"### Abstention run ({lang}) {time.strftime('%Y-%m-%d %H:%M')}",
            f"\n- {len(res)} questions, threshold {thr}, entries in index: {len(rc.entries)}, embedding device: {rc.device}",
            f"- accuracy: {ok}/{len(res)} = {100 * ok / max(1, len(res)):.1f}%",
            f"- in_kb answered with the correct kb_id: {kb_ok}/{len(right_kb)}\n",

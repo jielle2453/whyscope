@@ -1,8 +1,9 @@
 """Embedding retrieval over knowledge/entries/*/*.json with threshold abstention.
 
-Index = embeddings of (labels + question_patterns) for every entry, built at startup.
+One index per language (zh from the top-level entry fields, en from entry["en"]): embeddings of
+(labels + question_patterns) for every entry, built at startup.
 Query score = max cosine similarity over an entry's index rows, multiplied by a coverage factor
-(share of the question's content bigrams found in the entry's own text), so "same topic, unknown detail" abstains.
+(share of the question's content tokens found in the entry's own text), so "same topic, unknown detail" abstains.
 """
 import json
 import re
@@ -45,19 +46,93 @@ def normalize(q: str) -> str:
     return _TAIL.sub("", _PUNCT.sub("", to_trad(q or "")))
 
 
+# ---------------------------------------------------------------- English helpers
+_EN_PUNCT = re.compile(r"[^a-z0-9 ]+")
+_EN_STOP = set("""why what how when where who which does do did is are was were am be been a an the this that these those
+it its of to in on at by for with from up out as and or but so if then than too very can could would should will
+you your we our us they them their he she him her his i me my there here have has had get gets make makes made
+go goes going come comes just all some any each also not no yes into over about like one thing things
+say said tell please look see""".split())
+_COMMON_EN = None
+
+
+def normalize_en(q: str) -> str:
+    """Lower case, no punctuation (apostrophes dropped), single spaces."""
+    q = (q or "").lower().replace("’", "'").replace("'s ", " ").replace("'", "")
+    return " ".join(_EN_PUNCT.sub(" ", q).split())
+
+
+def stem_en(w: str) -> str:
+    """Tiny plural / -ing stemmer, good enough to match 'ants' with 'ant' and 'glowing' with 'glow'."""
+    if len(w) > 4 and w.endswith("ies"):
+        return w[:-3] + "y"
+    if len(w) > 4 and w.endswith(("sses", "shes", "ches", "xes")):
+        return w[:-2]
+    if len(w) > 3 and w.endswith("s") and not w.endswith(("ss", "us", "is")):
+        return w[:-1]
+    if len(w) > 5 and w.endswith("ing"):
+        return w[:-3]
+    return w
+
+
+def content_en(q: str) -> list:
+    """Stemmed content words (question and function words removed)."""
+    return [stem_en(w) for w in normalize_en(q).split() if w not in _EN_STOP]
+
+
+def common_en() -> frozenset:
+    global _COMMON_EN
+    if _COMMON_EN is None:
+        f = Path(__file__).resolve().parent / "data" / "common_words_en.txt"
+        try:
+            _COMMON_EN = frozenset(stem_en(w) for w in f.read_text(encoding="utf-8").split())
+        except OSError:
+            _COMMON_EN = frozenset()
+    return _COMMON_EN
+
+
+def plausible_en(q: str, known=frozenset()) -> bool:
+    """English gibberish pre-check: too short, one repeated syllable/word, or no content word we know at all."""
+    n = normalize_en(q)
+    toks = n.split()
+    if len(n) < 3 or len(set(n.replace(" ", ""))) <= 2 or not re.search(r"[a-z]{2}", n):
+        return False
+    if len(toks) < 2 or len(set(toks)) == 1:   # a single word (or one word repeated) is not a question
+        return False
+    cw = content_en(q)
+    if cw and known and not any(w in known or w in common_en() for w in cw):
+        return False
+    return True
+
+
 class Recall:
+    LANGS = ("zh", "en")
+
     def __init__(self, cfg: dict):
         self.cfg = cfg
         self.threshold = float(cfg["recall"]["threshold"])
         self.cov_weight = float(cfg["recall"].get("coverage_weight", 0.4))
-        self.entries = []     # list of entry dicts
-        self.rows = []        # list of (entry_index, text)
-        self.matrix = None
+        self.cov_weight_en = float(cfg["recall"].get("coverage_weight_en", self.cov_weight))
+        self.entries = []     # entry dicts (id, topic, zh fields at top level, English fields in e["en"])
+        self.idx = {}         # lang -> {"rows": [(entry_index, text)], "matrix": ndarray, "vocab": [set], "known": set}
         self.model = None
         self.device = "cpu"
         self.load_error = None
         self._load_model()
         self.build_index()
+
+    # kept for older callers: the zh index
+    @property
+    def rows(self):
+        return self.idx["zh"]["rows"]
+
+    @property
+    def matrix(self):
+        return self.idx["zh"]["matrix"]
+
+    @property
+    def vocab(self):
+        return self.idx["zh"]["vocab"]
 
     def _load_model(self):
         from sentence_transformers import SentenceTransformer
@@ -75,10 +150,15 @@ class Recall:
                               show_progress_bar=False, batch_size=64)
         return v.astype(np.float32)
 
+    @staticmethod
+    def fields(e: dict, lang: str) -> dict:
+        """The entry's text fields in `lang` (zh = top-level fields, en = e["en"])."""
+        return e if lang == "zh" else (e.get("en") or {})
+
     def build_index(self):
-        """(Re)load all entries and embed labels + question_patterns."""
+        """(Re)load all entries and embed labels + question_patterns, once per language."""
         root = resolve(self.cfg, "knowledge") / "entries"
-        self.entries, self.rows = [], []
+        self.entries = []
         for f in sorted(root.glob("*/*.json")):
             try:
                 e = json.loads(f.read_text(encoding="utf-8"))
@@ -86,48 +166,67 @@ class Recall:
                     continue
             except Exception:
                 continue
-            idx = len(self.entries)
             self.entries.append(e)
-            for t in list(e.get("labels", [])) + list(e.get("question_patterns", [])):
-                self.rows.append((idx, normalize(t)))
-        self.matrix = self._embed([t for _, t in self.rows]) if self.rows else None
-        # Vocabulary of each entry (content bigrams) for the coverage check.
-        self.vocab = [_bigrams(content(" ".join(list(e.get("labels", [])) + list(e.get("question_patterns", [])) +
-                                                list(e["facts"]) + [e["first_sentence"], e.get("ask_back", "")])))
-                      for e in self.entries]
+        self.idx = {}
+        for lang in self.LANGS:
+            norm = normalize if lang == "zh" else normalize_en
+            rows, vocab, known = [], [], set()
+            for i, e in enumerate(self.entries):
+                fl = self.fields(e, lang)
+                if not (fl.get("first_sentence") and fl.get("facts")):
+                    vocab.append(set())
+                    continue
+                for t in list(fl.get("labels", [])) + list(fl.get("question_patterns", [])):
+                    rows.append((i, norm(t)))
+                text = " ".join(list(fl.get("labels", [])) + list(fl.get("question_patterns", [])) +
+                                list(fl["facts"]) + [fl["first_sentence"], fl.get("ask_back", "")])
+                if lang == "zh":
+                    vocab.append(_bigrams(content(text)))
+                else:
+                    v = set(content_en(text))
+                    vocab.append(v)
+                    known |= v
+            self.idx[lang] = {"rows": rows, "vocab": vocab, "known": known,
+                              "matrix": self._embed([t for _, t in rows]) if rows else None}
 
-    def coverage(self, text: str) -> np.ndarray:
-        """Per-entry fraction of the question's content bigrams that the entry's vocabulary contains."""
-        qb = _bigrams(content(text))
+    def coverage(self, text: str, lang: str = "zh") -> np.ndarray:
+        """Per-entry fraction of the question's content tokens (zh bigrams / en stems) that the entry has."""
+        qb = _bigrams(content(text)) if lang == "zh" else set(content_en(text))
         if not qb:
             return np.zeros(len(self.entries), dtype=np.float32)
-        return np.array([len(qb & v) / len(qb) for v in self.vocab], dtype=np.float32)
+        return np.array([len(qb & v) / len(qb) for v in self.idx[lang]["vocab"]], dtype=np.float32)
 
-    def raw_scores(self, text: str) -> np.ndarray:
+    def raw_scores(self, text: str, lang: str = "zh") -> np.ndarray:
         """Per-entry best cosine score for the query."""
         out = np.full(len(self.entries), -1.0, dtype=np.float32)
-        if self.matrix is None or not text.strip():
+        ix = self.idx[lang]
+        if ix["matrix"] is None or not text.strip():
             return out
-        sims = self.matrix @ self._embed([normalize(text)])[0]
-        for (i, _), s in zip(self.rows, sims):
+        sims = ix["matrix"] @ self._embed([(normalize if lang == "zh" else normalize_en)(text)])[0]
+        for (i, _), s in zip(ix["rows"], sims):
             if s > out[i]:
                 out[i] = s
         return out
 
-    def scores(self, text: str) -> np.ndarray:
+    def scores(self, text: str, lang: str = "zh") -> np.ndarray:
         """Final per-entry score = cosine * (1 - w * (1 - coverage)): off-topic details lower the score."""
-        sc = self.raw_scores(text)
-        return sc * (1.0 - self.cov_weight * (1.0 - self.coverage(text)))
+        sc = self.raw_scores(text, lang)
+        w = self.cov_weight if lang == "zh" else self.cov_weight_en
+        return sc * (1.0 - w * (1.0 - self.coverage(text, lang)))
 
-    def search(self, text: str, obj=None):
-        """Return (entry|None, score). `obj` is an optional vision label (matches entry labels)."""
-        if not self.entries or (not obj and not plausible(text)):
+    def search(self, text: str, lang: str = "zh", obj=None):
+        """Return (entry|None, score). `obj` is an optional vision label (matches entry labels in any language)."""
+        if lang not in self.idx:
+            lang = "zh"
+        ok = plausible(text) if lang == "zh" else plausible_en(text, self.idx["en"]["known"])
+        if not self.entries or (not obj and not ok):
             return None, 0.0
-        sc = self.scores(text)
+        sc = self.scores(text, lang)
         if obj:
             o = obj.lower()
             for i, e in enumerate(self.entries):
-                if o in [l.lower() for l in e.get("labels", [])]:
+                labs = list(e.get("labels", [])) + list((e.get("en") or {}).get("labels", []))
+                if o in [l.lower() for l in labs]:
                     sc[i] = max(sc[i], 0.75)  # the camera saw it: strong evidence for this entry
         i = int(np.argmax(sc))
         return self.entries[i], float(sc[i])
@@ -137,7 +236,7 @@ class Recall:
         out = []
         for e in self.entries:
             labs = e.get("labels", [])
-            en = [l for l in labs if l.isascii()]
+            en = [l for l in labs if l.isascii()] + list((e.get("en") or {}).get("labels", []))
             if labs and en:
-                out.append((labs[0], en))
+                out.append((labs[0], list(dict.fromkeys(en))))
         return out
