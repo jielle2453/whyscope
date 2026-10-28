@@ -33,13 +33,11 @@ the run script follows that file.
 Taken in the built-in browser at 390 x 844 (phone portrait) with demo data (`scripts/seed_demo.py`: 29 real
 questions, back-dated over two weeks; the child is called 小安 only on the parent page).
 
-| Child: idle | Child: answer | Parent: 本週 |
-|---|---|---|
-| ![kid idle](docs/screens/v2-kid-idle.png) | ![kid answer](docs/screens/v2-kid-answer.png) | ![parent week](docs/screens/v2-parent-week.png) |
+UI chrome is English by default (`?lang=en`); the pill toggle "EN / 中" in each header switches to Chinese and is remembered in `localStorage.whyscope_lang`. Answers, questions and cheat-sheet talking points stay in Chinese.
 
-| Parent: 紀錄 | Parent: 小抄 (urgent card) | Parent: 孩子 |
+| Child: answer | Parent: Week | Parent: Cheats |
 |---|---|---|
-| ![parent log](docs/screens/v2-parent-log.png) | ![parent cheats](docs/screens/v2-parent-cheats.png) | ![parent child](docs/screens/v2-parent-child.png) |
+| ![kid answer](docs/screens/v3-kid-en.png) | ![parent week](docs/screens/v3-parent-week-en.png) | ![parent cheats](docs/screens/v3-parent-cheats-en.png) |
 
 ## How an answer is spoken (product pass 1)
 
