@@ -3,127 +3,160 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1F2A44">
+<meta name="theme-color" content="#EAF2FF">
 <title>好奇鏡</title>
 <style>
-  :root { --navy: #1F2A44; --cream: #FBF8F2; --orange: #F28C28; --orange-ink: #B35A00; --sky: #2E86AB; --sky-soft: #E3F1F7;
-          --card: #FFFFFF; --muted: #5B6478; --soft: #EDE7DA; --r: 24px; }
+  :root {
+    --ink: #2B2A4A; --body: #5A5878; --cap: #6E6C8E;
+    --lav: #C7B8FF; --lav-ink: #5B4AB8; --sky: #BFE0FF; --sky-ink: #2B6CB0; --peach: #FFD6C2; --peach-ink: #C2410C;
+    --mint: #CBF3E3; --mint-ink: #1F7A5C; --lemon: #FFF1B8; --lemon-ink: #6B5400; --rose: #FFD1E0; --rose-ink: #B4306B;
+    --glass: rgba(255,255,255,0.62); --glass-line: rgba(255,255,255,0.8); --shadow: 0 10px 30px rgba(96,80,140,0.10);
+    --r: 28px; --btn: 20px;
+  }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; }
-  body { min-height: 100vh; min-height: 100dvh; background: var(--cream); color: var(--navy);
-         font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Heiti TC", system-ui, sans-serif;
-         font-size: 20px; line-height: 1.45; display: flex; flex-direction: column; align-items: center;
+  body { min-height: 100vh; min-height: 100dvh; color: var(--ink); position: relative; overflow-x: hidden;
+         background: linear-gradient(170deg, #EAF2FF 0%, #F6F0FF 50%, #FFF6EC 100%) fixed;
+         font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+         font-size: 16px; line-height: 1.5; display: flex; flex-direction: column; align-items: center;
          user-select: none; -webkit-user-select: none; }
-  .wrap { width: 100%; max-width: 640px; flex: 1; display: flex; flex-direction: column; padding: 0 18px 22px; }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .4; pointer-events: none; z-index: 0; }
+  .blob.b1 { width: 320px; height: 320px; background: #BFD9FF; top: -90px; left: -100px; }
+  .blob.b2 { width: 280px; height: 280px; background: #BFD9FF; bottom: -80px; right: -90px; opacity: .3; }
+  .glass { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+           border: 1px solid var(--glass-line); border-radius: var(--r); box-shadow: var(--shadow); }
+  .wrap { position: relative; z-index: 1; width: 100%; max-width: 640px; flex: 1; display: flex; flex-direction: column;
+          padding: 0 16px 24px; }
 
   /* header */
-  header { display: flex; align-items: center; gap: 10px; padding: 14px 0 6px; }
-  header .logo { width: 44px; height: 44px; flex: none; }
-  header h1 { margin: 0; font-size: 28px; letter-spacing: 2px; flex: 1; }
-  .conn { display: flex; align-items: center; gap: 7px; font-size: 16px; color: var(--muted); }
-  .conn i { width: 12px; height: 12px; border-radius: 50%; background: #9AA3B5; display: inline-block; }
-  .conn.ok i { background: #2FB66A; box-shadow: 0 0 0 4px rgba(47,182,106,.18); }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 8px; }
+  .brand { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px 6px 8px; border-radius: 999px; }
+  header .logo { width: 36px; height: 36px; flex: none; }
+  header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+  .conn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); padding: 8px 14px; border-radius: 999px; }
+  .conn i { width: 10px; height: 10px; border-radius: 50%; background: #A9A7C2; display: inline-block; }
+  .conn.ok i { background: #3DBE8B; }
 
-  /* greeting */
-  .hello { text-align: center; font-size: 26px; font-weight: 700; margin: 10px 0 0; }
-  .hello small { display: block; font-size: 18px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+  /* prompt card */
+  .hello { margin: 12px 0 0; padding: 24px 16px; text-align: center; font-size: 22px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
+  .hello small { display: block; font-size: 16px; font-weight: 400; color: var(--body); margin-top: 4px; }
   body.has-answer .hello, body.has-answer .hero-art { display: none; }
-  .hero-art { width: min(52vw, 220px); align-self: center; margin: 22px 0 0; }
+  .hero-art { width: 88px; margin: 0 0 8px; }
+  .wave { margin: 12px 0 0; padding: 10px 20px; display: flex; align-items: center; justify-content: center; border-radius: 999px; width: 100%; }
+  .wave svg { width: 100%; max-width: 280px; height: 40px; display: block; }
+  .wave rect { fill: var(--lav-ink); opacity: .55; transform-box: fill-box; transform-origin: center;
+               transform: scaleY(.1); transition: transform .08s linear; }
+  .wave.live rect { transform: scaleY(calc(.12 + var(--lvl, 0) * var(--k, 1))); opacity: .85; }
 
   /* answer card */
-  #answer { display: none; background: var(--card); border-radius: var(--r); padding: 20px 20px 18px; margin: 12px 0 4px;
-            box-shadow: 0 6px 22px rgba(31,42,68,.10); flex-direction: column; gap: 10px; animation: rise .35s ease-out; }
+  #answer { display: none; border-radius: var(--r); padding: 24px 20px; margin: 12px 0 4px; flex-direction: column; gap: 12px;
+            background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+            border: 1px solid var(--glass-line); box-shadow: var(--shadow); animation: rise .24s ease-out; }
   #answer.show { display: flex; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-  #answer .qline { font-size: 17px; color: var(--muted); min-height: 0; }
+  #answer .qline { font-size: 13px; color: var(--body); }
   #answer .qline:empty { display: none; }
-  #emoji { font-size: 64px; line-height: 1; }
-  #first { font-size: clamp(30px, 10vw, 40px); font-weight: 800; line-height: 1.3; }
-  #expl { font-size: 28px; line-height: 1.5; }
-  #askwrap { background: #FFF1DF; border-radius: 18px; padding: 12px 14px 14px; display: none; }
-  #askwrap .badge { display: inline-block; background: var(--orange); color: var(--navy); font-weight: 800; font-size: 17px;
-                    padding: 3px 14px; border-radius: 999px; margin-bottom: 6px; }
-  #askb { color: var(--orange-ink); font-size: 28px; font-weight: 700; line-height: 1.4; }
+  #emoji { width: 72px; height: 72px; border-radius: 50%; background: var(--sky); display: flex; align-items: center; justify-content: center;
+           font-size: 40px; line-height: 1; }
+  #emoji:empty { display: none; }
+  #first { font-size: clamp(26px, 8.7vw, 34px); font-weight: 800; line-height: 1.3; color: var(--ink); }
+  #expl { font-size: 20px; line-height: 1.6; color: var(--body); }
+  #askwrap { background: var(--peach); border-radius: 28px; padding: 16px 20px 20px; display: none; }
+  #askwrap .badge { display: inline-block; background: var(--lemon); color: var(--lemon-ink); font-weight: 800; font-size: 16px;
+                    padding: 2px 16px; border-radius: 999px; margin-bottom: 8px; }
+  #askb { color: #8F2F06; font-size: 20px; font-weight: 700; line-height: 1.5; }
   .s { opacity: 0; transition: opacity .5s ease; }
   .s.in { opacity: 1; }
-  .s.speaking { background: linear-gradient(transparent 62%, rgba(46,134,171,.28) 62%); }
-  .thumb { align-self: flex-start; width: 120px; height: 120px; object-fit: cover; border-radius: 18px; border: 3px solid var(--sky); }
-  .actions { display: none; gap: 10px; margin-top: 4px; }
-  .actions button { flex: 1; min-height: 72px; border-radius: var(--r); border: 0; font: inherit; font-size: 21px; font-weight: 700;
-                    cursor: pointer; }
-  #replay { background: var(--sky); color: #fff; }
-  #another { background: var(--soft); color: var(--navy); }
-  .actions button:active { transform: scale(.97); }
+  .s.speaking { background: linear-gradient(transparent 62%, rgba(199,184,255,.55) 62%); }
+  .thumb { align-self: flex-start; width: 120px; height: 120px; object-fit: cover; border-radius: 24px; border: 3px solid #fff; }
+  .actions { display: none; gap: 12px; margin-top: 8px; }
+  .actions button { flex: 1; min-height: 72px; border-radius: 999px; border: 0; font: inherit; font-size: 18px; font-weight: 700;
+                    cursor: pointer; transition: transform .12s; }
+  #replay { background: var(--lav); color: #3B2F8F; }
+  #another { background: var(--sky); color: #1E4E80; }
+  .actions button:active, form.row button:active { transform: scale(.96); }
 
   /* abstained / sensitive */
-  #answer.soft { background: var(--sky-soft); }
-  #answer.soft #first { font-size: clamp(26px, 8vw, 32px); }
+  #answer.soft { background: rgba(233,243,255,0.72); }
+  #answer.soft #first { font-size: clamp(24px, 7.5vw, 30px); }
   #answer .art { display: none; }
   #answer.soft .art, #answer.unsure .art { display: block; width: 120px; height: 120px; align-self: center; }
-  #answer.unsure #first { text-align: center; font-size: clamp(24px, 7.5vw, 30px); font-weight: 700; }
-  #answer .headline { display: none; text-align: center; font-size: 30px; font-weight: 800; }
+  #answer.unsure #first { text-align: center; font-size: clamp(22px, 7vw, 28px); font-weight: 700; }
+  #answer .headline { display: none; text-align: center; font-size: 26px; font-weight: 800; }
   #answer.unsure .headline, #answer.soft .headline { display: block; }
-  #answer.soft .headline { color: var(--sky); }
+  #answer.soft .headline { color: var(--sky-ink); }
   #answer.unsure #emoji, #answer.soft #emoji { display: none; }
 
   /* mic zone */
-  .mic-zone { margin-top: auto; padding-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  #talk { position: relative; width: 156px; height: 156px; border-radius: 50%; border: 0; background: var(--orange); color: var(--navy);
-          display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; touch-action: none;
-          box-shadow: 0 6px 16px rgba(31,42,68,.22); transition: width .25s, height .25s; font: inherit; }
-  body.has-answer #talk { width: 108px; height: 108px; }
-  #talk svg { width: 54px; height: 54px; position: relative; z-index: 2; }
-  #talk .lbl { font-size: 18px; font-weight: 800; position: relative; z-index: 2; margin-top: 2px; }
-  body.has-answer #talk .lbl { display: none; }
-  #talk .ring { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--orange); opacity: 0; pointer-events: none; }
-  #talk.idle .ring { animation: pulse 2.4s ease-out infinite; }
-  #talk.idle .ring.r2 { animation-delay: 1.2s; }
-  @keyframes pulse { from { opacity: .55; transform: scale(1); } to { opacity: 0; transform: scale(1.32); } }
-  #talk.listening { background: #E5731A; animation: none; }
-  #talk.listening .ring { animation: none; opacity: .7; transform: scale(calc(1.15 + var(--lvl, 0) * .9)); transition: transform .08s linear; }
-  #talk.listening .ring.r2 { transform: scale(calc(1.05 + var(--lvl, 0) * .55)); opacity: .45; }
+  .mic-zone { margin-top: auto; padding-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  #talk { --disc: 176px; --core: 112px; position: relative; width: var(--disc); height: var(--disc); border-radius: 50%; border: 0; padding: 0;
+          background: transparent; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+          cursor: pointer; touch-action: none; font: inherit; }
+  body.has-answer #talk { --disc: 132px; --core: 88px; }
+  #talk::before { content: ""; position: absolute; width: var(--core); height: var(--core); border-radius: 50%; z-index: 1;
+                  background: linear-gradient(135deg, #3F82DC 0%, #7C6CFF 100%); box-shadow: 0 8px 20px rgba(96,80,140,0.18); transition: background .25s; }
+  #talk .ring { position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.8);
+                pointer-events: none; z-index: 0; transform: scale(1); }
+  #talk .ring.r2 { display: none; }
+  #talk svg { width: 44px; height: 44px; position: relative; z-index: 2; }
+  body.has-answer #talk svg { width: 36px; height: 36px; }
+  #talk .lbl { display: none; }
+  #talk.idle .ring { animation: breathe 3.2s ease-in-out infinite; }
+  @keyframes breathe { 50% { transform: scale(1.04); } }
+  #talk.listening .ring { animation: none; transform: scale(calc(1 + var(--lvl, 0) * .08)); transition: transform .08s linear; }
+  #talk.listening::before { background: linear-gradient(135deg, #7C6CFF, #5B4AB8); }
   #talk .dots { display: none; position: relative; z-index: 2; }
-  #talk.thinking { background: var(--navy); color: var(--cream); }
+  #talk.thinking::before { background: rgba(255,255,255,0.9); }
   #talk.thinking .dots { display: block; }
-  #talk.thinking svg, #talk.thinking .lbl { display: none; }
-  .dots span { display: inline-block; width: 16px; height: 16px; margin: 0 4px; border-radius: 50%; background: var(--orange);
+  #talk.thinking svg { display: none; }
+  .dots span { display: inline-block; width: 14px; height: 14px; margin: 0 4px; border-radius: 50%; background: var(--lav);
                animation: bounce .8s infinite; }
-  .dots span:nth-child(2) { animation-delay: .15s; } .dots span:nth-child(3) { animation-delay: .3s; }
-  @keyframes bounce { 50% { transform: translateY(-14px); } }
+  .dots span:nth-child(2) { background: var(--sky); animation-delay: .15s; }
+  .dots span:nth-child(3) { background: var(--peach); animation-delay: .3s; }
+  @keyframes bounce { 50% { transform: translateY(-12px); } }
+  #talklabel { font-size: 16px; font-weight: 700; color: var(--body); }
 
-  form.row { display: flex; gap: 10px; width: 100%; }
-  form.row input { flex: 1; min-width: 0; height: 72px; border: 2px solid #D8D1C2; border-radius: var(--r); padding: 0 18px; font: inherit;
-                   font-size: 20px; background: #fff; color: var(--navy); user-select: text; -webkit-user-select: text; }
-  form.row input:focus { outline: 3px solid var(--sky); border-color: var(--sky); }
-  form.row button { height: 72px; min-width: 96px; border: 0; border-radius: var(--r); background: var(--navy); color: #fff; font: inherit;
-                    font-size: 20px; font-weight: 700; cursor: pointer; }
+  form.row { display: flex; gap: 8px; width: 100%; height: 72px; padding: 8px 8px 8px 24px; align-items: center; border-radius: 999px; }
+  form.row input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink);
+                   user-select: text; -webkit-user-select: text; }
+  form.row input::placeholder { color: var(--cap); }
+  form.row input:focus { outline: none; }
+  form.row:focus-within { border-color: var(--lav-ink); }
+  form.row button { height: 56px; min-width: 96px; border: 0; border-radius: 999px; background: linear-gradient(135deg,#7C6CFF,#5B4AB8);
+                    color: #fff; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; transition: transform .12s; }
   form.row button:disabled { opacity: .5; }
 
-  .cam { display: flex; align-items: center; gap: 12px; min-height: 72px; width: 100%; font-size: 19px; color: var(--muted); }
-  .cam label.sw { position: relative; width: 72px; height: 44px; flex: none; cursor: pointer; }
+  .cam { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 16px; border-radius: 999px; font-size: 16px; color: var(--body); }
+  .cam .ico { font-size: 22px; }
+  .cam label.sw { position: relative; width: 56px; height: 34px; flex: none; cursor: pointer; }
   .cam label.sw input { opacity: 0; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 2; }
-  .cam label.sw span { position: absolute; inset: 0; background: #C9C2B3; border-radius: 999px; transition: background .2s; }
-  .cam label.sw span::after { content: ""; position: absolute; left: 4px; top: 4px; width: 36px; height: 36px; border-radius: 50%;
-                              background: #fff; transition: transform .2s; }
-  .cam label.sw input:checked + span { background: var(--sky); }
-  .cam label.sw input:checked + span::after { transform: translateX(28px); }
-  .cam label.sw input:focus-visible + span { outline: 3px solid var(--navy); outline-offset: 3px; }
-  #preview { display: none; width: 72px; height: 72px; object-fit: cover; border-radius: 16px; margin-left: auto; background: #000; }
-  #status { min-height: 22px; font-size: 15px; color: var(--muted); text-align: center; }
+  .cam label.sw span { position: absolute; inset: 0; background: #D9D4EE; border-radius: 999px; transition: background .2s; }
+  .cam label.sw span::after { content: ""; position: absolute; left: 4px; top: 4px; width: 26px; height: 26px; border-radius: 50%;
+                              background: #fff; transition: transform .2s; box-shadow: 0 2px 6px rgba(96,80,140,0.18); }
+  .cam label.sw input:checked + span { background: var(--lav-ink); }
+  .cam label.sw input:checked + span::after { transform: translateX(22px); }
+  .cam label.sw input:focus-visible + span { outline: 3px solid var(--lav-ink); outline-offset: 3px; }
+  #preview { display: none; width: 56px; height: 56px; object-fit: cover; border-radius: 50%; margin-left: auto; background: #000; }
+  #status { min-height: 22px; font-size: 13px; color: var(--body); text-align: center; }
+  .fx { animation: rise .24s ease-out both; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .s { opacity: 1; } }
 </style>
 </head>
 <body>
+<div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
 <div class="wrap">
   <header>
-    <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="好奇鏡標誌"><circle cx="27" cy="27" r="19" fill="#E3F1F7" stroke="#1F2A44" stroke-width="5"/><path d="M41 41l15 15" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/><path d="M21 22.5a6.5 6.5 0 1 1 9.4 5.8c-2 1-3.4 2.1-3.4 4.2" fill="none" stroke="#2E86AB" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="38.5" r="2.6" fill="#2E86AB"/></svg>
-    <h1>好奇鏡</h1>
-    <div class="conn" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">連線中</span></div>
+    <div class="brand glass fx">
+      <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="好奇鏡標誌"><circle cx="27" cy="27" r="19" fill="#E9F3FF" stroke="#5B4AB8" stroke-width="5"/><path d="M41 41l15 15" stroke="#FFB48F" stroke-width="8" stroke-linecap="round"/><path d="M21 22.5a6.5 6.5 0 1 1 9.4 5.8c-2 1-3.4 2.1-3.4 4.2" fill="none" stroke="#2B6CB0" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="38.5" r="2.6" fill="#2B6CB0"/></svg>
+      <h1>好奇鏡</h1>
+    </div>
+    <div class="conn glass fx" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">連線中</span></div>
   </header>
 
-  <p class="hello">有什麼想知道的嗎？<small>按住圓圓的按鈕說話</small></p>
-
-  <svg class="hero-art" viewBox="0 0 200 175" aria-hidden="true"><circle cx="92" cy="74" r="56" fill="#E3F1F7" stroke="#1F2A44" stroke-width="9"/><path d="M134 116l40 38" stroke="#F28C28" stroke-width="16" stroke-linecap="round"/><path d="M70 62a22 22 0 1 1 32 19c-7 3-10 8-10 14" fill="none" stroke="#2E86AB" stroke-width="10" stroke-linecap="round"/><circle cx="92" cy="115" r="6.5" fill="#2E86AB"/><path d="M168 22l6-12M184 40l12-4M14 30l-8-10" stroke="#F28C28" stroke-width="6" stroke-linecap="round"/></svg>
+  <p class="hello glass fx" style="animation-delay:40ms">
+    <svg class="hero-art" viewBox="0 0 200 175" aria-hidden="true"><circle cx="92" cy="74" r="56" fill="#E9F3FF" stroke="#5B4AB8" stroke-width="9"/><path d="M134 116l40 38" stroke="#FFB48F" stroke-width="16" stroke-linecap="round"/><path d="M70 62a22 22 0 1 1 32 19c-7 3-10 8-10 14" fill="none" stroke="#2B6CB0" stroke-width="10" stroke-linecap="round"/><circle cx="92" cy="115" r="6.5" fill="#2B6CB0"/><path d="M168 22l6-12M184 40l12-4M14 30l-8-10" stroke="#C7B8FF" stroke-width="6" stroke-linecap="round"/></svg>
+    有什麼想知道的嗎？<small>按住圓圓的按鈕說話</small>
+  </p>
 
   <section id="answer" aria-live="polite">
     <div class="qline" id="q"></div>
@@ -140,19 +173,22 @@
   </section>
 
   <div class="mic-zone">
+    <div class="wave glass fx" id="wave" aria-hidden="true" style="animation-delay:80ms"><svg viewBox="0 0 280 40" id="waveSvg"></svg></div>
     <button id="talk" class="idle" type="button" aria-label="按住說話">
       <span class="ring" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span>
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.94V22h2v-3.06A8 8 0 0 0 20 11h-2z"/></svg>
-      <span class="lbl" id="talklabel">按住說話</span>
+      <span class="lbl" aria-hidden="true">按住說話</span>
       <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-    <form class="row" id="form" autocomplete="off">
+    <div id="talklabel">按住說話</div>
+    <form class="row glass fx" id="form" autocomplete="off" style="animation-delay:120ms">
       <input type="text" id="text" placeholder="或是打字問我" aria-label="輸入問題" maxlength="80">
-      <button type="submit" id="send">問問看</button>
+      <button type="submit" id="send">問問題</button>
     </form>
-    <div class="cam">
-      <label class="sw"><input type="checkbox" id="cam" aria-label="開鏡頭"><span></span></label>
+    <div class="cam glass fx" style="animation-delay:160ms">
+      <span class="ico" aria-hidden="true">📷</span>
       <label for="cam">開鏡頭，拍給我看</label>
+      <label class="sw"><input type="checkbox" id="cam" aria-label="開鏡頭"><span></span></label>
       <video id="preview" autoplay playsinline muted></video>
     </div>
     <div id="status" role="status"></div>
@@ -168,7 +204,12 @@
 
   const setStatus = (t) => { statusEl.textContent = t || ""; };
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  function micState(s) { talk.className = s; talk.setAttribute("aria-label", s === "thinking" ? "想一想" : s === "listening" ? "我在聽" : "按住說話"); }
+  // waveform: flat bars, scaled by the mic level (--lvl) while listening
+  (function () {
+    const svg = $("waveSvg"), ks = [.5, .8, 1.1, .7, 1.4, .9, 1.7, 1.1, 2.0, 1.2, 1.7, .9, 1.4, .7, 1.1, .8, .5];
+    svg.innerHTML = ks.map((k, i) => '<rect x="' + (12 + i * 16) + '" y="4" width="6" height="32" rx="3" style="--k:' + k + '"/>').join("");
+  })();
+  function micState(s) { $("wave").classList.toggle("live", s === "listening"); talk.className = s; talk.setAttribute("aria-label", s === "thinking" ? "想一想" : s === "listening" ? "我在聽" : "按住說話"); }
 
   // ---------- connection dot ----------
   async function health() {
@@ -220,8 +261,8 @@
   function stopSpeech() { token++; if (window.speechSynthesis) speechSynthesis.cancel(); chain = Promise.resolve(); }
 
   // ---------- art ----------
-  const ART_UNSURE = '<circle cx="60" cy="60" r="52" fill="#FFF1DF"/><path d="M44 46a16 16 0 1 1 24 14c-5 3-8 6-8 12" fill="none" stroke="#1F2A44" stroke-width="9" stroke-linecap="round"/><circle cx="60" cy="92" r="6" fill="#F28C28"/><path d="M92 28l5-9M100 40l9-3M25 28l-5-9" stroke="#2E86AB" stroke-width="5" stroke-linecap="round"/>';
-  const ART_SOFT = '<circle cx="60" cy="60" r="52" fill="#fff"/><path d="M60 94S26 74 26 49c0-12 9-20 19-20 7 0 12 4 15 9 3-5 8-9 15-9 10 0 19 8 19 20 0 25-34 45-34 45z" fill="#9CCBE0" stroke="#2E86AB" stroke-width="5" stroke-linejoin="round"/>';
+  const ART_UNSURE = '<circle cx="60" cy="60" r="52" fill="#FFD6C2"/><path d="M44 46a16 16 0 1 1 24 14c-5 3-8 6-8 12" fill="none" stroke="#5B4AB8" stroke-width="9" stroke-linecap="round"/><circle cx="60" cy="92" r="6" fill="#FFB48F"/><path d="M92 28l5-9M100 40l9-3M25 28l-5-9" stroke="#2B6CB0" stroke-width="5" stroke-linecap="round"/>';
+  const ART_SOFT = '<circle cx="60" cy="60" r="52" fill="#fff"/><path d="M60 94S26 74 26 49c0-12 9-20 19-20 7 0 12 4 15 9 3-5 8-9 15-9 10 0 19 8 19 20 0 25-34 45-34 45z" fill="#BFE0FF" stroke="#2B6CB0" stroke-width="5" stroke-linejoin="round"/>';
   const EMO = { unsure: "🧐", not_heard: "🎤" };
 
   // ---------- render ----------
@@ -335,7 +376,7 @@
     const buf = new Uint8Array(analyser.fftSize);
     analyser.getByteTimeDomainData(buf);
     let sum = 0; for (let i = 0; i < buf.length; i++) { const d = (buf[i] - 128) / 128; sum += d * d; }
-    talk.style.setProperty("--lvl", Math.min(1, Math.sqrt(sum / buf.length) * 5).toFixed(2));
+    document.documentElement.style.setProperty("--lvl", Math.min(1, Math.sqrt(sum / buf.length) * 5).toFixed(2));
     levelRaf = requestAnimationFrame(meter);
   }
   function startMeter() {
@@ -345,7 +386,7 @@
       analyser = audioCtx.createAnalyser(); analyser.fftSize = 512; src.connect(analyser); meter();
     } catch (e) { analyser = null; }
   }
-  function stopMeter() { cancelAnimationFrame(levelRaf); analyser = null; talk.style.setProperty("--lvl", 0); }
+  function stopMeter() { cancelAnimationFrame(levelRaf); analyser = null; document.documentElement.style.setProperty("--lvl", 0); }
   async function startRec() {
     if (busy || rec) return;
     if (!navigator.mediaDevices || !window.MediaRecorder) { setStatus("這個瀏覽器不能錄音，請用打字問我"); return; }
