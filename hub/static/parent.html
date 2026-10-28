@@ -26,7 +26,7 @@
   button { font: inherit; color: inherit; cursor: pointer; transition: transform .12s; }
   button:active:not(:disabled) { transform: scale(.96); }
   #app { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; min-height: 100vh; min-height: 100dvh; padding: 0 16px 128px; }
-  .glass, .card, .li, .ev, .cheat, .tcard, div.seg, .dev, .lang, .icon-btn.g { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  .glass, .card, .li, .ev, .cheat, .tcard, div.seg, .lang, .icon-btn.g { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
            border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
 
   /* top bar */
@@ -36,7 +36,7 @@
   .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .top .who { flex: 1; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .top .who small { display: block; font-size: 12.5px; font-weight: 500; color: var(--body); }
-  .dev { position: absolute; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 50%; background: #A9A7C2; border: 2.5px solid #FFFFFF; box-shadow: 0 1px 3px rgba(43,42,74,.18); }
+  .dev { position: absolute; padding: 0; box-sizing: border-box; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 50%; background: #A9A7C2; border: 2.5px solid #FFFFFF; box-shadow: 0 1px 3px rgba(43,42,74,.18); }
   .dev.ok { background: #3DBE8B; }
   .dev i { display: none; }
   .dev span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -47,7 +47,6 @@
   .lang button::after { content: ""; position: absolute; inset: -14px -2px; }
   .lang button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
   .lang i { font-style: normal; opacity: .5; }
-  @media (max-width: 430px) { .dev span { display: none; } .dev { padding: 10px; } }
 
   /* segmented */
   div.seg { display: flex; border-radius: 999px; padding: 4px; margin: 8px 0 16px; gap: 4px; }
