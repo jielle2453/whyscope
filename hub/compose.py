@@ -1,4 +1,4 @@
-"""Compose explanation + question back from an entry's facts, in the Whyscope voice.
+"""Compose explanation + question back from an entry's facts, in the Whyscope voice (zh and en).
 
 The first sentence is NEVER produced here (the pipeline speaks entry.first_sentence verbatim).
 LLM (Qwen2.5-1.5B-Instruct via transformers on CUDA, or llama-cpp GGUF on CPU) rewrites facts into short, plain
@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutTimeout
 
 from . import wording
 from .config import resolve, to_trad, torch_device
+from .recall import content_en
 from .safety import askback_ok
 
 STOP = {"的", "了", "是", "在", "有", "會", "可以", "和", "也", "都", "就", "很", "把", "被", "讓", "跟", "著",
@@ -164,6 +165,142 @@ def _user_msg(age, facts, said=""):
     return f"孩子{age}歲。\n事實：\n{fl}\n{said}{rule}，每句不超過18個字，事實裡沒有的東西不要說。輸出JSON：{{\"explanation\":…,\"ask_back\":…}}"
 
 
+# ---------------------------------------------------------------- English (english-mode.md section 2)
+_SENT_EN = re.compile(r"[^.!?\n]+[.!?]*")
+BAD_ASKBACK_EN = re.compile(r"\byour\b|\byou(?:'re| are) (?:so|very)\b", re.I)
+NOVELTY_MIN_EN = 0.7
+
+
+def en_view(entry: dict) -> dict:
+    """The entry with its English fields at the top level (labels, first_sentence, facts, ask_back, bridges)."""
+    en = entry.get("en") or {}
+    return {**entry, "labels": en.get("labels") or entry.get("labels", []),
+            "first_sentence": en.get("first_sentence", ""), "facts": en.get("facts") or [],
+            "ask_back": en.get("ask_back", ""), "bridges": en.get("bridges") or {}}
+
+
+def _clean_en(s: str) -> str:
+    return (s or "").replace("’", "'").strip()
+
+
+def _split_en(text: str) -> list:
+    return [s.strip() for s in _SENT_EN.findall(text or "") if re.search(r"[A-Za-z0-9]", s)]
+
+
+def grounded_en(explanation: str, facts: list) -> bool:
+    """Every sentence shares >= 1 content word (stemmed) with some fact."""
+    sents = _split_en(explanation)
+    if not sents:
+        return False
+    fact_toks = [set(content_en(f)) for f in facts]
+    return all(any(set(content_en(s)) & ft for ft in fact_toks) for s in sents)
+
+
+def novel_words_en(sentence: str, source: str) -> list:
+    """Content words of the sentence that the source never uses (candidates for invented knowledge)."""
+    src = set(content_en(source))
+    return [w for w in content_en(sentence) if w not in src]
+
+
+def novelty_ok_en(sentence: str, source: str, max_novel: int = 1) -> bool:
+    cw = content_en(sentence)
+    nov = novel_words_en(sentence, source)
+    if any(w.isdigit() for w in nov):
+        return False
+    return not cw or (len(nov) <= max_novel and (len(cw) - len(nov)) / len(cw) >= NOVELTY_MIN_EN)
+
+
+def repeats_en(sentence: str, spoken: str, ratio: float = 0.6) -> bool:
+    """True if the sentence mostly restates what was already said (e.g. the first sentence)."""
+    sw = set(content_en(sentence))
+    return bool(sw) and len(sw & set(content_en(spoken))) / len(sw) >= ratio
+
+
+def _fit_en(sents: list, budget: int) -> list:
+    out, used = [], 0
+    for s in sents:
+        n = len(wording.words_en(s))
+        if out and used + n > budget:
+            break
+        out.append(s)
+        used += n
+    return out
+
+
+def _end(s: str) -> str:
+    s = s.strip(" ,;:")
+    return s if s.endswith((".", "!", "?")) else s + "."
+
+
+def template_explanation_en(entry: dict, age: int, budget: int = wording.MAX_TOTAL_WORDS) -> str:
+    """Deterministic fallback: facts[0] (+ facts[1] for 7-8) of the English entry, jargon replaced."""
+    ev = en_view(entry)
+    facts = [wording.plainify_en(_clean_en(f)) for f in ev["facts"]]
+    fresh = [f for f in facts if not repeats_en(f, ev["first_sentence"])]
+    facts = fresh or facts
+    good = [f for f in facts if not wording.check_text_en(f, 1)]
+    if not good:   # cut a long fact at a clause boundary
+        for f in facts:
+            for part in re.split(r",\s*|\s+(?:and|because|when|so|but)\s+", f):
+                part = part.strip(" .!")
+                if len(wording.words_en(part)) >= 3:
+                    part = _end(part[:1].upper() + part[1:])
+                    if not wording.check_text_en(part, 1):
+                        good.append(part)
+        if not good:
+            good = [min(facts, key=lambda f: len(wording.words_en(f)))] if facts else [ev["first_sentence"]]
+    want = 1 if age <= 6 else 2
+    picked = _fit_en(good[:want], budget)
+    return " ".join(_end(s) for s in picked)
+
+
+def pick_ask_back_en(entry: dict, bridges: list, use_bridge: bool):
+    """(ask_back, bridge_key|None) from the English entry; every ask-back is made guessable."""
+    ev = en_view(entry)
+    if use_bridge:
+        for k, v in ev["bridges"].items():
+            if k in bridges and wording.askback_ok_en(v) and v.strip().endswith("?"):
+                return wording.guessable_en(v), k
+    ask = ev["ask_back"]
+    if not ask or not wording.askback_ok_en(ask):
+        ask = f"Can you guess one more thing about the {(ev['labels'] or ['thing'])[0]}?"
+    return wording.guessable_en(ask), None
+
+
+def template_en(entry: dict, age: int = 6, bridges=(), use_bridge=False, budget=wording.MAX_TOTAL_WORDS) -> dict:
+    ask, key = pick_ask_back_en(entry, list(bridges), use_bridge)
+    return {"explanation": template_explanation_en(entry, age, budget), "ask_back": ask, "bridge_used": key,
+            "source": "template"}
+
+
+SYSTEM_EN = ("You are Whyscope, a gentle grown-up talking with a child aged 5 to 8. Rules:\n"
+             "1. Use only the information in the facts. Do not add new knowledge or new words; reuse the words of the facts.\n"
+             "2. Every sentence has at most 12 words. Talk about concrete things in words a 6-year-old knows. No science words.\n"
+             "3. Never praise the child. Never say \"I think\" or \"I like\". Never ask about the child's day, feelings, family or friends.\n"
+             "4. ask_back is one question the child can guess (yes or no, or \"A or B\"), at most 15 words, about the thing itself.\n"
+             "5. Output exactly one JSON object and nothing else.")
+SHOTS_EN = [
+    (5, ["A mosquito's mouth is like a thin needle.", "Only mother mosquitoes drink blood."],
+     {"explanation": "A mosquito's mouth is like a thin needle.",
+      "ask_back": "Do you think a mosquito drinks blood with its mouth, or its feet?"}),
+    (6, ["The shell keeps the snail's soft body safe.", "The shell grows with the snail."],
+     {"explanation": "The shell keeps the snail's soft body safe.",
+      "ask_back": "Do you think a snail comes out in the rain?"}),
+    (8, ["A cloud is a lot of tiny water drops in the sky.", "When the drops get big and heavy, they fall down."],
+     {"explanation": "A cloud is a lot of tiny water drops. When the drops get heavy, they fall down.",
+      "ask_back": "Do you think more drops make big rain, or small rain?"}),
+]
+
+
+def _user_msg_en(age, facts, said=""):
+    rule = ("Write 1 short, concrete sentence for explanation" if age <= 6
+            else "Write 2 sentences for explanation, one for each fact; use \"because\" once only if a fact gives a reason")
+    fl = "\n".join(f"- {f}" for f in facts)
+    said = f"Already said: {said} (do not say it again)\n" if said else ""
+    return (f"The child is {age} years old.\nFacts:\n{fl}\n{said}{rule}, at most 12 words per sentence, "
+            f"nothing that is not in the facts. Output JSON: {{\"explanation\": ..., \"ask_back\": ...}}")
+
+
 class Composer:
     def __init__(self, cfg: dict):
         self.cfg = cfg["compose"]
@@ -220,7 +357,15 @@ class Composer:
         self._generate([{"role": "user", "content": "hi"}], 4)  # warm-up (CUDA kernels)
 
     # ---- generation ----
-    def _messages(self, entry, age):
+    def _messages(self, entry, age, lang="zh"):
+        if lang == "en":
+            ev = en_view(entry)
+            msgs = [{"role": "system", "content": SYSTEM_EN}]
+            for a, facts, out in SHOTS_EN:
+                msgs.append({"role": "user", "content": _user_msg_en(a, facts)})
+                msgs.append({"role": "assistant", "content": json.dumps(out, ensure_ascii=False)})
+            msgs.append({"role": "user", "content": _user_msg_en(age, ev["facts"], ev["first_sentence"])})
+            return msgs
         msgs = [{"role": "system", "content": SYSTEM}]
         for a, facts, out in SHOTS:
             msgs.append({"role": "user", "content": _user_msg(a, facts)})
@@ -242,8 +387,8 @@ class Composer:
                                       stop_strings=["}"], tokenizer=self.tok)
         return prefill + self.tok.decode(out[0][ids["input_ids"].shape[1]:], skip_special_tokens=True)
 
-    def _run(self, entry, age) -> str:
-        return self._generate(self._messages(entry, age), int(self.cfg.get("max_new_tokens", 120)))
+    def _run(self, entry, age, lang="zh") -> str:
+        return self._generate(self._messages(entry, age, lang), int(self.cfg.get("max_new_tokens", 120)))
 
     @staticmethod
     def _parse(raw: str):
@@ -294,13 +439,50 @@ class Composer:
                 ask = mine
         return {"explanation": exp, "ask_back": ask, "bridge_used": bkey, "source": "llm"}
 
+    def _validate_en(self, d, entry, age, bridges, use_bridge, budget):
+        """English twin of _validate: grounding, no new knowledge, wording rules, guessable ask-back."""
+        if not isinstance(d, dict):
+            return None
+        ev = en_view(entry)
+        source = " ".join(ev["facts"] + [ev["first_sentence"]] + list(ev["labels"]))
+        exp = wording.plainify_en(_clean_en(str(d.get("explanation", ""))))
+        sents = _fit_en(_split_en(exp)[:1 if age <= 6 else 2], budget)
+        exp = " ".join(_end(s) for s in sents)
+        if not sents:
+            return self._reject("empty")
+        if not grounded_en(exp, ev["facts"]):
+            return self._reject("not grounded: " + exp)
+        bad = [s for s in sents if not novelty_ok_en(s, source)]
+        if bad:
+            return self._reject(f"new knowledge: {bad[0]} {novel_words_en(bad[0], source)}")
+        if any(repeats_en(s, ev["first_sentence"]) for s in sents):
+            return self._reject("repeats the first sentence: " + exp)
+        probs = wording.check_text_en(exp, 1 if age <= 6 else 2)
+        if probs or wording.spoken_words(exp) > budget:
+            return self._reject(f"wording {probs} / budget {budget}: {exp}")
+        ask, bkey = pick_ask_back_en(entry, bridges, use_bridge)
+        if not bkey:
+            mine = _clean_en(str(d.get("ask_back", "")))
+            asrc = source + " " + ev["ask_back"]
+            if (mine and len(wording.words_en(mine)) <= wording.ASKBACK_MAX_WORDS and mine.endswith("?")
+                    and wording.ask_ok_pattern_en(mine) and wording.askback_ok_en(mine) and not BAD_ASKBACK_EN.search(mine)
+                    and not wording.NOT_ALLOWED_EN.search(mine) and not wording.has_banned_en(mine)
+                    and wording.rare_score_en(mine) <= wording.MAX_RARE_EN
+                    and novelty_ok_en(mine, asrc, 2)):
+                ask = mine
+        return {"explanation": exp, "ask_back": ask, "bridge_used": bkey, "source": "llm"}
+
     def compose(self, entry: dict, age: int, bridges: list, use_bridge: bool = False,
-                budget: int = wording.MAX_TOTAL_CHARS) -> dict:
+                budget: int = None, lang: str = "zh") -> dict:
         """Return {explanation, ask_back, bridge_used, source}; never raises, never blocks > timeout.
 
         Circuit breaker: after 2 consecutive timeouts (a CPU-only machine) the LLM is skipped for 10 requests
         and then probed again, so a slow model does not add the full timeout to every answer."""
-        tpl = lambda why="": {**template(entry, age, bridges, use_bridge, budget),  # noqa: E731
+        en = lang == "en"
+        if budget is None:
+            budget = wording.MAX_TOTAL_WORDS if en else wording.MAX_TOTAL_CHARS
+        base = template_en if en else template
+        tpl = lambda why="": {**base(entry, age, bridges, use_bridge, budget),  # noqa: E731
                               "source": "template" + (f"({why})" if why else "")}
         if not (self.cfg.get("enabled", True) and self.ready):
             return tpl()
@@ -309,10 +491,10 @@ class Composer:
             return tpl("llm-too-slow")
         self._skipped = 0
         try:
-            fut = self._pool.submit(self._run, entry, age)
+            fut = self._pool.submit(self._run, entry, age, lang)
             raw = fut.result(timeout=float(self.cfg.get("timeout_s", 6.0)))
             self._timeouts = 0
-            res = self._validate(self._parse(raw), entry, age, bridges, use_bridge, budget)
+            res = (self._validate_en if en else self._validate)(self._parse(raw), entry, age, bridges, use_bridge, budget)
             return res or tpl("grounding")
         except FutTimeout:
             self._timeouts += 1
