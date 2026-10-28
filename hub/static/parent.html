@@ -31,13 +31,15 @@
 
   /* top bar */
   .top { display: flex; align-items: center; gap: 8px; padding: 16px 0 8px; }
-  .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 22px; flex: none; overflow: hidden; }
+  .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 22px; flex: none; position: relative; }
+  .avatar img { border-radius: 50%; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .top .who { flex: 1; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .top .who small { display: block; font-size: 12.5px; font-weight: 500; color: var(--body); }
-  .dev { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--body); padding: 6px 10px; border-radius: 999px; }
-  .dev i { width: 10px; height: 10px; border-radius: 50%; background: #A9A7C2; }
-  .dev.ok i { background: #3DBE8B; }
+  .dev { position: absolute; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 50%; background: #A9A7C2; border: 2.5px solid #FFFFFF; box-shadow: 0 1px 3px rgba(43,42,74,.18); }
+  .dev.ok { background: #3DBE8B; }
+  .dev i { display: none; }
+  .dev span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .icon-btn { width: 44px; height: 44px; border: 0; border-radius: 50%; display: grid; place-items: center; flex: none; padding: 0; background: var(--glass); }
   .icon-btn svg { width: 22px; height: 22px; }
   .lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--cap); flex: none; }
@@ -230,10 +232,9 @@
 <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
 <div id="app">
   <header class="top">
-    <div class="avatar" id="avatar" aria-hidden="true"><img src="/static/avatar-girl.png" alt="" width="48" height="48"></div>
+    <div class="avatar" id="avatar"><img src="/static/avatar-girl.png" alt="" width="48" height="48"><span class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">Connecting</span></span></div>
     <div class="who" id="who">My child<small>Whyscope</small></div>
     <div class="lang" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
-    <div class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">Connecting</span></div>
     <button class="icon-btn g" id="gear" data-i18n-aria="settings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
   <div class="seg" id="period" role="group" data-i18n-aria="timeRange" aria-label="Time range"><button data-period="day" aria-pressed="false" data-i18n="day">Day</button><button data-period="week" aria-pressed="true" data-i18n="week">Week</button><button data-period="month" aria-pressed="false" data-i18n="month">Month</button></div>
@@ -346,7 +347,7 @@
     const nm = S.data && (S.data.mem.child_name || {}).value;
     $("#who").innerHTML = esc(nm || tr("myChild")) + "<small>" + esc(tr("brand")) + "</small>";
     const av = ((S.data && S.data.mem.avatar) || {}).value || "girl";
-    $("#avatar").innerHTML = av === "emoji" ? "🧒" : '<img src="/static/avatar-' + (av === "boy" ? "boy" : "girl") + '.png" alt="" width="48" height="48">';
+    { const box = $("#avatar"), badge = $("#dev"); box.innerHTML = av === "emoji" ? "🧒" : '<img src="/static/avatar-' + (av === "boy" ? "boy" : "girl") + '.png" alt="" width="48" height="48">'; if (badge) box.appendChild(badge); }
     const undone = S.data ? S.data.ch.filter((c) => !c.cheat_done).length : 0, b = $("#cheatbadge");
     b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", tr("cheatsUnread", undone));
   }
