@@ -1,5 +1,6 @@
 """FastAPI app (spec section 6). Run: uvicorn hub.server:app --host 0.0.0.0 --port 8000"""
 import json
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -8,9 +9,11 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 
 from . import report
+from .emoji import emoji_for, TOPIC_EMOJI, TOPIC_ZH
 from .memory import AUTO_KEYS, PARENT_KEYS
 from .pipeline import Pipeline
 
+VERSION = "0.2.0 (product pass 1)"
 STATIC = Path(__file__).resolve().parent / "static"
 P: Pipeline = None
 
@@ -51,8 +54,12 @@ def healthz():
 
 
 @app.post("/api/ask")
-async def ask(request: Request):
-    """Accepts multipart (text/audio/image/mode) or JSON {text, mode}."""
+async def ask(request: Request, wait: int = 0):
+    """Accepts multipart (text/audio/image/mode) or JSON {text, mode}.
+
+    Returns after recall/safety with the first sentence and `pending: true` + `pending_id` (explanation and ask_back
+    are empty); fetch the rest with GET /api/ask/{pending_id}. `?wait=1` blocks and returns the complete answer."""
+    t0 = time.perf_counter()
     text, mode, audio, image = "", "text", None, None
     if "application/json" in request.headers.get("content-type", ""):
         body = await request.json()
@@ -66,13 +73,34 @@ async def ask(request: Request):
             image = await form["image"].read() or None
     if mode not in ("text", "voice"):
         mode = "voice" if audio else "text"
-    res = await run_in_threadpool(P.ask, str(text), audio, image, mode)
+    if wait:
+        return await run_in_threadpool(P.ask, str(text), audio, image, mode)
+    return await run_in_threadpool(P.ask_first, str(text), audio, image, mode, True, t0)
+
+
+@app.get("/api/ask/{pending_id}")
+def ask_result(pending_id: str):
+    """The completed answer (`pending: false`), or HTTP 202 `{"pending": true}` while it is still being composed."""
+    res = P.poll(pending_id)
+    if res is None:
+        raise HTTPException(404, "unknown pending_id")
+    if res.get("pending"):
+        return JSONResponse({"pending": True, "pending_id": pending_id}, status_code=202)
     return res
 
 
 @app.get("/api/events")
 def events(days: int = 7):
-    return P.db.list_events(days)
+    return [{**e, "emoji": emoji_for(e["object"], e["topic"]) if e["status"] == "answered" else "",
+             "topic_zh": TOPIC_ZH.get(e["topic"], ""), "talked": bool(e.get("talked"))} for e in P.db.list_events(days)]
+
+
+@app.post("/api/events/{event_id}/talked")
+def event_talked(event_id: int):
+    if not P.db.get_event(event_id):
+        raise HTTPException(404, "event not found")
+    P.db.mark_talked(event_id)
+    return {"ok": True}
 
 
 @app.get("/api/report/week")
@@ -107,7 +135,8 @@ def cheat_done(event_id: int):
 @app.get("/api/memory")
 def memory_get():
     mem = P.memory.all()
-    return {"memory": mem,
+    objs = (mem.get("recent_objects") or {}).get("value") or []
+    return {"memory": mem, "emoji": {o: emoji_for(o) for o in objs},
             "keys": [{"key": k, "label_zh": v[0], "type": v[1]} for k, v in PARENT_KEYS.items()],
             "auto_keys": [{"key": k, "label_zh": v} for k, v in AUTO_KEYS.items()]}
 
@@ -136,7 +165,8 @@ def memory_delete_path(key: str):
 
 def _settings():
     return {"retention_days": int(P.db.setting_get("retention_days", P.cfg.get("retention_days", 30))),
-            "cloud_fallback": False, "mode": P.cfg.get("mode")}
+            "cloud_fallback": False, "mode": P.cfg.get("mode"), "version": VERSION,
+            "topics": {t: {"zh": TOPIC_ZH[t], "emoji": TOPIC_EMOJI[t]} for t in TOPIC_ZH}}
 
 
 @app.get("/api/settings")

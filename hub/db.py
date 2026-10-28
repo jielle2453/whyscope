@@ -28,6 +28,9 @@ class DB:
         c = self._c()
         try:
             c.executescript(SCHEMA)
+            cols = {r[1] for r in c.execute("PRAGMA table_info(events)")}
+            if "talked" not in cols:   # product pass 1: parent marks "聊過了" (additive migration)
+                c.execute("ALTER TABLE events ADD COLUMN talked INTEGER DEFAULT 0")
             c.commit()
         finally:
             c.close()
@@ -65,6 +68,20 @@ class DB:
             sql += " AND status=?"
             args.append(status)
         return self._run(sql + " ORDER BY id DESC", args, fetch=True)
+
+    def update_event(self, event_id, **f):
+        """Second phase of an answer: fill explanation / ask_back / bridge_used / latency."""
+        cols = {k: v for k, v in f.items() if k in ("explanation", "ask_back", "bridge_used", "status", "object")}
+        lat = f.get("latency_ms")
+        sets, args = [f"{k}=?" for k in cols], list(cols.values())
+        if lat is not None:
+            sets += ["latency_total_ms=?", "latency_json=?"]
+            args += [int(lat.get("total", 0)), json.dumps(lat, ensure_ascii=False)]
+        if sets:
+            self._run(f"UPDATE events SET {', '.join(sets)} WHERE id=?", (*args, event_id))
+
+    def mark_talked(self, event_id):
+        self._run("UPDATE events SET talked=1 WHERE id=?", (event_id,))
 
     def get_event(self, event_id):
         r = self._run("SELECT * FROM events WHERE id=?", (event_id,), fetch=True)
