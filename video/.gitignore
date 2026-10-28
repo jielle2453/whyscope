@@ -7,3 +7,4 @@ public/audio/*.json
 audio/*.wav
 .tmp/
 !public/audio/.gitkeep
+audio/question.wav
