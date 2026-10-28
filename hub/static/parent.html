@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F6EEFF">
-<title>好奇鏡｜家長</title>
+<title>Whyscope | Parent</title>
 <style>
   :root {
     --ink: #2B2A4A; --body: #5A5878; --cap: #6E6C8E;
@@ -19,26 +19,32 @@
   html, body { margin: 0; }
   body { color: var(--ink); min-height: 100vh; position: relative; overflow-x: hidden;
          background: linear-gradient(160deg, #F6EEFF 0%, #FDE9F1 35%, #FFF2E6 70%, #E9F3FF 100%) fixed;
-         font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; font-size: 16px; line-height: 1.5; }
+         font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; }
   .blob { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .4; pointer-events: none; z-index: 0; }
   .blob.b1 { width: 320px; height: 320px; background: #CDB8FF; top: -100px; left: -110px; }
   .blob.b2 { width: 300px; height: 300px; background: #FFD3B6; bottom: -90px; right: -100px; }
   button { font: inherit; color: inherit; cursor: pointer; transition: transform .12s; }
   button:active:not(:disabled) { transform: scale(.96); }
   #app { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; min-height: 100vh; min-height: 100dvh; padding: 0 16px 128px; }
-  .glass, .card, .li, .ev, .cheat, .tcard, div.seg, .dev, .icon-btn.g { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  .glass, .card, .li, .ev, .cheat, .tcard, div.seg, .dev, .lang, .icon-btn.g { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
            border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
 
   /* top bar */
-  .top { display: flex; align-items: center; gap: 12px; padding: 16px 0 8px; }
-  .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 24px; flex: none; }
-  .top .who { flex: 1; min-width: 0; font-size: 18px; font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .top .who small { display: block; font-size: 13px; font-weight: 500; color: var(--body); }
-  .dev { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); padding: 6px 12px; border-radius: 999px; }
+  .top { display: flex; align-items: center; gap: 8px; padding: 16px 0 8px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 21px; flex: none; }
+  .top .who { flex: 1; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .top .who small { display: block; font-size: 12.5px; font-weight: 500; color: var(--body); }
+  .dev { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--body); padding: 6px 10px; border-radius: 999px; }
   .dev i { width: 10px; height: 10px; border-radius: 50%; background: #A9A7C2; }
   .dev.ok i { background: #3DBE8B; }
   .icon-btn { width: 44px; height: 44px; border: 0; border-radius: 50%; display: grid; place-items: center; flex: none; padding: 0; background: var(--glass); }
   .icon-btn svg { width: 22px; height: 22px; }
+  .lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--cap); flex: none; }
+  .lang button { position: relative; border: 0; background: none; color: inherit; padding: 3px 9px; border-radius: 999px; min-width: 30px; }
+  .lang button::after { content: ""; position: absolute; inset: -14px -2px; }
+  .lang button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
+  .lang i { font-style: normal; opacity: .5; }
+  @media (max-width: 430px) { .dev span { display: none; } .dev { padding: 10px; } }
 
   /* segmented */
   div.seg { display: flex; border-radius: 999px; padding: 4px; margin: 8px 0 16px; gap: 4px; }
@@ -46,28 +52,28 @@
   .seg button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
 
   /* cards & text */
-  .card { border-radius: var(--r); padding: 24px 16px; margin-bottom: 16px; }
-  h2 { font-size: 18px; font-weight: 700; margin: 24px 4px 12px; display: flex; align-items: center; gap: 8px; color: var(--ink); }
-  h2 .n { margin-left: auto; font-size: 16px; font-weight: 700; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 0 12px; }
+  .card { border-radius: var(--r); padding: 22px 14px; margin-bottom: 16px; }
+  h2 { font-size: 16px; font-weight: 700; margin: 22px 4px 11px; display: flex; align-items: center; gap: 8px; color: var(--ink); }
+  h2 .n { margin-left: auto; font-size: 14.5px; font-weight: 700; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 0 12px; }
   .hero { display: flex; align-items: flex-end; gap: 12px; padding: 0 8px; }
-  .hero .big { font-size: 64px; font-weight: 800; line-height: .95; letter-spacing: -1px; }
-  .hero .lbl { font-size: 13px; font-weight: 700; color: var(--body); padding-bottom: 8px; }
-  .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; border: 0;
+  .hero .big { font-size: 54px; font-weight: 800; line-height: .95; letter-spacing: -1px; }
+  .hero .lbl { font-size: 12.5px; font-weight: 700; color: var(--body); padding-bottom: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 13px; font-size: 12.5px; font-weight: 700; border: 0;
           background: rgba(255,255,255,.7); color: var(--ink); }
   .chip.up { background: var(--mint); color: var(--mint-d); } .chip.down { background: var(--peach); color: var(--peach-d); }
   .spark { width: 100%; height: 108px; display: block; margin-top: 16px; }
-  .spark text { font-size: 13px; fill: #5A5878; }
+  .spark text { font-size: 12.5px; fill: #5A5878; }
   .row { display: flex; align-items: center; gap: 12px; }
   .wrapchips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .wrapchips .chip { background: var(--sky); color: var(--sky-d); font-size: 15px; }
+  .wrapchips .chip { background: var(--sky); color: var(--sky-d); font-size: 13px; }
   .talk-btn { min-height: 48px; border-radius: 999px; border: 0; background: var(--mint); color: var(--mint-d); font-weight: 700; padding: 0 20px; white-space: nowrap; }
 
   /* topic discs + donut */
   .discs { display: flex; justify-content: space-between; gap: 4px; margin-bottom: 24px; }
   .disc { flex: 1; min-width: 0; border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; }
-  .disc .d { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; }
-  .disc b { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.2; }
-  .disc span.t { font-size: 13px; color: var(--body); line-height: 1.2; }
+  .disc .d { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-size: 21px; }
+  .disc b { font-size: 14px; font-weight: 800; color: var(--ink); line-height: 1.2; }
+  .disc span.t { font-size: 12.5px; color: var(--body); line-height: 1.2; text-align: center; overflow-wrap: normal; }
   .donut { width: 132px; height: 132px; display: block; margin: 0 auto; }
   .donut circle.seg { cursor: pointer; transition: stroke-width .15s; }
   .donut circle.seg:hover, .donut circle.seg:focus { stroke-width: 4.8; outline: none; }
@@ -76,86 +82,86 @@
   .swipe { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 16px; margin: 0 -16px; scrollbar-width: none; }
   .swipe::-webkit-scrollbar { display: none; }
   .tcard { scroll-snap-align: center; flex: 0 0 76%; border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; }
-  .tcard .hd { height: 72px; display: flex; align-items: center; padding: 0 20px; }
-  .tcard .em { font-size: 40px; line-height: 1; }
-  .tcard .bd { padding: 16px 20px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .tcard .obj { font-size: 22px; font-weight: 700; line-height: 1.3; }
-  .tcard .ask { font-size: 16px; color: var(--body); flex: 1; }
+  .tcard .hd { height: 72px; display: flex; align-items: center; padding: 0 18px; }
+  .tcard .em { font-size: 35px; line-height: 1; }
+  .tcard .bd { padding: 14px 18px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .tcard .obj { font-size: 19px; font-weight: 700; line-height: 1.3; }
+  .tcard .ask { font-size: 14.5px; color: var(--body); flex: 1; }
   .tcard .talk-btn { align-self: flex-end; margin-top: 8px; }
   .list { display: flex; flex-direction: column; gap: 8px; }
-  .li { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 24px; }
-  .li .em { width: 44px; height: 44px; border-radius: 50%; background: var(--lemon); display: grid; place-items: center; font-size: 22px; flex: none; }
-  .li .tx { flex: 1; min-width: 0; font-size: 16px; }
+  .li { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 24px; }
+  .li .em { width: 44px; height: 44px; border-radius: 50%; background: var(--lemon); display: grid; place-items: center; font-size: 19px; flex: none; }
+  .li .tx { flex: 1; min-width: 0; font-size: 14.5px; }
 
   /* empty */
-  .empty { text-align: center; padding: 16px 8px; color: var(--body); }
-  .empty .eb { width: 96px; height: 96px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 44px; margin: 0 auto 12px; }
-  .empty p { margin: 0; font-size: 16px; }
+  .empty { text-align: center; padding: 14px 8px; color: var(--body); }
+  .empty .eb { width: 96px; height: 96px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 38px; margin: 0 auto 12px; }
+  .empty p { margin: 0; font-size: 14.5px; }
 
   /* log */
   .filters { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px; scrollbar-width: none; }
   .filters::-webkit-scrollbar { display: none; }
-  .filters .chip { flex: none; min-height: 44px; font-size: 16px; padding: 0 16px; border: 1px solid var(--glass-line); }
+  .filters .chip { flex: none; min-height: 44px; font-size: 14px; padding: 0 14px; border: 1px solid var(--glass-line); }
   .filters .chip[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
-  .day { display: inline-block; font-size: 14px; font-weight: 700; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 2px 16px; margin: 16px 0 8px; }
+  .day { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--lav-d); background: var(--lav); border-radius: 999px; padding: 2px 14px; margin: 16px 0 8px; }
   .ev { border-radius: 24px; }
-  .ev > button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 8px 16px; background: none; border: 0; text-align: left; }
-  .ev .em { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; flex: none; }
-  .ev .nm { flex: 1; font-size: 16px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .ev .st { font-size: 20px; flex: none; }
-  .ev .tm { font-size: 14px; color: var(--body); flex: none; min-width: 48px; text-align: right; }
-  .ev .more { display: none; padding: 0 16px 16px 72px; font-size: 16px; color: var(--body); }
+  .ev > button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 8px 14px; background: none; border: 0; text-align: left; }
+  .ev .em { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 19px; flex: none; }
+  .ev .nm { flex: 1; font-size: 14.5px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ev .st { font-size: 18px; flex: none; }
+  .ev .tm { font-size: 12.5px; color: var(--body); flex: none; min-width: 48px; text-align: right; }
+  .ev .more { display: none; padding: 0 14px 14px 72px; font-size: 14.5px; color: var(--body); }
   .ev.open .more { display: block; }
   .more .q { font-weight: 700; color: var(--ink); margin-bottom: 4px; } .more .a { margin-bottom: 4px; } .more .b { color: var(--peach-d); font-weight: 600; }
 
   /* cheats */
   .cheat { border-radius: var(--r); overflow: hidden; margin-bottom: 16px; }
-  .cheat .hd { display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-weight: 800; font-size: 18px; }
-  .cheat .hd .em { font-size: 28px; }
-  .cheat .hd .when { margin-left: auto; font-size: 14px; font-weight: 600; }
-  .cheat .bd { padding: 16px; }
-  .cheat .said { font-size: 16px; color: var(--body); margin: 0 0 12px; }
-  .cheat ul { margin: 0 0 12px; padding-left: 20px; } .cheat li { margin-bottom: 8px; font-size: 16px; }
-  .nosay { background: rgba(236,232,248,.85); color: #4A4868; border-radius: 20px; padding: 12px 16px; margin-bottom: 12px; font-size: 16px; }
+  .cheat .hd { display: flex; align-items: center; gap: 12px; padding: 11px 14px; font-weight: 800; font-size: 16px; }
+  .cheat .hd .em { font-size: 24px; }
+  .cheat .hd .when { margin-left: auto; font-size: 12.5px; font-weight: 600; }
+  .cheat .bd { padding: 14px; }
+  .cheat .said { font-size: 14.5px; color: var(--body); margin: 0 0 12px; }
+  .cheat ul { margin: 0 0 12px; padding-left: 20px; } .cheat li { margin-bottom: 8px; font-size: 14.5px; }
+  .nosay { background: rgba(236,232,248,.85); color: #4A4868; border-radius: 20px; padding: 11px 14px; margin-bottom: 12px; font-size: 14.5px; }
   .nosay b { display: block; margin-bottom: 2px; }
-  .nosay ul { margin: 0; padding-left: 20px; } .nosay li { font-size: 16px; margin: 2px 0; }
+  .nosay ul { margin: 0; padding-left: 20px; } .nosay li { font-size: 14.5px; margin: 2px 0; }
   .srcs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-  .srcs a { font-size: 14px; font-weight: 600; color: var(--sky-d); background: var(--sky); border-radius: 999px; padding: 6px 14px; text-decoration: none; min-height: 36px; display: inline-flex; align-items: center; }
+  .srcs a { font-size: 12.5px; font-weight: 600; color: var(--sky-d); background: var(--sky); border-radius: 999px; padding: 6px 13px; text-decoration: none; min-height: 36px; display: inline-flex; align-items: center; }
   .cheat.urgent { border: 2px solid var(--red); } .cheat.urgent .bd { background: rgba(255,209,224,.38); }
   .tel { display: flex; gap: 12px; margin-bottom: 12px; }
-  .tel a { flex: 1; min-height: 64px; border-radius: 999px; background: var(--rose); color: var(--rose-d); font-weight: 800; font-size: 20px; text-decoration: none; display: grid; place-items: center; text-align: center; line-height: 1.15; }
-  .tel a small { display: block; font-size: 14px; font-weight: 600; }
+  .tel a { flex: 1; min-height: 64px; border-radius: 999px; background: var(--rose); color: var(--rose-d); font-weight: 800; font-size: 17.5px; text-decoration: none; display: grid; place-items: center; text-align: center; line-height: 1.15; }
+  .tel a small { display: block; font-size: 12.5px; font-weight: 600; }
   .okbtn { width: 100%; min-height: 52px; border-radius: 999px; border: 0; background: var(--mint); color: var(--mint-d); font-weight: 800; }
   .okbtn[disabled] { background: rgba(255,255,255,.7); color: var(--mint-d); cursor: default; }
 
   /* kid tab */
   .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .tg { min-height: 64px; border-radius: 999px; border: 0; display: flex; align-items: center; gap: 12px; padding: 0 16px; font-size: 16px; font-weight: 700; text-align: left;
+  .tg { min-height: 64px; border-radius: 999px; border: 0; display: flex; align-items: center; gap: 12px; padding: 0 14px; font-size: 14.5px; font-weight: 700; text-align: left;
         background: var(--pa, var(--lav)); color: var(--pd, var(--lav-d)); }
-  .tg .em { font-size: 24px; }
+  .tg .em { font-size: 21px; }
   .tg[aria-pressed="true"] { background: var(--pi, var(--lav-ink)); color: #fff; }
   .ages { display: flex; justify-content: space-between; gap: 8px; }
-  .ages button { width: 72px; height: 72px; flex: none; border-radius: 50%; border: 1px solid var(--glass-line); background: var(--glass); font-size: 28px; font-weight: 800; color: var(--ink); }
+  .ages button { width: 72px; height: 72px; flex: none; border-radius: 50%; border: 1px solid var(--glass-line); background: var(--glass); font-size: 24px; font-weight: 800; color: var(--ink); }
   .ages button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; border-color: var(--lav-ink); }
-  input.txt { width: 100%; min-height: 56px; border-radius: 28px; border: 1px solid var(--glass-line); padding: 0 24px; font: inherit; font-size: 16px; background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); color: var(--ink); box-shadow: var(--shadow); }
+  input.txt { width: 100%; min-height: 56px; border-radius: 28px; border: 1px solid var(--glass-line); padding: 0 22px; font: inherit; font-size: 14.5px; background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); color: var(--ink); box-shadow: var(--shadow); }
   input.txt::placeholder { color: var(--cap); }
   input.txt:focus { outline: none; border-color: var(--lav-ink); }
-  .note { color: var(--body); font-size: 14px; margin: 12px 4px 0; }
-  .recent { font-size: 16px; background: var(--lemon); color: var(--lemon-d); border-radius: 999px; padding: 6px 14px; font-weight: 600; }
+  .note { color: var(--body); font-size: 12.5px; margin: 12px 4px 0; }
+  .recent { font-size: 14px; background: var(--lemon); color: var(--lemon-d); border-radius: 999px; padding: 6px 14px; font-weight: 600; }
 
   /* bottom nav */
   nav { position: fixed; left: 16px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30; max-width: 488px; margin: 0 auto; height: 72px; border-radius: 36px;
         background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
   nav .in { height: 100%; display: flex; align-items: center; padding: 0 8px; }
-  nav .tab { flex: 1; height: 100%; border: 0; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 13px; font-weight: 700; color: var(--cap); position: relative; }
+  nav .tab { flex: 1; height: 100%; border: 0; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 12.5px; font-weight: 700; color: var(--cap); position: relative; }
   nav .tab svg { width: 24px; height: 24px; }
   nav .tab[aria-selected="true"] { color: var(--lav-ink); }
   nav .tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--lav-ink); }
   nav .slot { flex: 0 0 72px; height: 100%; position: relative; }
-  nav .fab { position: absolute; left: 50%; top: -22px; width: 56px; height: 56px; margin-left: -28px; border: 0; border-radius: 50%; color: #fff; font-size: 30px; line-height: 1; padding: 0;
+  nav .fab { position: absolute; left: 50%; top: -22px; width: 56px; height: 56px; margin-left: -28px; border: 0; border-radius: 50%; color: #fff; font-size: 26px; line-height: 1; padding: 0;
              background: linear-gradient(135deg, #7C6CFF, #5B4AB8); box-shadow: 0 8px 20px rgba(96,80,140,0.22); display: grid; place-items: center; }
   nav .fab:active { transform: scale(.96); }
-  nav .badge { position: absolute; top: 8px; left: calc(50% + 6px); min-width: 20px; height: 20px; border-radius: 10px; background: var(--rose-ink); color: #fff; font-size: 13px; display: grid; place-items: center; padding: 0 5px; }
+  nav .badge { position: absolute; top: 8px; left: calc(50% + 6px); min-width: 20px; height: 20px; border-radius: 10px; background: var(--rose-ink); color: #fff; font-size: 12px; display: grid; place-items: center; padding: 0 5px; }
   nav .badge[hidden] { display: none; }
 
   /* settings sheet */
@@ -163,7 +169,7 @@
   #sheet.open { display: block; }
   #sheet .in { max-width: 520px; margin: 0 auto; padding: 16px 16px 48px; }
   .range { width: 100%; height: 44px; accent-color: var(--lav-ink); }
-  .ticks { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; padding: 0 2px; color: var(--body); }
+  .ticks { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; padding: 0 2px; color: var(--body); }
   .btn { min-height: 52px; border-radius: 999px; border: 1px solid var(--glass-line); background: rgba(255,255,255,.8); padding: 0 24px; font-weight: 700; text-decoration: none; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
   .btn.danger { background: var(--rose); border-color: var(--rose); color: var(--rose-d); }
   .btn.solid { background: var(--red); color: #fff; border-color: var(--red); }
@@ -188,23 +194,24 @@
 <div id="app">
   <header class="top">
     <div class="avatar" aria-hidden="true">🧒</div>
-    <div class="who" id="who">我的孩子<small>好奇鏡</small></div>
-    <div class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">連線中</span></div>
-    <button class="icon-btn g" id="gear" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+    <div class="who" id="who">My child<small>Whyscope</small></div>
+    <div class="lang" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
+    <div class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">Connecting</span></div>
+    <button class="icon-btn g" id="gear" data-i18n-aria="settings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
-  <div class="seg" id="period" role="group" aria-label="時間範圍"><button data-period="day" aria-pressed="false">日</button><button data-period="week" aria-pressed="true">週</button><button data-period="month" aria-pressed="false">月</button></div>
+  <div class="seg" id="period" role="group" data-i18n-aria="timeRange" aria-label="Time range"><button data-period="day" aria-pressed="false" data-i18n="day">Day</button><button data-period="week" aria-pressed="true" data-i18n="week">Week</button><button data-period="month" aria-pressed="false" data-i18n="month">Month</button></div>
   <main id="view" aria-live="polite"></main>
 </div>
 
-<nav aria-label="主要選單"><div class="in" role="tablist">
-  <button class="tab" role="tab" data-tab="week" aria-label="本週"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>本週</button>
-  <button class="tab" role="tab" data-tab="log" aria-label="紀錄"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>紀錄</button>
-  <div class="slot"><button class="fab" data-add="1" aria-label="新增孩子的世界">＋</button></div>
-  <button class="tab" role="tab" data-tab="cheats" aria-label="小抄"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg>小抄<span class="badge" id="cheatbadge" hidden></span></button>
-  <button class="tab" role="tab" data-tab="kid" aria-label="孩子"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>孩子</button>
+<nav data-i18n-aria="mainMenu" aria-label="Main menu"><div class="in" role="tablist">
+  <button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="This week"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">This week</span></button>
+  <button class="tab" role="tab" data-tab="log" data-i18n-aria="tabLog" aria-label="Log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg><span data-i18n="tabLog">Log</span></button>
+  <div class="slot"><button class="fab" data-add="1" data-i18n-aria="addChild" aria-label="Add to child's world">＋</button></div>
+  <button class="tab" role="tab" data-tab="cheats" data-i18n-aria="parentCheat" aria-label="Parent cheat sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg><span data-i18n="tabCheats">Cheats</span><span class="badge" id="cheatbadge" hidden></span></button>
+  <button class="tab" role="tab" data-tab="kid" data-i18n-aria="tabKid" aria-label="Child"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-i18n="tabKid">Child</span></button>
 </div></nav>
 
-<div id="sheet" role="dialog" aria-label="設定" aria-modal="true"><div class="in" id="sheetin"></div></div>
+<div id="sheet" role="dialog" data-i18n-aria="settings" aria-label="Settings" aria-modal="true"><div class="in" id="sheetin"></div></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
@@ -218,6 +225,89 @@
     return r.headers.get("content-type") && r.headers.get("content-type").includes("json") ? r.json() : r;
   };
   const post = (path, body) => api(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
+
+
+  // ---------- i18n (chrome only; knowledge-base / child text stays Chinese) ----------
+  const T = {
+    en: { title: "Whyscope | Parent", brand: "Whyscope", myChild: "My child", langGroup: "Language", settings: "Settings", timeRange: "Time range",
+      day: "Day", week: "Week", month: "Month", mainMenu: "Main menu", tabWeek: "Week", tabLog: "Log", tabCheats: "Cheats", parentCheat: "Parent cheat sheet", tabKid: "Child",
+      addChild: "Add to child's world", connecting: "Connecting", connected: "Connected", offline: "Offline",
+      cheatsUnread: (n) => n + " cheat sheets not read yet",
+      tp_animals: "Animals", tp_plants: "Plants", tp_sky_weather: "Sky & weather", tp_body: "Body", tp_machines: "Machines", tp_food: "Food", tp_other: "Other",
+      wd: ["M", "T", "W", "T", "F", "S", "S"], wdFull: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], today: "Today", yesterday: "Yesterday",
+      st_answered: "Answered", st_abstained: "Not sure", st_sensitive: "Passed to parent",
+      cat_death: "Death", cat_birth_sex: "Birth & bodies", cat_violence_war: "Violence & war", cat_divorce_family: "Divorce & family change", cat_illness: "Illness",
+      cat_self_harm: "Self-harm", cat_money_poverty: "Money & poverty", cat_religion: "Religion", cat_bullying: "Bullying", cat_scary_news: "Scary news",
+      br_has_dog: "Has a dog", br_has_cat: "Has a cat", br_has_sibling: "Has siblings", br_likes_dinosaurs: "Likes dinosaurs", br_likes_cars: "Likes cars", br_has_garden: "Plants at home", br_rides_bike: "Rides a bike",
+      bb_has_dog: "your dog", bb_has_cat: "your cat", bb_has_sibling: "siblings", bb_likes_dinosaurs: "dinosaurs", bb_likes_cars: "cars", bb_has_garden: "plants at home", bb_rides_bike: "bikes",
+      explained: (b, o) => "Explained " + o + (b ? " using " + b : ""),
+      noQ: "No questions yet. Go ask Whyscope!", whys: "whys", vsLast: "vs last week", topics: "Topics", talkAbout: "Talk about", unsure: "I wasn't sure", examples: "Examples used",
+      talked: "Talked ✓", talkedDone: "Talked ✓", talkedAria: (x) => "Talked: " + x, allTalked: "All talked about 👍", noUnsure: "No unanswered questions 👍",
+      viewLog: (n, c) => n + " " + c + ", view log", sparkAria: (l) => "Questions per day over the last 7 days: " + l, donutAria: "Share of topics",
+      filterBy: "Filter by topic", all: "All", noCatch: "(didn't catch that)", qPrefix: "Q: ",
+      noCheats: "Nothing that needs a special chat", childAge: "Child's age", age56: "Ages 5–6", age78: "Ages 7–8", childAsked: (q) => "Child asked: “" + q + "”",
+      callAria: (n, num) => "Call " + n + " " + num, line1925: "Support line", line1995: "Lifeline", avoid: "Avoid saying", sources: "Sources",
+      childWorld: "Child's world", age: "Age", yearsOld: (a) => a + " years old", name: "Name", namePh: "Child's name (only you can see it)", nameAria: "Child's name",
+      nameNote: "Whyscope only uses these for examples and never says the name to your child.", oftenAsks: "Often asks",
+      soon: "Coming soon", noted: "Noted", failTry: "That didn't work. Please try again.", saved: "Saved", fail: "Didn't work", cleared: "Cleared",
+      back: "Back", keepFor: "Keep records for", retAria: "Days to keep records", days: (n) => n + " days", retNow: (n) => "Now: " + n + " days, then auto-deleted",
+      cloud: "Cloud backup", cloudOff: "Off", cloudSoon: "Coming in Stage II", data: "Data", export: "Export", clear: "Clear",
+      clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device" },
+    zh: { title: "好奇鏡｜家長", brand: "好奇鏡", myChild: "我的孩子", langGroup: "語言", settings: "設定", timeRange: "時間範圍",
+      day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", tabLog: "紀錄", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
+      addChild: "新增孩子的世界", connecting: "連線中", connected: "已連線", offline: "未連線",
+      cheatsUnread: (n) => n + " 張小抄還沒看",
+      tp_animals: "動物", tp_plants: "植物", tp_sky_weather: "天氣與天空", tp_body: "身體", tp_machines: "機器與家電", tp_food: "食物", tp_other: "其他",
+      wd: ["一", "二", "三", "四", "五", "六", "日"], wdFull: ["日", "一", "二", "三", "四", "五", "六"], today: "今天", yesterday: "昨天",
+      st_answered: "答了", st_abstained: "不確定", st_sensitive: "轉給家長",
+      br_has_dog: "有養狗", br_has_cat: "有養貓", br_has_sibling: "有兄弟姊妹", br_likes_dinosaurs: "喜歡恐龍", br_likes_cars: "喜歡車車", br_has_garden: "家裡有植物", br_rides_bike: "會騎腳踏車",
+      bb_has_dog: "你家的狗", bb_has_cat: "你家的貓", bb_has_sibling: "兄弟姊妹", bb_likes_dinosaurs: "恐龍", bb_likes_cars: "車車", bb_has_garden: "家裡的植物", bb_rides_bike: "腳踏車",
+      explained: (b, o) => "用" + b + "解釋了" + o,
+      noQ: "還沒有問題，去問問好奇鏡吧", whys: "個為什麼", vsLast: "比上週", topics: "主題", talkAbout: "可以聊聊看", unsure: "我答不出來", examples: "用過的例子",
+      talked: "聊過了 ✓", talkedDone: "已聊過 ✓", talkedAria: (x) => "聊過了：" + x, allTalked: "都聊過了 👍", noUnsure: "沒有答不出來的問題 👍",
+      viewLog: (n, c) => n + " " + c + " 個，看紀錄", sparkAria: (l) => "最近七天每天的問題數：" + l, donutAria: "問題的主題比例",
+      filterBy: "用主題篩選", all: "全部", noCatch: "（沒聽清楚）", qPrefix: "問：",
+      noCheats: "沒有需要你特別聊的問題", childAge: "孩子的年齡", age56: "5–6 歲", age78: "7–8 歲", childAsked: (q) => "孩子問：「" + q + "」",
+      callAria: (n, num) => "撥打" + n + " " + num, line1925: "安心專線", line1995: "生命線", avoid: "不要說", sources: "來源",
+      childWorld: "孩子的世界", age: "年齡", yearsOld: (a) => a + " 歲", name: "名字", namePh: "孩子的名字（只有你看得到）", nameAria: "孩子的名字",
+      nameNote: "Whyscope 只用這些來舉例，不會對孩子說出名字。", oftenAsks: "最近常問",
+      soon: "即將推出", noted: "好，記下來了", failTry: "沒有成功，請再試一次", saved: "已儲存", fail: "沒有成功", cleared: "已清除",
+      back: "回上一頁", keepFor: "紀錄保存多久", retAria: "紀錄保存天數", days: (n) => n + " 天", retNow: (n) => "目前：" + n + " 天，過了就自動刪除",
+      cloud: "雲端後備", cloudOff: "關閉", cloudSoon: "Stage II 才會有", data: "資料", export: "匯出", clear: "清除",
+      clearAsk: "真的要清除所有紀錄嗎？", clearYes: "確定清除", clearNo: "不要", ver: (v, m) => "版本 " + v + " · 模式 " + m + " · 資料只存在這台裝置" }
+  };
+    let LANG = null;
+  try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "zh") LANG = q; } catch (e) {}
+  if (!LANG) { try { LANG = localStorage.getItem("whyscope_lang"); } catch (e) {} }
+  if (LANG !== "en" && LANG !== "zh") LANG = "en";
+  const tr = (k, ...a) => { const v = T[LANG][k] != null ? T[LANG][k] : T.en[k] != null ? T.en[k] : k; return typeof v === "function" ? v(...a) : v; };
+  let devKey = "connecting";
+  const topicName = (k) => (TOPIC[k] ? tr("tp_" + k) : k || tr("tp_other"));
+  const catName = (c) => (LANG === "zh" ? c.category_zh : T.en["cat_" + c.category] || c.category_zh);
+  const wdLabel = (w) => (LANG === "zh" ? w : tr("wd")[Math.max(0, "一二三四五六日".indexOf(w))]);
+  function renderChrome() {
+    $("#devl").textContent = tr(devKey); $("#dev").setAttribute("aria-label", tr(devKey));
+    const nm = S.data && (S.data.mem.child_name || {}).value;
+    $("#who").innerHTML = esc(nm || tr("myChild")) + "<small>" + esc(tr("brand")) + "</small>";
+    const undone = S.data ? S.data.ch.filter((c) => !c.cheat_done).length : 0, b = $("#cheatbadge");
+    b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", tr("cheatsUnread", undone));
+  }
+  function applyLang() {
+    document.documentElement.lang = LANG === "zh" ? "zh-TW" : "en";
+    document.title = tr("title");
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = tr(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", tr(el.dataset.i18nAria)); });
+    document.querySelectorAll("#lang [data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === LANG));
+    renderChrome(); render();
+    if ($("#sheet").classList.contains("open")) openSheet();
+  }
+  $("#lang").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-lang]"); if (!b) return;
+    LANG = b.dataset.lang;
+    try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
+    try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
+    applyLang();
+  });
 
   // pastel palette: [pastel fill, ink (filled bg, white text on it), deep (small text on the pastel fill)]
   const PAL = { lav: ["#C7B8FF", "#5B4AB8", "#3B2F8F"], sky: ["#BFE0FF", "#2B6CB0", "#1E4E80"], peach: ["#FFD6C2", "#C2410C", "#9A3412"],
@@ -233,7 +323,7 @@
   const BRIDGE = { has_dog: ["🐶", "有養狗", "你家的狗", "peach"], has_cat: ["🐱", "有養貓", "你家的貓", "lemon"], has_sibling: ["👧", "有兄弟姊妹", "兄弟姊妹", "rose"],
                    likes_dinosaurs: ["🦖", "喜歡恐龍", "恐龍", "mint"], likes_cars: ["🚗", "喜歡車車", "車車", "sky"], has_garden: ["🌿", "家裡有植物", "家裡的植物", "mint"],
                    rides_bike: ["🚲", "會騎腳踏車", "腳踏車", "lav"] };
-  const STATUS = { answered: ["✅", "答了"], abstained: ["❓", "不確定"], sensitive: ["🛡️", "轉給家長"] };
+  const STATUS = { answered: ["✅", "x"], abstained: ["❓", "x"], sensitive: ["🛡️", "x"] };
 
   const S = { tab: "week", filter: null, ageSeg: null, open: new Set(), data: null };
 
@@ -241,8 +331,8 @@
   const pd = (ts) => new Date(ts);
   const dayKey = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
   function dayLabel(d) {
-    const t = new Date(), y = new Date(Date.now() - 864e5), wd = "日一二三四五六"[d.getDay()];
-    return dayKey(d) === dayKey(t) ? "今天" : dayKey(d) === dayKey(y) ? "昨天" : (d.getMonth() + 1) + "/" + d.getDate() + " 週" + wd;
+    const t = new Date(), y = new Date(Date.now() - 864e5), wd = tr("wdFull")[d.getDay()];
+    return dayKey(d) === dayKey(t) ? tr("today") : dayKey(d) === dayKey(y) ? tr("yesterday") : LANG === "zh" ? (d.getMonth() + 1) + "/" + d.getDate() + " 週" + wd : tr("wdFull")[d.getDay()] + " " + (d.getMonth() + 1) + "/" + d.getDate();
   }
   const hm = (d) => String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
   function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 1800); }
@@ -256,11 +346,8 @@
       api("/api/report/week"), api("/api/events?days=14"), api("/api/cheats"), api("/api/memory"), api("/api/settings"),
       api("/healthz").catch(() => null)]);
     S.data = { rep, ev, ch, mem: mem.memory || {}, memEmoji: mem.emoji || {}, set, ok: !!hz };
-    $("#dev").classList.toggle("ok", !!hz); $("#devl").textContent = hz ? "已連線" : "未連線";
-    const nm = (S.data.mem.child_name || {}).value;
-    $("#who").innerHTML = esc(nm || "我的孩子") + "<small>好奇鏡</small>";
-    const undone = ch.filter((c) => !c.cheat_done).length;
-    const b = $("#cheatbadge"); b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", undone + " 張小抄還沒看");
+    $("#dev").classList.toggle("ok", !!hz); devKey = hz ? "connected" : "offline";
+    renderChrome();
   }
 
   // ---------- 本週 ----------
@@ -276,45 +363,45 @@
         (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1) + " " + cl(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1) + " " + p2[0].toFixed(1) + " " + p2[1].toFixed(1);
     }
     const area = line + " L" + x(n - 1) + " " + base + " L" + x(0) + " " + base + " Z";
-    return '<svg class="spark" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="最近七天每天的問題數：' + daily.map((d) => d.count).join("、") + '">' +
+    return '<svg class="spark" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(tr("sparkAria", daily.map((d) => d.count).join(LANG === "zh" ? "、" : ", "))) + '">' +
       '<defs><linearGradient id="sgA" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#C7B8FF" stop-opacity=".85"/><stop offset="1" stop-color="#BFE0FF" stop-opacity=".85"/></linearGradient>' +
       '<linearGradient id="sgL" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#7C6CFF"/><stop offset="1" stop-color="#2B6CB0"/></linearGradient></defs>' +
       '<path d="' + area + '" fill="url(#sgA)"/><path d="' + line + '" fill="none" stroke="url(#sgL)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
       pts.map((p, i) => (i === n - 1 ? '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="7" fill="#5B4AB8" stroke="#fff" stroke-width="3"/>' : '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" fill="#fff" stroke="#7C6CFF" stroke-width="2"/>') +
-        '<text x="' + p[0] + '" y="' + (H - 6) + '" text-anchor="middle"' + (i === n - 1 ? ' font-weight="800"' : "") + ">" + daily[i].weekday + "</text>").join("") + "</svg>";
+        '<text x="' + p[0] + '" y="' + (H - 6) + '" text-anchor="middle"' + (i === n - 1 ? ' font-weight="800"' : "") + ">" + wdLabel(daily[i].weekday) + "</text>").join("") + "</svg>";
   }
   function donut(topics) {
     const total = topics.reduce((a, t) => a + t.count, 0); let acc = 0;
     const segs = topics.map((t) => {
       const frac = (t.count / total) * 100, col = topicOf(t.topic)[2], gap = topics.length > 1 ? 1.4 : 0;
       const s = '<circle class="seg" cx="21" cy="21" r="15.915" fill="none" stroke="' + col + '" stroke-width="3.9" stroke-linecap="butt" stroke-dasharray="' + Math.max(0, frac - gap).toFixed(2) + " " + (100 - Math.max(0, frac - gap)).toFixed(2) +
-        '" stroke-dashoffset="' + (25 - acc).toFixed(2) + '" data-topic="' + esc(t.topic) + '" tabindex="0" role="button" aria-label="' + esc(topicOf(t.topic)[1]) + " " + t.count + ' 個，看紀錄"/>';
+        '" stroke-dashoffset="' + (25 - acc).toFixed(2) + '" data-topic="' + esc(t.topic) + '" tabindex="0" role="button" aria-label="' + esc(tr("viewLog", topicName(t.topic), t.count)) + '"/>';
       acc += frac; return s;
     }).join("");
-    return '<svg class="donut" viewBox="0 0 42 42" role="group" aria-label="問題的主題比例">' +
+    return '<svg class="donut" viewBox="0 0 42 42" role="group" aria-label="' + esc(tr("donutAria")) + '">' +
       '<circle cx="21" cy="21" r="15.915" fill="none" stroke="#ECE8F8" stroke-width="3.9"/>' + segs +
       '<text x="21" y="23.6" text-anchor="middle" font-size="8" font-weight="800" fill="#2B2A4A">' + total + '</text></svg>';
   }
   function viewWeek() {
     const { rep } = S.data, d = rep.total;
-    if (!d) return '<div class="card">' + empty("還沒有問題，去問問好奇鏡吧", "🌱") + "</div>";
+    if (!d) return '<div class="card">' + empty(tr("noQ"), "🌱") + "</div>";
     const diff = d - rep.prev_total;
-    const chip = rep.prev_total > 0 ? '<span class="chip ' + (diff >= 0 ? "up" : "down") + '">比上週 ' + (diff >= 0 ? "+" : "−") + Math.abs(diff) + "</span>" : "";
-    let h = '<div class="card"><div class="hero"><div class="big" aria-label="' + d + ' 個為什麼">' + d + '</div><div class="lbl">個為什麼</div><div style="margin-left:auto;padding-bottom:8px">' + chip + "</div></div>" + spark(rep.daily) + "</div>";
+    const chip = rep.prev_total > 0 ? '<span class="chip ' + (diff >= 0 ? "up" : "down") + '">' + tr("vsLast") + " " + (diff >= 0 ? "+" : "−") + Math.abs(diff) + "</span>" : "";
+    let h = '<div class="card"><div class="hero"><div class="big" aria-label="' + d + " " + esc(tr("whys")) + '">' + d + '</div><div class="lbl">' + tr("whys") + '</div><div style="margin-left:auto;padding-bottom:8px">' + chip + "</div></div>" + spark(rep.daily) + "</div>";
     if (rep.topics.length) {
-      h += '<h2>主題</h2><div class="card"><div class="discs">' +
-        rep.topics.map((t) => { const tp = topicOf(t.topic); return '<button class="disc" data-topic="' + esc(t.topic) + '" aria-label="' + esc(tp[1]) + " " + t.count + ' 個，看紀錄"><span class="d" style="background:' + pal(tp[3])[0] + '" aria-hidden="true">' + tp[0] + "</span><b>" + t.count + '</b><span class="t">' + esc(tp[1]) + "</span></button>"; }).join("") +
+      h += "<h2>" + tr("topics") + '</h2><div class="card"><div class="discs">' +
+        rep.topics.map((t) => { const tp = topicOf(t.topic); return '<button class="disc" data-topic="' + esc(t.topic) + '" aria-label="' + esc(tr("viewLog", topicName(t.topic), t.count)) + '"><span class="d" style="background:' + pal(tp[3])[0] + '" aria-hidden="true">' + tp[0] + "</span><b>" + t.count + '</b><span class="t">' + esc(topicName(t.topic)) + "</span></button>"; }).join("") +
         "</div>" + donut(rep.topics) + "</div>";
     }
     const talk = rep.talk_about.filter((t) => !t.talked).slice(0, 3);
-    h += '<h2>可以聊聊看</h2>';
+    h += "<h2>" + tr("talkAbout") + "</h2>";
     h += talk.length ? '<div class="swipe">' + talk.map((t, i) => { const p = pal(t.topic && TOPIC[t.topic] ? TOPIC[t.topic][3] : CYCLE[i % CYCLE.length]); return '<div class="tcard"><div class="hd" style="background:' + p[0] + '"><div class="em" aria-hidden="true">' + esc(t.emoji) + '</div></div><div class="bd"><div class="obj">' + esc(t.object) + '</div><div class="ask">' + esc(t.ask_back) +
-      '</div><button class="talk-btn" data-talked="' + t.event_id + '" aria-label="聊過了：' + esc(t.object) + '">聊過了 ✓</button></div></div>'; }).join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>都聊過了 👍</p></div></div>';
+      '</div><button class="talk-btn" data-talked="' + t.event_id + '" aria-label="' + esc(tr("talkedAria", t.object)) + '">' + tr("talked") + '</button></div></div>'; }).join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("allTalked") + "</p></div></div>";
     const un = rep.unanswered.filter((u) => !u.talked);
-    h += '<h2>我答不出來<span class="n">' + un.length + "</span></h2>";
-    h += un.length ? '<div class="list">' + un.slice(0, 6).map((u) => '<div class="li"><span class="em" aria-hidden="true">❓</span><div class="tx">' + esc(u.question) + '</div><button class="talk-btn" data-talked="' + u.event_id + '" aria-label="聊過了：' + esc(u.question) + '">聊過了 ✓</button></div>').join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>沒有答不出來的問題 👍</p></div></div>';
+    h += "<h2>" + tr("unsure") + '<span class="n">' + un.length + "</span></h2>";
+    h += un.length ? '<div class="list">' + un.slice(0, 6).map((u) => '<div class="li"><span class="em" aria-hidden="true">❓</span><div class="tx">' + esc(u.question) + '</div><button class="talk-btn" data-talked="' + u.event_id + '" aria-label="' + esc(tr("talkedAria", u.question)) + '">' + tr("talked") + "</button></div>").join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("noUnsure") + "</p></div></div>";
     if (rep.bridges_used.length) {
-      h += "<h2>用過的例子</h2><div class=\"wrapchips\">" + rep.bridges_used.map((b) => '<span class="chip">' + esc(b.emoji) + " 用" + esc((BRIDGE[b.key] || [])[2] || "") + "解釋了" + esc(b.objects.slice(0, 2).join("、")) + "</span>").join("") + "</div>";
+      h += "<h2>" + tr("examples") + "</h2><div class=\"wrapchips\">" + rep.bridges_used.map((b) => '<span class="chip">' + esc(b.emoji) + " " + esc(tr("explained", BRIDGE[b.key] ? tr("bb_" + b.key) : "", b.objects.slice(0, 2).join("、"))) + "</span>").join("") + "</div>";
     }
     return h;
   }
@@ -322,19 +409,19 @@
   // ---------- 紀錄 ----------
   function viewLog() {
     const ev = S.data.ev, topics = Object.keys(TOPIC).filter((t) => ev.some((e) => e.topic === t));
-    let h = '<div class="filters" role="group" aria-label="用主題篩選"><button class="chip" data-filter="" aria-pressed="' + (!S.filter) + '">全部</button>' +
-      topics.map((t) => '<button class="chip" data-filter="' + esc(t) + '" aria-pressed="' + (S.filter === t) + '">' + topicOf(t)[0] + " " + esc(topicOf(t)[1]) + "</button>").join("") + "</div>";
+    let h = '<div class="filters" role="group" aria-label="' + esc(tr("filterBy")) + '"><button class="chip" data-filter="" aria-pressed="' + (!S.filter) + '">' + tr("all") + '</button>' +
+      topics.map((t) => '<button class="chip" data-filter="' + esc(t) + '" aria-pressed="' + (S.filter === t) + '">' + topicOf(t)[0] + " " + esc(topicName(t)) + "</button>").join("") + "</div>";
     const rows = ev.filter((e) => !S.filter || e.topic === S.filter).sort((a, b) => (a.ts < b.ts ? 1 : -1));
-    if (!rows.length) return h + '<div class="card">' + empty("還沒有問題，去問問好奇鏡吧", "🌱") + "</div>";
+    if (!rows.length) return h + '<div class="card">' + empty(tr("noQ"), "🌱") + "</div>";
     const groups = {};
     rows.forEach((e) => { const d = pd(e.ts); (groups[dayKey(d)] = groups[dayKey(d)] || { d, list: [] }).list.push(e); });
     Object.keys(groups).sort().reverse().forEach((k) => {
       const g = groups[k];
       h += '<div class="day">' + esc(dayLabel(g.d)) + '</div><div class="list">' + g.list.map((e) => {
-        const st = STATUS[e.status] || ["", ""], name = e.status === "answered" ? e.object : (e.question || "（沒聽清楚）"), open = S.open.has(e.id);
+        const st = STATUS[e.status] || ["", ""], name = e.status === "answered" ? e.object : (e.question || tr("noCatch")), open = S.open.has(e.id);
         const em = e.emoji || (e.status === "sensitive" ? "🛡️" : "❓");
         return '<div class="ev' + (open ? " open" : "") + '"><button data-ev="' + e.id + '" aria-expanded="' + open + '"><span class="em" style="background:' + pal(e.status === "sensitive" ? "rose" : e.status === "abstained" ? "lemon" : topicOf(e.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + '</span><span class="nm">' + esc(name) +
-          '</span><span class="st" role="img" aria-label="' + st[1] + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + '</span></button><div class="more"><div class="q">問：' + esc(e.question || "—") + "</div>" +
+          '</span><span class="st" role="img" aria-label="' + (st[1] ? esc(tr("st_" + e.status)) : "") + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + '</span></button><div class="more"><div class="q">' + tr("qPrefix") + esc(e.question || "—") + "</div>" +
           (e.status === "answered" ? '<div class="a">' + esc((e.first_sentence || "") + (e.explanation || "")) + '</div><div class="b">' + esc(e.ask_back || "") + "</div>" : '<div class="a">' + esc(e.first_sentence || "") + "</div>") + "</div></div>";
       }).join("") + "</div>";
     });
@@ -344,21 +431,21 @@
   // ---------- 小抄 ----------
   function viewCheats() {
     const ch = S.data.ch;
-    if (!ch.length) return '<div class="card">' + empty("沒有需要你特別聊的問題", "💡") + "</div>";
+    if (!ch.length) return '<div class="card">' + empty(tr("noCheats"), "💡") + "</div>";
     const age = (S.data.mem.child_age || {}).value;
     if (!S.ageSeg) S.ageSeg = age && age >= 7 ? "7-8" : "5-6";
     const sorted = ch.slice().sort((a, b) => (a.cheat_done - b.cheat_done) || (b.urgent - a.urgent) || (b.event_id - a.event_id));
-    let h = '<div class="seg" role="group" aria-label="孩子的年齡"><button data-seg="5-6" aria-pressed="' + (S.ageSeg === "5-6") + '">5–6 歲</button><button data-seg="7-8" aria-pressed="' + (S.ageSeg === "7-8") + '">7–8 歲</button></div>';
+    let h = '<div class="seg" role="group" aria-label="' + esc(tr("childAge")) + '"><button data-seg="5-6" aria-pressed="' + (S.ageSeg === "5-6") + '">' + tr("age56") + '</button><button data-seg="7-8" aria-pressed="' + (S.ageSeg === "7-8") + '">' + tr("age78") + "</button></div>";
     h += sorted.map((c) => {
       const cat = CAT[c.category] || ["💬", "lav"], em = cat[0], p = pal(c.urgent ? "rose" : cat[1]), pts = (c.talking_points || {})[S.ageSeg] || (c.talking_points || {})["5-6"] || [];
       const d = pd(c.ts);
-      return '<article class="cheat' + (c.urgent ? " urgent" : "") + (c.cheat_done ? " done" : "") + '"><div class="hd" style="background:' + p[0] + ";color:" + p[2] + '"><span class="em" aria-hidden="true">' + em + "</span>" + esc(c.category_zh) +
-        '<span class="when">' + esc(dayLabel(d)) + " " + hm(d) + '</span></div><div class="bd"><p class="said">孩子問：「' + esc(c.question) + "」</p>" +
-        (c.urgent ? '<div class="tel"><a href="tel:1925" aria-label="撥打安心專線 1925"><span>1925<small>安心專線</small></span></a><a href="tel:1995" aria-label="撥打生命線 1995"><span>1995<small>生命線</small></span></a></div>' : "") +
+      return '<article class="cheat' + (c.urgent ? " urgent" : "") + (c.cheat_done ? " done" : "") + '"><div class="hd" style="background:' + p[0] + ";color:" + p[2] + '"><span class="em" aria-hidden="true">' + em + "</span>" + esc(catName(c)) +
+        '<span class="when">' + esc(dayLabel(d)) + " " + hm(d) + '</span></div><div class="bd"><p class="said">' + tr("childAsked", esc(c.question)) + "</p>" +
+        (c.urgent ? '<div class="tel"><a href="tel:1925" aria-label="' + esc(tr("callAria", tr("line1925"), 1925)) + '"><span>1925<small>' + tr("line1925") + '</small></span></a><a href="tel:1995" aria-label="' + esc(tr("callAria", tr("line1995"), 1995)) + '"><span>1995<small>' + tr("line1995") + "</small></span></a></div>" : "") +
         (pts.length ? "<ul>" + pts.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul>" : "") +
-        ((c.what_not_to_say || []).length ? '<div class="nosay"><b>🚫 不要說</b><ul>' + c.what_not_to_say.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul></div>" : "") +
-        ((c.sources || []).length ? '<div class="srcs">' + c.sources.map((s) => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.publisher || s.title || "來源") + " ↗</a>").join("") + "</div>" : "") +
-        '<button class="okbtn" data-cheat="' + c.event_id + '"' + (c.cheat_done ? " disabled" : "") + ">" + (c.cheat_done ? "已聊過 ✓" : "聊過了 ✓") + "</button></div></article>";
+        ((c.what_not_to_say || []).length ? '<div class="nosay"><b>🚫 ' + tr("avoid") + "</b><ul>" + c.what_not_to_say.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul></div>" : "") +
+        ((c.sources || []).length ? '<div class="srcs">' + c.sources.map((s) => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.publisher || s.title || tr("sources")) + " ↗</a>").join("") + "</div>" : "") +
+        '<button class="okbtn" data-cheat="' + c.event_id + '"' + (c.cheat_done ? " disabled" : "") + ">" + (c.cheat_done ? tr("talkedDone") : tr("talked")) + "</button></div></article>";
     }).join("");
     return h;
   }
@@ -367,12 +454,12 @@
   function viewKid() {
     const m = S.data.mem, v = (k) => (m[k] || {}).value, on = (k) => { const x = v(k); return x === true || (typeof x === "string" && x.trim() !== ""); };
     const age = v("child_age") || 6;
-    let h = '<h2 id="kidchips">孩子的世界</h2><div class="toggles">' + Object.keys(BRIDGE).map((k) => { const p = pal(BRIDGE[k][3]); return '<button class="tg" data-mem="' + k + '" aria-pressed="' + on(k) + '" style="--pa:' + p[0] + ";--pi:" + p[1] + ";--pd:" + p[2] + '"><span class="em" aria-hidden="true">' + BRIDGE[k][0] + "</span>" + BRIDGE[k][1] + "</button>"; }).join("") + "</div>";
-    h += '<h2>年齡</h2><div class="ages" role="group" aria-label="年齡">' + [5, 6, 7, 8].map((a) => '<button data-age="' + a + '" aria-pressed="' + (age === a) + '" aria-label="' + a + ' 歲">' + a + "</button>").join("") + "</div>";
-    h += '<h2>名字</h2><input class="txt" id="cname" maxlength="12" placeholder="孩子的名字（只有你看得到）" aria-label="孩子的名字" value="' + esc(v("child_name") || "") + '">';
-    h += '<p class="note">Whyscope 只用這些來舉例，不會對孩子說出名字。</p>';
+    let h = '<h2 id="kidchips">' + tr("childWorld") + '</h2><div class="toggles">' + Object.keys(BRIDGE).map((k) => { const p = pal(BRIDGE[k][3]); return '<button class="tg" data-mem="' + k + '" aria-pressed="' + on(k) + '" style="--pa:' + p[0] + ";--pi:" + p[1] + ";--pd:" + p[2] + '"><span class="em" aria-hidden="true">' + BRIDGE[k][0] + "</span>" + tr("br_" + k) + "</button>"; }).join("") + "</div>";
+    h += "<h2>" + tr("age") + '</h2><div class="ages" role="group" aria-label="' + esc(tr("age")) + '">' + [5, 6, 7, 8].map((a) => '<button data-age="' + a + '" aria-pressed="' + (age === a) + '" aria-label="' + esc(tr("yearsOld", a)) + '">' + a + "</button>").join("") + "</div>";
+    h += "<h2>" + tr("name") + '</h2><input class="txt" id="cname" maxlength="12" placeholder="' + esc(tr("namePh")) + '" aria-label="' + esc(tr("nameAria")) + '" value="' + esc(v("child_name") || "") + '">';
+    h += '<p class="note">' + tr("nameNote") + "</p>";
     const ro = (v("recent_objects") || []).slice(0, 8);
-    if (ro.length) h += '<h2>最近常問</h2><div class="wrapchips">' + ro.map((o) => '<span class="recent">' + esc((S.data.memEmoji || {})[o] || "🔍") + " " + esc(o) + "</span>").join("") + "</div>";
+    if (ro.length) h += "<h2>" + tr("oftenAsks") + '</h2><div class="wrapchips">' + ro.map((o) => '<span class="recent">' + esc((S.data.memEmoji || {})[o] || "🔍") + " " + esc(o) + "</span>").join("") + "</div>";
     return h;
   }
 
@@ -390,7 +477,7 @@
     view.innerHTML = VIEWS[S.tab]();
   }
   function go(tab) { S.tab = tab; animNext = true; history.replaceState(null, "", "#" + tab); render(); window.scrollTo(0, 0); }
-  async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); $("#devl").textContent = "未連線"; } }
+  async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); devKey = "offline"; renderChrome(); } }
 
   document.addEventListener("click", async (e) => {
     const t = e.target.closest("[data-tab],[data-add],[data-period],[data-topic],[data-filter],[data-ev],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age]");
@@ -398,26 +485,26 @@
     try {
       if (t.dataset.tab) go(t.dataset.tab);
       else if (t.dataset.add) { go("kid"); const hh = $("#kidchips"); if (hh) hh.scrollIntoView({ block: "start" }); const first = $(".tg"); if (first) first.focus({ preventScroll: true }); }
-      else if (t.dataset.period) { if (t.dataset.period !== "week") toast("即將推出"); }
+      else if (t.dataset.period) { if (t.dataset.period !== "week") toast(tr("soon")); }
       else if (t.dataset.topic !== undefined) { S.filter = t.dataset.topic; go("log"); }
       else if (t.dataset.filter !== undefined) { S.filter = t.dataset.filter || null; render(); }
       else if (t.dataset.ev) { const id = +t.dataset.ev; S.open.has(id) ? S.open.delete(id) : S.open.add(id); render(); }
-      else if (t.dataset.talked) { await post("/api/events/" + t.dataset.talked + "/talked"); toast("好，記下來了"); await refresh(); }
+      else if (t.dataset.talked) { await post("/api/events/" + t.dataset.talked + "/talked"); toast(tr("noted")); await refresh(); }
       else if (t.dataset.seg) { S.ageSeg = t.dataset.seg; render(); }
-      else if (t.dataset.cheat) { await post("/api/cheats/" + t.dataset.cheat + "/done"); toast("好，記下來了"); await refresh(); }
+      else if (t.dataset.cheat) { await post("/api/cheats/" + t.dataset.cheat + "/done"); toast(tr("noted")); await refresh(); }
       else if (t.dataset.mem) {
         const k = t.dataset.mem, was = t.getAttribute("aria-pressed") === "true";
         if (was) await api("/api/memory?key=" + k, { method: "DELETE" });
         else await post("/api/memory", { key: k, value: k === "has_sibling" ? "有" : true });
         await refresh();
       } else if (t.dataset.age) { await post("/api/memory", { key: "child_age", value: +t.dataset.age }); await refresh(); }
-    } catch (err) { toast("沒有成功，請再試一次"); }
+    } catch (err) { toast(tr("failTry")); }
   });
   document.addEventListener("change", async (e) => {
     if (e.target.id === "cname") {
       const val = e.target.value.trim();
-      try { if (val) await post("/api/memory", { key: "child_name", value: val }); else await api("/api/memory?key=child_name", { method: "DELETE" }); toast("已儲存"); await load(); $("#who").innerHTML = esc(val || "我的孩子") + "<small>好奇鏡</small>"; }
-      catch (err) { toast("沒有成功，請再試一次"); }
+      try { if (val) await post("/api/memory", { key: "child_name", value: val }); else await api("/api/memory?key=child_name", { method: "DELETE" }); toast(tr("saved")); await load(); }
+      catch (err) { toast(tr("failTry")); }
     }
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.closest && e.target.closest(".donut circle.seg")) e.target.dispatchEvent(new MouseEvent("click", { bubbles: true })); });
@@ -426,18 +513,18 @@
   const RET = [7, 30, 90];
   function openSheet() {
     const set = S.data.set, ri = Math.max(0, RET.indexOf(set.retention_days));
-    $("#sheetin").innerHTML = '<div class="row" style="margin-bottom:6px"><button class="icon-btn" id="back" aria-label="回上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><h2 style="margin:0;font-size:22px">設定</h2></div>' +
-      '<h2>紀錄保存多久</h2><div class="card"><input class="range" id="ret" type="range" min="0" max="2" step="1" value="' + ri + '" aria-label="紀錄保存天數"><div class="ticks"><span>7 天</span><span>30 天</span><span>90 天</span></div><p class="note" id="retnote">目前：' + set.retention_days + " 天，過了就自動刪除</p></div>" +
-      '<h2>雲端後備</h2><div class="card"><div class="switch-off"><span class="sw" aria-hidden="true"></span><span>關閉　<small style="color:var(--body);font-size:14px">Stage II 才會有</small></span></div></div>' +
-      '<h2>資料</h2><div class="card" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/api/data/export" download="whyscope-export.json">⬇️ 匯出</a><button class="btn danger" id="clear">🗑️ 清除</button></div>' +
-      '<p class="note" id="ver">版本 ' + esc(set.version || "") + " · 模式 " + esc(set.mode || "") + " · 資料只存在這台裝置</p>";
+    $("#sheetin").innerHTML = '<div class="row" style="margin-bottom:6px"><button class="icon-btn" id="back" aria-label="' + esc(tr("back")) + '"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><h2 style="margin:0;font-size:19px">' + tr("settings") + '</h2></div>' +
+      "<h2>" + tr("keepFor") + '</h2><div class="card"><input class="range" id="ret" type="range" min="0" max="2" step="1" value="' + ri + '" aria-label="' + esc(tr("retAria")) + '"><div class="ticks"><span>' + tr("days", 7) + "</span><span>" + tr("days", 30) + "</span><span>" + tr("days", 90) + '</span></div><p class="note" id="retnote">' + tr("retNow", set.retention_days) + "</p></div>" +
+      "<h2>" + tr("cloud") + '</h2><div class="card"><div class="switch-off"><span class="sw" aria-hidden="true"></span><span>' + tr("cloudOff") + '  <small style="color:var(--body);font-size:12.5px">' + tr("cloudSoon") + "</small></span></div></div>" +
+      "<h2>" + tr("data") + '</h2><div class="card" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/api/data/export" download="whyscope-export.json">⬇️ ' + tr("export") + '</a><button class="btn danger" id="clear">🗑️ ' + tr("clear") + "</button></div>" +
+      '<p class="note" id="ver">' + esc(tr("ver", set.version || "", set.mode || "")) + "</p>";
     $("#sheet").classList.add("open"); $("#back").focus();
     $("#back").onclick = () => $("#sheet").classList.remove("open");
-    $("#ret").onchange = async (e) => { const d = RET[+e.target.value]; try { await post("/api/settings", { retention_days: d }); $("#retnote").textContent = "目前：" + d + " 天，過了就自動刪除"; toast("已儲存"); await load(); } catch (err) { toast("沒有成功"); } };
+    $("#ret").onchange = async (e) => { const d = RET[+e.target.value]; try { await post("/api/settings", { retention_days: d }); $("#retnote").textContent = tr("retNow", d); toast(tr("saved")); await load(); } catch (err) { toast(tr("fail")); } };
     $("#clear").onclick = () => {
-      $("#clear").outerHTML = '<span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>真的要清除所有紀錄嗎？</b><button class="btn solid" id="yes">確定清除</button><button class="btn" id="no">不要</button></span>';
+      $("#clear").outerHTML = '<span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>' + esc(tr("clearAsk")) + '</b><button class="btn solid" id="yes">' + esc(tr("clearYes")) + '</button><button class="btn" id="no">' + esc(tr("clearNo")) + "</button></span>";
       $("#no").onclick = openSheet;
-      $("#yes").onclick = async () => { try { await post("/api/data/clear"); toast("已清除"); await refresh(); } catch (err) { toast("沒有成功"); } $("#sheet").classList.remove("open"); };
+      $("#yes").onclick = async () => { try { await post("/api/data/clear"); toast(tr("cleared")); await refresh(); } catch (err) { toast(tr("fail")); } $("#sheet").classList.remove("open"); };
     };
   }
   $("#gear").onclick = () => S.data && openSheet();
@@ -445,6 +532,7 @@
 
   // ---------- start ----------
   const h0 = location.hash.slice(1); if (VIEWS[h0]) S.tab = h0;
+  applyLang();
   refresh();
   setInterval(refresh, 30000);
   window.addEventListener("hashchange", () => { const t = location.hash.slice(1); if (VIEWS[t] && t !== S.tab) go(t); });
