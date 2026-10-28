@@ -31,7 +31,8 @@
 
   /* top bar */
   .top { display: flex; align-items: center; gap: 8px; padding: 16px 0 8px; }
-  .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 21px; flex: none; }
+  .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 22px; flex: none; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .top .who { flex: 1; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .top .who small { display: block; font-size: 12.5px; font-weight: 500; color: var(--body); }
   .dev { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--body); padding: 6px 10px; border-radius: 999px; }
@@ -149,6 +150,13 @@
   .note { color: var(--body); font-size: 12.5px; margin: 12px 4px 0; }
   .recent { font-size: 14px; background: var(--lemon); color: var(--lemon-d); border-radius: 999px; padding: 6px 14px; font-weight: 600; }
 
+  /* avatars */
+  .avs { display: flex; gap: 12px; }
+  .avs button { width: 72px; height: 72px; flex: none; padding: 0; border-radius: 50%; border: 3px solid var(--glass-line); background: var(--lav); overflow: hidden; display: grid; place-items: center; font-size: 30px; }
+  .avs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .avs button[aria-pressed="true"] { border-color: var(--lav-ink); box-shadow: 0 0 0 3px var(--lav); }
+  .chars { display: block; width: 320px; max-width: 100%; height: auto; margin: 0 auto 8px; }
+
   /* bottom nav */
   nav { position: fixed; left: 16px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30; max-width: 488px; margin: 0 auto; height: 72px; border-radius: 36px;
         background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
@@ -193,7 +201,7 @@
 <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
 <div id="app">
   <header class="top">
-    <div class="avatar" aria-hidden="true">🧒</div>
+    <div class="avatar" id="avatar" aria-hidden="true"><img src="/static/avatar-girl.png" alt="" width="48" height="48"></div>
     <div class="who" id="who">My child<small>Whyscope</small></div>
     <div class="lang" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
     <div class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">Connecting</span></div>
@@ -231,6 +239,7 @@
   const T = {
     en: { title: "Whyscope | Parent", brand: "Whyscope", myChild: "My child", langGroup: "Language", settings: "Settings", timeRange: "Time range",
       day: "Day", week: "Week", month: "Month", mainMenu: "Main menu", tabWeek: "Week", tabLog: "Log", tabCheats: "Cheats", parentCheat: "Parent cheat sheet", tabKid: "Child",
+      avatar: "Avatar", av_girl: "Girl", av_boy: "Boy", av_emoji: "Emoji",
       addChild: "Add to child's world", connecting: "Connecting", connected: "Connected", offline: "Offline",
       cheatsUnread: (n) => n + " cheat sheets not read yet",
       tp_animals: "Animals", tp_plants: "Plants", tp_sky_weather: "Sky & weather", tp_body: "Body", tp_machines: "Machines", tp_food: "Food", tp_other: "Other",
@@ -255,6 +264,7 @@
       clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device" },
     zh: { title: "好奇鏡｜家長", brand: "好奇鏡", myChild: "我的孩子", langGroup: "語言", settings: "設定", timeRange: "時間範圍",
       day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", tabLog: "紀錄", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
+      avatar: "頭像", av_girl: "女孩", av_boy: "男孩", av_emoji: "表情符號",
       addChild: "新增孩子的世界", connecting: "連線中", connected: "已連線", offline: "未連線",
       cheatsUnread: (n) => n + " 張小抄還沒看",
       tp_animals: "動物", tp_plants: "植物", tp_sky_weather: "天氣與天空", tp_body: "身體", tp_machines: "機器與家電", tp_food: "食物", tp_other: "其他",
@@ -289,6 +299,8 @@
     $("#devl").textContent = tr(devKey); $("#dev").setAttribute("aria-label", tr(devKey));
     const nm = S.data && (S.data.mem.child_name || {}).value;
     $("#who").innerHTML = esc(nm || tr("myChild")) + "<small>" + esc(tr("brand")) + "</small>";
+    const av = ((S.data && S.data.mem.avatar) || {}).value || "girl";
+    $("#avatar").innerHTML = av === "emoji" ? "🧒" : '<img src="/static/avatar-' + (av === "boy" ? "boy" : "girl") + '.png" alt="" width="48" height="48">';
     const undone = S.data ? S.data.ch.filter((c) => !c.cheat_done).length : 0, b = $("#cheatbadge");
     b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", tr("cheatsUnread", undone));
   }
@@ -338,7 +350,7 @@
   }
   const hm = (d) => String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
   function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 1800); }
-  const empty = (t, em) => '<div class="empty"><div class="eb" aria-hidden="true">' + (em || "🔍") + "</div><p>" + esc(t) + "</p></div>";
+  const empty = (t, em) => '<div class="empty">' + (em === "chars" ? '<img class="chars" src="/static/characters.webp" width="320" height="183" alt="">' : '<div class="eb" aria-hidden="true">' + (em || "🔍") + "</div>") + "<p>" + esc(t) + "</p></div>";
   const topicOf = (t) => TOPIC[t] || ["🔍", t || "其他", "#5A5878", "lav"];
   const pal = (k) => PAL[k] || PAL.lav;
 
@@ -386,7 +398,7 @@
   }
   function viewWeek() {
     const { rep } = S.data, d = rep.total;
-    if (!d) return '<div class="card">' + empty(tr("noQ"), "🌱") + "</div>";
+    if (!d) return '<div class="card">' + empty(tr("noQ"), "chars") + "</div>";
     const diff = d - rep.prev_total;
     const chip = rep.prev_total > 0 ? '<span class="chip ' + (diff >= 0 ? "up" : "down") + '">' + tr("vsLast") + " " + (diff >= 0 ? "+" : "−") + Math.abs(diff) + "</span>" : "";
     let h = '<div class="card"><div class="hero"><div class="big" aria-label="' + d + " " + esc(tr("whys")) + '">' + d + '</div><div class="lbl">' + tr("whys") + '</div><div style="margin-left:auto;padding-bottom:8px">' + chip + "</div></div>" + spark(rep.daily) + "</div>";
@@ -414,7 +426,7 @@
     let h = '<div class="filters" role="group" aria-label="' + esc(tr("filterBy")) + '"><button class="chip" data-filter="" aria-pressed="' + (!S.filter) + '">' + tr("all") + '</button>' +
       topics.map((t) => '<button class="chip" data-filter="' + esc(t) + '" aria-pressed="' + (S.filter === t) + '">' + topicOf(t)[0] + " " + esc(topicName(t)) + "</button>").join("") + "</div>";
     const rows = ev.filter((e) => !S.filter || e.topic === S.filter).sort((a, b) => (a.ts < b.ts ? 1 : -1));
-    if (!rows.length) return h + '<div class="card">' + empty(tr("noQ"), "🌱") + "</div>";
+    if (!rows.length) return h + '<div class="card">' + empty(tr("noQ"), "chars") + "</div>";
     const groups = {};
     rows.forEach((e) => { const d = pd(e.ts); (groups[dayKey(d)] = groups[dayKey(d)] || { d, list: [] }).list.push(e); });
     Object.keys(groups).sort().reverse().forEach((k) => {
@@ -460,6 +472,9 @@
     h += "<h2>" + tr("age") + '</h2><div class="ages" role="group" aria-label="' + esc(tr("age")) + '">' + [5, 6, 7, 8].map((a) => '<button data-age="' + a + '" aria-pressed="' + (age === a) + '" aria-label="' + esc(tr("yearsOld", a)) + '">' + a + "</button>").join("") + "</div>";
     h += "<h2>" + tr("name") + '</h2><input class="txt" id="cname" maxlength="12" placeholder="' + esc(tr("namePh")) + '" aria-label="' + esc(tr("nameAria")) + '" value="' + esc(v("child_name") || "") + '">';
     h += '<p class="note">' + tr("nameNote") + "</p>";
+    const av = v("avatar") || "girl";
+    h += "<h2>" + tr("avatar") + '</h2><div class="avs" role="group" aria-label="' + esc(tr("avatar")) + '">' + [["girl", '<img src="/static/avatar-girl.png" alt="">'], ["boy", '<img src="/static/avatar-boy.png" alt="">'], ["emoji", "🧒"]].map((a) =>
+      '<button data-avatar="' + a[0] + '" aria-pressed="' + (av === a[0]) + '" aria-label="' + esc(tr("av_" + a[0])) + '">' + a[1] + "</button>").join("") + "</div>";
     const ro = (v("recent_objects") || []).slice(0, 8);
     if (ro.length) h += "<h2>" + tr("oftenAsks") + '</h2><div class="wrapchips">' + ro.map((o) => '<span class="recent">' + esc((S.data.memEmoji || {})[o] || "🔍") + " " + esc(o) + "</span>").join("") + "</div>";
     return h;
@@ -482,7 +497,7 @@
   async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); devKey = "offline"; renderChrome(); } }
 
   document.addEventListener("click", async (e) => {
-    const t = e.target.closest("[data-tab],[data-add],[data-period],[data-topic],[data-filter],[data-ev],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age]");
+    const t = e.target.closest("[data-tab],[data-add],[data-period],[data-topic],[data-filter],[data-ev],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age],[data-avatar]");
     if (!t) return;
     try {
       if (t.dataset.tab) go(t.dataset.tab);
@@ -491,6 +506,7 @@
       else if (t.dataset.topic !== undefined) { S.filter = t.dataset.topic; go("log"); }
       else if (t.dataset.filter !== undefined) { S.filter = t.dataset.filter || null; render(); }
       else if (t.dataset.ev) { const id = +t.dataset.ev; S.open.has(id) ? S.open.delete(id) : S.open.add(id); render(); }
+      else if (t.dataset.avatar) { await post("/api/memory", { key: "avatar", value: t.dataset.avatar }); await refresh(); }
       else if (t.dataset.talked) { await post("/api/events/" + t.dataset.talked + "/talked"); toast(tr("noted")); await refresh(); }
       else if (t.dataset.seg) { S.ageSeg = t.dataset.seg; render(); }
       else if (t.dataset.cheat) { await post("/api/cheats/" + t.dataset.cheat + "/done"); toast(tr("noted")); await refresh(); }

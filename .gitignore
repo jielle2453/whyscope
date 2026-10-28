@@ -11,5 +11,6 @@ models/
 *.png
 !docs/*.png
 !docs/screens/*.png
+!hub/static/*.png
 .impeccable/
 .venvpath

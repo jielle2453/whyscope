@@ -6,6 +6,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.concurrency import run_in_threadpool
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 
 from . import report
@@ -26,6 +27,7 @@ async def lifespan(app):
 
 
 app = FastAPI(title="Whyscope hub", lifespan=lifespan)
+app.mount("/static", StaticFiles(directory=STATIC), name="static")  # avatars and the characters image
 
 
 def _no_cache(resp):

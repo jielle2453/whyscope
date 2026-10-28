@@ -12,7 +12,9 @@ PARENT_KEYS = {
     "rides_bike": ("會騎腳踏車", "bool"),
     "child_name": ("孩子的名字（只顯示在家長頁面）", "str"),
     "child_age": ("孩子的年齡（5–8）", "int"),
+    "avatar": ("頭像（girl / boy / emoji）", "str"),
 }
+AVATARS = ("girl", "boy", "emoji")
 AUTO_KEYS = {"recent_topics": "最近問過的主題", "recent_objects": "最近問過的東西"}
 BRIDGE_KEYS = ["has_dog", "has_cat", "has_sibling", "likes_dinosaurs", "likes_cars", "has_garden", "rides_bike"]
 
@@ -48,6 +50,8 @@ class Memory:
                 raise ValueError("child_age must be 5-8")
         else:
             value = str(value).strip()
+            if key == "avatar" and value not in AVATARS:
+                raise ValueError("avatar must be girl, boy or emoji")
         self.db.mem_set(key, json.dumps(value, ensure_ascii=False), "parent")
 
     def delete(self, key):
