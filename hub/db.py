@@ -1,4 +1,5 @@
-"""SQLite schema and helpers (spec section 7). Never stores audio or image bytes."""
+"""SQLite schema and helpers (spec section 7). Never stores audio or image bytes (opt-in snapshots live as files;
+the events table only holds a 0/1 `snapshot` flag)."""
 import json
 import sqlite3
 from datetime import datetime, timedelta
@@ -33,6 +34,8 @@ class DB:
                 c.execute("ALTER TABLE events ADD COLUMN talked INTEGER DEFAULT 0")
             if "lang" not in cols:     # English mode: language of the question and answer (additive migration)
                 c.execute("ALTER TABLE events ADD COLUMN lang TEXT DEFAULT 'zh'")
+            if "snapshot" not in cols:  # opt-in photos: 1 when data/snapshots/<id>.jpg exists (additive migration)
+                c.execute("ALTER TABLE events ADD COLUMN snapshot INTEGER DEFAULT 0")
             c.commit()
         finally:
             c.close()
@@ -88,6 +91,17 @@ class DB:
     def get_event(self, event_id):
         r = self._run("SELECT * FROM events WHERE id=?", (event_id,), fetch=True)
         return r[0] if r else None
+
+    def set_snapshot(self, event_id, on=True):
+        self._run("UPDATE events SET snapshot=? WHERE id=?", (1 if on else 0, event_id))
+
+    def snapshot_events(self):
+        """Events that have a photo, newest first (no image data, only the fields the Moments view needs)."""
+        return self._run("SELECT id,ts,question,object,topic,status,first_sentence,lang FROM events "
+                         "WHERE snapshot=1 ORDER BY id DESC", fetch=True)
+
+    def clear_snapshot_flags(self):
+        self._run("UPDATE events SET snapshot=0 WHERE snapshot=1")
 
     def mark_cheat_done(self, event_id):
         self._run("UPDATE events SET cheat_done=1 WHERE id=?", (event_id,))

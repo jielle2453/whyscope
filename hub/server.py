@@ -107,6 +107,38 @@ def event_talked(event_id: int):
     return {"ok": True}
 
 
+@app.get("/api/snapshots")
+def snapshots_list():
+    """Moments: events that have a local photo, newest first (metadata only; the image is served per id below)."""
+    out = []
+    for e in P.db.snapshot_events():
+        if P.snap_path(e["id"]).exists():
+            out.append({**e, "emoji": P.emoji_of(e["object"], e["topic"]) if e["status"] == "answered" else ""})
+    return out
+
+
+@app.get("/api/snapshots/{name}")
+def snapshot_get(name: str):
+    """The saved photo of an event (`<event_id>.jpg`); 404 unless the file exists."""
+    stem, dot, ext = name.rpartition(".")
+    if not (dot and ext == "jpg" and stem.isdigit()) or not P.snap_path(stem).exists():
+        raise HTTPException(404, "no snapshot")
+    resp = FileResponse(P.snap_path(stem), media_type="image/jpeg")
+    resp.headers["Cache-Control"] = "private, no-cache"   # revalidate (ids can be reused after "clear all")
+    return resp
+
+
+@app.delete("/api/snapshots/{event_id}")
+def snapshot_delete(event_id: int):
+    P.delete_snapshot(event_id)
+    return {"ok": True}
+
+
+@app.delete("/api/snapshots")
+def snapshots_delete_all():
+    return {"ok": True, "deleted": P.delete_all_snapshots()}
+
+
 @app.get("/api/report/week")
 def report_week(lang: str = None):
     """Weekly numbers; the talk-about lines come back in `lang` (default: the `language` setting)."""
@@ -177,6 +209,9 @@ def memory_delete_path(key: str):
 
 def _settings():
     return {"retention_days": int(P.db.setting_get("retention_days", P.cfg.get("retention_days", 30))),
+            "snapshots": bool(P.db.setting_get("snapshots", False)),
+            "snapshots_retention_days": int(P.db.setting_get("snapshots_retention_days", 30)),
+            "snapshot_count": P.snapshot_count(),
             "cloud_fallback": False, "mode": P.cfg.get("mode"), "version": VERSION, "language": P.default_lang(),
             "topics": {t: {"zh": TOPIC_ZH[t], "en": TOPIC_EN[t], "emoji": TOPIC_EMOJI[t]} for t in TOPIC_ZH}}
 
@@ -198,6 +233,20 @@ async def settings_set(request: Request):
             raise HTTPException(400, "retention_days must be 1-365")
         P.db.setting_set("retention_days", d)
         P.db.purge(d)
+        P.sweep_snapshots()
+    if "snapshots" in body:
+        if not isinstance(body["snapshots"], bool):
+            raise HTTPException(400, "snapshots must be true or false")
+        P.db.setting_set("snapshots", body["snapshots"])
+    if "snapshots_retention_days" in body:
+        try:
+            d = int(body["snapshots_retention_days"])
+        except (TypeError, ValueError):
+            raise HTTPException(400, "snapshots_retention_days must be an integer")
+        if not 1 <= d <= 365:
+            raise HTTPException(400, "snapshots_retention_days must be 1-365")
+        P.db.setting_set("snapshots_retention_days", d)
+        P.sweep_snapshots()
     if "language" in body:
         if body["language"] not in ("en", "zh"):
             raise HTTPException(400, "language must be 'en' or 'zh'")
@@ -209,14 +258,16 @@ async def settings_set(request: Request):
 
 @app.post("/api/data/clear")
 def data_clear():
-    """Delete all events and auto-recorded memory. Parent-entered facts are kept (delete them separately)."""
+    """Delete all events (and their local photos) and auto-recorded memory. Parent-entered facts are kept (delete them separately)."""
     P.db.clear_events()
+    P.delete_all_snapshots()
     P.db.mem_clear_auto()
     return {"ok": True}
 
 
 @app.get("/api/data/export")
 def data_export():
+    """Records and settings as JSON. Photos are never included (events only carry a 0/1 `snapshot` flag)."""
     body = json.dumps(P.db.export_all(), ensure_ascii=False, indent=2)
     return Response(body, media_type="application/json",
                     headers={"Content-Disposition": 'attachment; filename="whyscope-export.json"'})

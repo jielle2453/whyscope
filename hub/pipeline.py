@@ -3,12 +3,15 @@
 Two phases (product pass 1, B): `ask_first` returns as soon as recall/safety is done (the first sentence is spoken
 at once), the compose step runs in a background thread and is collected with `poll` / `wait`.
 `ask` keeps the old blocking behaviour (both phases) for scripts and tests.
-Audio and image bytes are used in memory only and never persisted.
+Audio and image bytes are used in memory only and never persisted, except for opt-in snapshots (setting `snapshots`,
+default off): the child's photo is then saved locally as data/snapshots/<event_id>.jpg and never leaves the device.
 """
+import io
 import threading
 import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 from . import db as dbm
 from . import wording
@@ -29,6 +32,7 @@ NOT_HEARD_EN = "I did not hear that. Can you say it again?"
 NO_QUESTION_EN = "What do you want to ask me?"
 LANGS = ("en", "zh")
 PENDING_TTL_S = 300
+SNAP_MAX_PX, SNAP_QUALITY = 1024, 82
 
 
 def _ms(t0) -> int:
@@ -41,6 +45,8 @@ class Pipeline:
         self.db = dbm.DB(resolve(self.cfg, "db"))
         self.db.purge(int(self.db.setting_get("retention_days", self.cfg.get("retention_days", 30))))
         self.memory = Memory(self.db)
+        self.snap_dir = Path(self.db.path).parent / "snapshots"
+        self.sweep_snapshots()
         self.safety = Safety(self.cfg)
         self.recall = Recall(self.cfg)
         self.listener = Listener(self.cfg)
@@ -60,6 +66,60 @@ class Pipeline:
         """The `language` setting (default "en")."""
         v = self.db.setting_get("language", "en")
         return v if v in LANGS else "en"
+
+    # ---- opt-in snapshots (local files; never in reports or exports) ----
+    def snapshots_on(self) -> bool:
+        return bool(self.db.setting_get("snapshots", False))
+
+    def snap_path(self, event_id) -> Path:
+        return self.snap_dir / f"{int(event_id)}.jpg"
+
+    def save_snapshot(self, event_id, data: bytes) -> bool:
+        """Re-encode to JPEG (max 1024 px long side, quality 82, EXIF dropped) and flag the event."""
+        try:
+            from PIL import Image, ImageOps
+            im = ImageOps.exif_transpose(Image.open(io.BytesIO(data))).convert("RGB")
+            im.thumbnail((SNAP_MAX_PX, SNAP_MAX_PX))
+            self.snap_dir.mkdir(parents=True, exist_ok=True)
+            im.save(self.snap_path(event_id), "JPEG", quality=SNAP_QUALITY, optimize=True)
+            self.db.set_snapshot(event_id, True)
+            return True
+        except Exception:
+            return False
+
+    def delete_snapshot(self, event_id) -> bool:
+        p = self.snap_path(event_id)
+        had = p.exists()
+        if had:
+            p.unlink()
+        self.db.set_snapshot(event_id, False)
+        return had
+
+    def delete_all_snapshots(self) -> int:
+        n = 0
+        for p in list(self.snap_dir.glob("*.jpg")):
+            p.unlink(missing_ok=True)
+            n += 1
+        self.db.clear_snapshot_flags()
+        return n
+
+    def snapshot_count(self) -> int:
+        return sum(1 for _ in self.snap_dir.glob("*.jpg")) if self.snap_dir.exists() else 0
+
+    def sweep_snapshots(self) -> int:
+        """Delete photos older than `snapshots_retention_days` (default 30) and photos whose event is gone."""
+        if not self.snap_dir.exists():
+            return 0
+        days = int(self.db.setting_get("snapshots_retention_days", 30))
+        cutoff, n = time.time() - days * 86400, 0
+        for p in list(self.snap_dir.glob("*.jpg")):
+            eid = int(p.stem) if p.stem.isdigit() else None
+            if eid is None or p.stat().st_mtime < cutoff or not self.db.get_event(eid):
+                p.unlink(missing_ok=True)
+                n += 1
+                if eid is not None:
+                    self.db.set_snapshot(eid, False)
+        return n
 
     def norm_lang(self, lang=None) -> str:
         return lang if lang in LANGS else self.default_lang()
@@ -102,7 +162,10 @@ class Pipeline:
         t0 = t0 if t0 is not None else time.perf_counter()
         lang = self.norm_lang(lang)
         with self.lock:
-            return self._first(text or "", audio, image, mode, log, t0, lang)
+            r = self._first(text or "", audio, image, mode, log, t0, lang)
+        if image and log and r.get("event_id") and self.snapshots_on():  # opt-in; otherwise the bytes are discarded
+            threading.Thread(target=self.save_snapshot, args=(r["event_id"], image), daemon=True).start()
+        return r
 
     def poll(self, pid: str):
         """The finished result for a pending_id, {"pending": True} while composing, None if unknown."""

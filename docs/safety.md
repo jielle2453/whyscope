@@ -39,13 +39,23 @@ with a parent; a wrongly answered one can cost much more.
 ## Data retention policy
 
 - Stored: the question text, the answer text, topic, status, timings, and parent-entered facts. Nothing else.
-- Never stored: audio, camera frames, voice prints, or anything derived from them other than the transcript text.
+- Never stored: audio, camera frames (unless the parent turns on Snapshots, below), voice prints, or anything derived from them other than the transcript text.
 - Where: `data/whyscope.db` on the device, git-ignored. Nothing is sent anywhere.
 - Retention: events older than `retention_days` (default 30, adjustable 1 to 365 on the parent page) are deleted at
   startup and whenever the setting is saved.
 - Parent controls: 清除所有紀錄 (deletes events and auto-recorded topics; parent-entered facts are kept and can be
   deleted one by one), and 匯出 JSON (everything stored about the child).
 - The child's name is only ever shown on the parent page. The device never speaks it.
+
+## Snapshots
+
+Snapshots ("the world through the child's eyes") are opt-in and off by default. When the parent turns them on in
+Settings, the photo the child takes with the camera toggle is kept as `data/snapshots/<event_id>.jpg` (long side at
+most 1024 px, EXIF removed) and shown in the parent page's Log and Moments tab. Photos stay on this device and are
+never uploaded. They are deleted after `snapshots_retention_days` (default 30, checked at startup), one by one from
+Moments, or all at once with "Delete all photos" (clearing all records deletes them too). Photos are never part of the
+weekly report, `/api/report/week` or the JSON export (events only carry a 0/1 `snapshot` flag). A photo can capture
+other people's faces, which is why the setting defaults to off; Stage II adds on-device face blurring before saving.
 
 ## Known limits
 
