@@ -75,13 +75,14 @@ class Pipeline:
         return self.snap_dir / f"{int(event_id)}.jpg"
 
     def save_snapshot(self, event_id, data: bytes) -> bool:
-        """Re-encode to JPEG (max 1024 px long side, quality 82, EXIF dropped) and flag the event."""
+        """Re-encode with the nostalgic old-phone look (hub.film: 640 px, soft, grainy, warm, JPEG q45),
+        EXIF dropped, and flag the event."""
         try:
             from PIL import Image, ImageOps
+            from . import film
             im = ImageOps.exif_transpose(Image.open(io.BytesIO(data))).convert("RGB")
-            im.thumbnail((SNAP_MAX_PX, SNAP_MAX_PX))
             self.snap_dir.mkdir(parents=True, exist_ok=True)
-            im.save(self.snap_path(event_id), "JPEG", quality=SNAP_QUALITY, optimize=True)
+            film.save(im, str(self.snap_path(event_id)))
             self.db.set_snapshot(event_id, True)
             return True
         except Exception:
