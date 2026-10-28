@@ -53,10 +53,11 @@
   .hello small { display: block; font-size: 14.5px; font-weight: 400; color: var(--body); margin-top: 4px; }
   body.has-answer .hello, body.has-answer .hero-art { display: none; }
   .hero-art { width: 88px; margin: 0 0 8px; }
-  .wave { margin: 12px 0 0; padding: 10px 20px; display: flex; align-items: center; justify-content: center; border-radius: 999px; width: 100%; }
+  .wave { display: none; margin: 12px 0 0; padding: 10px 20px; align-items: center; justify-content: center; border-radius: 999px; width: 100%; }
   .wave svg { width: 100%; max-width: 280px; height: 40px; display: block; }
   .wave rect { fill: var(--lav-ink); opacity: .55; transform-box: fill-box; transform-origin: center;
                transform: scaleY(.1); transition: transform .08s linear; }
+  .wave.live { display: flex; }
   .wave.live rect { transform: scaleY(calc(.12 + var(--lvl, 0) * var(--k, 1))); opacity: .85; }
 
   /* answer card */
