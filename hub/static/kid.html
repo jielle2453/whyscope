@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#EAF2FF">
-<title>好奇鏡</title>
+<title>Whyscope</title>
 <style>
   :root {
     --ink: #2B2A4A; --body: #5A5878; --cap: #6E6C8E;
@@ -18,7 +18,7 @@
   body { min-height: 100vh; min-height: 100dvh; color: var(--ink); position: relative; overflow-x: hidden;
          background: linear-gradient(170deg, #EAF2FF 0%, #F6F0FF 50%, #FFF6EC 100%) fixed;
          font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
-         font-size: 16px; line-height: 1.5; display: flex; flex-direction: column; align-items: center;
+         font-size: 14.5px; line-height: 1.5; display: flex; flex-direction: column; align-items: center;
          user-select: none; -webkit-user-select: none; }
   .blob { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .4; pointer-events: none; z-index: 0; }
   .blob.b1 { width: 320px; height: 320px; background: #BFD9FF; top: -90px; left: -100px; }
@@ -32,14 +32,22 @@
   header { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 8px; }
   .brand { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px 6px 8px; border-radius: 999px; }
   header .logo { width: 36px; height: 36px; flex: none; }
-  header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: 1px; }
-  .conn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); padding: 8px 14px; border-radius: 999px; }
+  header h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+  .conn { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--body); padding: 8px 12px; border-radius: 999px; }
   .conn i { width: 10px; height: 10px; border-radius: 50%; background: #A9A7C2; display: inline-block; }
   .conn.ok i { background: #3DBE8B; }
 
+  .hdr-r { display: flex; align-items: center; gap: 8px; }
+  .lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--cap); }
+  .lang button { position: relative; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; padding: 3px 9px; border-radius: 999px; min-width: 30px; }
+  .lang button::after { content: ""; position: absolute; inset: -14px -2px; }
+  .lang button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
+  .lang button:focus-visible { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
+  .lang i { font-style: normal; opacity: .5; }
+
   /* prompt card */
-  .hello { margin: 12px 0 0; padding: 24px 16px; text-align: center; font-size: 22px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
-  .hello small { display: block; font-size: 16px; font-weight: 400; color: var(--body); margin-top: 4px; }
+  .hello { margin: 12px 0 0; padding: 22px 14px; text-align: center; font-size: 19px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
+  .hello small { display: block; font-size: 14.5px; font-weight: 400; color: var(--body); margin-top: 4px; }
   body.has-answer .hello, body.has-answer .hero-art { display: none; }
   .hero-art { width: 88px; margin: 0 0 8px; }
   .wave { margin: 12px 0 0; padding: 10px 20px; display: flex; align-items: center; justify-content: center; border-radius: 999px; width: 100%; }
@@ -49,28 +57,28 @@
   .wave.live rect { transform: scaleY(calc(.12 + var(--lvl, 0) * var(--k, 1))); opacity: .85; }
 
   /* answer card */
-  #answer { display: none; border-radius: var(--r); padding: 24px 20px; margin: 12px 0 4px; flex-direction: column; gap: 12px;
+  #answer { display: none; border-radius: var(--r); padding: 22px 18px; margin: 12px 0 4px; flex-direction: column; gap: 12px;
             background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
             border: 1px solid var(--glass-line); box-shadow: var(--shadow); animation: rise .24s ease-out; }
   #answer.show { display: flex; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-  #answer .qline { font-size: 13px; color: var(--body); }
+  #answer .qline { font-size: 12.5px; color: var(--body); }
   #answer .qline:empty { display: none; }
   #emoji { width: 72px; height: 72px; border-radius: 50%; background: var(--sky); display: flex; align-items: center; justify-content: center;
-           font-size: 40px; line-height: 1; }
+           font-size: 35px; line-height: 1; }
   #emoji:empty { display: none; }
-  #first { font-size: clamp(26px, 8.7vw, 34px); font-weight: 800; line-height: 1.3; color: var(--ink); }
-  #expl { font-size: 20px; line-height: 1.6; color: var(--body); }
-  #askwrap { background: var(--peach); border-radius: 28px; padding: 16px 20px 20px; display: none; }
-  #askwrap .badge { display: inline-block; background: var(--lemon); color: var(--lemon-ink); font-weight: 800; font-size: 16px;
-                    padding: 2px 16px; border-radius: 999px; margin-bottom: 8px; }
-  #askb { color: #8F2F06; font-size: 20px; font-weight: 700; line-height: 1.5; }
+  #first { font-size: clamp(23px, 7.6vw, 30px); font-weight: 800; line-height: 1.3; color: var(--ink); }
+  #expl { font-size: 18px; line-height: 1.6; color: var(--body); }
+  #askwrap { background: var(--peach); border-radius: 28px; padding: 14px 18px 18px; display: none; }
+  #askwrap .badge { display: inline-block; background: var(--lemon); color: var(--lemon-ink); font-weight: 800; font-size: 14.5px;
+                    padding: 2px 14px; border-radius: 999px; margin-bottom: 8px; }
+  #askb { color: #8F2F06; font-size: 18px; font-weight: 700; line-height: 1.5; }
   .s { opacity: 0; transition: opacity .5s ease; }
   .s.in { opacity: 1; }
   .s.speaking { background: linear-gradient(transparent 62%, rgba(199,184,255,.55) 62%); }
   .thumb { align-self: flex-start; width: 120px; height: 120px; object-fit: cover; border-radius: 24px; border: 3px solid #fff; }
   .actions { display: none; gap: 12px; margin-top: 8px; }
-  .actions button { flex: 1; min-height: 72px; border-radius: 999px; border: 0; font: inherit; font-size: 18px; font-weight: 700;
+  .actions button { flex: 1; min-height: 72px; border-radius: 999px; border: 0; font: inherit; font-size: 16px; font-weight: 700;
                     cursor: pointer; transition: transform .12s; }
   #replay { background: var(--lav); color: #3B2F8F; }
   #another { background: var(--sky); color: #1E4E80; }
@@ -78,11 +86,11 @@
 
   /* abstained / sensitive */
   #answer.soft { background: rgba(233,243,255,0.72); }
-  #answer.soft #first { font-size: clamp(24px, 7.5vw, 30px); }
+  #answer.soft #first { font-size: clamp(21px, 6.6vw, 26px); }
   #answer .art { display: none; }
   #answer.soft .art, #answer.unsure .art { display: block; width: 120px; height: 120px; align-self: center; }
-  #answer.unsure #first { text-align: center; font-size: clamp(22px, 7vw, 28px); font-weight: 700; }
-  #answer .headline { display: none; text-align: center; font-size: 26px; font-weight: 800; }
+  #answer.unsure #first { text-align: center; font-size: clamp(19px, 6.2vw, 24px); font-weight: 700; }
+  #answer .headline { display: none; text-align: center; font-size: 23px; font-weight: 800; }
   #answer.unsure .headline, #answer.soft .headline { display: block; }
   #answer.soft .headline { color: var(--sky-ink); }
   #answer.unsure #emoji, #answer.soft #emoji { display: none; }
@@ -114,20 +122,20 @@
   .dots span:nth-child(2) { background: var(--sky); animation-delay: .15s; }
   .dots span:nth-child(3) { background: var(--peach); animation-delay: .3s; }
   @keyframes bounce { 50% { transform: translateY(-12px); } }
-  #talklabel { font-size: 16px; font-weight: 700; color: var(--body); }
+  #talklabel { font-size: 14.5px; font-weight: 700; color: var(--body); }
 
-  form.row { display: flex; gap: 8px; width: 100%; height: 72px; padding: 8px 8px 8px 24px; align-items: center; border-radius: 999px; }
-  form.row input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink);
+  form.row { display: flex; gap: 8px; width: 100%; height: 72px; padding: 8px 8px 8px 22px; align-items: center; border-radius: 999px; }
+  form.row input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 14.5px; color: var(--ink);
                    user-select: text; -webkit-user-select: text; }
   form.row input::placeholder { color: var(--cap); }
   form.row input:focus { outline: none; }
   form.row:focus-within { border-color: var(--lav-ink); }
   form.row button { height: 56px; min-width: 96px; border: 0; border-radius: 999px; background: linear-gradient(135deg,#7C6CFF,#5B4AB8);
-                    color: #fff; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; transition: transform .12s; }
+                    color: #fff; font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; transition: transform .12s; }
   form.row button:disabled { opacity: .5; }
 
-  .cam { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 16px; border-radius: 999px; font-size: 16px; color: var(--body); }
-  .cam .ico { font-size: 22px; }
+  .cam { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 14px; border-radius: 999px; font-size: 14.5px; color: var(--body); }
+  .cam .ico { font-size: 19px; }
   .cam label.sw { position: relative; width: 56px; height: 34px; flex: none; cursor: pointer; }
   .cam label.sw input { opacity: 0; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 2; }
   .cam label.sw span { position: absolute; inset: 0; background: #D9D4EE; border-radius: 999px; transition: background .2s; }
@@ -137,7 +145,7 @@
   .cam label.sw input:checked + span::after { transform: translateX(22px); }
   .cam label.sw input:focus-visible + span { outline: 3px solid var(--lav-ink); outline-offset: 3px; }
   #preview { display: none; width: 56px; height: 56px; object-fit: cover; border-radius: 50%; margin-left: auto; background: #000; }
-  #status { min-height: 22px; font-size: 13px; color: var(--body); text-align: center; }
+  #status { min-height: 22px; font-size: 12.5px; color: var(--body); text-align: center; }
   .fx { animation: rise .24s ease-out both; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .s { opacity: 1; } }
 </style>
@@ -147,48 +155,51 @@
 <div class="wrap">
   <header>
     <div class="brand glass fx">
-      <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="好奇鏡標誌"><circle cx="27" cy="27" r="19" fill="#E9F3FF" stroke="#5B4AB8" stroke-width="5"/><path d="M41 41l15 15" stroke="#FFB48F" stroke-width="8" stroke-linecap="round"/><path d="M21 22.5a6.5 6.5 0 1 1 9.4 5.8c-2 1-3.4 2.1-3.4 4.2" fill="none" stroke="#2B6CB0" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="38.5" r="2.6" fill="#2B6CB0"/></svg>
-      <h1>好奇鏡</h1>
+      <svg class="logo" viewBox="0 0 64 64" role="img" data-i18n-aria="logo" aria-label="Whyscope logo"><circle cx="27" cy="27" r="19" fill="#E9F3FF" stroke="#5B4AB8" stroke-width="5"/><path d="M41 41l15 15" stroke="#FFB48F" stroke-width="8" stroke-linecap="round"/><path d="M21 22.5a6.5 6.5 0 1 1 9.4 5.8c-2 1-3.4 2.1-3.4 4.2" fill="none" stroke="#2B6CB0" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="38.5" r="2.6" fill="#2B6CB0"/></svg>
+      <h1 data-i18n="brand">Whyscope</h1>
     </div>
-    <div class="conn glass fx" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">連線中</span></div>
+    <div class="hdr-r">
+      <div class="lang glass fx" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
+      <div class="conn glass fx" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">Connecting</span></div>
+    </div>
   </header>
 
   <p class="hello glass fx" style="animation-delay:40ms">
     <svg class="hero-art" viewBox="0 0 200 175" aria-hidden="true"><circle cx="92" cy="74" r="56" fill="#E9F3FF" stroke="#5B4AB8" stroke-width="9"/><path d="M134 116l40 38" stroke="#FFB48F" stroke-width="16" stroke-linecap="round"/><path d="M70 62a22 22 0 1 1 32 19c-7 3-10 8-10 14" fill="none" stroke="#2B6CB0" stroke-width="10" stroke-linecap="round"/><circle cx="92" cy="115" r="6.5" fill="#2B6CB0"/><path d="M168 22l6-12M184 40l12-4M14 30l-8-10" stroke="#C7B8FF" stroke-width="6" stroke-linecap="round"/></svg>
-    有什麼想知道的嗎？<small>按住圓圓的按鈕說話</small>
+    <span data-i18n="hello">Anything you wonder about?</span><small data-i18n="helloSub">Hold the round button and talk</small>
   </p>
 
   <section id="answer" aria-live="polite">
-    <div class="qline" id="q"></div>
-    <svg class="art" id="art" viewBox="0 0 120 120" role="img" aria-label="一起去問大人"></svg>
+    <div class="qline" id="q" lang="zh-TW"></div>
+    <svg class="art" id="art" viewBox="0 0 120 120" role="img" data-i18n-aria="artAsk" aria-label="Ask a grown-up together"></svg>
     <div class="headline" id="headline"></div>
     <div id="emoji" aria-hidden="true"></div>
-    <div id="first"></div>
-    <div id="expl"></div>
-    <div id="askwrap"><span class="badge">你猜猜看</span><div id="askb"></div></div>
+    <div id="first" lang="zh-TW"></div>
+    <div id="expl" lang="zh-TW"></div>
+    <div id="askwrap"><span class="badge" data-i18n="guess">Your guess?</span><div id="askb" lang="zh-TW"></div></div>
     <div class="actions" id="actions">
-      <button id="replay" type="button">再說一次</button>
-      <button id="another" type="button">換一個問題</button>
+      <button id="replay" type="button" data-i18n="replay">Say it again</button>
+      <button id="another" type="button" data-i18n="another">New question</button>
     </div>
   </section>
 
   <div class="mic-zone">
     <div class="wave glass fx" id="wave" aria-hidden="true" style="animation-delay:80ms"><svg viewBox="0 0 280 40" id="waveSvg"></svg></div>
-    <button id="talk" class="idle" type="button" aria-label="按住說話">
+    <button id="talk" class="idle" type="button" data-i18n-aria="hold" aria-label="Hold to talk">
       <span class="ring" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span>
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.94V22h2v-3.06A8 8 0 0 0 20 11h-2z"/></svg>
-      <span class="lbl" aria-hidden="true">按住說話</span>
+      <span class="lbl" aria-hidden="true"></span>
       <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-    <div id="talklabel">按住說話</div>
+    <div id="talklabel">Hold to talk</div>
     <form class="row glass fx" id="form" autocomplete="off" style="animation-delay:120ms">
-      <input type="text" id="text" placeholder="或是打字問我" aria-label="輸入問題" maxlength="80">
-      <button type="submit" id="send">問問題</button>
+      <input type="text" id="text" data-i18n-ph="typeQ" data-i18n-aria="typeAria" placeholder="or type a question" aria-label="Type a question" maxlength="80">
+      <button type="submit" id="send" data-i18n="ask">Ask</button>
     </form>
     <div class="cam glass fx" style="animation-delay:160ms">
       <span class="ico" aria-hidden="true">📷</span>
-      <label for="cam">開鏡頭，拍給我看</label>
-      <label class="sw"><input type="checkbox" id="cam" aria-label="開鏡頭"><span></span></label>
+      <label for="cam" data-i18n="cam">Camera on, show me</label>
+      <label class="sw"><input type="checkbox" id="cam" data-i18n-aria="camAria" aria-label="Camera on"><span></span></label>
       <video id="preview" autoplay playsinline muted></video>
     </div>
     <div id="status" role="status"></div>
@@ -202,21 +213,66 @@
   let stream = null, rec = null, chunks = [], recStart = 0, busy = false, camStream = null, token = 0;
   let audioCtx = null, analyser = null, levelRaf = 0, lastItems = [];
 
-  const setStatus = (t) => { statusEl.textContent = t || ""; };
+  // ---------- i18n (chrome only; answers from the knowledge base stay Chinese) ----------
+  const T = {
+    en: { title: "Whyscope", brand: "Whyscope", logo: "Whyscope logo", langGroup: "Language", artAsk: "Ask a grown-up together",
+      hello: "Anything you wonder about?", helloSub: "Hold the round button and talk", guess: "Your guess?", replay: "Say it again", another: "New question",
+      hold: "Hold to talk", listening: "Listening\u2026", thinking: "Thinking", typeQ: "or type a question", typeAria: "Type a question", ask: "Ask",
+      cam: "Camera on, show me", camAria: "Camera on", connecting: "Connecting", connected: "Connected", offline: "Offline",
+      youAsked: "You asked: ", sensitive: "Let's ask a grown-up about this", unsure: "Let's go ask a grown-up", photoAlt: "Photo just taken",
+      noIdea: "I can't figure it out. Can you ask again?", failed: "Connection failed", camFail: "Can't open the camera. Please check permissions.",
+      noRec: "This browser can't record. Please type your question.", needMic: "Please allow the microphone to talk.", tooShort: "Hold a bit longer, then let go when you're done." },
+    zh: { title: "好奇鏡", brand: "好奇鏡", logo: "好奇鏡標誌", langGroup: "語言", artAsk: "一起去問大人",
+      hello: "有什麼想知道的嗎？", helloSub: "按住圓圓的按鈕說話", guess: "你猜猜看", replay: "再說一次", another: "換一個問題",
+      hold: "按住說話", listening: "我在聽…", thinking: "想一想", typeQ: "或是打字問我", typeAria: "輸入問題", ask: "問問題",
+      cam: "開鏡頭，拍給我看", camAria: "開鏡頭", connecting: "連線中", connected: "已連線", offline: "未連線",
+      youAsked: "你問：", sensitive: "這個我們一起問大人", unsure: "我們一起去問大人", photoAlt: "剛剛拍的照片",
+      noIdea: "我想不出來了，再問一次好嗎？", failed: "連線失敗", camFail: "無法開啟鏡頭，請檢查權限",
+      noRec: "這個瀏覽器不能錄音，請用打字問我", needMic: "需要允許麥克風才能說話", tooShort: "按久一點，說完再放開喔" }
+  };
+  let LANG = null;
+  try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "zh") LANG = q; } catch (e) {}
+  if (!LANG) { try { LANG = localStorage.getItem("whyscope_lang"); } catch (e) {} }
+  if (LANG !== "en" && LANG !== "zh") LANG = "en";
+  const tr = (k) => (T[LANG][k] != null ? T[LANG][k] : T.en[k] != null ? T.en[k] : k);
+  let statusKey = "", connKey = "connecting", lblKey = "hold", headKey = "", qText = "", micS = "idle";
+  const setStatus = (k) => { statusKey = k || ""; statusEl.textContent = statusKey ? tr(statusKey) : ""; };
+  const renderQ = () => { $("q").textContent = qText ? tr("youAsked") + qText : ""; };
+  const renderHead = () => { $("headline").textContent = headKey ? tr(headKey) : ""; };
+  const setLbl = (k) => { lblKey = k; $("talklabel").textContent = tr(k); };
+  function applyLang() {
+    document.documentElement.lang = LANG === "zh" ? "zh-TW" : "en";
+    document.title = tr("title");
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = tr(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.placeholder = tr(el.dataset.i18nPh); });
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", tr(el.dataset.i18nAria)); });
+    document.querySelectorAll("#lang [data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === LANG));
+    $("connlbl").textContent = tr(connKey); $("talklabel").textContent = tr(lblKey);
+    statusEl.textContent = statusKey ? tr(statusKey) : ""; renderQ(); renderHead();
+    talk.setAttribute("aria-label", tr(micS === "thinking" ? "thinking" : micS === "listening" ? "listening" : "hold"));
+  }
+  $("lang").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-lang]"); if (!b) return;
+    LANG = b.dataset.lang;
+    try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
+    try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
+    applyLang();
+  });
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   // waveform: flat bars, scaled by the mic level (--lvl) while listening
   (function () {
     const svg = $("waveSvg"), ks = [.5, .8, 1.1, .7, 1.4, .9, 1.7, 1.1, 2.0, 1.2, 1.7, .9, 1.4, .7, 1.1, .8, .5];
     svg.innerHTML = ks.map((k, i) => '<rect x="' + (12 + i * 16) + '" y="4" width="6" height="32" rx="3" style="--k:' + k + '"/>').join("");
   })();
-  function micState(s) { $("wave").classList.toggle("live", s === "listening"); talk.className = s; talk.setAttribute("aria-label", s === "thinking" ? "想一想" : s === "listening" ? "我在聽" : "按住說話"); }
+  function micState(s) { micS = s; $("wave").classList.toggle("live", s === "listening"); talk.className = s; talk.setAttribute("aria-label", tr(s === "thinking" ? "thinking" : s === "listening" ? "listening" : "hold")); }
 
   // ---------- connection dot ----------
   async function health() {
     try { const r = await fetch("/healthz", { cache: "no-store" }); const ok = r.ok;
-      $("conn").classList.toggle("ok", ok); $("connlbl").textContent = ok ? "已連線" : "未連線";
-    } catch (e) { $("conn").classList.remove("ok"); $("connlbl").textContent = "未連線"; }
+      $("conn").classList.toggle("ok", ok); connKey = ok ? "connected" : "offline"; $("connlbl").textContent = tr(connKey);
+    } catch (e) { $("conn").classList.remove("ok"); connKey = "offline"; $("connlbl").textContent = tr(connKey); }
   }
+  applyLang();
   health(); setInterval(health, 10000);
 
   // ---------- speech out ----------
@@ -267,7 +323,8 @@
 
   // ---------- render ----------
   function resetCard() {
-    ["first", "expl", "askb", "q", "headline"].forEach((i) => { $(i).textContent = ""; });
+    ["first", "expl", "askb"].forEach((i) => { $(i).textContent = ""; });
+    qText = ""; headKey = ""; renderQ(); renderHead();
     $("askwrap").style.display = "none"; $("actions").style.display = "none"; $("emoji").textContent = "";
     ans.className = "show";
   }
@@ -275,12 +332,12 @@
     document.body.classList.add("has-answer");
     resetCard();
     const sensitive = r.status === "sensitive", unsure = r.status === "abstained";
-    if (sensitive) { ans.className = "show soft"; $("art").innerHTML = ART_SOFT; $("headline").textContent = "這個我們一起問大人"; }
+    if (sensitive) { ans.className = "show soft"; $("art").innerHTML = ART_SOFT; headKey = "sensitive"; renderHead(); }
     else if (unsure && r.reason !== "not_heard" && r.reason !== "no_question") {
-      ans.className = "show unsure"; $("art").innerHTML = ART_UNSURE; $("headline").textContent = "我們一起去問大人";
-      $("q").textContent = r.question ? "你問：" + r.question : "";
+      ans.className = "show unsure"; $("art").innerHTML = ART_UNSURE; headKey = "unsure"; renderHead();
+      qText = r.question || ""; renderQ();
     } else if (unsure) { $("emoji").textContent = EMO.not_heard; }
-    else { $("emoji").textContent = r.emoji || "🔍"; $("q").textContent = r.question ? "你問：" + r.question : ""; }
+    else { $("emoji").textContent = r.emoji || "🔍"; qText = r.question || ""; renderQ(); }
     const sp = fill($("first"), (r.reaction || "") + (r.first_sentence || ""));
     enqueue(sp);
     lastItems = [sp];
@@ -310,7 +367,7 @@
     try {
       camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
       $("preview").srcObject = camStream; $("preview").style.display = "block";
-    } catch (err) { e.target.checked = false; setStatus("無法開啟鏡頭，請檢查權限"); }
+    } catch (err) { e.target.checked = false; setStatus("camFail"); }
   });
   function stopCam() {
     if (camStream) camStream.getTracks().forEach((t) => t.stop());
@@ -330,7 +387,7 @@
   // show the captured frame for 2 s, then discard it (only ever held in memory, never uploaded anywhere else)
   function flashThumb(blob) {
     const url = URL.createObjectURL(blob), t = new Image();
-    t.className = "thumb"; t.alt = "剛剛拍的照片"; t.src = url;
+    t.className = "thumb"; t.alt = tr("photoAlt"); t.src = url;
     ans.insertBefore(t, $("first"));
     setTimeout(() => { t.remove(); URL.revokeObjectURL(url); }, 2000);
   }
@@ -355,11 +412,11 @@
           if (pr.status === 200) { const j = await pr.json(); if (!j.pending) { full = j; break; } }
         }
         if (full) showRest(full);
-        else setStatus("我想不出來了，再問一次好嗎？");
+        else setStatus("noIdea");
       }
     } catch (e) {
       showFirst({ status: "abstained", reason: "not_heard", first_sentence: "哎呀，我卡住了，再試一次好嗎？" });
-      setStatus("連線失敗");
+      setStatus("failed");
     } finally { busy = false; $("send").disabled = false; micState("idle"); }
   }
   $("form").addEventListener("submit", (e) => {
@@ -389,10 +446,10 @@
   function stopMeter() { cancelAnimationFrame(levelRaf); analyser = null; document.documentElement.style.setProperty("--lvl", 0); }
   async function startRec() {
     if (busy || rec) return;
-    if (!navigator.mediaDevices || !window.MediaRecorder) { setStatus("這個瀏覽器不能錄音，請用打字問我"); return; }
+    if (!navigator.mediaDevices || !window.MediaRecorder) { setStatus("noRec"); return; }
     try {
       if (!stream) stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch (e) { setStatus("需要允許麥克風才能說話"); return; }
+    } catch (e) { setStatus("needMic"); return; }
     stopSpeech();
     const types = ["audio/webm;codecs=opus", "audio/webm", "audio/ogg;codecs=opus", "audio/mp4"];
     const mt = types.find((t) => MediaRecorder.isTypeSupported(t));
@@ -401,15 +458,15 @@
     rec.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
     rec.onstop = () => {
       const dur = Date.now() - recStart, type = rec.mimeType || "audio/webm";
-      rec = null; stopMeter(); micState("idle"); $("talklabel").textContent = "按住說話";
-      if (dur < 500) { setStatus("按久一點，說完再放開喔"); return; }
+      rec = null; stopMeter(); micState("idle"); setLbl("hold");
+      if (dur < 500) { setStatus("tooShort"); return; }
       const ext = type.includes("ogg") ? "ogg" : type.includes("mp4") ? "m4a" : "webm";
       const fd = new FormData(); fd.append("mode", "voice");
       fd.append("audio", new Blob(chunks, { type }), "q." + ext);
       ask(fd);
     };
     recStart = Date.now(); rec.start(); startMeter();
-    micState("listening"); $("talklabel").textContent = "我在聽…"; setStatus("");
+    micState("listening"); setLbl("listening"); setStatus("");
   }
   function stopRec() { if (rec && rec.state === "recording") rec.stop(); }
   talk.addEventListener("pointerdown", (e) => { e.preventDefault(); talk.setPointerCapture(e.pointerId); startRec(); });
