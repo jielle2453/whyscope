@@ -1,0 +1,152 @@
+{
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "total": 5250,
+ "beats": [
+  {
+   "id": 1,
+   "key": "cold",
+   "title": "Cold open",
+   "seconds": 14,
+   "narrDelay": 8.5,
+   "narration": "Seventy-six questions an hour.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 420,
+   "start": 0
+  },
+  {
+   "id": 2,
+   "key": "problem",
+   "title": "The problem",
+   "seconds": 12,
+   "narrDelay": 0.6,
+   "narration": "Most of them get a shrug. The speaker in the kitchen can't see what she's pointing at. And little by little, the questions stop.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 360,
+   "start": 420
+  },
+  {
+   "id": 3,
+   "key": "reveal",
+   "title": "Reveal",
+   "seconds": 14,
+   "narrDelay": 3.2,
+   "narration": "Meet Whyscope. A small companion for the biggest word in a child's vocabulary.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 420,
+   "start": 780
+  },
+  {
+   "id": 4,
+   "key": "sees",
+   "title": "It sees.",
+   "seconds": 18,
+   "narrDelay": 1.2,
+   "narration": "Point at anything. Whyscope looks with you.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 540,
+   "start": 1200
+  },
+  {
+   "id": 5,
+   "key": "answers",
+   "title": "It answers like a kind grown-up.",
+   "seconds": 18,
+   "narrDelay": 1,
+   "narration": "It answers in seconds, in words a six-year-old already knows. Every fact comes from a knowledge base built for children.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 540,
+   "start": 1740
+  },
+  {
+   "id": 6,
+   "key": "asks",
+   "title": "Then it asks you to guess.",
+   "seconds": 16,
+   "narrDelay": 1,
+   "narration": "And then it turns the question around. Guess first. Because the thinking is the point.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 480,
+   "start": 2280
+  },
+  {
+   "id": 7,
+   "key": "listens",
+   "title": "It listens.",
+   "seconds": 16,
+   "narrDelay": 1,
+   "narration": "Hold the button and just ask. The listening happens right here, on the device.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 480,
+   "start": 2760
+  },
+  {
+   "id": 8,
+   "key": "grownups",
+   "title": "It knows what's for grown-ups.",
+   "seconds": 16,
+   "narrDelay": 1,
+   "narration": "Some questions belong to you. Whyscope hands them back gently, and gives you a few words to start with.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 480,
+   "start": 3240
+  },
+  {
+   "id": 9,
+   "key": "parents",
+   "title": "For parents: a week of wonder.",
+   "seconds": 20,
+   "narrDelay": 1,
+   "narration": "Every week, a curiosity report. What she wondered about. Three things to talk about at dinner. Only the topics are kept. Never her voice, never her face.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 600,
+   "start": 3720
+  },
+  {
+   "id": 10,
+   "key": "home",
+   "title": "Everything stays home.",
+   "seconds": 16,
+   "narrDelay": 1,
+   "narration": "It runs on a two-and-a-half-watt chip, at home, without the cloud. No subscription. Nothing to switch off when a company disappears.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 480,
+   "start": 4320
+  },
+  {
+   "id": 11,
+   "key": "proof",
+   "title": "Proof",
+   "seconds": 10,
+   "narrDelay": 0.8,
+   "narration": "Five numbers we will measure on the real hardware. Two of them, we already have.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 300,
+   "start": 4800
+  },
+  {
+   "id": 12,
+   "key": "close",
+   "title": "Close",
+   "seconds": 5,
+   "narrDelay": 1.2,
+   "narration": "Whyscope.",
+   "narrSec": 0,
+   "hasNarr": false,
+   "frames": 150,
+   "start": 5100
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+node_modules/
+out/
+*.mp4
+public/clips/*.webm
+public/audio/*.wav
+public/audio/*.json
+audio/*.wav
+.tmp/
+!public/audio/.gitkeep
