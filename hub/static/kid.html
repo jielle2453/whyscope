@@ -47,6 +47,11 @@
   .lang button[aria-pressed="true"] { background: var(--lav-ink); color: #fff; }
   .lang button:focus-visible { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
   .lang i { font-style: normal; opacity: .5; }
+  .grown { width: 36px; height: 36px; border-radius: 999px; border: 0; display: inline-flex; align-items: center; justify-content: center; color: var(--cap); cursor: pointer; padding: 0; position: relative; }
+  .grown svg { width: 18px; height: 18px; }
+  .grown::after { content: ""; position: absolute; inset: 2px; border-radius: 999px; border: 2px solid var(--lav-ink); opacity: 0; transform: scale(.6); transition: transform 1.4s linear, opacity .2s; }
+  .grown.pressing::after { opacity: 1; transform: scale(1); }
+  .grown:focus-visible { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
 
   /* prompt card */
   .hello { margin: 12px 0 0; padding: 22px 14px; text-align: center; font-size: 19px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
@@ -166,6 +171,7 @@
     <div class="hdr-r">
       <div class="lang glass fx" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
       <div class="conn glass fx" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">Connecting</span></div>
+      <button type="button" class="grown glass fx" id="grown" data-i18n-aria="grown" aria-label="For grown-ups: hold to open the parent app" title="For grown-ups: hold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></button>
     </div>
   </header>
 
@@ -223,14 +229,14 @@
     en: { stuck: "Oops, I got stuck. Can we try again?", title: "Whyscope", brand: "Whyscope", logo: "Whyscope logo", langGroup: "Language", artAsk: "Ask a grown-up together",
       hello: "Anything you wonder about?", helloSub: "Hold the round button and talk", guess: "Your guess?", replay: "Say it again", another: "New question",
       hold: "Hold to talk", listening: "Listening\u2026", thinking: "Thinking", typeQ: "or type a question", typeAria: "Type a question", ask: "Ask",
-      cam: "Camera on, show me", camAria: "Camera on", connecting: "Connecting", connected: "Connected", offline: "Offline",
+      cam: "Camera on, show me", camAria: "Camera on", connecting: "Connecting", connected: "Connected", offline: "Offline", grown: "For grown-ups: hold to open the parent app",
       youAsked: "You asked: ", sensitive: "Let's ask a grown-up about this", unsure: "Let's go ask a grown-up", photoAlt: "Photo just taken",
       noIdea: "I can't figure it out. Can you ask again?", failed: "Connection failed", camFail: "Can't open the camera. Please check permissions.",
       noRec: "This browser can't record. Please type your question.", needMic: "Please allow the microphone to talk.", tooShort: "Hold a bit longer, then let go when you're done." },
     zh: { stuck: "哎呀，我卡住了，再試一次好嗎？", title: "好奇鏡", brand: "好奇鏡", logo: "好奇鏡標誌", langGroup: "語言", artAsk: "一起去問大人",
       hello: "有什麼想知道的嗎？", helloSub: "按住圓圓的按鈕說話", guess: "你猜猜看", replay: "再說一次", another: "換一個問題",
       hold: "按住說話", listening: "我在聽…", thinking: "想一想", typeQ: "或是打字問我", typeAria: "輸入問題", ask: "問問題",
-      cam: "開鏡頭，拍給我看", camAria: "開鏡頭", connecting: "連線中", connected: "已連線", offline: "未連線",
+      cam: "開鏡頭，拍給我看", camAria: "開鏡頭", connecting: "連線中", connected: "已連線", offline: "未連線", grown: "大人用：長按回到家長頁",
       youAsked: "你問：", sensitive: "這個我們一起問大人", unsure: "我們一起去問大人", photoAlt: "剛剛拍的照片",
       noIdea: "我想不出來了，再問一次好嗎？", failed: "連線失敗", camFail: "無法開啟鏡頭，請檢查權限",
       noRec: "這個瀏覽器不能錄音，請用打字問我", needMic: "需要允許麥克風才能說話", tooShort: "按久一點，說完再放開喔" }
@@ -269,6 +275,14 @@
   (function () {
     const svg = $("waveSvg"), ks = [.5, .8, 1.1, .7, 1.4, .9, 1.7, 1.1, 2.0, 1.2, 1.7, .9, 1.4, .7, 1.1, .8, .5];
     svg.innerHTML = ks.map((k, i) => '<rect x="' + (12 + i * 16) + '" y="4" width="6" height="32" rx="3" style="--k:' + k + '"/>').join("");
+  })();
+  // grown-up exit: hold the lock for 1.4 s (a quick tap does nothing, so a child cannot wander into the parent app)
+  (function () {
+    const b = $("grown"); if (!b) return; let t = null;
+    const start = (e) => { e.preventDefault(); b.classList.add("pressing"); t = setTimeout(() => { location.href = "/parent?lang=" + LANG; }, 1400); };
+    const stop = () => { b.classList.remove("pressing"); if (t) { clearTimeout(t); t = null; } };
+    b.addEventListener("pointerdown", start); ["pointerup", "pointerleave", "pointercancel"].forEach(ev => b.addEventListener(ev, stop));
+    b.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.href = "/parent?lang=" + LANG; } });
   })();
   function micState(s) { micS = s; $("wave").classList.toggle("live", s === "listening"); talk.className = s; talk.setAttribute("aria-label", tr(s === "thinking" ? "thinking" : s === "listening" ? "listening" : "hold")); }
 
