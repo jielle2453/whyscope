@@ -35,7 +35,7 @@ async function clip(name: string, extraArgs: string[], body: (p: Page, ctx: Brow
     isMobile: true,
     hasTouch: true,
     permissions: ["microphone", "camera"],
-    recordVideo: { dir, size: { width: W * 2, height: H * 2 } },
+    recordVideo: { dir, size: { width: W, height: H } }, // Playwright pads the video to size at 1x, so match the viewport exactly
   });
   const page = await ctx.newPage();
   const t0 = Date.now();
