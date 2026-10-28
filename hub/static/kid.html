@@ -215,14 +215,14 @@
 
   // ---------- i18n (chrome only; answers from the knowledge base stay Chinese) ----------
   const T = {
-    en: { title: "Whyscope", brand: "Whyscope", logo: "Whyscope logo", langGroup: "Language", artAsk: "Ask a grown-up together",
+    en: { stuck: "Oops, I got stuck. Can we try again?", title: "Whyscope", brand: "Whyscope", logo: "Whyscope logo", langGroup: "Language", artAsk: "Ask a grown-up together",
       hello: "Anything you wonder about?", helloSub: "Hold the round button and talk", guess: "Your guess?", replay: "Say it again", another: "New question",
       hold: "Hold to talk", listening: "Listening\u2026", thinking: "Thinking", typeQ: "or type a question", typeAria: "Type a question", ask: "Ask",
       cam: "Camera on, show me", camAria: "Camera on", connecting: "Connecting", connected: "Connected", offline: "Offline",
       youAsked: "You asked: ", sensitive: "Let's ask a grown-up about this", unsure: "Let's go ask a grown-up", photoAlt: "Photo just taken",
       noIdea: "I can't figure it out. Can you ask again?", failed: "Connection failed", camFail: "Can't open the camera. Please check permissions.",
       noRec: "This browser can't record. Please type your question.", needMic: "Please allow the microphone to talk.", tooShort: "Hold a bit longer, then let go when you're done." },
-    zh: { title: "好奇鏡", brand: "好奇鏡", logo: "好奇鏡標誌", langGroup: "語言", artAsk: "一起去問大人",
+    zh: { stuck: "哎呀，我卡住了，再試一次好嗎？", title: "好奇鏡", brand: "好奇鏡", logo: "好奇鏡標誌", langGroup: "語言", artAsk: "一起去問大人",
       hello: "有什麼想知道的嗎？", helloSub: "按住圓圓的按鈕說話", guess: "你猜猜看", replay: "再說一次", another: "換一個問題",
       hold: "按住說話", listening: "我在聽…", thinking: "想一想", typeQ: "或是打字問我", typeAria: "輸入問題", ask: "問問題",
       cam: "開鏡頭，拍給我看", camAria: "開鏡頭", connecting: "連線中", connected: "已連線", offline: "未連線",
@@ -257,6 +257,7 @@
     try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
     try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
     applyLang();
+    fetch("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) }).catch(() => {});
   });
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   // waveform: flat bars, scaled by the mic level (--lvl) while listening
@@ -280,18 +281,25 @@
   function loadVoices() { voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
   if (window.speechSynthesis) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
   const PREFER = ["HsiaoChen", "HsiaoYu", "Hanhan", "Yating", "Taiwan"];
+  const PREFER_EN = ["Natural", "Aria", "Jenny", "Samantha", "Google US English"];
+  let ansLang = LANG;   // language of the answer on screen (comes back from the server as r.lang)
   function pickVoice() {
     const norm = (v) => v.lang.replace("_", "-").toLowerCase();
+    if (ansLang === "en") {
+      const en = voices.filter((v) => norm(v).startsWith("en-us") || norm(v).startsWith("en-gb") || norm(v).startsWith("en"));
+      for (const p of PREFER_EN) { const v = en.find((x) => x.name.includes(p)); if (v) return v; }
+      return en.find((v) => norm(v).startsWith("en-us")) || en.find((v) => norm(v).startsWith("en-gb")) || en[0] || null;
+    }
     const tw = voices.filter((v) => norm(v).startsWith("zh-tw") || /taiwan|台灣/i.test(v.name));
     for (const p of PREFER) { const v = voices.find((x) => x.name.includes(p)); if (v) return v; }
     return tw[0] || voices.find((v) => norm(v).startsWith("zh")) || null;
   }
-  const splitSents = (t) => (t.match(/[^。！？!?]+[。！？!?]?/g) || []).map((s) => s.trim()).filter(Boolean);
+  const splitSents = (t) => (t.match(/[^。！？!?.]+[。！？!?.]?/g) || []).map((s) => s.trim()).filter(Boolean);
 
   // Each text block is split into sentence spans; spans are spoken one after another and fade in as they start.
   function fill(el, text) {
     el.textContent = "";
-    return splitSents(text).map((s) => { const sp = document.createElement("span"); sp.className = "s"; sp.textContent = s; el.appendChild(sp); return sp; });
+    return splitSents(text).map((s) => { const sp = document.createElement("span"); sp.className = "s"; sp.textContent = s; el.appendChild(sp); if (ansLang === "en") el.appendChild(document.createTextNode(" ")); return sp; });
   }
   let ttsBroken = false;   // set when the browser has no working voice: text then simply appears at reading pace
   function speakOne(span, text, my) {
@@ -299,10 +307,10 @@
       span.classList.add("in", "speaking");
       let finished = false, w1 = 0, w2 = 0, w3 = 0;
       const done = () => { if (finished) return; finished = true; clearTimeout(w1); clearTimeout(w2); clearTimeout(w3); span.classList.remove("speaking"); resolve(); };
-      const readTime = Math.max(900, text.length * 220);
+      const readTime = Math.max(900, text.length * (ansLang === "en" ? 75 : 220));
       if (!window.speechSynthesis || ttsBroken || my !== token) { w2 = setTimeout(done, my === token ? readTime : 0); return; }
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = "zh-TW"; u.rate = 0.9; u.pitch = 1.05;
+      if (ansLang === "en") { u.lang = "en-US"; u.rate = 0.95; u.pitch = 1.05; } else { u.lang = "zh-TW"; u.rate = 0.9; u.pitch = 1.05; }
       const v = pickVoice(); if (v) u.voice = v;
       let started = false;
       u.onstart = () => { started = true; clearTimeout(w1); };
@@ -330,6 +338,8 @@
   }
   function showFirst(r) {
     document.body.classList.add("has-answer");
+    ansLang = r.lang === "en" || r.lang === "zh" ? r.lang : LANG;
+    ["q", "first", "expl", "askb"].forEach((i) => { $(i).lang = ansLang === "en" ? "en" : "zh-TW"; });
     resetCard();
     const sensitive = r.status === "sensitive", unsure = r.status === "abstained";
     if (sensitive) { ans.className = "show soft"; $("art").innerHTML = ART_SOFT; headKey = "sensitive"; renderHead(); }
@@ -338,14 +348,14 @@
       qText = r.question || ""; renderQ();
     } else if (unsure) { $("emoji").textContent = EMO.not_heard; }
     else { $("emoji").textContent = r.emoji || "🔍"; qText = r.question || ""; renderQ(); }
-    const sp = fill($("first"), (r.reaction || "") + (r.first_sentence || ""));
+    const sp = fill($("first"), (r.reaction || "") + (ansLang === "en" && r.reaction ? " " : "") + (r.first_sentence || ""));
     enqueue(sp);
     lastItems = [sp];
     $("actions").style.display = "flex";
     ans.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
   function showRest(r) {
-    const a = fill($("expl"), r.explanation || ""), b = r.ask_back ? fill($("askb"), r.ask_back.replace(/^猜猜看，/, "")) : [];   // the badge already says 你猜猜看
+    const a = fill($("expl"), r.explanation || ""), b = r.ask_back ? fill($("askb"), r.ask_back.replace(/^猜猜看，/, "").replace(/^Can you guess\?\s*/i, "")) : [];   // the badge already says 你猜猜看
     if (b.length) $("askwrap").style.display = "block";
     enqueue([...a, ...b]);
     lastItems = [...lastItems, a, b].flat();
@@ -399,6 +409,7 @@
     try {
       const img = await grabFrame();
       if (img) { fd.append("image", img, "frame.jpg"); }
+      fd.append("lang", LANG);
       const res = await fetch("/api/ask", { method: "POST", body: fd });
       if (!res.ok) throw new Error(res.status);
       const r = await res.json();
@@ -415,7 +426,7 @@
         else setStatus("noIdea");
       }
     } catch (e) {
-      showFirst({ status: "abstained", reason: "not_heard", first_sentence: "哎呀，我卡住了，再試一次好嗎？" });
+      showFirst({ status: "abstained", reason: "not_heard", first_sentence: tr("stuck") });
       setStatus("failed");
     } finally { busy = false; $("send").disabled = false; micState("idle"); }
   }

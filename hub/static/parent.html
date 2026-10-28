@@ -307,6 +307,8 @@
     try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
     try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
     applyLang();
+    fetch("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) })
+      .catch(() => {}).then(() => refresh());
   });
 
   // pastel palette: [pastel fill, ink (filled bg, white text on it), deep (small text on the pastel fill)]
@@ -343,7 +345,7 @@
   // ---------- data ----------
   async function load() {
     const [rep, ev, ch, mem, set, hz] = await Promise.all([
-      api("/api/report/week"), api("/api/events?days=14"), api("/api/cheats"), api("/api/memory"), api("/api/settings"),
+      api("/api/report/week?lang=" + LANG), api("/api/events?days=14"), api("/api/cheats?lang=" + LANG), api("/api/memory"), api("/api/settings"),
       api("/healthz").catch(() => null)]);
     S.data = { rep, ev, ch, mem: mem.memory || {}, memEmoji: mem.emoji || {}, set, ok: !!hz };
     $("#dev").classList.toggle("ok", !!hz); devKey = hz ? "connected" : "offline";
@@ -437,13 +439,13 @@
     const sorted = ch.slice().sort((a, b) => (a.cheat_done - b.cheat_done) || (b.urgent - a.urgent) || (b.event_id - a.event_id));
     let h = '<div class="seg" role="group" aria-label="' + esc(tr("childAge")) + '"><button data-seg="5-6" aria-pressed="' + (S.ageSeg === "5-6") + '">' + tr("age56") + '</button><button data-seg="7-8" aria-pressed="' + (S.ageSeg === "7-8") + '">' + tr("age78") + "</button></div>";
     h += sorted.map((c) => {
-      const cat = CAT[c.category] || ["💬", "lav"], em = cat[0], p = pal(c.urgent ? "rose" : cat[1]), pts = (c.talking_points || {})[S.ageSeg] || (c.talking_points || {})["5-6"] || [];
+      const cat = CAT[c.category] || ["💬", "lav"], em = cat[0], p = pal(c.urgent ? "rose" : cat[1]), src = LANG === "en" && c.en ? c.en : c, pts = (src.talking_points || {})[S.ageSeg] || (src.talking_points || {})["5-6"] || [];
       const d = pd(c.ts);
       return '<article class="cheat' + (c.urgent ? " urgent" : "") + (c.cheat_done ? " done" : "") + '"><div class="hd" style="background:' + p[0] + ";color:" + p[2] + '"><span class="em" aria-hidden="true">' + em + "</span>" + esc(catName(c)) +
         '<span class="when">' + esc(dayLabel(d)) + " " + hm(d) + '</span></div><div class="bd"><p class="said">' + tr("childAsked", esc(c.question)) + "</p>" +
         (c.urgent ? '<div class="tel"><a href="tel:1925" aria-label="' + esc(tr("callAria", tr("line1925"), 1925)) + '"><span>1925<small>' + tr("line1925") + '</small></span></a><a href="tel:1995" aria-label="' + esc(tr("callAria", tr("line1995"), 1995)) + '"><span>1995<small>' + tr("line1995") + "</small></span></a></div>" : "") +
         (pts.length ? "<ul>" + pts.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul>" : "") +
-        ((c.what_not_to_say || []).length ? '<div class="nosay"><b>🚫 ' + tr("avoid") + "</b><ul>" + c.what_not_to_say.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul></div>" : "") +
+        ((src.what_not_to_say || []).length ? '<div class="nosay"><b>🚫 ' + tr("avoid") + "</b><ul>" + src.what_not_to_say.map((q) => "<li>" + esc(q) + "</li>").join("") + "</ul></div>" : "") +
         ((c.sources || []).length ? '<div class="srcs">' + c.sources.map((s) => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.publisher || s.title || tr("sources")) + " ↗</a>").join("") + "</div>" : "") +
         '<button class="okbtn" data-cheat="' + c.event_id + '"' + (c.cheat_done ? " disabled" : "") + ">" + (c.cheat_done ? tr("talkedDone") : tr("talked")) + "</button></div></article>";
     }).join("");
