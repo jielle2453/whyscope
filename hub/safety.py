@@ -31,9 +31,19 @@ def _norm_en(s: str) -> str:
     return re.sub(r"\s+", " ", (s or "").replace("\u2019", "'").lower()).strip()
 
 
+def _word_rx(w: str) -> str:
+    """One trigger word, tolerant of plain inflections: 'fighting' also matches 'fight', 'fights', 'fighting'
+    (generic stemming, so a trigger written in one form still catches the child's form)."""
+    from .recall import stem_en
+    base = stem_en(w)
+    if base == w and w.endswith("ing") and len(w) > 5:
+        base = w[:-3]
+    return "(?:" + re.escape(w) + "|" + re.escape(base) + r"(?:s|es|ed|d|ing)?)"
+
+
 def _en_regex(phrase: str):
     """Case-insensitive, word-boundary regex built generically from one English trigger phrase."""
-    words = [re.escape(w) for w in _norm_en(phrase).split(" ") if w]
+    words = [_word_rx(w) for w in _norm_en(phrase).split(" ") if w]
     if not words:
         return None
     return re.compile(r"(?<![a-z0-9])" + r"\s+".join(words) + r"(?![a-z0-9])", re.I)

@@ -2,6 +2,7 @@
 
 TOPIC_EMOJI = {"animals": "🐾", "plants": "🌱", "sky_weather": "🌤️", "body": "🧒", "machines": "⚙️", "food": "🍎"}
 TOPIC_ZH = {"animals": "動物", "plants": "植物", "sky_weather": "天氣", "body": "身體", "machines": "機器", "food": "食物"}
+TOPIC_EN = {"animals": "Animals", "plants": "Plants", "sky_weather": "Weather", "body": "Body", "machines": "Machines", "food": "Food"}
 
 OBJECT_EMOJI = {
     "螞蟻": "🐜", "蜜蜂": "🐝", "蝴蝶": "🦋", "貓": "🐱", "狗": "🐶", "青蛙": "🐸", "壁虎": "🦎", "長頸鹿": "🦒",

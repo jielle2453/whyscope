@@ -31,6 +31,8 @@ class DB:
             cols = {r[1] for r in c.execute("PRAGMA table_info(events)")}
             if "talked" not in cols:   # product pass 1: parent marks "聊過了" (additive migration)
                 c.execute("ALTER TABLE events ADD COLUMN talked INTEGER DEFAULT 0")
+            if "lang" not in cols:     # English mode: language of the question and answer (additive migration)
+                c.execute("ALTER TABLE events ADD COLUMN lang TEXT DEFAULT 'zh'")
             c.commit()
         finally:
             c.close()
@@ -55,11 +57,11 @@ class DB:
         lat = e.get("latency_ms") or {}
         return self._run(
             "INSERT INTO events(ts,mode,question,object,topic,kb_id,status,first_sentence,explanation,ask_back,"
-            "bridge_used,sensitive_category,latency_total_ms,latency_json) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "bridge_used,sensitive_category,latency_total_ms,latency_json,lang) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (now(), e.get("mode"), e.get("question"), e.get("object"), e.get("topic"), e.get("kb_id"),
              e.get("status"), e.get("first_sentence"), e.get("explanation"), e.get("ask_back"),
              e.get("bridge_used"), e.get("sensitive_category"), int(lat.get("total", 0)),
-             json.dumps(lat, ensure_ascii=False)))
+             json.dumps(lat, ensure_ascii=False), e.get("lang") or "zh"))
 
     def list_events(self, days=7, status=None):
         cutoff = (datetime.now() - timedelta(days=days)).isoformat(timespec="seconds")

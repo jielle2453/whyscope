@@ -9,7 +9,7 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 
 from . import report
-from .emoji import emoji_for, TOPIC_EMOJI, TOPIC_ZH
+from .emoji import emoji_for, TOPIC_EMOJI, TOPIC_EN, TOPIC_ZH
 from .memory import AUTO_KEYS, PARENT_KEYS
 from .pipeline import Pipeline
 
@@ -55,18 +55,19 @@ def healthz():
 
 @app.post("/api/ask")
 async def ask(request: Request, wait: int = 0):
-    """Accepts multipart (text/audio/image/mode) or JSON {text, mode}.
+    """Accepts multipart (text/audio/image/mode/lang) or JSON {text, mode, lang}. `lang` is "en" or "zh" and defaults
+    to the `language` setting (default "en").
 
     Returns after recall/safety with the first sentence and `pending: true` + `pending_id` (explanation and ask_back
     are empty); fetch the rest with GET /api/ask/{pending_id}. `?wait=1` blocks and returns the complete answer."""
     t0 = time.perf_counter()
-    text, mode, audio, image = "", "text", None, None
+    text, mode, audio, image, lang = "", "text", None, None, None
     if "application/json" in request.headers.get("content-type", ""):
         body = await request.json()
-        text, mode = body.get("text") or "", body.get("mode") or "text"
+        text, mode, lang = body.get("text") or "", body.get("mode") or "text", body.get("lang")
     else:
         form = await request.form()
-        text, mode = form.get("text") or "", form.get("mode") or "text"
+        text, mode, lang = form.get("text") or "", form.get("mode") or "text", form.get("lang")
         if form.get("audio") is not None and hasattr(form["audio"], "read"):
             audio = await form["audio"].read() or None
         if form.get("image") is not None and hasattr(form["image"], "read"):
@@ -74,8 +75,8 @@ async def ask(request: Request, wait: int = 0):
     if mode not in ("text", "voice"):
         mode = "voice" if audio else "text"
     if wait:
-        return await run_in_threadpool(P.ask, str(text), audio, image, mode)
-    return await run_in_threadpool(P.ask_first, str(text), audio, image, mode, True, t0)
+        return await run_in_threadpool(P.ask, str(text), audio, image, mode, True, lang)
+    return await run_in_threadpool(P.ask_first, str(text), audio, image, mode, True, t0, lang)
 
 
 @app.get("/api/ask/{pending_id}")
@@ -91,8 +92,9 @@ def ask_result(pending_id: str):
 
 @app.get("/api/events")
 def events(days: int = 7):
-    return [{**e, "emoji": emoji_for(e["object"], e["topic"]) if e["status"] == "answered" else "",
-             "topic_zh": TOPIC_ZH.get(e["topic"], ""), "talked": bool(e.get("talked"))} for e in P.db.list_events(days)]
+    return [{**e, "emoji": P.emoji_of(e["object"], e["topic"]) if e["status"] == "answered" else "",
+             "topic_zh": TOPIC_ZH.get(e["topic"], ""), "topic_en": TOPIC_EN.get(e["topic"], ""),
+             "talked": bool(e.get("talked"))} for e in P.db.list_events(days)]
 
 
 @app.post("/api/events/{event_id}/talked")
@@ -104,22 +106,30 @@ def event_talked(event_id: int):
 
 
 @app.get("/api/report/week")
-def report_week():
-    return report.week(P.db)
+def report_week(lang: str = None):
+    """Weekly numbers; the talk-about lines come back in `lang` (default: the `language` setting)."""
+    return report.week(P.db, 7, P.norm_lang(lang), P.entry_map(), P.emoji_of)
 
 
 @app.get("/api/cheats")
-def cheats(days: int = 30):
-    """Sensitive events joined with their cheat sheet."""
+def cheats(days: int = 30, lang: str = None):
+    """Sensitive events joined with their cheat sheet. With lang=en the top-level `deflection`, `talking_points` and
+    `what_not_to_say` are the English ones; the cheat's `en` object is passed through untouched as `en`."""
+    lang = P.norm_lang(lang)
     out = []
     for e in P.db.list_events(days, status="sensitive"):
         cat = e["sensitive_category"]
         c = P.safety.cheat(cat) or {}
-        out.append({"event_id": e["id"], "ts": e["ts"], "question": e["question"], "category": cat,
+        en = c.get("en") or {}
+        use_en = lang == "en" and bool(en)
+        out.append({"lang": lang, "en": en or None, "event_id": e["id"], "ts": e["ts"], "question": e["question"], "category": cat,
                     "category_zh": c.get("category_zh") or P.safety.zh.get(cat, cat),
                     "urgent": bool(c.get("urgent", cat == "self_harm")), "cheat_done": bool(e["cheat_done"]),
                     "deflection_zh": c.get("deflection_zh") or e["first_sentence"],
-                    "talking_points": c.get("talking_points", {}), "what_not_to_say": c.get("what_not_to_say", []),
+                    "deflection": en.get("deflection") or e["first_sentence"] if use_en else
+                    c.get("deflection_zh") or e["first_sentence"],
+                    "talking_points": en.get("talking_points", {}) if use_en else c.get("talking_points", {}),
+                    "what_not_to_say": en.get("what_not_to_say", []) if use_en else c.get("what_not_to_say", []),
                     "sources": c.get("sources", []), "has_cheat_sheet": bool(c)})
     return out
 
@@ -136,7 +146,7 @@ def cheat_done(event_id: int):
 def memory_get():
     mem = P.memory.all()
     objs = (mem.get("recent_objects") or {}).get("value") or []
-    return {"memory": mem, "emoji": {o: emoji_for(o) for o in objs},
+    return {"memory": mem, "emoji": {o: P.emoji_of(o) for o in objs},
             "keys": [{"key": k, "label_zh": v[0], "type": v[1]} for k, v in PARENT_KEYS.items()],
             "auto_keys": [{"key": k, "label_zh": v} for k, v in AUTO_KEYS.items()]}
 
@@ -165,8 +175,8 @@ def memory_delete_path(key: str):
 
 def _settings():
     return {"retention_days": int(P.db.setting_get("retention_days", P.cfg.get("retention_days", 30))),
-            "cloud_fallback": False, "mode": P.cfg.get("mode"), "version": VERSION,
-            "topics": {t: {"zh": TOPIC_ZH[t], "emoji": TOPIC_EMOJI[t]} for t in TOPIC_ZH}}
+            "cloud_fallback": False, "mode": P.cfg.get("mode"), "version": VERSION, "language": P.default_lang(),
+            "topics": {t: {"zh": TOPIC_ZH[t], "en": TOPIC_EN[t], "emoji": TOPIC_EMOJI[t]} for t in TOPIC_ZH}}
 
 
 @app.get("/api/settings")
@@ -186,6 +196,10 @@ async def settings_set(request: Request):
             raise HTTPException(400, "retention_days must be 1-365")
         P.db.setting_set("retention_days", d)
         P.db.purge(d)
+    if "language" in body:
+        if body["language"] not in ("en", "zh"):
+            raise HTTPException(400, "language must be 'en' or 'zh'")
+        P.db.setting_set("language", body["language"])
     if body.get("cloud_fallback"):
         raise HTTPException(400, "cloud_fallback is not available")
     return _settings()

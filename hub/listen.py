@@ -10,6 +10,7 @@ import subprocess
 from .config import resolve, to_trad, torch_device
 
 PROMPT = "以下是小朋友用台灣國語問的問題，使用繁體中文。"
+PROMPT_EN = "A child asks a short question in English."
 
 
 class Listener:
@@ -94,20 +95,22 @@ class Listener:
                            input=data, capture_output=True, check=True)
         return p.stdout
 
-    def _transcribe(self, audio) -> str:
+    def _transcribe(self, audio, lang: str = "zh") -> str:
         lc = self.cfg["listen"]
         if len(audio) < 1600:  # < 0.1 s
             return ""
-        segs, _ = self.model.transcribe(audio, language=lc.get("language", "zh"),
+        segs, _ = self.model.transcribe(audio, language=lang or lc.get("language", "zh"),
                                         beam_size=int(lc.get("beam_size", 1)), vad_filter=True,
-                                        initial_prompt=PROMPT, condition_on_previous_text=False)
+                                        initial_prompt=PROMPT_EN if lang == "en" else PROMPT, condition_on_previous_text=False)
         return "".join(s.text for s in segs).strip()
 
-    def transcribe(self, data: bytes) -> str:
-        """Return the transcript (Traditional script) or '' if nothing was heard."""
+    def transcribe(self, data: bytes, lang: str = "zh") -> str:
+        """Return the transcript ('' if nothing was heard): Traditional script for zh, plain text for en.
+        faster-whisper is told the language (`language=lang`)."""
         self._load()
-        text = self._transcribe(self._audio_array(data))
+        text = self._transcribe(self._audio_array(data), lang)
         # Whisper sometimes echoes the prompt on silence.
-        if text.replace(" ", "") in PROMPT.replace(" ", "") and len(text) > 8:
+        prompt = PROMPT_EN if lang == "en" else PROMPT
+        if text.replace(" ", "") in prompt.replace(" ", "") and len(text) > 8:
             return ""
-        return to_trad(text).strip()
+        return text.strip() if lang == "en" else to_trad(text).strip()
