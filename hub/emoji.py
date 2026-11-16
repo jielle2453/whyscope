@@ -1,8 +1,8 @@
 """Object / topic -> emoji (single source of truth for kid.html and parent.html)."""
 
-TOPIC_EMOJI = {"animals": "🐾", "plants": "🌱", "sky_weather": "🌤️", "body": "🧒", "machines": "⚙️", "food": "🍎"}
-TOPIC_ZH = {"animals": "動物", "plants": "植物", "sky_weather": "天氣", "body": "身體", "machines": "機器", "food": "食物"}
-TOPIC_EN = {"animals": "Animals", "plants": "Plants", "sky_weather": "Weather", "body": "Body", "machines": "Machines", "food": "Food"}
+TOPIC_EMOJI = {"animals": "🐾", "plants": "🌱", "sky_weather": "🌤️", "body": "🧒", "machines": "⚙️", "food": "🍎", "earth": "🌍", "people": "👫", "physics": "💧"}
+TOPIC_ZH = {"animals": "動物", "plants": "植物", "sky_weather": "天氣", "body": "身體", "machines": "機器", "food": "食物", "earth": "地球", "people": "人與社會", "physics": "水與物理"}
+TOPIC_EN = {"animals": "Animals", "plants": "Plants", "sky_weather": "Weather", "body": "Body", "machines": "Machines", "food": "Food", "earth": "Earth", "people": "People", "physics": "Water and physics"}
 
 OBJECT_EMOJI = {
     "螞蟻": "🐜", "蜜蜂": "🐝", "蝴蝶": "🦋", "貓": "🐱", "狗": "🐶", "青蛙": "🐸", "壁虎": "🦎", "長頸鹿": "🦒",

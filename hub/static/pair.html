@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6EEFF">
+<meta name="referrer" content="no-referrer">
+<title>Whyscope | Pair</title>
+<style>
+  :root { --ink: #2B2A4A; --body: #5A5878; --lav: #C7B8FF; --lav-ink: #5B4AB8; --mint: #CBF3E3; --mint-d: #14604A; --rose: #FFD1E0; --rose-d: #8F2257;
+          --glass: rgba(255,255,255,0.62); --glass-line: rgba(255,255,255,0.8); --shadow: 0 10px 30px rgba(96,80,140,0.10); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; color: var(--ink); display: flex; align-items: center; justify-content: center; padding: 16px;
+         background: linear-gradient(160deg, #F6EEFF 0%, #FDE9F1 35%, #FFF2E6 70%, #E9F3FF 100%) fixed;
+         font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; }
+  .card { width: 100%; max-width: 420px; background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+          border: 1px solid var(--glass-line); border-radius: 28px; box-shadow: var(--shadow); padding: 28px 22px; text-align: center; }
+  h1 { font-size: 20px; margin: 8px 0 6px; }
+  p { margin: 6px 0; color: var(--body); }
+  .big { font-size: 48px; }
+  label { display: block; text-align: left; font-weight: 700; margin: 14px 4px 4px; }
+  input { width: 100%; min-height: 52px; border-radius: 26px; border: 1px solid var(--glass-line); padding: 0 20px; font: inherit; background: rgba(255,255,255,.85); color: var(--ink); }
+  input:focus { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
+  button { margin-top: 18px; min-height: 52px; width: 100%; border: 0; border-radius: 26px; background: linear-gradient(135deg,#7C6CFF,#5B4AB8); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  button:disabled { opacity: .5; }
+  .err { margin-top: 12px; background: var(--rose); color: var(--rose-d); border-radius: 16px; padding: 8px 14px; font-weight: 600; }
+  .ok { color: var(--mint-d); }
+</style>
+</head>
+<body>
+<main class="card" id="card" aria-live="polite">
+  <div class="big" aria-hidden="true">🔗</div>
+  <h1 id="title">Pairing…</h1>
+  <p id="msg">Contacting the hub.</p>
+  <form id="form" hidden autocomplete="off">
+    <label for="pname">Your name</label><input id="pname" maxlength="40" required>
+    <label for="ppin">Choose a PIN (4 to 8 digits)</label><input id="ppin" type="password" inputmode="numeric" pattern="\d{4,8}" maxlength="8" required>
+    <label for="ppin2">PIN again</label><input id="ppin2" type="password" inputmode="numeric" pattern="\d{4,8}" maxlength="8" required>
+    <button type="submit" id="go">Pair this phone</button>
+  </form>
+  <div class="err" id="err" hidden></div>
+</main>
+<script src="/static/conn.js" data-role="parent"></script>
+<script>
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  // the QR link is  /pair#c=<one-time code>&h=<hub LAN url>&b=<relay pairing bundle>  (the fragment never reaches a server log)
+  const frag = {};
+  location.hash.replace(/^#/, "").split("&").forEach((kv) => { const i = kv.indexOf("="); if (i > 0) frag[kv.slice(0, i)] = kv.slice(i + 1); });
+  try { history.replaceState(null, "", location.pathname); } catch (e) {}   // drop the code and the relay key from the address bar
+  const ERR = { invalid_code: "This code was already used or has expired. Ask for a new QR code.", too_many_tries: "Too many tries. Wait a minute.",
+                pin_format: "The PIN must be 4 to 8 digits.", name_required: "Please enter your name." };
+  const show = (m) => { $("err").hidden = !m; $("err").textContent = m || ""; };
+
+  async function redeem(extra) {
+    show("");
+    let r, j = {};
+    try {
+      r = await fetch("/api/pair", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.assign({ code: frag.c }, extra || {})) });
+      j = await r.json().catch(() => ({}));
+    } catch (e) { $("title").textContent = "Cannot reach the hub"; $("msg").textContent = "Open this page from the hub's address."; return; }
+    if (r.status === 422 && j.detail === "need_profile") {
+      $("title").textContent = "Join this household"; $("msg").textContent = "You were invited as a parent. Choose your name and a PIN; the PIN is asked again for sensitive things.";
+      $("form").hidden = false; $("pname").focus(); return;
+    }
+    if (!r.ok) { $("title").textContent = "Could not pair"; $("msg").textContent = ""; $("form").hidden = true; show(ERR[j.detail] || ("Error: " + (j.detail || r.status))); return; }
+    const role = j.device.kind === "wand" ? "wand" : "parent";
+    WhyConn.store(role, { token: j.token, hub: frag.h || location.origin, bundle: WhyConn.parseBundle(frag.b), device: j.device,
+                          child: j.child, household: j.household, parent_id: j.parent_id, paired: new Date().toISOString() });
+    $("form").hidden = true;
+    $("title").className = "ok";
+    $("title").textContent = role === "wand" ? "Wand paired" + (j.child ? " for " + j.child.name : "") : "Phone paired";
+    $("msg").textContent = (frag.b ? "Works at home and away (encrypted)." : "Works at home.") + " Opening…";
+    setTimeout(() => { location.replace(role === "wand" ? "/kid" : "/parent"); }, 1300);
+  }
+
+  if (!frag.c) { $("title").textContent = "No pairing code"; $("msg").textContent = "Scan a QR code from the Whyscope parent page or the hub's setup page."; return; }
+  $("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if ($("ppin").value !== $("ppin2").value) { show("The two PINs are different."); return; }
+    $("go").disabled = true;
+    redeem({ name: $("pname").value.trim(), pin: $("ppin").value }).finally(() => { $("go").disabled = false; });
+  });
+  redeem();
+})();
+</script>
+</body>
+</html>

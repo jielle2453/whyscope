@@ -1,0 +1,38 @@
+zh-002 因為貓咪在抖動，它會帶一點靜電。帶靜電的東西就能發出聲音。
+zh-003 因為鳥的身體有翅膀，可以飛。
+zh-007 因為屁是身體分解食物的過程產生的，而這個過程會產生一些臭氣。
+zh-014 因為太陽是一顆星星，離我們比較近，所以看上去又大又亮。
+zh-021 樹葉在秋天會變黃，是因為植物在秋天沒有得到充足的陽光、水和空氣。這些養分對植物來說是非常重要的，而植物在秋天的時候，通常就得不到這些養分。
+zh-023 因為種子有水、暖和空氣，它會發芽長大。
+zh-034 汽車需要輪子，因為輪子可以讓車子在地面上滑行，而不需要人力去推。
+zh-035 手機是用來打電話的，所以它需要電。
+zh-037 因為水比石頭輕，所以水會把石頭推下去。
+zh-041 火山噴發時，熔岩會跑出來。
+zh-042 海水是鹹的，因為它是由淡水和鹽水組成。海水中的淡水會被水流帶走，留下濃度較高的鹽分。
+zh-043 地震是因為地球表面的岩石在不斷地動，當它們碰在一起或滑動時，會產生能量，這能量會釋放出來，形成地震。
+zh-044 沙子是慢慢被風、水和冰磨碎的。所以它會變成一粒一粒的小石頭碎片，再變成土。
+zh-046 刷牙可以清除食物渣和細菌，保持口腔衛生。
+zh-049 因為細菌和病毒會讓我們生病，所以要洗手。
+en-003 Birds have wings that allow them to fly. Humans don't.
+en-014 The Sun is a huge, very hot ball that gives off light.
+en-021 Leaves change color in the fall because they are using light to make their own food. They use a green substance called chlorophyll, which makes them look green.
+en-023 Plants need light to make their food.
+en-042 The sea is made saltier by the water that flows over rocks and soil, picking up a little salt along the way. When it gets too hot or dry for long periods of time, some of the salt in the ocean ends up getting carried away as fresh water turns into vapor.
+en-043 Earthquakes happen because the Earth's surface is made of huge pieces of rock that move very, very slowly. When these rocks bump or slide, they create energy that can't be contained and causes an earthquake.
+en-044 Sand is made of tiny bits that are worn off rocks by wind, water and ice over a very long time.
+hz-04 流鼻水是因為你打噴嚏時，細菌從你的鼻子流出。
+hz-05 因為白天太陽很亮，星星反射的光被太陽吸收了。
+hz-06 因為地球像陀螺一樣，一天轉一圈。對著太陽的那一面是白天，背著太陽那一面是夜晚。
+hz-07 因為颱風的風是從遠離它的地方吹來，所以它的風比較大。
+hz-13 因為電風扇的電，會讓水飛到空氣裡。水飛走了，水裡的東西像鹽，會留下來。
+hz-17 因為河裡的石頭是慢慢被風、水和冰磨碎成圓形的。
+hz-18 山是因為地球表面的岩石在不斷地運動，所以山會慢慢長高。
+he-02 Birds build nests to protect their babies from the elements and other dangers.
+he-03 When you have a cold or the flu, your nose and throat become congested. This makes it difficult for air to flow through them, causing pressure in your ears.
+he-05 The Sun is so bright that it makes stars hard to see in the day.
+he-06 The sun goes down at night because the Earth is turning, so the side facing the sun gets day and the other side gets night.
+he-07 In winter, the sun warms up the sea and rivers. The warm water turns into tiny drops of water called H2O.
+he-14 A fan makes you feel cool because it cools the air around you. The air feels cooler, so your body thinks it's a little bit cooler.
+he-16 The cold drink gets wet because the air around it turns into tiny drops of water called condensate. This is called condensing.
+he-17 Pebble pebbles are smooth because they have been worn down by the wind, water and ice over a very long time.
+he-20 We have to put rubbish in the bin because it is not good for animals and nature.

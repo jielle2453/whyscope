@@ -48,6 +48,24 @@
     "ask_back": "Do you think a ripe banana tastes sweet, or sour?",
     "bridges": {
       "has_garden": "Have you picked fruit from a tree in your garden?"
-    }
+    },
+    "asks_en": [
+      "sweet",
+      "taste",
+      "good",
+      "sour",
+      "animals",
+      "want",
+      "eat",
+      "seeds",
+      "carried",
+      "far",
+      "away",
+      "ripe",
+      "slowly",
+      "turns",
+      "often",
+      "bitter"
+    ]
   }
 }

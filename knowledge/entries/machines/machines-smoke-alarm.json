@@ -1,0 +1,67 @@
+{
+  "id": "machines-smoke-alarm",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "煙霧警報器",
+    "火警警報器",
+    "smoke alarm"
+  ],
+  "question_patterns": [
+    "煙霧警報器是做什麼的",
+    "為什麼有煙就會叫",
+    "天花板上的白色圓圓的是什麼",
+    "警報器怎麼知道有煙"
+  ],
+  "first_sentence": "煙霧警報器聞到煙，就會大聲叫。",
+  "facts": [
+    "煙可能表示有火",
+    "警報器會發出很大的聲音提醒人",
+    "有的警報器是用一道光來發現煙"
+  ],
+  "ask_back": "警報器偵測到煙，會安靜還是大聲叫？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Smoke_detector",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "smoke alarm",
+      "smoke detector"
+    ],
+    "question_patterns": [
+      "what is a smoke alarm for",
+      "why does a smoke alarm beep",
+      "how does a smoke alarm know there is smoke",
+      "what is the round thing on the ceiling"
+    ],
+    "first_sentence": "A smoke alarm beeps when it senses smoke.",
+    "facts": [
+      "Smoke can mean there is a fire.",
+      "The alarm makes a loud sound to warn people.",
+      "Some alarms watch a beam of light for smoke."
+    ],
+    "ask_back": "When there is smoke, does a smoke alarm stay quiet, or beep?",
+    "bridges": {},
+    "asks_en": [
+      "beep",
+      "know",
+      "round",
+      "ceiling",
+      "senses",
+      "mean",
+      "fire",
+      "loud",
+      "sound",
+      "warn",
+      "people",
+      "watch",
+      "beam",
+      "light"
+    ]
+  }
+}

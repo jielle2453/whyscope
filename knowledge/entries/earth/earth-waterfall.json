@@ -1,0 +1,73 @@
+{
+  "id": "earth-waterfall",
+  "topic": "earth",
+  "topic_zh": "地球與岩石",
+  "labels": [
+    "瀑布",
+    "waterfall"
+  ],
+  "question_patterns": [
+    "瀑布是怎麼來的",
+    "為什麼會有瀑布",
+    "瀑布為什麼會有水掉下來",
+    "瀑布是什麼"
+  ],
+  "first_sentence": "瀑布是水從高高的石頭上衝下來。",
+  "facts": [
+    "水從高處流到低處，中間有很大的落差",
+    "軟的石頭會被水磨掉，硬的石頭留下來",
+    "世界上最高的瀑布，在南美洲"
+  ],
+  "ask_back": "瀑布裡的水，是往上衝還是往下掉？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Waterfall",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "waterfall"
+    ],
+    "question_patterns": [
+      "how is a waterfall made",
+      "what is a waterfall",
+      "why does water fall off a cliff",
+      "why is there a waterfall"
+    ],
+    "first_sentence": "A waterfall is water rushing over a high rock step.",
+    "facts": [
+      "Water drops from higher land to lower land.",
+      "Soft rock under hard rock slowly washes away.",
+      "Angel Falls in Venezuela is the tallest in the world."
+    ],
+    "ask_back": "Does waterfall water go up, or fall down?",
+    "bridges": {},
+    "asks_en": [
+      "water",
+      "fall",
+      "off",
+      "cliff",
+      "rushing",
+      "high",
+      "rock",
+      "step",
+      "drops",
+      "higher",
+      "land",
+      "lower",
+      "soft",
+      "under",
+      "hard",
+      "wears",
+      "away",
+      "left",
+      "angel",
+      "venezuela",
+      "tallest",
+      "world"
+    ]
+  }
+}

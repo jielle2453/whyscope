@@ -8,9 +8,10 @@ falls back to `template_explanation` (deterministic, facts only, jargon replaced
 import json
 import re
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutTimeout
 
-from . import wording
+from . import quiz, wording
 from .config import resolve, to_trad, torch_device
 from .recall import content_en
 from .safety import askback_ok
@@ -107,11 +108,12 @@ def template_explanation(entry: dict, age: int, budget: int = wording.MAX_TOTAL_
     facts = [wording.plainify(f).strip("。！？ ") for f in entry["facts"]]
     fresh = [f for f in facts if not repeats(f, entry["first_sentence"])]
     facts = fresh or facts   # do not just say the first sentence again
-    good = [f for f in facts if not wording.check_text(f, 1)]
+    allow = wording.entry_allow_zh(entry)
+    good = [f for f in facts if not wording.check_text(f, 1, allow)]
     if not good:  # cut a long fact at its first / last clause
         for f in facts:
             for part in [p for p in re.split(r"[，、,]", f) if p]:
-                if not wording.check_text(part, 1):
+                if not wording.check_text(part, 1, allow):
                     good.append(part)
         good = good or [min(facts, key=len)]
     want = 1 if age <= 6 else 2
@@ -237,15 +239,19 @@ def template_explanation_en(entry: dict, age: int, budget: int = wording.MAX_TOT
     ev = en_view(entry)
     facts = [wording.plainify_en(_clean_en(f)) for f in ev["facts"]]
     fresh = [f for f in facts if not repeats_en(f, ev["first_sentence"])]
-    facts = fresh or facts
-    good = [f for f in facts if not wording.check_text_en(f, 1)]
+    if not fresh:   # every fact overlaps the first sentence: say the one that overlaps least ("The shell grows with the snail")
+        said = set(content_en(ev["first_sentence"]))
+        fresh = sorted(facts, key=lambda f: len(set(content_en(f)) & said) / max(1, len(set(content_en(f)))))[:1]
+    facts = fresh
+    allow = wording.entry_allow_en(entry)
+    good = [f for f in facts if not wording.check_text_en(f, 1, allow)]
     if not good:   # cut a long fact at a clause boundary
         for f in facts:
             for part in re.split(r",\s*|\s+(?:and|because|when|so|but)\s+", f):
                 part = part.strip(" .!")
                 if len(wording.words_en(part)) >= 3:
                     part = _end(part[:1].upper() + part[1:])
-                    if not wording.check_text_en(part, 1):
+                    if not wording.check_text_en(part, 1, allow):
                         good.append(part)
         if not good:
             good = [min(facts, key=lambda f: len(wording.words_en(f)))] if facts else [ev["first_sentence"]]
@@ -305,26 +311,50 @@ class Composer:
     def __init__(self, cfg: dict):
         self.cfg = cfg["compose"]
         self.full_cfg = cfg
-        self.backend = None          # "transformers" | "llama" | None
+        self.backend = None          # "transformers" | "llama" | "hailo" | None
         self.ready = False
         self.error = None
         self.last_reject = ""
         self._pool = ThreadPoolExecutor(max_workers=1)
         self._timeouts = 0
         self._skipped = 0
+        self._loading = False
+        self._load_ts = 0.0
         jieba_quiet()
         if self.cfg.get("enabled", True):
             threading.Thread(target=self._load, daemon=True).start()
 
     # ---- loading (background so the server starts fast) ----
     def _load(self):
+        self._loading, self._load_ts = True, time.time()
         try:
+            if cfg_mode(self.full_cfg) == "hailo":
+                self._load_hailo()   # no silent CPU fallback: a hailo run must really use the UGen300
+                self.error = None
+                return
             if cfg_mode(self.full_cfg) == "cpu" and self._load_llama():
                 return
             self._load_transformers()
         except Exception as e:  # missing package, no model, OOM ...
             self.error = f"{type(e).__name__}: {str(e)[:200]}"
             self.ready = False
+        finally:
+            self._loading = False
+
+    def _maybe_reload(self):
+        """hailo mode, worker was down at start-up: try to load again (at most every 15 s) so a later worker start
+        is picked up without restarting the hub. Until then answers use the template."""
+        if cfg_mode(self.full_cfg) == "hailo" and not self._loading and time.time() - self._load_ts > 15:
+            self._loading = True
+            threading.Thread(target=self._load, daemon=True).start()
+
+    def _load_hailo(self):
+        from .hailo import HailoLLM, HailoLLMRemote, chatml
+        worker = (self.full_cfg.get("hailo") or {}).get("worker")
+        self.llm = HailoLLMRemote(self.full_cfg) if worker else HailoLLM(self.full_cfg)
+        for lang in ("zh", "en"):   # prefill the fixed system + few-shot prefix once per language
+            self.llm.prime(chatml(self._shots(lang)))
+        self.backend, self.ready = "hailo", True
 
     def _load_llama(self) -> bool:
         gguf = next(iter(resolve(self.full_cfg, "models").glob("*qwen2.5-1.5b*q4_k_m*.gguf")), None)
@@ -357,21 +387,21 @@ class Composer:
         self._generate([{"role": "user", "content": "hi"}], 4)  # warm-up (CUDA kernels)
 
     # ---- generation ----
+    @staticmethod
+    def _shots(lang="zh"):
+        """System prompt and few-shot turns: the same for every question."""
+        en = lang == "en"
+        msgs = [{"role": "system", "content": SYSTEM_EN if en else SYSTEM}]
+        for a, facts, out in (SHOTS_EN if en else SHOTS):
+            msgs.append({"role": "user", "content": (_user_msg_en if en else _user_msg)(a, facts)})
+            msgs.append({"role": "assistant", "content": json.dumps(out, ensure_ascii=False)})
+        return msgs
+
     def _messages(self, entry, age, lang="zh"):
         if lang == "en":
             ev = en_view(entry)
-            msgs = [{"role": "system", "content": SYSTEM_EN}]
-            for a, facts, out in SHOTS_EN:
-                msgs.append({"role": "user", "content": _user_msg_en(a, facts)})
-                msgs.append({"role": "assistant", "content": json.dumps(out, ensure_ascii=False)})
-            msgs.append({"role": "user", "content": _user_msg_en(age, ev["facts"], ev["first_sentence"])})
-            return msgs
-        msgs = [{"role": "system", "content": SYSTEM}]
-        for a, facts, out in SHOTS:
-            msgs.append({"role": "user", "content": _user_msg(a, facts)})
-            msgs.append({"role": "assistant", "content": json.dumps(out, ensure_ascii=False)})
-        msgs.append({"role": "user", "content": _user_msg(age, entry["facts"], entry["first_sentence"])})
-        return msgs
+            return self._shots(lang) + [{"role": "user", "content": _user_msg_en(age, ev["facts"], ev["first_sentence"])}]
+        return self._shots(lang) + [{"role": "user", "content": _user_msg(age, entry["facts"], entry["first_sentence"])}]
 
     def _generate(self, msgs, max_new) -> str:
         """Run the LLM on chat messages; returns raw JSON-ish text (assistant output is prefilled with '{')."""
@@ -388,10 +418,37 @@ class Composer:
         return prefill + self.tok.decode(out[0][ids["input_ids"].shape[1]:], skip_special_tokens=True)
 
     def _run(self, entry, age, lang="zh") -> str:
+        if self.backend == "hailo":
+            return self._run_hailo(entry, age, lang)
         return self._generate(self._messages(entry, age, lang), int(self.cfg.get("max_new_tokens", 120)))
+
+    def _run_hailo(self, entry, age, lang="zh") -> str:
+        """Explanation only, on the UGen300: about 6 tokens/s, so every output token counts.
+
+        Raw ChatML with the assistant turn prefilled up to '{"explanation": "'; generation stops at the closing quote
+        or once the sentences allowed for this age are written. The question back comes from the knowledge entry
+        (pick_ask_back), not from the model: in testing the quantized model's own questions were often off-topic,
+        and leaving them out roughly halved the time per answer."""
+        from .hailo import chatml
+        msgs = self._messages(entry, age, lang)
+        prefill = '{"explanation": "'
+        turn = chatml(msgs[-1:]) + "<|im_start|>assistant\n" + prefill
+        n = 1 if age <= 6 else 2
+        ends = ".!?" if lang == "en" else "。！？"
+        stop = {"quote": '"', "ends": ends, "n": n}   # hailo.stopper: the closing quote or n sentence ends
+        out = self.llm.complete(chatml(msgs[:-1]), turn, int(self.cfg.get("max_new_tokens", 120)), stop)
+        return json.dumps({"explanation": out.split('"')[0].strip()}, ensure_ascii=False)
 
     @staticmethod
     def _parse(raw: str):
+        """First JSON object in the model output; tolerates text after it (Hailo GenAI may append some)."""
+        start = raw.find("{")
+        if start < 0:
+            return None
+        try:
+            return json.JSONDecoder().raw_decode(raw[start:])[0]
+        except Exception:
+            pass
         m = re.search(r"\{.*\}", raw, re.S)
         if not m:
             return None
@@ -404,10 +461,10 @@ class Composer:
         self.last_reject = why
         return None
 
-    def _validate(self, d, entry, age, bridges, use_bridge, budget):
+    def _validate(self, d, entry, age, bridges, use_bridge, budget, keep_ask=False):
         """Return a clean result dict or None if the model output is unusable."""
         if not isinstance(d, dict):
-            return None
+            return self._reject("no JSON object in the model output")
         source = " ".join(entry["facts"] + [entry["first_sentence"]] + list(entry.get("labels", [])))
         exp = to_trad(str(d.get("explanation", "")).strip())
         sents = _fit([s.strip() for s in _SENT.findall(exp) if s.strip()][:1 if age <= 6 else 2], budget)
@@ -424,22 +481,22 @@ class Composer:
         if any(repeats(s, entry["first_sentence"]) for s in sents):
             return self._reject("repeats the first sentence: " + exp)
         exp = wording.plainify(exp)
-        probs = wording.check_text(exp, 1 if age <= 6 else 2)
+        probs = wording.check_text(exp, 1 if age <= 6 else 2, wording.entry_allow_zh(entry))
         if probs or wording.chars_of(exp) > budget:
             return self._reject(f"wording {probs} / budget {budget}: {exp}")
         ask, bkey = pick_ask_back(entry, bridges, use_bridge)
-        if not bkey:   # the model may propose its own ask-back; it must pass every guard, else the entry's is used
+        if not bkey and not keep_ask:   # the model may propose its own ask-back (not when the entry's has an answer key)
             mine = to_trad(str(d.get("ask_back", "")).strip())
             asrc = source + " " + entry.get("ask_back", "")
             if (mine and len(mine) <= wording.ASKBACK_MAX and mine.endswith(("？", "?"))
                     and wording.ask_ok_pattern(mine) and askback_ok(mine) and not BAD_ASKBACK.search(mine)
                     and not wording.NOT_ALLOWED.search(mine) and not wording.has_banned(mine)
-                    and not wording.check_text(mine, 1)
+                    and not wording.check_text(mine, 1, wording.entry_allow_zh(entry))
                     and novelty_ok(mine, asrc, 0.75)):
                 ask = mine
         return {"explanation": exp, "ask_back": ask, "bridge_used": bkey, "source": "llm"}
 
-    def _validate_en(self, d, entry, age, bridges, use_bridge, budget):
+    def _validate_en(self, d, entry, age, bridges, use_bridge, budget, keep_ask=False):
         """English twin of _validate: grounding, no new knowledge, wording rules, guessable ask-back."""
         if not isinstance(d, dict):
             return None
@@ -457,17 +514,18 @@ class Composer:
             return self._reject(f"new knowledge: {bad[0]} {novel_words_en(bad[0], source)}")
         if any(repeats_en(s, ev["first_sentence"]) for s in sents):
             return self._reject("repeats the first sentence: " + exp)
-        probs = wording.check_text_en(exp, 1 if age <= 6 else 2)
+        allow = wording.entry_allow_en(entry)
+        probs = wording.check_text_en(exp, 1 if age <= 6 else 2, allow)
         if probs or wording.spoken_words(exp) > budget:
             return self._reject(f"wording {probs} / budget {budget}: {exp}")
         ask, bkey = pick_ask_back_en(entry, bridges, use_bridge)
-        if not bkey:
+        if not bkey and not keep_ask:
             mine = _clean_en(str(d.get("ask_back", "")))
             asrc = source + " " + ev["ask_back"]
             if (mine and len(wording.words_en(mine)) <= wording.ASKBACK_MAX_WORDS and mine.endswith("?")
                     and wording.ask_ok_pattern_en(mine) and wording.askback_ok_en(mine) and not BAD_ASKBACK_EN.search(mine)
                     and not wording.NOT_ALLOWED_EN.search(mine) and not wording.has_banned_en(mine)
-                    and wording.rare_score_en(mine) <= wording.MAX_RARE_EN
+                    and wording.rare_score_en(mine, allow) <= wording.MAX_RARE_EN
                     and novelty_ok_en(mine, asrc, 2)):
                 ask = mine
         return {"explanation": exp, "ask_back": ask, "bridge_used": bkey, "source": "llm"}
@@ -481,10 +539,25 @@ class Composer:
         en = lang == "en"
         if budget is None:
             budget = wording.MAX_TOTAL_WORDS if en else wording.MAX_TOTAL_CHARS
+        # reply turn (hub/quiz.py): when the entry's own question back is asked and it has an answer key, the fact that
+        # answers it is kept for the reply, so the explanation cannot give the answer away
+        ask, bkey = (pick_ask_back_en if en else pick_ask_back)(entry, list(bridges), use_bridge)
+        own = (en_view(entry)["ask_back"] if en else entry.get("ask_back", "")).strip()
+        qk = quiz.key(entry["id"], lang) if (not bkey and own and own in ask) else None
+        if qk and qk.get("fact") is not None:
+            entry = quiz.without_fact(entry, lang, qk["fact"])
+        res = self._compose(entry, age, bridges, use_bridge, budget, lang, keep_ask=bool(qk))
+        res["quiz"] = quiz.public(qk, lang) if qk and not res.get("bridge_used") else None
+        return res
+
+    def _compose(self, entry, age, bridges, use_bridge, budget, lang, keep_ask=False) -> dict:
+        en = lang == "en"
         base = template_en if en else template
         tpl = lambda why="": {**base(entry, age, bridges, use_bridge, budget),  # noqa: E731
                               "source": "template" + (f"({why})" if why else "")}
         if not (self.cfg.get("enabled", True) and self.ready):
+            if self.cfg.get("enabled", True):
+                self._maybe_reload()
             return tpl()
         if self._timeouts >= 2 and self._skipped < 10:
             self._skipped += 1
@@ -492,9 +565,11 @@ class Composer:
         self._skipped = 0
         try:
             fut = self._pool.submit(self._run, entry, age, lang)
-            raw = fut.result(timeout=float(self.cfg.get("timeout_s", 6.0)))
+            limit = self.cfg.get("timeout_s_hailo", 15.0) if self.backend == "hailo" else self.cfg.get("timeout_s", 6.0)
+            raw = fut.result(timeout=float(limit))
             self._timeouts = 0
-            res = (self._validate_en if en else self._validate)(self._parse(raw), entry, age, bridges, use_bridge, budget)
+            res = (self._validate_en if en else self._validate)(self._parse(raw), entry, age, bridges, use_bridge, budget,
+                                                                keep_ask)
             return res or tpl("grounding")
         except FutTimeout:
             self._timeouts += 1

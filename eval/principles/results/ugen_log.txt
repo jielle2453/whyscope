@@ -1,0 +1,91 @@
+zh-005 animal_adaptations | 企鵝的身體很厚，有厚厚的皮膚和脂肪。這讓它們可以不怕冷。 
+zh-007 heat_flow | 因為放屁時，氣體會吸收熱，使它變暖。所以它會慢慢散去，就變臭了。 
+zh-009 healing | 流血的地方會結痂，是因為皮膚受傷後，血液會慢慢凝固成血塊。血塊像天然的小繃帶，保護下面的傷口，讓它癒合得比較快。 
+zh-013 stars_distance | 因為星星是太陽的星星，所以看起來比較小。 
+zh-014 sun_light_heat | 因為太陽是熱的，所以它會發出光和熱。 
+zh-015 gravity | 因為太空人穿著的太空中服，有特殊材料可以讓他不受重力影響。 
+zh-021 None |  
+zh-023 plant_needs | 種子會長成大樹，因為它們需要陽光、水和空氣來做養分。葉子是綠的，因為它們有綠色的東西幫忙做養分。 
+zh-026 heat_changes | 因為檸檬是酸的，所以煮熟後會變成蛋糕。 
+zh-028 heat_flow | 因為辣東西會帶一點熱，所以會讓眼睛變熱。 
+zh-034 friction | 汽車需要輪子，因為輪子可以讓車輛在不平的路面上滑行。 
+zh-035 stars_distance | 手機是電器，它有電池和電源供應系統。 手機在使用時需要電力支援，所以它會發出光線。 
+zh-036 buoyancy | 因為船的重量比水重，所以會浮在水上。 
+zh-037 dissolving | 因為石頭是固體，它不會溶進水裡。 
+zh-039 gravity | 因為地球的重力比你扔出去的東西的力量大，所以東西會掉下來。 
+zh-040 reflection | 因為鏡子很光滑，可以反射光。所以我們看到自己。 
+zh-041 None |  
+zh-042 evaporation | 海水裡的水會蒸發，帶走了鹽。 
+zh-043 gravity | 地震是因為地底的岩石受到突然的壓力，而發生了位移。這些位移會釋放能量，形成地震波。 
+zh-044 dissolving | 因為沙子是小石粒，它們的分子和原子比較大。所以溶進水裡的時候，會先被溶解掉，留下一粒一粒的小石粒。 
+zh-045 None |  
+zh-046 None |  
+zh-048 rest_health | 大人上班是為了賺取薪水，用來支付生活開支。 
+zh-049 None |  
+zh-050 recycling | 因為錢是用來買東西的，所以錢可以買東西。 
+en-001 sound | Cats purr because they are happy and content. They shake their tummies to make a soft, low-pitched sound that is very relaxing for humans. 
+en-002 animal_adaptations | Zealbs have stripes to help them hide from other animals. They are like camels in the desert and bears in the Arctic. 
+en-003 water_cycle | Birds can fly because they have wings that allow them to take air away from their bodies, allowing them to flap and move. Humans do not have such a mechanism. 
+en-005 animal_life_cycle | Bees make honey because they need it to survive. They use the honey as a food source for their babies and themselves. 
+en-010 condensation | When you get in the bath, your skin gets wet. The water on your skin makes it cold. 
+en-014 sun_light_heat | The Sun is a huge ball of hot gas that gives light and heat to the Earth. 
+en-015 gravity | Astronauts float in space because they are weightless. Weight is the pull of gravity on an object. 
+en-021 light_colors | Leaves change color in the fall because they are responding to shorter days and longer nights, which triggers them to produce more chlorophyll. 
+en-023 sun_light_heat | Plants need light to grow, and they use it for photosynthesizing. 
+en-026 food_spoiling | Limes are sour because they have acids in them. 
+en-033 circuits | When you press the switch, it opens or closes a circuit. The light needs electricity to work, so when the circuit is open, no current flows through it. 
+en-034 simple_machines | Wheels make it easier to move things by rolling instead of sliding. This is because wheels have a lot less resistance than the ground they roll on. 
+en-035 magnets | Magnetism is a force that pulls things together. A magnet sticks to another magnet because they both have the same type of magnetic field. 
+en-036 buoyancy | Boats float because they are lighter than water. 
+en-037 buoyancy | A rock is heavy and so it sinks in water. 
+en-039 gravity | When you drop something, it is pulled down by gravity. This pull makes the thing fall to the ground. 
+en-040 reflection | When light hits a mirror, it bounces back and we see ourselves. 
+en-041 earth_surface | Volcanoes erupt because the Earth's surface is made of rock that moves slowly. When this moving rock bumps into other pieces, it can cause an earthquake called a volcanic eruption. 
+en-042 evaporation | The sea is made up of water, and when it gets warm, the water turns into invisible water vapor. This process is called evaporation. 
+en-043 gravity | Earthquakes happen because the Earth's surface is pushed and pulled. This pushing and pulling causes rocks to break, which then creates energy that can be felt as an earthquake. 
+en-044 dissolving | Sand is made of tiny bits because it dissolves in water. 
+en-045 gravity | The Earth is round because it was always round. 
+en-046 teeth | Your teeth are like sponges. They need to be cleaned every day so they don't get stuck with food and germs. 
+en-048 rest_health | Grown-ups go to work because they need money to buy food, clothes and other things. They also want to be healthy so they can do their jobs well. 
+en-049 germs_hygiene | We wash our hands to get rid of germs that can make us sick. 
+en-050 forces_motion | Money is a thing that can be used to buy other things. 
+hz-01 None |  
+hz-02 buoyancy | 魚在水中呼吸，水會把魚帶上浮力。 
+hz-03 breathing_heart | 因為在跑步的時候，身體需要更多的氧氣。所以心跳會變快，呼吸也變急促。 
+hz-04 breathing_heart | 因為你呼吸的時候，會帶進一些水。 
+hz-05 sun_path | 因為白天太陽在高處，影子長。所以星星的影子被遮住了。 
+hz-06 sun_path | 因為地球在自轉，所以太陽的影子會隨著地球的自轉而變動。 
+hz-07 None |  
+hz-08 condensation | 因為冬天的氣溫比較低，水氣會快速凝結成小水滴。 
+hz-09 food_digestion | 花謝掉是因為它需要能量去長大。花在成長的過程裡，會把一部分的能量拿去做繁殖工作，剩下的能量就讓花朵凋落。 
+hz-10 plant_needs | 植物需要水來進行光合作用，使葉子綠色。 
+hz-11 dissolving | 糖和水一起放進去，它會帶一點靜電。帶了靜電的糖，就吸住水分子，慢慢溶掉。 
+hz-12 heat_changes | 因為蛋煮熟的時候，它會吸收熱水蒸氣，變成不一樣的東西。 
+hz-13 static | 因為電風扇的電機和電風葉之間會帶一點靜電，這些靜電可以吸引小紙屑或頭髮。 
+hz-14 friction | 因為腳踏車有兩個輪子，每一個輪子都有一個方向的摩擦力。所以即使在不平的路面上，它也有可能保持平衡。 
+hz-15 melt_freeze | 冰塊是因為它在結冰的時候，吸收了熱量。所以當它被放在外面時，它就開始融化成水。 
+hz-16 condensation | 因為冰水的杯子外面是冷的，而裡面是熱的。所以水氣會在冷的地方凝結成小水滴，形成水珠。 
+hz-17 buoyancy | 因為河裡的石頭是圓的，所以它比較容易浮起來。 
+hz-18 gravity | 因為地球的重力把東西拉到地面上，所以山看起來很高。 
+hz-19 food_digestion | 小朋友去上學，是因為他們需要學習知識和技能。這些知識和技能將會幫助他們在未來的生活中有所作為。 
+hz-20 recycling | 因為垃圾會對環境造成破壞性，影響動物和生態。 
+he-01 sound | Dogs shake their bodies to make sounds. The sound is a way for the dog to communicate with its owner. 
+he-02 habitats_needs | Birds build nests to protect their babies from the cold, wet weather. They also need a place for them to sleep and be safe. 
+he-03 None |  
+he-04 dissolving | Your body needs water to survive, and you get thirsty when it's time for your body to have a drink. 
+he-05 day_night | The Earth is turning, so the sun seems to rise and set. When it is day on one side of the Earth, it is night on the other side. 
+he-06 sun_light_heat | The Sun moves across the sky, and it sets at night. 
+he-07 gravity | Snow falls in winter because the Earth pulls it down, and that is called gravity. 
+he-08 light_sound_speed | Light travels faster than sound, so the light from a lightning bolt reaches our eyes before we hear the thunder. 
+he-09 plant_needs | In winter, trees lose their leaves because they don't get enough light to make food. Without light, the tree can't use water and air to make its own food. 
+he-10 seeds_growth | Apples grow from seeds inside them. The seeds sprout and then become new plants. 
+he-11 dissolving | The sugar dissolves in the water, becoming tiny bits that mix with everything else. 
+he-12 heat_changes | The heat in cooking changes the water in the egg into a gas, making it hard. 
+he-13 circuits | Toys need batteries because they don't have a full circuit to work on, so the battery sends electricity to make them work. 
+he-14 sun_light_heat | A fan makes you feel cool because it creates a cooling effect by making the air feel cooler to your skin. 
+he-15 evaporation | When you walk on a puddle, the water gets warm and turns into invisible water vapor. This is called evaporation. 
+he-16 heat_flow | The drink gets wet on the outside because it is cold and the air around it is warm. The warm air in the room makes the drink feel cooler, so it cools down a little bit. 
+he-17 materials | Pebbs are smooth because they have been in the water for a long time. The water wears them down and makes them look nice. 
+he-18 earth_surface | Mountains are tall because they have been slowly built up over millions of years by the movement and collision of huge pieces of rock called plates. 
+he-19 recycling | School teaches us things we need to know, like how to read and write. 
+he-20 food_spoiling | We have to put rubbish in the bin because it is dirty and we don't want germs or mould growing on it. 

@@ -52,6 +52,30 @@
     "bridges": {
       "has_sibling": "Have you seen your brother or sister lose a tooth?",
       "likes_dinosaurs": "Do you think dinosaurs lost baby teeth too?"
-    }
+    },
+    "asks_en": [
+      "fall",
+      "kids",
+      "lose",
+      "wiggly",
+      "tooth",
+      "big",
+      "new",
+      "push",
+      "start",
+      "around",
+      "age",
+      "six",
+      "root",
+      "slowly",
+      "away",
+      "wiggles",
+      "bigger",
+      "grows",
+      "place",
+      "lasts",
+      "long",
+      "time"
+    ]
   }
 }

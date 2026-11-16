@@ -48,6 +48,27 @@
     "ask_back": "Do you think plants make food from sunlight, or from sand?",
     "bridges": {
       "has_garden": "Have you picked a green leaf from a plant in your garden?"
-    }
+    },
+    "asks_en": [
+      "leaves",
+      "green",
+      "color",
+      "because",
+      "stuff",
+      "inside",
+      "helps",
+      "plants",
+      "food",
+      "sunlight",
+      "soaks",
+      "red",
+      "blue",
+      "light",
+      "bounces",
+      "back",
+      "less",
+      "turn",
+      "yellow"
+    ]
   }
 }

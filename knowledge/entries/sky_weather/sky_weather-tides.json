@@ -1,0 +1,62 @@
+{
+  "id": "sky_weather-tides",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "潮汐",
+    "漲潮",
+    "tide"
+  ],
+  "question_patterns": [
+    "為什麼海水會漲潮退潮",
+    "潮汐是什麼",
+    "為什麼海邊水會一直變",
+    "什麼讓海水一漲一退"
+  ],
+  "first_sentence": "海水一漲一退，是月亮和太陽在拉它。",
+  "facts": [
+    "月亮和太陽會拉著海水",
+    "海水高高的時候，叫漲潮",
+    "海水低低的時候，叫退潮"
+  ],
+  "ask_back": "月亮拉海水，會讓海水一漲一退嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://oceanservice.noaa.gov/facts/tides.html",
+  "source_license": "US government public domain (facts paraphrased)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "tide",
+      "tides",
+      "high tide"
+    ],
+    "question_patterns": [
+      "why does the sea go in and out",
+      "what are tides",
+      "what makes high tide",
+      "why does the water at the beach go up and down"
+    ],
+    "first_sentence": "The moon and sun pull the sea up and down.",
+    "facts": [
+      "The pull of the moon and sun makes the tides.",
+      "When the sea is high, it is high tide.",
+      "When the sea is low, it is low tide."
+    ],
+    "ask_back": "Does the moon's pull make the sea rise and fall, or not?",
+    "bridges": {},
+    "asks_en": [
+      "sea",
+      "water",
+      "beach",
+      "down",
+      "moon",
+      "sun",
+      "pull",
+      "low"
+    ]
+  }
+}

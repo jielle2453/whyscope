@@ -37,7 +37,6 @@
       "what is this",
       "why does the microwave make food hot",
       "how does a microwave work",
-      "why does the microwave hum",
       "why is my food hot in the microwave"
     ],
     "first_sentence": "This is a microwave! Shaking water makes the food get hot.",
@@ -49,6 +48,23 @@
     "ask_back": "Do you think a microwave can heat a cup of water fast, or slow?",
     "bridges": {
       "has_sibling": "Do you help your family heat milk in the microwave?"
-    }
+    },
+    "asks_en": [
+      "food",
+      "hot",
+      "work",
+      "shaking",
+      "water",
+      "kind",
+      "wave",
+      "cannot",
+      "shakes",
+      "fast",
+      "heat",
+      "metal",
+      "inside",
+      "sparks",
+      "dangerous"
+    ]
   }
 }

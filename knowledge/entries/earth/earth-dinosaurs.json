@@ -1,0 +1,74 @@
+{
+  "id": "earth-dinosaurs",
+  "topic": "earth",
+  "topic_zh": "地球與岩石",
+  "labels": [
+    "恐龍",
+    "dinosaur"
+  ],
+  "question_patterns": [
+    "恐龍為什麼不見了",
+    "恐龍去哪裡了",
+    "恐龍是怎麼絕種的",
+    "我們怎麼知道有恐龍"
+  ],
+  "first_sentence": "恐龍很久很久以前就消失了。",
+  "facts": [
+    "大約六千六百萬年前，恐龍消失",
+    "科學家認為是大石頭從太空撞到地球",
+    "鳥是恐龍的後代，還活著"
+  ],
+  "ask_back": "我們是靠什麼知道有恐龍，是化石還是照片？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Dinosaur",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "dinosaur",
+      "dinosaurs"
+    ],
+    "question_patterns": [
+      "what happened to the dinosaurs",
+      "why did dinosaurs die out",
+      "how do we know about dinosaurs",
+      "where did the dinosaurs go"
+    ],
+    "first_sentence": "Most dinosaurs died out a very long time ago.",
+    "facts": [
+      "Most dinosaurs died out about 66 million years ago.",
+      "Scientists think a huge space rock hit the Earth.",
+      "Birds came from dinosaurs and are still alive."
+    ],
+    "ask_back": "Do we know about dinosaurs from fossils, or from photos?",
+    "bridges": {},
+    "asks_en": [
+      "happened",
+      "die",
+      "know",
+      "most",
+      "died",
+      "long",
+      "time",
+      "ago",
+      "66",
+      "million",
+      "years",
+      "scientists",
+      "think",
+      "huge",
+      "space",
+      "rock",
+      "hit",
+      "earth",
+      "birds",
+      "came",
+      "still",
+      "alive"
+    ]
+  }
+}

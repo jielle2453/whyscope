@@ -1,0 +1,63 @@
+{
+  "id": "plants-evergreen",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "常綠樹",
+    "松樹",
+    "evergreen"
+  ],
+  "question_patterns": [
+    "為什麼松樹冬天不會掉葉子",
+    "常綠樹是什麼",
+    "有的樹為什麼冬天還是綠的",
+    "為什麼有的樹一年四季都有葉子"
+  ],
+  "first_sentence": "常綠樹一整年都有葉子。",
+  "facts": [
+    "有的樹冬天會掉光葉子",
+    "常綠樹不會一次掉光葉子",
+    "常綠的有大樹，也有小灌木"
+  ],
+  "ask_back": "常綠樹冬天會掉光葉子嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Evergreen",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "evergreen",
+      "pine tree"
+    ],
+    "question_patterns": [
+      "why do pine trees stay green in winter",
+      "what is an evergreen tree",
+      "why do some trees keep their leaves all year",
+      "why do some trees lose their leaves and others do not"
+    ],
+    "first_sentence": "An evergreen keeps its leaves all year.",
+    "facts": [
+      "Some trees lose their leaves in winter.",
+      "Evergreens keep their leaves all year round.",
+      "Evergreens can be trees or shrubs."
+    ],
+    "ask_back": "Does an evergreen lose all its leaves in winter?",
+    "bridges": {},
+    "asks_en": [
+      "stay",
+      "green",
+      "winter",
+      "keep",
+      "leaves",
+      "year",
+      "lose",
+      "others",
+      "round",
+      "shrubs"
+    ]
+  }
+}

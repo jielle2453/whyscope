@@ -1,0 +1,68 @@
+{
+  "id": "plants-mushroom",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "蘑菇",
+    "香菇",
+    "mushroom"
+  ],
+  "question_patterns": [
+    "蘑菇是植物嗎",
+    "蘑菇是什麼",
+    "蘑菇為什麼不是植物",
+    "山上的蘑菇可以吃嗎"
+  ],
+  "first_sentence": "蘑菇不是植物，是真菌。",
+  "facts": [
+    "蘑菇不靠太陽光做養分",
+    "大部分蘑菇有一根柄和一個傘",
+    "野外的蘑菇有的有毒，不要亂吃"
+  ],
+  "ask_back": "蘑菇是植物，還是真菌？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Mushroom",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "mushroom",
+      "mushrooms"
+    ],
+    "question_patterns": [
+      "is a mushroom a plant",
+      "what is a mushroom",
+      "why is a mushroom not a plant",
+      "can I eat mushrooms that grow outside"
+    ],
+    "first_sentence": "A mushroom is not a plant. It is a fungus.",
+    "facts": [
+      "A mushroom does not use sunlight to make food.",
+      "Most mushrooms have a stem and a cap.",
+      "Some wild mushrooms are poisonous, so never taste them."
+    ],
+    "ask_back": "Is a mushroom a plant, or a fungus?",
+    "bridges": {},
+    "asks_en": [
+      "plant",
+      "eat",
+      "grow",
+      "outside",
+      "fungus",
+      "use",
+      "sunlight",
+      "food",
+      "most",
+      "stem",
+      "cap",
+      "wild",
+      "poisonous",
+      "never",
+      "taste"
+    ]
+  }
+}

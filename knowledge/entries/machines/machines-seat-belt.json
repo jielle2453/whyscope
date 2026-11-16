@@ -1,0 +1,68 @@
+{
+  "id": "machines-seat-belt",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "安全帶",
+    "seat belt"
+  ],
+  "question_patterns": [
+    "為什麼坐車要繫安全帶",
+    "安全帶是做什麼的",
+    "安全帶為什麼很重要",
+    "為什麼車子裡有安全帶"
+  ],
+  "first_sentence": "安全帶會把你固定在座位上。",
+  "facts": [
+    "車子突然停住，人會往前衝",
+    "安全帶讓人不會被甩出去",
+    "安全帶救過很多人"
+  ],
+  "ask_back": "車子突然停住，沒繫安全帶的人會往前衝嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Seat_belt",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "seat belt",
+      "seatbelt"
+    ],
+    "question_patterns": [
+      "why do we wear a seat belt",
+      "what is a seat belt for",
+      "why must I buckle up in the car",
+      "how does a seat belt keep me safe"
+    ],
+    "first_sentence": "A seat belt keeps you in your seat.",
+    "facts": [
+      "If a car stops fast, people can fly forward.",
+      "A seat belt keeps you from being thrown out.",
+      "Seat belts have saved many lives."
+    ],
+    "ask_back": "If a car stops fast, will someone with no belt fly forward, or stay still?",
+    "bridges": {},
+    "asks_en": [
+      "wear",
+      "must",
+      "buckle",
+      "car",
+      "keep",
+      "safe",
+      "stops",
+      "fast",
+      "people",
+      "fly",
+      "forward",
+      "being",
+      "thrown",
+      "saved",
+      "many",
+      "lives"
+    ]
+  }
+}

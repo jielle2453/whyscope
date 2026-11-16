@@ -47,6 +47,21 @@
     "ask_back": "Do you think a butterfly's wings are heavy, or light?",
     "bridges": {
       "has_garden": "Have you seen a butterfly in your garden?"
-    }
+    },
+    "asks_en": [
+      "colors",
+      "wings",
+      "pretty",
+      "tiny",
+      "scales",
+      "cover",
+      "little",
+      "tiles",
+      "light",
+      "bouncing",
+      "off",
+      "grows",
+      "caterpillar"
+    ]
   }
 }

@@ -32,7 +32,8 @@
   "en": {
     "labels": [
       "heartbeat",
-      "heart"
+      "heart",
+      "chest"
     ],
     "question_patterns": [
       "what is this",
@@ -51,6 +52,26 @@
     "bridges": {
       "rides_bike": "When you ride your bike really fast, what happens to your heart?",
       "has_dog": "Does your dog's heart go thump-thump too?"
-    }
+    },
+    "asks_en": [
+      "thump",
+      "beat",
+      "fast",
+      "squeezes",
+      "send",
+      "blood",
+      "everywhere",
+      "big",
+      "fist",
+      "kids",
+      "usually",
+      "bit",
+      "faster",
+      "grown",
+      "ups",
+      "run",
+      "feel",
+      "scared"
+    ]
   }
 }

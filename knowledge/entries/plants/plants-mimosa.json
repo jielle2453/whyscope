@@ -30,7 +30,8 @@
   "spot_checked": false,
   "en": {
     "labels": [
-      "mimosa"
+      "mimosa",
+      "sensitive plant"
     ],
     "question_patterns": [
       "why do mimosa leaves close",
@@ -47,6 +48,25 @@
     "ask_back": "Do you think a mimosa leaf closes when you touch it, or stays open?",
     "bridges": {
       "has_garden": "Have you touched a mimosa plant in your garden?"
-    }
+    },
+    "asks_en": [
+      "leaves",
+      "close",
+      "fold",
+      "touched",
+      "keep",
+      "itself",
+      "safe",
+      "leaf",
+      "slowly",
+      "may",
+      "help",
+      "hide",
+      "harm",
+      "after",
+      "while",
+      "open",
+      "again"
+    ]
   }
 }

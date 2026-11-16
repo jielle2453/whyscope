@@ -1,0 +1,18 @@
+{
+  "name": "whyscope-relay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Opaque-frame relay between a home hub and its paired devices (see ../docs/relay.md)",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "dev:node": "node node-server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.162.0"
+  },
+  "dependencies": {
+    "ws": "^8.23.0"
+  }
+}

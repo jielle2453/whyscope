@@ -48,6 +48,19 @@
     "ask_back": "Do you think the moon is closer than a tree, or farther away?",
     "bridges": {
       "likes_cars": "You like cars! Do you think the moon follows the car too?"
-    }
+    },
+    "asks_en": [
+      "follow",
+      "car",
+      "walking",
+      "because",
+      "far",
+      "away",
+      "seem",
+      "close",
+      "zoom",
+      "past",
+      "move"
+    ]
   }
 }

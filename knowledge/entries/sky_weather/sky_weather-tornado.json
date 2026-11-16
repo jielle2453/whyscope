@@ -1,0 +1,68 @@
+{
+  "id": "sky_weather-tornado",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "龍捲風",
+    "tornado"
+  ],
+  "question_patterns": [
+    "龍捲風是什麼",
+    "為什麼會有龍捲風",
+    "龍捲風是怎麼來的",
+    "龍捲風為什麼會轉"
+  ],
+  "first_sentence": "龍捲風是從雲裡伸下來的旋轉的風。",
+  "facts": [
+    "龍捲風從會轉的大雷雨雲來",
+    "它從雲伸到地面",
+    "遇到龍捲風，要躲到房子最下面的房間"
+  ],
+  "ask_back": "龍捲風是從雲裡來，還是從地底下來？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Tornado",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "tornado",
+      "twister"
+    ],
+    "question_patterns": [
+      "what is a tornado",
+      "why do tornadoes spin",
+      "how is a tornado made",
+      "where do tornadoes come from"
+    ],
+    "first_sentence": "A tornado is a spinning column of wind.",
+    "facts": [
+      "Most tornadoes come from big spinning storm clouds.",
+      "The spinning wind reaches down to the ground.",
+      "In a tornado, go to the lowest floor, away from windows."
+    ],
+    "ask_back": "Does a tornado come down from a cloud, or up from the ground?",
+    "bridges": {},
+    "asks_en": [
+      "tornadoes",
+      "spin",
+      "spinning",
+      "column",
+      "wind",
+      "most",
+      "big",
+      "storm",
+      "clouds",
+      "reaches",
+      "down",
+      "ground",
+      "lowest",
+      "floor",
+      "away",
+      "windows"
+    ]
+  }
+}

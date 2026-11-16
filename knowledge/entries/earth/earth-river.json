@@ -1,0 +1,73 @@
+{
+  "id": "earth-river",
+  "topic": "earth",
+  "topic_zh": "地球與岩石",
+  "labels": [
+    "河流",
+    "河",
+    "river"
+  ],
+  "question_patterns": [
+    "為什麼河流會流到海裡",
+    "河從哪裡來",
+    "河水為什麼一直流",
+    "河流是怎麼變大的"
+  ],
+  "first_sentence": "河水從高處往低處流，最後流到海裡。",
+  "facts": [
+    "河從山上或泉水開始",
+    "小小的溪流會匯在一起變大河",
+    "河水因為地球的拉力往下流"
+  ],
+  "ask_back": "河水是往高處流，還是往低處流？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/River",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "river",
+      "rivers"
+    ],
+    "question_patterns": [
+      "why do rivers flow to the sea",
+      "where does a river start",
+      "why does river water keep moving",
+      "how does a river get bigger"
+    ],
+    "first_sentence": "A river flows from high ground down to the sea.",
+    "facts": [
+      "A river starts on high ground, like hills or melting snow.",
+      "Small streams join and make it bigger.",
+      "Rivers flow downhill because the Earth pulls water down."
+    ],
+    "ask_back": "Does river water flow uphill, or downhill?",
+    "bridges": {},
+    "asks_en": [
+      "flow",
+      "sea",
+      "start",
+      "water",
+      "keep",
+      "moving",
+      "bigger",
+      "high",
+      "ground",
+      "down",
+      "hills",
+      "melting",
+      "snow",
+      "small",
+      "streams",
+      "join",
+      "downhill",
+      "because",
+      "earth",
+      "pulls"
+    ]
+  }
+}

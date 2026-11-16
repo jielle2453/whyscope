@@ -1,0 +1,69 @@
+{
+  "id": "machines-television",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電視",
+    "television"
+  ],
+  "question_patterns": [
+    "電視為什麼會有畫面",
+    "電視是怎麼播出來的",
+    "電視裡的人在哪裡",
+    "電視是什麼"
+  ],
+  "first_sentence": "電視把收到的訊號，變成畫面和聲音。",
+  "facts": [
+    "電視台會把節目送出來",
+    "天線或線路會把訊號收進電視",
+    "現在的電視大多是薄薄的平面螢幕"
+  ],
+  "ask_back": "現在的電視螢幕，是薄薄平平的，還是又厚又鼓？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Television",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "television",
+      "tv"
+    ],
+    "question_patterns": [
+      "how does a tv show pictures",
+      "how do shows get onto the tv",
+      "where do the people on tv come from",
+      "what is a television"
+    ],
+    "first_sentence": "A TV turns signals into pictures and sound.",
+    "facts": [
+      "TV stations send out shows.",
+      "An antenna or cable brings the signal to your TV.",
+      "Most TVs now have flat screens."
+    ],
+    "ask_back": "Are most TV screens now thin and flat, or thick and bulging?",
+    "bridges": {},
+    "asks_en": [
+      "show",
+      "pictures",
+      "onto",
+      "people",
+      "turns",
+      "signals",
+      "sound",
+      "stations",
+      "send",
+      "antenna",
+      "cable",
+      "brings",
+      "most",
+      "tvs",
+      "now",
+      "flat",
+      "screens"
+    ]
+  }
+}

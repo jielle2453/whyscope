@@ -1,0 +1,813 @@
+{
+ "note": "Gold mapping is the AI author's own judgment (not human reviewed). coverage: full = the principle's facts are enough for a correct child-level answer; partly = principle is relevant but facts do not give the real reason; none = no principle in the 52-entry list helps.",
+ "failed": [
+  {
+   "id": "zh-002",
+   "lang": "zh",
+   "q": "為什麼貓咪會呼嚕呼嚕叫？",
+   "category": "animals",
+   "hub_verdict": "wrong",
+   "principle": "sound",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-003",
+   "lang": "zh",
+   "q": "為什麼鳥可以飛，我不能飛？",
+   "category": "animals",
+   "hub_verdict": "abstained",
+   "principle": "animal_adaptations",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-004",
+   "lang": "zh",
+   "q": "為什麼狗狗要吐舌頭？",
+   "category": "animals",
+   "hub_verdict": "wrong",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "zh-005",
+   "lang": "zh",
+   "q": "為什麼企鵝不怕冷？",
+   "category": "animals",
+   "hub_verdict": "abstained",
+   "principle": "animal_adaptations",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-007",
+   "lang": "zh",
+   "q": "為什麼放屁會臭？",
+   "category": "human body",
+   "hub_verdict": "abstained",
+   "principle": "food_digestion",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-009",
+   "lang": "zh",
+   "q": "為什麼流血的地方會結痂？",
+   "category": "human body",
+   "hub_verdict": "sensitive",
+   "principle": "healing",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-013",
+   "lang": "zh",
+   "q": "為什麼晚上會有星星？",
+   "category": "sky/space",
+   "hub_verdict": "wrong",
+   "principle": "stars_distance",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-014",
+   "lang": "zh",
+   "q": "為什麼太陽那麼熱？",
+   "category": "sky/space",
+   "hub_verdict": "wrong",
+   "principle": "stars_distance",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-015",
+   "lang": "zh",
+   "q": "為什麼太空人在太空會飄起來？",
+   "category": "sky/space",
+   "hub_verdict": "abstained",
+   "principle": "gravity",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-021",
+   "lang": "zh",
+   "q": "為什麼樹葉秋天會變黃？",
+   "category": "plants",
+   "hub_verdict": "wrong",
+   "principle": "plant_needs",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-023",
+   "lang": "zh",
+   "q": "為什麼種子會長成大樹？",
+   "category": "plants",
+   "hub_verdict": "abstained",
+   "principle": "seeds_growth",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-026",
+   "lang": "zh",
+   "q": "為什麼檸檬是酸的？",
+   "category": "food",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "zh-028",
+   "lang": "zh",
+   "q": "為什麼吃辣會流眼淚？",
+   "category": "food",
+   "hub_verdict": "wrong",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "zh-034",
+   "lang": "zh",
+   "q": "為什麼汽車需要輪子？",
+   "category": "everyday objects/machines",
+   "hub_verdict": "abstained",
+   "principle": "simple_machines",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-035",
+   "lang": "zh",
+   "q": "為什麼手機可以打電話給遠方的人？",
+   "category": "everyday objects/machines",
+   "hub_verdict": "abstained",
+   "principle": "technology_tools",
+   "coverage": "partly"
+  },
+  {
+   "id": "zh-036",
+   "lang": "zh",
+   "q": "為什麼船會浮在水上？",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "buoyancy",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-037",
+   "lang": "zh",
+   "q": "為什麼石頭丟到水裡會沉下去？",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "buoyancy",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-039",
+   "lang": "zh",
+   "q": "為什麼球丟上去會掉下來？",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "gravity",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-040",
+   "lang": "zh",
+   "q": "為什麼鏡子可以照出我的樣子？",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "reflection",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-041",
+   "lang": "zh",
+   "q": "為什麼火山會噴火？",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "earth_surface",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-042",
+   "lang": "zh",
+   "q": "為什麼海水是鹹的？",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "ocean_water",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-043",
+   "lang": "zh",
+   "q": "為什麼會有地震？",
+   "category": "earth/rocks",
+   "hub_verdict": "sensitive",
+   "principle": "earth_surface",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-044",
+   "lang": "zh",
+   "q": "為什麼沙子是一粒一粒的？",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "rocks_soil",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-045",
+   "lang": "zh",
+   "q": "為什麼地球是圓的？",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "zh-046",
+   "lang": "zh",
+   "q": "為什麼要刷牙？",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": "teeth",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-048",
+   "lang": "zh",
+   "q": "為什麼大人要上班？",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "zh-049",
+   "lang": "zh",
+   "q": "為什麼要洗手？",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": "germs_hygiene",
+   "coverage": "full"
+  },
+  {
+   "id": "zh-050",
+   "lang": "zh",
+   "q": "為什麼錢可以買東西？",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-001",
+   "lang": "en",
+   "q": "Why do cats purr?",
+   "category": "animals",
+   "hub_verdict": "abstained",
+   "principle": "sound",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-002",
+   "lang": "en",
+   "q": "Why do zebras have stripes?",
+   "category": "animals",
+   "hub_verdict": "abstained",
+   "principle": "animal_adaptations",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-003",
+   "lang": "en",
+   "q": "Why can birds fly but I can't?",
+   "category": "animals",
+   "hub_verdict": "abstained",
+   "principle": "animal_adaptations",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-005",
+   "lang": "en",
+   "q": "Why do bees make honey?",
+   "category": "animals",
+   "hub_verdict": "partly",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-010",
+   "lang": "en",
+   "q": "Why do my fingers get wrinkly in the bath?",
+   "category": "human body",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-014",
+   "lang": "en",
+   "q": "Why is the sun so hot?",
+   "category": "sky/space",
+   "hub_verdict": "abstained",
+   "principle": "stars_distance",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-015",
+   "lang": "en",
+   "q": "Why do astronauts float in space?",
+   "category": "sky/space",
+   "hub_verdict": "abstained",
+   "principle": "gravity",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-021",
+   "lang": "en",
+   "q": "Why do leaves change color in autumn?",
+   "category": "plants",
+   "hub_verdict": "abstained",
+   "principle": "plant_needs",
+   "coverage": "partly"
+  },
+  {
+   "id": "en-023",
+   "lang": "en",
+   "q": "Why do plants need sunlight?",
+   "category": "plants",
+   "hub_verdict": "abstained",
+   "principle": "plant_needs",
+   "coverage": "full"
+  },
+  {
+   "id": "en-026",
+   "lang": "en",
+   "q": "Why are lemons sour?",
+   "category": "food",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-033",
+   "lang": "en",
+   "q": "Why does the light turn on when I press the switch?",
+   "category": "everyday objects/machines",
+   "hub_verdict": "abstained",
+   "principle": "circuits",
+   "coverage": "full"
+  },
+  {
+   "id": "en-034",
+   "lang": "en",
+   "q": "Why do cars have wheels?",
+   "category": "everyday objects/machines",
+   "hub_verdict": "abstained",
+   "principle": "simple_machines",
+   "coverage": "full"
+  },
+  {
+   "id": "en-035",
+   "lang": "en",
+   "q": "Why do magnets stick together?",
+   "category": "everyday objects/machines",
+   "hub_verdict": "partly",
+   "principle": "magnets",
+   "coverage": "full"
+  },
+  {
+   "id": "en-036",
+   "lang": "en",
+   "q": "Why do boats float?",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "buoyancy",
+   "coverage": "full"
+  },
+  {
+   "id": "en-037",
+   "lang": "en",
+   "q": "Why does a rock sink in water?",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "buoyancy",
+   "coverage": "full"
+  },
+  {
+   "id": "en-039",
+   "lang": "en",
+   "q": "Why do things fall down when I drop them?",
+   "category": "water/physics",
+   "hub_verdict": "wrong",
+   "principle": "gravity",
+   "coverage": "full"
+  },
+  {
+   "id": "en-040",
+   "lang": "en",
+   "q": "Why can I see myself in a mirror?",
+   "category": "water/physics",
+   "hub_verdict": "abstained",
+   "principle": "reflection",
+   "coverage": "full"
+  },
+  {
+   "id": "en-041",
+   "lang": "en",
+   "q": "Why do volcanoes erupt?",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "earth_surface",
+   "coverage": "full"
+  },
+  {
+   "id": "en-042",
+   "lang": "en",
+   "q": "Why is the sea salty?",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "ocean_water",
+   "coverage": "full"
+  },
+  {
+   "id": "en-043",
+   "lang": "en",
+   "q": "Why do earthquakes happen?",
+   "category": "earth/rocks",
+   "hub_verdict": "sensitive",
+   "principle": "earth_surface",
+   "coverage": "full"
+  },
+  {
+   "id": "en-044",
+   "lang": "en",
+   "q": "Why is sand made of tiny bits?",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": "rocks_soil",
+   "coverage": "full"
+  },
+  {
+   "id": "en-045",
+   "lang": "en",
+   "q": "Why is the Earth round?",
+   "category": "earth/rocks",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-046",
+   "lang": "en",
+   "q": "Why do I have to brush my teeth?",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": "teeth",
+   "coverage": "full"
+  },
+  {
+   "id": "en-048",
+   "lang": "en",
+   "q": "Why do grown-ups go to work?",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "en-049",
+   "lang": "en",
+   "q": "Why do we wash our hands?",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": "germs_hygiene",
+   "coverage": "full"
+  },
+  {
+   "id": "en-050",
+   "lang": "en",
+   "q": "Why can money buy things?",
+   "category": "people/society",
+   "hub_verdict": "abstained",
+   "principle": null,
+   "coverage": "none"
+  }
+ ],
+ "heldout": [
+  {
+   "id": "hz-01",
+   "lang": "zh",
+   "q": "為什麼蜜蜂會螫人？",
+   "category": "animals",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "hz-02",
+   "lang": "zh",
+   "q": "為什麼魚可以在水裡呼吸？",
+   "category": "animals",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "hz-03",
+   "lang": "zh",
+   "q": "為什麼跑步以後心跳會變快？",
+   "category": "human body",
+   "principle": "breathing_heart",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-04",
+   "lang": "zh",
+   "q": "為什麼我會流鼻水？",
+   "category": "human body",
+   "principle": "germs_hygiene",
+   "coverage": "partly"
+  },
+  {
+   "id": "hz-05",
+   "lang": "zh",
+   "q": "為什麼白天看不到星星？",
+   "category": "sky/space",
+   "principle": "stars_distance",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-06",
+   "lang": "zh",
+   "q": "為什麼太陽會下山？",
+   "category": "sky/space",
+   "principle": "day_night",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-07",
+   "lang": "zh",
+   "q": "為什麼颱風的風那麼大？",
+   "category": "weather/nature",
+   "principle": "wind",
+   "coverage": "partly"
+  },
+  {
+   "id": "hz-08",
+   "lang": "zh",
+   "q": "為什麼冬天呼出來的氣是白白的？",
+   "category": "weather/nature",
+   "principle": "condensation",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-09",
+   "lang": "zh",
+   "q": "為什麼花會謝掉？",
+   "category": "plants",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "hz-10",
+   "lang": "zh",
+   "q": "為什麼植物要澆水？",
+   "category": "plants",
+   "principle": "plant_needs",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-11",
+   "lang": "zh",
+   "q": "為什麼糖放進水裡就不見了？",
+   "category": "food",
+   "principle": "dissolving",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-12",
+   "lang": "zh",
+   "q": "為什麼蛋煮熟會變硬？",
+   "category": "food",
+   "principle": "heat_changes",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-13",
+   "lang": "zh",
+   "q": "為什麼電風扇吹起來涼涼的？",
+   "category": "everyday objects/machines",
+   "principle": "evaporation",
+   "coverage": "partly"
+  },
+  {
+   "id": "hz-14",
+   "lang": "zh",
+   "q": "為什麼腳踏車騎起來不會倒？",
+   "category": "everyday objects/machines",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "hz-15",
+   "lang": "zh",
+   "q": "為什麼冰塊放在外面會變成水？",
+   "category": "water/physics",
+   "principle": "melt_freeze",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-16",
+   "lang": "zh",
+   "q": "為什麼冰水的杯子外面會有水珠？",
+   "category": "water/physics",
+   "principle": "condensation",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-17",
+   "lang": "zh",
+   "q": "為什麼河裡的石頭都是圓圓的？",
+   "category": "earth/rocks",
+   "principle": "rocks_soil",
+   "coverage": "full"
+  },
+  {
+   "id": "hz-18",
+   "lang": "zh",
+   "q": "為什麼山那麼高？",
+   "category": "earth/rocks",
+   "principle": "earth_surface",
+   "coverage": "partly"
+  },
+  {
+   "id": "hz-19",
+   "lang": "zh",
+   "q": "為什麼小朋友要去上學？",
+   "category": "people/society",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "hz-20",
+   "lang": "zh",
+   "q": "為什麼不可以亂丟垃圾？",
+   "category": "people/society",
+   "principle": "recycling",
+   "coverage": "full"
+  },
+  {
+   "id": "he-01",
+   "lang": "en",
+   "q": "Why do dogs bark?",
+   "category": "animals",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "he-02",
+   "lang": "en",
+   "q": "Why do birds build nests?",
+   "category": "animals",
+   "principle": "animal_life_cycle",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-03",
+   "lang": "en",
+   "q": "Why do I sneeze?",
+   "category": "human body",
+   "principle": "germs_hygiene",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-04",
+   "lang": "en",
+   "q": "Why do I get thirsty?",
+   "category": "human body",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "he-05",
+   "lang": "en",
+   "q": "Why can't we see stars in the daytime?",
+   "category": "sky/space",
+   "principle": "stars_distance",
+   "coverage": "full"
+  },
+  {
+   "id": "he-06",
+   "lang": "en",
+   "q": "Why does the sun go down at night?",
+   "category": "sky/space",
+   "principle": "day_night",
+   "coverage": "full"
+  },
+  {
+   "id": "he-07",
+   "lang": "en",
+   "q": "Why does snow fall in winter?",
+   "category": "weather/nature",
+   "principle": "water_cycle",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-08",
+   "lang": "en",
+   "q": "Why do we see lightning before we hear thunder?",
+   "category": "weather/nature",
+   "principle": "light_sound_speed",
+   "coverage": "full"
+  },
+  {
+   "id": "he-09",
+   "lang": "en",
+   "q": "Why do trees lose their leaves in winter?",
+   "category": "plants",
+   "principle": "plant_needs",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-10",
+   "lang": "en",
+   "q": "Why do apples have seeds inside?",
+   "category": "plants",
+   "principle": "seeds_growth",
+   "coverage": "full"
+  },
+  {
+   "id": "he-11",
+   "lang": "en",
+   "q": "Why does sugar disappear in my tea?",
+   "category": "food",
+   "principle": "dissolving",
+   "coverage": "full"
+  },
+  {
+   "id": "he-12",
+   "lang": "en",
+   "q": "Why does an egg go hard when it is cooked?",
+   "category": "food",
+   "principle": "heat_changes",
+   "coverage": "full"
+  },
+  {
+   "id": "he-13",
+   "lang": "en",
+   "q": "Why do toys need batteries?",
+   "category": "everyday objects/machines",
+   "principle": "circuits",
+   "coverage": "full"
+  },
+  {
+   "id": "he-14",
+   "lang": "en",
+   "q": "Why does a fan make me feel cool?",
+   "category": "everyday objects/machines",
+   "principle": "evaporation",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-15",
+   "lang": "en",
+   "q": "Why do puddles go away?",
+   "category": "water/physics",
+   "principle": "evaporation",
+   "coverage": "full"
+  },
+  {
+   "id": "he-16",
+   "lang": "en",
+   "q": "Why does my cold drink get wet on the outside?",
+   "category": "water/physics",
+   "principle": "condensation",
+   "coverage": "full"
+  },
+  {
+   "id": "he-17",
+   "lang": "en",
+   "q": "Why are pebbles smooth?",
+   "category": "earth/rocks",
+   "principle": "rocks_soil",
+   "coverage": "full"
+  },
+  {
+   "id": "he-18",
+   "lang": "en",
+   "q": "Why are mountains so tall?",
+   "category": "earth/rocks",
+   "principle": "earth_surface",
+   "coverage": "partly"
+  },
+  {
+   "id": "he-19",
+   "lang": "en",
+   "q": "Why do we have to go to school?",
+   "category": "people/society",
+   "principle": null,
+   "coverage": "none"
+  },
+  {
+   "id": "he-20",
+   "lang": "en",
+   "q": "Why do we have to put rubbish in the bin?",
+   "category": "people/society",
+   "principle": "recycling",
+   "coverage": "full"
+  }
+ ]
+}

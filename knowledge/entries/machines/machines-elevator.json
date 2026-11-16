@@ -49,6 +49,27 @@
     "ask_back": "Do you think an elevator is faster than the stairs, or slower?",
     "bridges": {
       "has_garden": "Which is faster to get upstairs, the elevator or the stairs?"
-    }
+    },
+    "asks_en": [
+      "move",
+      "work",
+      "down",
+      "motor",
+      "pulls",
+      "cables",
+      "box",
+      "strong",
+      "steel",
+      "hold",
+      "heavy",
+      "weight",
+      "other",
+      "side",
+      "helps",
+      "brakes",
+      "stop",
+      "stays",
+      "still"
+    ]
   }
 }

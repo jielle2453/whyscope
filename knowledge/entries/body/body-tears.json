@@ -49,6 +49,24 @@
     "ask_back": "Do you think tears taste salty, or sweet?",
     "bridges": {
       "has_cat": "Do a cat's eyes get wet and shiny too?"
-    }
+    },
+    "asks_en": [
+      "water",
+      "eyes",
+      "wet",
+      "need",
+      "stay",
+      "wash",
+      "tiny",
+      "dust",
+      "bits",
+      "special",
+      "stuff",
+      "inside",
+      "fights",
+      "germs",
+      "hard",
+      "more"
+    ]
   }
 }

@@ -1,0 +1,68 @@
+{
+  "id": "sky_weather-black-hole",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "黑洞",
+    "black hole"
+  ],
+  "question_patterns": [
+    "黑洞是什麼",
+    "為什麼黑洞是黑的",
+    "黑洞會把東西吸進去嗎",
+    "黑洞是怎麼來的"
+  ],
+  "first_sentence": "黑洞的拉力很大，連光也跑不出來。",
+  "facts": [
+    "黑洞在太空裡，離我們很遠",
+    "有的黑洞是大星星壞掉後變成的",
+    "黑洞是黑的，因為光出不來"
+  ],
+  "ask_back": "黑洞是在太空裡，還是在海裡？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://spaceplace.nasa.gov/black-holes/en/",
+  "source_license": "US government public domain (facts paraphrased)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "black hole",
+      "black holes"
+    ],
+    "question_patterns": [
+      "what is a black hole",
+      "why is a black hole black",
+      "does a black hole suck things in",
+      "how is a black hole made"
+    ],
+    "first_sentence": "A black hole pulls so hard that even light cannot escape.",
+    "facts": [
+      "Black holes are far away in space.",
+      "Some form when a big star dies.",
+      "It looks black because no light gets out."
+    ],
+    "ask_back": "Is a black hole out in space, or in the sea?",
+    "bridges": {},
+    "asks_en": [
+      "suck",
+      "pulls",
+      "hard",
+      "even",
+      "light",
+      "cannot",
+      "escape",
+      "far",
+      "away",
+      "space",
+      "form",
+      "big",
+      "star",
+      "dies",
+      "looks",
+      "because"
+    ]
+  }
+}

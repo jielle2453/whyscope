@@ -1,0 +1,65 @@
+{
+  "id": "sky_weather-milky-way",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "銀河",
+    "銀河系",
+    "milky way"
+  ],
+  "question_patterns": [
+    "銀河是什麼",
+    "銀河系是什麼",
+    "天上那條白白的帶子是什麼",
+    "銀河裡有什麼"
+  ],
+  "first_sentence": "銀河系是我們住的大星星家族。",
+  "facts": [
+    "銀河系裡有幾千億顆星星",
+    "太陽也是其中的一顆",
+    "銀河系像一個大大的漩渦"
+  ],
+  "ask_back": "太陽是在銀河系裡，還是在銀河系外面？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Milky_Way",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "milky way",
+      "galaxy"
+    ],
+    "question_patterns": [
+      "what is the milky way",
+      "what is a galaxy",
+      "what is the white band in the night sky",
+      "what is in the milky way"
+    ],
+    "first_sentence": "The Milky Way is our home galaxy.",
+    "facts": [
+      "The Milky Way has hundreds of billions of stars.",
+      "Our sun is one of them.",
+      "It looks like a giant spiral."
+    ],
+    "ask_back": "Is our sun inside the Milky Way, or outside?",
+    "bridges": {},
+    "asks_en": [
+      "white",
+      "band",
+      "night",
+      "sky",
+      "home",
+      "hundreds",
+      "billions",
+      "stars",
+      "sun",
+      "shaped",
+      "giant",
+      "spiral"
+    ]
+  }
+}

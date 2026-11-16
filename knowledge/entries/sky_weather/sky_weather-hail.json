@@ -47,6 +47,28 @@
     "ask_back": "Do you think hail is soft like snow, or hard like ice?",
     "bridges": {
       "has_garden": "Have you ever seen hail fall in your garden?"
-    }
+    },
+    "asks_en": [
+      "fall",
+      "sky",
+      "ice",
+      "balls",
+      "hard",
+      "forms",
+      "water",
+      "freezes",
+      "high",
+      "storm",
+      "clouds",
+      "many",
+      "layers",
+      "grows",
+      "bigger",
+      "time",
+      "blown",
+      "break",
+      "plants",
+      "farmers"
+    ]
   }
 }

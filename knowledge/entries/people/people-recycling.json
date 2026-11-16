@@ -1,0 +1,69 @@
+{
+  "id": "people-recycling",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "回收",
+    "資源回收",
+    "recycling"
+  ],
+  "question_patterns": [
+    "為什麼要回收",
+    "回收是什麼",
+    "為什麼垃圾要分類",
+    "回收的東西會變成什麼"
+  ],
+  "first_sentence": "回收，是把舊東西變成新東西。",
+  "facts": [
+    "玻璃、紙、塑膠和金屬都可以回收",
+    "回收可以讓垃圾變少",
+    "做新東西需要的材料也會變少"
+  ],
+  "ask_back": "回收的紙，可以做成新紙嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Recycling",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "recycling",
+      "recycle"
+    ],
+    "question_patterns": [
+      "why do we recycle",
+      "what is recycling",
+      "why do we sort our trash",
+      "what happens to recycled things"
+    ],
+    "first_sentence": "Recycling turns old things into new things.",
+    "facts": [
+      "Glass, paper, plastic, and metal can be recycled.",
+      "Recycling means less trash.",
+      "It also means we need fewer new materials."
+    ],
+    "ask_back": "Can recycled paper become new paper, or not?",
+    "bridges": {},
+    "asks_en": [
+      "sort",
+      "trash",
+      "happens",
+      "recycled",
+      "turns",
+      "old",
+      "new",
+      "glass",
+      "paper",
+      "plastic",
+      "metal",
+      "means",
+      "less",
+      "need",
+      "fewer",
+      "materials"
+    ]
+  }
+}

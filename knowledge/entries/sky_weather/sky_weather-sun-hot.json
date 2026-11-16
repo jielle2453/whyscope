@@ -1,0 +1,70 @@
+{
+  "id": "sky_weather-sun-hot",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "太陽",
+    "太陽為什麼熱",
+    "sun"
+  ],
+  "question_patterns": [
+    "為什麼太陽很熱",
+    "太陽為什麼會發熱",
+    "太陽是用什麼做的",
+    "太陽怎麼會發光"
+  ],
+  "first_sentence": "太陽是一顆又大又熱的大火球。",
+  "facts": [
+    "太陽主要是由氫做成的",
+    "太陽裡面的小東西會擠在一起",
+    "擠在一起的時候，就放出熱和光"
+  ],
+  "ask_back": "太陽的中心，是很熱還是很冷？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://spaceplace.nasa.gov/sun-heat/en/",
+  "source_license": "US government public domain (facts paraphrased)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "sun",
+      "the sun"
+    ],
+    "question_patterns": [
+      "why is the sun so hot",
+      "what is the sun made of",
+      "how does the sun make light",
+      "why does the sun shine"
+    ],
+    "first_sentence": "The sun is a giant ball of hot gas.",
+    "facts": [
+      "The sun is mostly hydrogen gas.",
+      "Deep inside, tiny bits squeeze together.",
+      "That gives off heat and light."
+    ],
+    "ask_back": "Is the middle of the sun very hot, or very cold?",
+    "bridges": {},
+    "asks_en": [
+      "hot",
+      "light",
+      "shine",
+      "giant",
+      "ball",
+      "gas",
+      "mostly",
+      "hydrogen",
+      "deep",
+      "inside",
+      "tiny",
+      "bits",
+      "squeeze",
+      "together",
+      "gives",
+      "off",
+      "heat"
+    ]
+  }
+}

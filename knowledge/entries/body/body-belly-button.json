@@ -1,0 +1,72 @@
+{
+  "id": "body-belly-button",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "肚臍",
+    "肚臍眼",
+    "belly button"
+  ],
+  "question_patterns": [
+    "為什麼人有肚臍",
+    "肚臍是什麼",
+    "肚臍是做什麼的",
+    "為什麼我的肚子上有個洞"
+  ],
+  "first_sentence": "肚臍是出生前的一條線留下的記號。",
+  "facts": [
+    "出生前，寶寶和媽媽用一條管子連著",
+    "出生後，管子掉了，留下肚臍",
+    "不只人類，哺乳動物也有肚臍"
+  ],
+  "ask_back": "肚臍是在肚子上，還是在背上？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Navel",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "belly button",
+      "navel"
+    ],
+    "question_patterns": [
+      "why do we have a belly button",
+      "what is a belly button",
+      "what is the hole on my tummy",
+      "what was my belly button for"
+    ],
+    "first_sentence": "Your belly button is a mark from before you were born.",
+    "facts": [
+      "Before birth, a tube joined a baby to its mother.",
+      "After birth, the tube falls off and leaves a belly button.",
+      "Other furry animals have one too, but it is a thin line."
+    ],
+    "ask_back": "Is your belly button on your tummy, or your back?",
+    "bridges": {},
+    "asks_en": [
+      "hole",
+      "tummy",
+      "mark",
+      "before",
+      "born",
+      "birth",
+      "tube",
+      "joined",
+      "baby",
+      "mother",
+      "after",
+      "falls",
+      "off",
+      "leaves",
+      "other",
+      "furry",
+      "animals",
+      "thin",
+      "line"
+    ]
+  }
+}

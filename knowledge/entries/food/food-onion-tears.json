@@ -48,6 +48,28 @@
     "ask_back": "Do you think onions grow on top of the ground, or under it?",
     "bridges": {
       "has_dog": "Dogs must not eat onions. Do you know why?"
-    }
+    },
+    "asks_en": [
+      "cry",
+      "eyes",
+      "water",
+      "cut",
+      "tears",
+      "cutting",
+      "stinging",
+      "gas",
+      "special",
+      "juice",
+      "wash",
+      "away",
+      "protect",
+      "grow",
+      "under",
+      "ground",
+      "layers",
+      "wrapped",
+      "around",
+      "other"
+    ]
   }
 }

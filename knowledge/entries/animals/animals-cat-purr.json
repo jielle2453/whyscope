@@ -1,0 +1,69 @@
+{
+  "id": "animals-cat-purr",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "貓咪呼嚕",
+    "呼嚕聲",
+    "purr"
+  ],
+  "question_patterns": [
+    "為什麼貓咪會呼嚕呼嚕叫",
+    "貓咪的呼嚕聲是什麼",
+    "貓咪為什麼會發出呼嚕聲",
+    "貓咪呼嚕是不是很開心"
+  ],
+  "first_sentence": "貓咪呼嚕，常常是覺得放鬆。",
+  "facts": [
+    "貓咪放鬆的時候會呼嚕",
+    "有時候貓咪不舒服也會呼嚕",
+    "科學家認為呼嚕能讓貓咪安心"
+  ],
+  "ask_back": "貓咪被輕輕摸的時候，是會呼嚕還是會跳開？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Purr",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "purr",
+      "cat purring"
+    ],
+    "question_patterns": [
+      "why do cats purr",
+      "why does my cat make a purring sound",
+      "why does a cat go rrr when I pet it",
+      "what does it mean when a cat purrs"
+    ],
+    "first_sentence": "A cat often purrs when it feels calm.",
+    "facts": [
+      "Cats often purr when they feel calm or friendly.",
+      "Sometimes cats purr when they are hurt or scared too.",
+      "Scientists think purring may help a cat feel better."
+    ],
+    "ask_back": "When you pet a cat gently, does it purr, or jump away?",
+    "bridges": {},
+    "asks_en": [
+      "sound",
+      "rrr",
+      "pet",
+      "mean",
+      "often",
+      "feels",
+      "calm",
+      "friendly",
+      "sometimes",
+      "hurt",
+      "scared",
+      "scientists",
+      "think",
+      "may",
+      "help",
+      "better"
+    ]
+  }
+}

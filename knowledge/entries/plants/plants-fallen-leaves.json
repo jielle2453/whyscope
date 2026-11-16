@@ -48,6 +48,28 @@
     "ask_back": "Do you think a tree needs more water in summer, or in winter?",
     "bridges": {
       "has_garden": "Have you played in a pile of fallen leaves in your garden?"
-    }
+    },
+    "asks_en": [
+      "fall",
+      "off",
+      "trees",
+      "lose",
+      "ground",
+      "dry",
+      "cold",
+      "times",
+      "save",
+      "water",
+      "drop",
+      "winter",
+      "fewer",
+      "means",
+      "less",
+      "slowly",
+      "turn",
+      "soil",
+      "helps",
+      "plants"
+    ]
   }
 }

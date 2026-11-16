@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6EEFF">
+<title>Whyscope | Set up</title>
+<style>
+  :root { --ink: #2B2A4A; --body: #5A5878; --cap: #6E6C8E; --lav: #C7B8FF; --lav-ink: #5B4AB8; --mint: #CBF3E3; --mint-d: #14604A; --rose: #FFD1E0; --rose-d: #8F2257; --sky: #BFE0FF; --sky-d: #1E4E80;
+          --glass: rgba(255,255,255,0.62); --glass-line: rgba(255,255,255,0.8); --shadow: 0 10px 30px rgba(96,80,140,0.10); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; color: var(--ink); padding: 24px 16px 48px;
+         background: linear-gradient(160deg, #F6EEFF 0%, #FDE9F1 35%, #FFF2E6 70%, #E9F3FF 100%) fixed;
+         font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; font-size: 14.5px; line-height: 1.5; }
+  main { max-width: 480px; margin: 0 auto; }
+  .card { background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1px solid var(--glass-line);
+          border-radius: 28px; box-shadow: var(--shadow); padding: 24px 20px; margin-bottom: 16px; }
+  h1 { font-size: 22px; margin: 0 0 4px; } h2 { font-size: 16px; margin: 0 0 8px; }
+  p { margin: 6px 0; color: var(--body); }
+  label { display: block; font-weight: 700; margin: 14px 4px 4px; }
+  input { width: 100%; min-height: 52px; border-radius: 26px; border: 1px solid var(--glass-line); padding: 0 20px; font: inherit; background: rgba(255,255,255,.85); color: var(--ink); }
+  input:focus, button:focus-visible, a:focus-visible { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
+  button.go { margin-top: 18px; min-height: 52px; width: 100%; border: 0; border-radius: 26px; background: linear-gradient(135deg,#7C6CFF,#5B4AB8); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  button:disabled { opacity: .5; }
+  .err { margin-top: 12px; background: var(--rose); color: var(--rose-d); border-radius: 16px; padding: 8px 14px; font-weight: 600; }
+  .note { font-size: 12.5px; color: var(--cap); }
+  .chip { display: inline-block; border-radius: 999px; padding: 3px 12px; font-size: 12.5px; font-weight: 700; background: var(--sky); color: var(--sky-d); margin: 2px 4px 2px 0; }
+  .chip.ok { background: var(--mint); color: var(--mint-d); }
+  #qr { width: min(100%, 360px); margin: 12px auto; display: block; background: #fff; border-radius: 12px; padding: 6px; }
+  #qr svg { width: 100%; height: auto; display: block; }
+  details { margin-top: 10px; } summary { cursor: pointer; font-weight: 700; min-height: 32px; }
+  textarea { width: 100%; height: 96px; border-radius: 16px; border: 1px solid var(--glass-line); padding: 8px 12px; font: 12px/1.4 ui-monospace, Consolas, monospace; word-break: break-all; }
+  a.btn { display: inline-flex; min-height: 44px; align-items: center; padding: 0 20px; border-radius: 22px; background: rgba(255,255,255,.85); border: 1px solid var(--glass-line); color: var(--ink); font-weight: 700; text-decoration: none; margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <section class="card" id="intro">
+    <h1>Set up Whyscope</h1>
+    <p>This page only opens on the hub computer. It creates your household and the first parent, then shows a QR code for the parent's phone.</p>
+    <div id="state"></div>
+  </section>
+  <section class="card" id="formcard" hidden>
+    <form id="form" autocomplete="off">
+      <label for="hname">Household name <span class="note">(optional)</span></label><input id="hname" maxlength="40" placeholder="e.g. The Lin family">
+      <label for="pname">Your name</label><input id="pname" maxlength="40" required>
+      <label for="ppin">PIN (4 to 8 digits)</label><input id="ppin" type="password" inputmode="numeric" pattern="\d{4,8}" maxlength="8" required>
+      <label for="ppin2">PIN again</label><input id="ppin2" type="password" inputmode="numeric" pattern="\d{4,8}" maxlength="8" required>
+      <p class="note">The PIN is asked again before exporting or clearing data, changing settings, revoking a device, or adding a wand or parent. It is stored only as a salted hash.</p>
+      <button class="go" type="submit" id="go">Create household</button>
+      <div class="err" id="err" hidden></div>
+    </form>
+  </section>
+  <section class="card" id="qrcard" hidden aria-live="polite">
+    <h2>Scan with the parent's phone</h2>
+    <p>Open the phone's camera and scan this code. It works once and expires in <b id="left">10:00</b>.</p>
+    <div id="qr"></div>
+    <p class="note" id="qrnote"></p>
+    <details><summary>Show the link instead</summary>
+      <textarea id="link" readonly aria-label="Pairing link"></textarea>
+      <a class="btn" id="open" href="#" target="_blank" rel="noopener">Open the link</a>
+    </details>
+    <p class="note">After pairing, open the parent page on the phone: add your children there, then add a wand for each one.</p>
+  </section>
+</main>
+<script src="/static/qr.js"></script>
+<script>
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const ERR = { pin_format: "The PIN must be 4 to 8 digits.", name_required: "Please enter your name." };
+  let state = null, newHousehold = false, timer = null;
+
+  async function load() {
+    const r = await fetch("/api/setup/state", { cache: "no-store" });
+    if (!r.ok) { $("state").innerHTML = '<div class="err">This page only opens on the hub computer (http://127.0.0.1:8000/setup).</div>'; return; }
+    state = await r.json();
+    const adopt = state.households.find((h) => h.id === state.adopt);
+    let h = '<span class="chip">Hub address ' + esc(state.lan_url) + '</span><span class="chip ' + (state.relay ? "ok" : "") + '">' +
+      (state.relay ? "Relay set: the QR works at home and away" : "No relay set: the QR works at home only") + "</span>";
+    if (adopt) {
+      h += "<p>Found an existing household (" + adopt.children + " child" + (adopt.children === 1 ? "" : "ren") + ", with its history) that has no parent yet. Creating the first parent keeps all of it.</p>";
+      $("formcard").hidden = false;
+    } else {
+      h += "<p>This hub already has " + state.households.length + " household" + (state.households.length === 1 ? "" : "s") + " with parents. Households are separate: none can see another's data.</p>" +
+        '<button class="go" id="another" type="button">Create another household</button>';
+    }
+    $("state").innerHTML = h;
+    const b = $("another");
+    if (b) b.onclick = () => { newHousehold = true; b.hidden = true; $("formcard").hidden = false; $("pname").focus(); };
+  }
+
+  function showQr(p) {
+    $("qrcard").hidden = false;
+    $("qr").innerHTML = WhyQR.svg(p.url, { ecl: "L", label: "Pairing QR code" });
+    $("link").value = p.url; $("open").href = p.url;
+    $("qrnote").textContent = p.relay ? "This code also carries the encrypted relay key, so the phone works away from home too." : "No relay is set up yet, so this phone will work on the home network only.";
+    const end = Date.now() + p.expires_in * 1000;
+    clearInterval(timer);
+    timer = setInterval(() => {
+      const s = Math.max(0, Math.round((end - Date.now()) / 1000));
+      $("left").textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+      if (!s) { clearInterval(timer); $("qr").innerHTML = "<p>This code expired. Reload this page.</p>"; }
+    }, 1000);
+    $("qrcard").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  $("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    $("err").hidden = true;
+    if ($("ppin").value !== $("ppin2").value) { $("err").hidden = false; $("err").textContent = "The two PINs are different."; return; }
+    $("go").disabled = true;
+    try {
+      const r = await fetch("/api/setup", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ household_name: $("hname").value, parent_name: $("pname").value, pin: $("ppin").value, new_household: newHousehold }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) { $("err").hidden = false; $("err").textContent = ERR[j.detail] || "Error: " + (j.detail || r.status); $("go").disabled = false; return; }
+      $("formcard").hidden = true;
+      showQr(j.pairing);
+    } catch (err) { $("err").hidden = false; $("err").textContent = "Could not reach the hub."; $("go").disabled = false; }
+  });
+  load();
+})();
+</script>
+</body>
+</html>

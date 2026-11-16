@@ -1,0 +1,70 @@
+{
+  "id": "people-languages",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "語言",
+    "不同的語言",
+    "language"
+  ],
+  "question_patterns": [
+    "為什麼有不同的語言",
+    "為什麼大家說的話不一樣",
+    "語言是怎麼來的",
+    "外國人為什麼說不一樣的話"
+  ],
+  "first_sentence": "小孩學的話，是身邊的人說的話。",
+  "facts": [
+    "人天生就能學說話",
+    "學的是哪一種話，看身邊的人怎麼說",
+    "語言會一直慢慢改變"
+  ],
+  "ask_back": "語言會一直不變，還是慢慢改變？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Language",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "language",
+      "languages"
+    ],
+    "question_patterns": [
+      "why are there different languages",
+      "why do people speak differently",
+      "where do languages come from",
+      "why do other countries talk in another language"
+    ],
+    "first_sentence": "A child learns the language they hear around them.",
+    "facts": [
+      "Every baby can learn to talk.",
+      "Which one you learn depends on who is around you.",
+      "Languages keep changing over time."
+    ],
+    "ask_back": "Do languages stay the same forever, or slowly change?",
+    "bridges": {},
+    "asks_en": [
+      "different",
+      "people",
+      "speak",
+      "differently",
+      "other",
+      "countries",
+      "talk",
+      "another",
+      "child",
+      "learns",
+      "around",
+      "born",
+      "able",
+      "depends",
+      "keep",
+      "changing",
+      "time"
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{"id": "zh-001", "lang": "zh", "q": "為什麼長頸鹿的脖子那麼長？", "category": "animals"}
+{"id": "zh-002", "lang": "zh", "q": "為什麼貓咪會呼嚕呼嚕叫？", "category": "animals"}
+{"id": "zh-003", "lang": "zh", "q": "為什麼鳥可以飛，我不能飛？", "category": "animals"}
+{"id": "zh-004", "lang": "zh", "q": "為什麼狗狗要吐舌頭？", "category": "animals"}
+{"id": "zh-005", "lang": "zh", "q": "為什麼企鵝不怕冷？", "category": "animals"}
+{"id": "zh-006", "lang": "zh", "q": "為什麼我們要睡覺？", "category": "human body"}
+{"id": "zh-007", "lang": "zh", "q": "為什麼放屁會臭？", "category": "human body"}
+{"id": "zh-008", "lang": "zh", "q": "為什麼我們會打哈欠？", "category": "human body"}
+{"id": "zh-009", "lang": "zh", "q": "為什麼流血的地方會結痂？", "category": "human body"}
+{"id": "zh-010", "lang": "zh", "q": "為什麼我們會打嗝？", "category": "human body"}
+{"id": "zh-011", "lang": "zh", "q": "為什麼天空是藍色的？", "category": "sky/space"}
+{"id": "zh-012", "lang": "zh", "q": "為什麼月亮有時候圓圓的有時候彎彎的？", "category": "sky/space"}
+{"id": "zh-013", "lang": "zh", "q": "為什麼晚上會有星星？", "category": "sky/space"}
+{"id": "zh-014", "lang": "zh", "q": "為什麼太陽那麼熱？", "category": "sky/space"}
+{"id": "zh-015", "lang": "zh", "q": "為什麼太空人在太空會飄起來？", "category": "sky/space"}
+{"id": "zh-016", "lang": "zh", "q": "為什麼會下雨？", "category": "weather/nature"}
+{"id": "zh-017", "lang": "zh", "q": "為什麼打雷會很大聲？", "category": "weather/nature"}
+{"id": "zh-018", "lang": "zh", "q": "為什麼冬天會冷夏天會熱？", "category": "weather/nature"}
+{"id": "zh-019", "lang": "zh", "q": "為什麼會有彩虹？", "category": "weather/nature"}
+{"id": "zh-020", "lang": "zh", "q": "為什麼風會一直吹？", "category": "weather/nature"}
+{"id": "zh-021", "lang": "zh", "q": "為什麼樹葉秋天會變黃？", "category": "plants"}
+{"id": "zh-022", "lang": "zh", "q": "為什麼花會有香味？", "category": "plants"}
+{"id": "zh-023", "lang": "zh", "q": "為什麼種子會長成大樹？", "category": "plants"}
+{"id": "zh-024", "lang": "zh", "q": "為什麼向日葵會跟著太陽轉？", "category": "plants"}
+{"id": "zh-025", "lang": "zh", "q": "為什麼仙人掌有刺？", "category": "plants"}
+{"id": "zh-026", "lang": "zh", "q": "為什麼檸檬是酸的？", "category": "food"}
+{"id": "zh-027", "lang": "zh", "q": "為什麼冰淇淋會融化？", "category": "food"}
+{"id": "zh-028", "lang": "zh", "q": "為什麼吃辣會流眼淚？", "category": "food"}
+{"id": "zh-029", "lang": "zh", "q": "為什麼爆米花會爆開？", "category": "food"}
+{"id": "zh-030", "lang": "zh", "q": "為什麼麵包會膨起來？", "category": "food"}
+{"id": "zh-031", "lang": "zh", "q": "為什麼飛機可以飛在天上？", "category": "everyday objects/machines"}
+{"id": "zh-032", "lang": "zh", "q": "為什麼冰箱裡面很冷？", "category": "everyday objects/machines"}
+{"id": "zh-033", "lang": "zh", "q": "為什麼燈一按開關就會亮？", "category": "everyday objects/machines"}
+{"id": "zh-034", "lang": "zh", "q": "為什麼汽車需要輪子？", "category": "everyday objects/machines"}
+{"id": "zh-035", "lang": "zh", "q": "為什麼手機可以打電話給遠方的人？", "category": "everyday objects/machines"}
+{"id": "zh-036", "lang": "zh", "q": "為什麼船會浮在水上？", "category": "water/physics"}
+{"id": "zh-037", "lang": "zh", "q": "為什麼石頭丟到水裡會沉下去？", "category": "water/physics"}
+{"id": "zh-038", "lang": "zh", "q": "為什麼冰會浮在水面上？", "category": "water/physics"}
+{"id": "zh-039", "lang": "zh", "q": "為什麼球丟上去會掉下來？", "category": "water/physics"}
+{"id": "zh-040", "lang": "zh", "q": "為什麼鏡子可以照出我的樣子？", "category": "water/physics"}
+{"id": "zh-041", "lang": "zh", "q": "為什麼火山會噴火？", "category": "earth/rocks"}
+{"id": "zh-042", "lang": "zh", "q": "為什麼海水是鹹的？", "category": "earth/rocks"}
+{"id": "zh-043", "lang": "zh", "q": "為什麼會有地震？", "category": "earth/rocks"}
+{"id": "zh-044", "lang": "zh", "q": "為什麼沙子是一粒一粒的？", "category": "earth/rocks"}
+{"id": "zh-045", "lang": "zh", "q": "為什麼地球是圓的？", "category": "earth/rocks"}
+{"id": "zh-046", "lang": "zh", "q": "為什麼要刷牙？", "category": "people/society"}
+{"id": "zh-047", "lang": "zh", "q": "為什麼紅燈要停綠燈才能走？", "category": "people/society"}
+{"id": "zh-048", "lang": "zh", "q": "為什麼大人要上班？", "category": "people/society"}
+{"id": "zh-049", "lang": "zh", "q": "為什麼要洗手？", "category": "people/society"}
+{"id": "zh-050", "lang": "zh", "q": "為什麼錢可以買東西？", "category": "people/society"}
+{"id": "en-001", "lang": "en", "q": "Why do cats purr?", "category": "animals"}
+{"id": "en-002", "lang": "en", "q": "Why do zebras have stripes?", "category": "animals"}
+{"id": "en-003", "lang": "en", "q": "Why can birds fly but I can't?", "category": "animals"}
+{"id": "en-004", "lang": "en", "q": "Why do dogs wag their tails?", "category": "animals"}
+{"id": "en-005", "lang": "en", "q": "Why do bees make honey?", "category": "animals"}
+{"id": "en-006", "lang": "en", "q": "Why do I have to sleep?", "category": "human body"}
+{"id": "en-007", "lang": "en", "q": "Why do we get hiccups?", "category": "human body"}
+{"id": "en-008", "lang": "en", "q": "Why do I get goosebumps?", "category": "human body"}
+{"id": "en-009", "lang": "en", "q": "Why does my tummy growl?", "category": "human body"}
+{"id": "en-010", "lang": "en", "q": "Why do my fingers get wrinkly in the bath?", "category": "human body"}
+{"id": "en-011", "lang": "en", "q": "Why is the sky blue?", "category": "sky/space"}
+{"id": "en-012", "lang": "en", "q": "Why does the moon change shape?", "category": "sky/space"}
+{"id": "en-013", "lang": "en", "q": "Why do stars twinkle?", "category": "sky/space"}
+{"id": "en-014", "lang": "en", "q": "Why is the sun so hot?", "category": "sky/space"}
+{"id": "en-015", "lang": "en", "q": "Why do astronauts float in space?", "category": "sky/space"}
+{"id": "en-016", "lang": "en", "q": "Why does it rain?", "category": "weather/nature"}
+{"id": "en-017", "lang": "en", "q": "Why is thunder so loud?", "category": "weather/nature"}
+{"id": "en-018", "lang": "en", "q": "Why is it cold in winter?", "category": "weather/nature"}
+{"id": "en-019", "lang": "en", "q": "Why do we get rainbows?", "category": "weather/nature"}
+{"id": "en-020", "lang": "en", "q": "Why does the wind blow?", "category": "weather/nature"}
+{"id": "en-021", "lang": "en", "q": "Why do leaves change color in autumn?", "category": "plants"}
+{"id": "en-022", "lang": "en", "q": "Why do flowers smell nice?", "category": "plants"}
+{"id": "en-023", "lang": "en", "q": "Why do plants need sunlight?", "category": "plants"}
+{"id": "en-024", "lang": "en", "q": "Why do sunflowers follow the sun?", "category": "plants"}
+{"id": "en-025", "lang": "en", "q": "Why does a cactus have spikes?", "category": "plants"}
+{"id": "en-026", "lang": "en", "q": "Why are lemons sour?", "category": "food"}
+{"id": "en-027", "lang": "en", "q": "Why does ice cream melt?", "category": "food"}
+{"id": "en-028", "lang": "en", "q": "Why do onions make me cry?", "category": "food"}
+{"id": "en-029", "lang": "en", "q": "Why does popcorn pop?", "category": "food"}
+{"id": "en-030", "lang": "en", "q": "Why does bread get big in the oven?", "category": "food"}
+{"id": "en-031", "lang": "en", "q": "Why do airplanes stay up in the sky?", "category": "everyday objects/machines"}
+{"id": "en-032", "lang": "en", "q": "Why is the fridge cold inside?", "category": "everyday objects/machines"}
+{"id": "en-033", "lang": "en", "q": "Why does the light turn on when I press the switch?", "category": "everyday objects/machines"}
+{"id": "en-034", "lang": "en", "q": "Why do cars have wheels?", "category": "everyday objects/machines"}
+{"id": "en-035", "lang": "en", "q": "Why do magnets stick together?", "category": "everyday objects/machines"}
+{"id": "en-036", "lang": "en", "q": "Why do boats float?", "category": "water/physics"}
+{"id": "en-037", "lang": "en", "q": "Why does a rock sink in water?", "category": "water/physics"}
+{"id": "en-038", "lang": "en", "q": "Why does ice float?", "category": "water/physics"}
+{"id": "en-039", "lang": "en", "q": "Why do things fall down when I drop them?", "category": "water/physics"}
+{"id": "en-040", "lang": "en", "q": "Why can I see myself in a mirror?", "category": "water/physics"}
+{"id": "en-041", "lang": "en", "q": "Why do volcanoes erupt?", "category": "earth/rocks"}
+{"id": "en-042", "lang": "en", "q": "Why is the sea salty?", "category": "earth/rocks"}
+{"id": "en-043", "lang": "en", "q": "Why do earthquakes happen?", "category": "earth/rocks"}
+{"id": "en-044", "lang": "en", "q": "Why is sand made of tiny bits?", "category": "earth/rocks"}
+{"id": "en-045", "lang": "en", "q": "Why is the Earth round?", "category": "earth/rocks"}
+{"id": "en-046", "lang": "en", "q": "Why do I have to brush my teeth?", "category": "people/society"}
+{"id": "en-047", "lang": "en", "q": "Why do cars stop at a red light?", "category": "people/society"}
+{"id": "en-048", "lang": "en", "q": "Why do grown-ups go to work?", "category": "people/society"}
+{"id": "en-049", "lang": "en", "q": "Why do we wash our hands?", "category": "people/society"}
+{"id": "en-050", "lang": "en", "q": "Why can money buy things?", "category": "people/society"}

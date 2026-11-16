@@ -216,6 +216,16 @@
         "a big flood",
         "the news is scary"
       ],
+      "science_words": [
+        "地震",
+        "海嘯",
+        "颱風"
+      ],
+      "science_words_en": [
+        "earthquake",
+        "tsunami",
+        "typhoon"
+      ],
       "urgent": false
     },
     {
@@ -268,6 +278,9 @@
         "bombs",
         "people are shooting",
         "soldiers"
+      ],
+      "science_words_en": [
+        "blood"
       ],
       "urgent": false
     }

@@ -49,6 +49,28 @@
     "ask_back": "Do you think a toy car works better with new batteries, or old ones?",
     "bridges": {
       "likes_cars": "If your toy car stops, would you change its batteries first?"
-    }
+    },
+    "asks_en": [
+      "work",
+      "power",
+      "toys",
+      "need",
+      "inside",
+      "stuff",
+      "changes",
+      "electricity",
+      "plus",
+      "minus",
+      "ends",
+      "must",
+      "face",
+      "right",
+      "way",
+      "slowly",
+      "used",
+      "time",
+      "flows",
+      "remote"
+    ]
   }
 }

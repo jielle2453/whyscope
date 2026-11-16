@@ -1,0 +1,70 @@
+{
+  "id": "animals-sloth",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "樹懶",
+    "sloth"
+  ],
+  "question_patterns": [
+    "為什麼樹懶動得很慢",
+    "樹懶為什麼住在樹上",
+    "樹懶吃什麼",
+    "樹懶為什麼倒掛著"
+  ],
+  "first_sentence": "樹懶動得很慢，大多待在樹上。",
+  "facts": [
+    "樹懶吃葉子和花",
+    "牠很少爬下樹，在地上只能慢慢爬",
+    "牠常用爪子倒掛著睡覺"
+  ],
+  "ask_back": "樹懶是住在樹上，還是住在洞裡？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Sloth",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "sloth"
+    ],
+    "question_patterns": [
+      "why are sloths so slow",
+      "what do sloths eat",
+      "why do sloths hang upside down",
+      "do sloths ever come down from the tree"
+    ],
+    "first_sentence": "A sloth moves slowly and lives in trees.",
+    "facts": [
+      "A sloth eats leaves and flowers.",
+      "It almost never comes down, and moves slowly on the ground.",
+      "It often sleeps hanging by its claws."
+    ],
+    "ask_back": "Does a sloth live up in a tree, or in a hole?",
+    "bridges": {},
+    "asks_en": [
+      "slow",
+      "eat",
+      "hang",
+      "upside",
+      "down",
+      "ever",
+      "tree",
+      "moves",
+      "slowly",
+      "lives",
+      "leaves",
+      "flowers",
+      "rarely",
+      "climbs",
+      "crawls",
+      "ground",
+      "often",
+      "sleeps",
+      "claws"
+    ]
+  }
+}

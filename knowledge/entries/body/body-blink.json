@@ -1,0 +1,67 @@
+{
+  "id": "body-blink",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "眨眼睛",
+    "眨眼",
+    "blink"
+  ],
+  "question_patterns": [
+    "為什麼我們會眨眼睛",
+    "眨眼睛是做什麼的",
+    "為什麼眼睛會一直眨",
+    "不眨眼會怎樣"
+  ],
+  "first_sentence": "眨眼睛，可以讓眼睛濕濕的。",
+  "facts": [
+    "眨眼會把眼淚抹在眼睛上",
+    "我們不用想，就會自己眨眼",
+    "眨眼也能表達心情"
+  ],
+  "ask_back": "眨眼睛是要我們想一下才眨，還是自己就會眨？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Blinking",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "blink",
+      "blinking"
+    ],
+    "question_patterns": [
+      "why do we blink",
+      "why do my eyes keep closing and opening",
+      "what is blinking for",
+      "why do we have to blink"
+    ],
+    "first_sentence": "Blinking keeps your eyes wet.",
+    "facts": [
+      "Each blink spreads a thin layer of tears over your eye.",
+      "Blinking happens by itself, with no thinking.",
+      "A blink can also show a feeling."
+    ],
+    "ask_back": "Do you blink only when you think about it, or by itself?",
+    "bridges": {},
+    "asks_en": [
+      "eyes",
+      "keep",
+      "closing",
+      "opening",
+      "wet",
+      "spreads",
+      "thin",
+      "layer",
+      "tears",
+      "happens",
+      "itself",
+      "thinking",
+      "show",
+      "feeling"
+    ]
+  }
+}

@@ -48,6 +48,26 @@
     "ask_back": "Do you think popcorn pops more when it is hot, or cold?",
     "bridges": {
       "has_cat": "Would your cat jump when popcorn pops with a loud bang?"
-    }
+    },
+    "asks_en": [
+      "pop",
+      "corn",
+      "jump",
+      "steam",
+      "water",
+      "inside",
+      "open",
+      "seed",
+      "hard",
+      "shell",
+      "little",
+      "hot",
+      "becomes",
+      "pushes",
+      "harder",
+      "suddenly",
+      "cracks",
+      "puffs"
+    ]
   }
 }

@@ -1,0 +1,69 @@
+{
+  "id": "machines-clothes",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "衣服",
+    "穿衣服",
+    "clothes"
+  ],
+  "question_patterns": [
+    "為什麼要穿衣服",
+    "衣服是做什麼的",
+    "為什麼冬天要穿厚衣服",
+    "衣服可以保護我們什麼"
+  ],
+  "first_sentence": "衣服可以保護我們的身體。",
+  "facts": [
+    "熱的地方，衣服擋太陽和灰塵",
+    "冷的地方，厚衣服幫我們保暖",
+    "衣服也可以讓人看起來好看"
+  ],
+  "ask_back": "冬天穿厚外套，是為了保暖還是為了涼快？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Clothing",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "clothes",
+      "clothing"
+    ],
+    "question_patterns": [
+      "why do we wear clothes",
+      "what are clothes for",
+      "why do I wear a coat in winter",
+      "how do clothes protect us"
+    ],
+    "first_sentence": "Clothes protect your body.",
+    "facts": [
+      "In hot places, clothes shield you from sun and dust.",
+      "In cold places, thick clothes keep you warm.",
+      "People also wear clothes to look nice."
+    ],
+    "ask_back": "Do we wear thick coats in winter to stay warm, or cool?",
+    "bridges": {},
+    "asks_en": [
+      "wear",
+      "coat",
+      "winter",
+      "protect",
+      "body",
+      "hot",
+      "places",
+      "shield",
+      "sun",
+      "dust",
+      "cold",
+      "thick",
+      "keep",
+      "warm",
+      "people",
+      "nice"
+    ]
+  }
+}

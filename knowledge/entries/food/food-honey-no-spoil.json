@@ -1,0 +1,76 @@
+{
+  "id": "food-honey-no-spoil",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "蜂蜜不會壞",
+    "蜂蜜放很久",
+    "honey keeps"
+  ],
+  "question_patterns": [
+    "為什麼蜂蜜不會壞",
+    "蜂蜜放很久還可以吃嗎",
+    "蜂蜜為什麼可以放很久",
+    "蜂蜜會過期嗎"
+  ],
+  "first_sentence": "蜂蜜很不容易壞。",
+  "facts": [
+    "很多小蟲蟲在蜂蜜裡長不起來",
+    "很久以前的蜂蜜，幾千年後還能吃",
+    "蜂蜜放久了會變硬，稍微加熱就變回來"
+  ],
+  "ask_back": "很久以前的蜂蜜，過了幾千年還能吃嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Honey",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "honey keeps",
+      "old honey",
+      "honey never goes bad"
+    ],
+    "question_patterns": [
+      "why does honey never go bad",
+      "can honey last for years",
+      "why does honey not spoil",
+      "does honey expire"
+    ],
+    "first_sentence": "Honey hardly ever goes bad.",
+    "facts": [
+      "Most tiny bugs cannot grow in honey.",
+      "Honey found in old Egyptian tombs was still fine to eat.",
+      "Old honey can turn hard, and gentle warming makes it runny."
+    ],
+    "ask_back": "Was honey from long ago still good, or spoiled?",
+    "bridges": {},
+    "asks_en": [
+      "last",
+      "years",
+      "spoil",
+      "expire",
+      "hardly",
+      "ever",
+      "most",
+      "tiny",
+      "bugs",
+      "cannot",
+      "grow",
+      "found",
+      "egyptian",
+      "tombs",
+      "still",
+      "fine",
+      "eat",
+      "turn",
+      "hard",
+      "gentle",
+      "warming",
+      "runny"
+    ]
+  }
+}

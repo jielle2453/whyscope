@@ -1,0 +1,65 @@
+{
+  "id": "body-dream",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "做夢",
+    "夢",
+    "dream"
+  ],
+  "question_patterns": [
+    "為什麼我們會做夢",
+    "做夢是什麼",
+    "晚上為什麼會做夢",
+    "夢是從哪裡來的"
+  ],
+  "first_sentence": "夢是睡覺時，在腦中看到的畫面。",
+  "facts": [
+    "夢有時像真的，有時很奇怪",
+    "每晚大概會做好幾個夢",
+    "為什麼做夢，科學家還不太確定"
+  ],
+  "ask_back": "我們是在睡覺的時候做夢，還是在跑步的時候？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Dream",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "dream",
+      "dreaming"
+    ],
+    "question_patterns": [
+      "why do we dream",
+      "what is a dream",
+      "why do I have dreams at night",
+      "where do dreams come from"
+    ],
+    "first_sentence": "A dream is what you see in your mind while asleep.",
+    "facts": [
+      "Dreams can feel real, or be very strange.",
+      "You may have a few dreams each night.",
+      "Scientists are not sure yet why we dream."
+    ],
+    "ask_back": "Do we dream while we sleep, or while we run?",
+    "bridges": {},
+    "asks_en": [
+      "night",
+      "mind",
+      "while",
+      "asleep",
+      "feel",
+      "real",
+      "strange",
+      "may",
+      "few",
+      "scientists",
+      "sure",
+      "yet"
+    ]
+  }
+}

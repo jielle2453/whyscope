@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whyscope tunnel test</title>
+<style>
+  body { font: 15px/1.4 system-ui, sans-serif; margin: 16px; max-width: 760px; }
+  textarea, input { width: 100%; box-sizing: border-box; font: 13px monospace; }
+  button { margin: 6px 6px 6px 0; padding: 8px 12px; }
+  pre { background: #f3f3f3; padding: 10px; overflow: auto; white-space: pre-wrap; word-break: break-word; }
+  .ok { color: #0a7a2f; } .bad { color: #b00020; }
+</style>
+</head>
+<body>
+<h1>Tunnel test</h1>
+<p>Paste a pairing bundle (JSON, or the <code>WSP1:...</code> QR string) from <code>python -m hub.tunnel pair --device NAME</code>.
+It is kept in this browser's localStorage only.</p>
+<textarea id="bundle" rows="4" placeholder="pairing bundle"></textarea>
+<button id="save">Save pairing</button>
+<hr>
+<input id="q" value="Why is the sky blue?">
+<button id="health">GET /healthz</button>
+<button id="ask">POST /api/ask (wait)</button>
+<button id="direct">Same ask, direct (no tunnel)</button>
+<pre id="out">ready</pre>
+<script src="/static/tunnel.js"></script>
+<script>
+  const out = document.getElementById("out"), $ = (id) => document.getElementById(id);
+  const show = (cls, text) => { out.className = cls; out.textContent = text; };
+  async function run(label, fn) {
+    const t0 = performance.now();
+    try {
+      const r = await fn();
+      const body = await r.text();
+      show(r.ok ? "ok" : "bad", `${label}: HTTP ${r.status} in ${Math.round(performance.now() - t0)} ms\n${body}`);
+    } catch (e) { show("bad", `${label}: ${e}`); }
+  }
+  const askBody = () => ({ method: "POST", headers: { "content-type": "application/json" },
+                           body: JSON.stringify({ text: $("q").value, lang: "en", wait: 1 }) });
+  $("save").onclick = () => {
+    try { const v = $("bundle").value.trim(); WhyscopeTunnel.setBundle(v.startsWith("{") ? JSON.parse(v) : v); $("bundle").value = ""; show("ok", "saved"); }
+    catch (e) { show("bad", "bad bundle: " + e); }
+  };
+  $("health").onclick = () => run("tunnel GET /healthz", () => tunnelFetch("/healthz"));
+  $("ask").onclick = () => run("tunnel POST /api/ask", () => tunnelFetch("/api/ask?wait=1", askBody()));
+  $("direct").onclick = () => run("direct POST /api/ask", () => fetch("/api/ask?wait=1", askBody()));
+</script>
+</body>
+</html>

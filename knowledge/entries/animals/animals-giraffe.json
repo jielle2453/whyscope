@@ -47,6 +47,23 @@
     "ask_back": "Do you think a giraffe eats grass on the ground, or leaves up high?",
     "bridges": {
       "likes_cars": "You like cars! Is a giraffe taller than a car?"
-    }
+    },
+    "asks_en": [
+      "long",
+      "neck",
+      "tall",
+      "eat",
+      "leaves",
+      "high",
+      "reach",
+      "tallest",
+      "animal",
+      "land",
+      "often",
+      "trees",
+      "many",
+      "bones",
+      "persons"
+    ]
   }
 }

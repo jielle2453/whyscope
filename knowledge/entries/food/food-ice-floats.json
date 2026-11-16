@@ -49,6 +49,24 @@
     "ask_back": "Do you think an ice cube sinks in water, or floats?",
     "bridges": {
       "has_garden": "In summer in the garden, ice melts fast, right?"
-    }
+    },
+    "asks_en": [
+      "float",
+      "top",
+      "water",
+      "sink",
+      "because",
+      "lighter",
+      "freezes",
+      "takes",
+      "more",
+      "space",
+      "same",
+      "weight",
+      "room",
+      "slowly",
+      "turns",
+      "back"
+    ]
   }
 }

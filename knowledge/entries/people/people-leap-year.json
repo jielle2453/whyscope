@@ -1,0 +1,65 @@
+{
+  "id": "people-leap-year",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "閏年",
+    "二月二十九日",
+    "leap year"
+  ],
+  "question_patterns": [
+    "為什麼有閏年",
+    "閏年是什麼",
+    "為什麼有二月二十九號",
+    "為什麼閏年多一天"
+  ],
+  "first_sentence": "閏年比平常多一天，在二月底。",
+  "facts": [
+    "閏年有三百六十六天",
+    "地球繞太陽一圈，要三百六十五天多一點",
+    "多出來的時間加起來，每四年補一天"
+  ],
+  "ask_back": "閏年是多一天，還是少一天？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Leap_year",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "leap year",
+      "february 29"
+    ],
+    "question_patterns": [
+      "why do we have a leap year",
+      "what is a leap year",
+      "why is there a february 29",
+      "why does a leap year have an extra day"
+    ],
+    "first_sentence": "A leap year has one extra day, in February.",
+    "facts": [
+      "A leap year has 366 days.",
+      "The Earth needs a bit over 365 days to circle the sun.",
+      "The extra bits add up to one day every four years."
+    ],
+    "ask_back": "Does a leap year have one extra day, or one less?",
+    "bridges": {},
+    "asks_en": [
+      "extra",
+      "day",
+      "366",
+      "earth",
+      "needs",
+      "bit",
+      "365",
+      "circle",
+      "sun",
+      "add",
+      "every",
+      "four"
+    ]
+  }
+}

@@ -51,6 +51,27 @@
     "bridges": {
       "likes_dinosaurs": "Do you think a dinosaur's tummy growled when it was hungry?",
       "has_cat": "Does your cat meow when its tummy is hungry?"
-    }
+    },
+    "asks_en": [
+      "noise",
+      "belly",
+      "rumble",
+      "noisy",
+      "empty",
+      "squeezes",
+      "gurgles",
+      "gut",
+      "own",
+      "move",
+      "food",
+      "air",
+      "juice",
+      "slosh",
+      "around",
+      "after",
+      "eat",
+      "usually",
+      "stops"
+    ]
   }
 }

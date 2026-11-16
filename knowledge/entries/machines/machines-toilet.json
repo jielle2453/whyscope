@@ -48,6 +48,28 @@
     "ask_back": "Do you think a toilet uses water to push the mess away, or air?",
     "bridges": {
       "has_cat": "Cat litter boxes need cleaning too, right?"
-    }
+    },
+    "asks_en": [
+      "poop",
+      "flush",
+      "work",
+      "water",
+      "down",
+      "takes",
+      "mess",
+      "away",
+      "kept",
+      "tank",
+      "ready",
+      "push",
+      "pipes",
+      "place",
+      "cleans",
+      "bent",
+      "keeps",
+      "little",
+      "block",
+      "smells"
+    ]
   }
 }

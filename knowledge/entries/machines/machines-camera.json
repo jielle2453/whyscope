@@ -1,0 +1,66 @@
+{
+  "id": "machines-camera",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "相機",
+    "照相機",
+    "camera"
+  ],
+  "question_patterns": [
+    "相機是怎麼拍照的",
+    "為什麼相機可以拍照",
+    "照相機是什麼",
+    "相機的鏡頭是做什麼的"
+  ],
+  "first_sentence": "相機用光，把畫面記下來。",
+  "facts": [
+    "光從鏡頭進去相機",
+    "快門打開一下下，讓光進去",
+    "光碰到感光的地方，畫面就被記下來"
+  ],
+  "ask_back": "相機拍照，需要光還是不需要光？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Camera",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "camera"
+    ],
+    "question_patterns": [
+      "how does a camera take a picture",
+      "what is a camera",
+      "what is a camera lens for",
+      "how does a camera make a photo"
+    ],
+    "first_sentence": "A camera uses light to save a picture.",
+    "facts": [
+      "Light goes into the camera through the lens.",
+      "The shutter opens for a moment to let the light in.",
+      "The light hits a sensor, and that saves the picture."
+    ],
+    "ask_back": "Does a camera need light to take a picture, or not?",
+    "bridges": {},
+    "asks_en": [
+      "take",
+      "picture",
+      "lens",
+      "photo",
+      "uses",
+      "light",
+      "save",
+      "through",
+      "shutter",
+      "opens",
+      "moment",
+      "let",
+      "hits",
+      "sensor"
+    ]
+  }
+}

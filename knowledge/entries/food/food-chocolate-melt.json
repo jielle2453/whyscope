@@ -1,0 +1,63 @@
+{
+  "id": "food-chocolate-melt",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "巧克力",
+    "chocolate"
+  ],
+  "question_patterns": [
+    "為什麼巧克力會在手上融化",
+    "巧克力是用什麼做的",
+    "巧克力為什麼會化掉",
+    "巧克力為什麼拿久了會黏黏的"
+  ],
+  "first_sentence": "巧克力一碰到熱，就會變軟。",
+  "facts": [
+    "巧克力是用可可豆做的",
+    "大約三十度，巧克力就開始融化",
+    "手比三十度還熱，所以會融化"
+  ],
+  "ask_back": "巧克力放在熱熱的手上，會變軟還是變硬？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Chocolate",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "chocolate"
+    ],
+    "question_patterns": [
+      "why does chocolate melt in my hand",
+      "what is chocolate made of",
+      "why does chocolate get soft",
+      "why is my chocolate sticky"
+    ],
+    "first_sentence": "Chocolate melts when it gets warm.",
+    "facts": [
+      "Chocolate is made from cacao beans.",
+      "It starts to melt at about 30 degrees Celsius.",
+      "Your hand is warmer than that."
+    ],
+    "ask_back": "In a warm hand, does chocolate get soft, or hard?",
+    "bridges": {},
+    "asks_en": [
+      "melt",
+      "hand",
+      "soft",
+      "sticky",
+      "warm",
+      "cacao",
+      "beans",
+      "starts",
+      "30",
+      "degrees",
+      "celsius",
+      "warmer"
+    ]
+  }
+}

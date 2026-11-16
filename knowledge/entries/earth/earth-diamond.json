@@ -1,0 +1,63 @@
+{
+  "id": "earth-diamond",
+  "topic": "earth",
+  "topic_zh": "地球與岩石",
+  "labels": [
+    "鑽石",
+    "diamond"
+  ],
+  "question_patterns": [
+    "鑽石是什麼",
+    "為什麼鑽石很硬",
+    "鑽石是怎麼來的",
+    "鑽石是石頭嗎"
+  ],
+  "first_sentence": "鑽石是世界上最硬的東西之一。",
+  "facts": [
+    "鑽石是由碳做成的，煤也是",
+    "鑽石在地底深處長出來",
+    "它很硬，所以也能拿來切東西"
+  ],
+  "ask_back": "鑽石是在地底深處長出來，還是在天上掉下來？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Diamond",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "diamond",
+      "diamonds"
+    ],
+    "question_patterns": [
+      "what is a diamond",
+      "why is a diamond so hard",
+      "how is a diamond made",
+      "where do diamonds come from"
+    ],
+    "first_sentence": "A diamond is one of the hardest things there is.",
+    "facts": [
+      "A diamond is made of carbon, just like coal.",
+      "Diamonds form deep under the ground.",
+      "Their hardness is useful for cutting."
+    ],
+    "ask_back": "Do diamonds form deep underground, or fall from the sky?",
+    "bridges": {},
+    "asks_en": [
+      "hard",
+      "hardest",
+      "carbon",
+      "coal",
+      "form",
+      "deep",
+      "under",
+      "ground",
+      "hardness",
+      "useful",
+      "cutting"
+    ]
+  }
+}

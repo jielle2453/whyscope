@@ -48,6 +48,23 @@
     "ask_back": "Do you think stars are closer than the moon, or farther away?",
     "bridges": {
       "has_garden": "Have you looked for stars in the sky above your garden?"
-    }
+    },
+    "asks_en": [
+      "twinkle",
+      "blink",
+      "shine",
+      "sparkle",
+      "because",
+      "air",
+      "moves",
+      "bends",
+      "light",
+      "far",
+      "away",
+      "weak",
+      "seems",
+      "own",
+      "suns"
+    ]
   }
 }

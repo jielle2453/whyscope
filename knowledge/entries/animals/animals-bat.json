@@ -1,0 +1,74 @@
+{
+  "id": "animals-bat",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蝙蝠",
+    "bat"
+  ],
+  "question_patterns": [
+    "為什麼蝙蝠倒掛著睡覺",
+    "蝙蝠為什麼晚上能飛",
+    "蝙蝠是不是瞎子",
+    "蝙蝠怎麼在黑暗中找東西"
+  ],
+  "first_sentence": "蝙蝠不是瞎子，牠能看見。",
+  "facts": [
+    "蝙蝠會叫，再聽回聲找東西",
+    "蝙蝠的腳爪會抓緊，頭朝下掛著",
+    "蝙蝠的翅膀是薄薄的皮"
+  ],
+  "ask_back": "蝙蝠睡覺的時候，是頭朝上還是頭朝下？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Bat",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "bat",
+      "bats"
+    ],
+    "question_patterns": [
+      "why do bats sleep upside down",
+      "how can a bat fly in the dark",
+      "are bats blind",
+      "how does a bat find food at night"
+    ],
+    "first_sentence": "A bat is not blind. It can see.",
+    "facts": [
+      "Most bats call out and listen to the echo to find food.",
+      "Bats hang by their feet and do not slip.",
+      "A bat's wing is thin skin stretched over long fingers."
+    ],
+    "ask_back": "When a bat sleeps, is its head up, or down?",
+    "bridges": {},
+    "asks_en": [
+      "sleep",
+      "upside",
+      "down",
+      "fly",
+      "dark",
+      "blind",
+      "find",
+      "food",
+      "night",
+      "most",
+      "call",
+      "listen",
+      "echo",
+      "hang",
+      "feet",
+      "slip",
+      "wing",
+      "thin",
+      "skin",
+      "stretched",
+      "long",
+      "fingers"
+    ]
+  }
+}

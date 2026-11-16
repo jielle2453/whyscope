@@ -1,0 +1,68 @@
+{
+  "id": "physics-soap-bubble",
+  "topic": "physics",
+  "topic_zh": "水與物理",
+  "labels": [
+    "泡泡",
+    "肥皂泡泡",
+    "bubble"
+  ],
+  "question_patterns": [
+    "泡泡為什麼會破",
+    "泡泡是什麼做的",
+    "泡泡為什麼有彩虹色",
+    "為什麼泡泡圓圓的"
+  ],
+  "first_sentence": "泡泡是一層很薄很薄的肥皂水。",
+  "facts": [
+    "泡泡裡面是空的，圓圓的",
+    "泡泡碰到東西，就容易破",
+    "泡泡表面的光，會看起來有很多顏色"
+  ],
+  "ask_back": "泡泡碰到東西，會破掉還是變大？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Soap_bubble",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "bubble",
+      "soap bubble"
+    ],
+    "question_patterns": [
+      "why do soap bubbles pop",
+      "what is a bubble made of",
+      "why do bubbles have rainbow colors",
+      "why are bubbles round"
+    ],
+    "first_sentence": "A bubble is a very thin skin of soap water.",
+    "facts": [
+      "A bubble is a hollow, round ball.",
+      "It often pops when it touches something.",
+      "The surface shimmers with many colors."
+    ],
+    "ask_back": "When a bubble touches something, does it pop, or grow?",
+    "bridges": {},
+    "asks_en": [
+      "pop",
+      "rainbow",
+      "colors",
+      "round",
+      "thin",
+      "skin",
+      "water",
+      "hollow",
+      "ball",
+      "often",
+      "touches",
+      "something",
+      "surface",
+      "shimmers",
+      "many"
+    ]
+  }
+}

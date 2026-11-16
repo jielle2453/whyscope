@@ -48,6 +48,24 @@
     "ask_back": "Do you think sugar tastes sweet, or sour?",
     "bridges": {
       "has_cat": "Does a cat's tongue think sugar tastes sweet?"
-    }
+    },
+    "asks_en": [
+      "sweet",
+      "taste",
+      "cookies",
+      "tongue",
+      "touches",
+      "sugarcane",
+      "beets",
+      "eating",
+      "much",
+      "give",
+      "teeth",
+      "holes",
+      "body",
+      "turns",
+      "energy",
+      "strength"
+    ]
   }
 }

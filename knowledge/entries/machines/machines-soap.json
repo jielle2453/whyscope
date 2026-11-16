@@ -1,0 +1,69 @@
+{
+  "id": "machines-soap",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "肥皂",
+    "洗手",
+    "soap"
+  ],
+  "question_patterns": [
+    "為什麼肥皂可以洗乾淨",
+    "肥皂是做什麼的",
+    "洗手為什麼要用肥皂",
+    "肥皂的泡泡有什麼用"
+  ],
+  "first_sentence": "肥皂讓髒東西沒辦法黏在手上。",
+  "facts": [
+    "肥皂加水，髒東西和油比較不容易黏",
+    "肥皂泡泡會把小蟲蟲抓起來",
+    "再用水沖，就都沖走了"
+  ],
+  "ask_back": "洗手的泡泡，是把髒東西沖走，還是把它留下來？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Soap",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "soap",
+      "washing hands"
+    ],
+    "question_patterns": [
+      "how does soap clean",
+      "why do we wash with soap",
+      "what is soap for",
+      "why do we need soap to wash our hands"
+    ],
+    "first_sentence": "Soap helps dirt slide off your skin.",
+    "facts": [
+      "Soap and water make dirt and oil harder to stick.",
+      "Soap suds lift germs off your hands.",
+      "Then water rinses them all away."
+    ],
+    "ask_back": "Do suds wash dirt away, or keep it on your hands?",
+    "bridges": {},
+    "asks_en": [
+      "clean",
+      "need",
+      "helps",
+      "dirt",
+      "slide",
+      "off",
+      "skin",
+      "water",
+      "oil",
+      "harder",
+      "stick",
+      "suds",
+      "lift",
+      "germs",
+      "rinses",
+      "away"
+    ]
+  }
+}

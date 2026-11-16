@@ -1,0 +1,68 @@
+{
+  "id": "people-doctor",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "醫生",
+    "doctor"
+  ],
+  "question_patterns": [
+    "醫生是做什麼的",
+    "為什麼生病要看醫生",
+    "醫生怎麼知道我哪裡不舒服",
+    "醫生會做什麼"
+  ],
+  "first_sentence": "醫生幫忙讓生病的人好起來。",
+  "facts": [
+    "醫生會問你哪裡不舒服",
+    "醫生會檢查身體，有時要抽血或照片子",
+    "找出原因以後，醫生會想辦法讓你好起來"
+  ],
+  "ask_back": "醫生是會問你哪裡不舒服，還是不會問？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Physician",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "doctor",
+      "doctors"
+    ],
+    "question_patterns": [
+      "what does a doctor do",
+      "why do we go to the doctor",
+      "how does a doctor know what is wrong",
+      "what happens at the doctor"
+    ],
+    "first_sentence": "A doctor helps sick or hurt people get better.",
+    "facts": [
+      "A doctor asks what is wrong.",
+      "A doctor checks your body, and sometimes tests your blood.",
+      "Then the doctor plans a way to help you get better."
+    ],
+    "ask_back": "Does a doctor ask what is wrong, or not?",
+    "bridges": {},
+    "asks_en": [
+      "know",
+      "wrong",
+      "happens",
+      "helps",
+      "sick",
+      "hurt",
+      "people",
+      "better",
+      "asks",
+      "checks",
+      "body",
+      "sometimes",
+      "tests",
+      "blood",
+      "plans",
+      "way"
+    ]
+  }
+}

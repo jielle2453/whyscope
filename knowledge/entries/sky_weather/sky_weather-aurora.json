@@ -1,0 +1,69 @@
+{
+  "id": "sky_weather-aurora",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "極光",
+    "aurora"
+  ],
+  "question_patterns": [
+    "極光是什麼",
+    "為什麼天空會有彩色的光",
+    "極光是怎麼來的",
+    "為什麼北極有極光"
+  ],
+  "first_sentence": "極光是天空中，會跳舞的彩色光。",
+  "facts": [
+    "太陽會送出小小的東西到地球",
+    "它們被帶到南北兩端的天空",
+    "撞到空氣的時候，就會發出彩色的光"
+  ],
+  "ask_back": "極光常常是綠色的，還是黑色的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://spaceplace.nasa.gov/aurora/en/",
+  "source_license": "US government public domain (facts paraphrased)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "aurora",
+      "northern lights"
+    ],
+    "question_patterns": [
+      "what are the northern lights",
+      "why is the sky colorful at the north pole",
+      "what makes an aurora",
+      "why do auroras glow green"
+    ],
+    "first_sentence": "An aurora is colorful light in the sky.",
+    "facts": [
+      "The sun sends tiny bits toward Earth.",
+      "Earth pulls them toward its two poles.",
+      "When they hit the air, they make colored light."
+    ],
+    "ask_back": "Are auroras often green, or black?",
+    "bridges": {},
+    "asks_en": [
+      "sky",
+      "colorful",
+      "north",
+      "pole",
+      "glow",
+      "green",
+      "sun",
+      "sends",
+      "tiny",
+      "bits",
+      "toward",
+      "earth",
+      "guides",
+      "south",
+      "hit",
+      "air",
+      "colored"
+    ]
+  }
+}

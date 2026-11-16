@@ -1,0 +1,424 @@
+{
+ "judged": {
+  "zh-004": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-005": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-007": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-009": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-013": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-014": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-015": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-023": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-026": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-028": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-034": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-035": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-036": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-037": {
+   "verdict": "wrong",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-039": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-040": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-042": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-043": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "zh-044": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "zh-048": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "zh-050": {
+   "verdict": "wrong",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-001": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-002": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-003": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-005": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "en-010": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-014": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-015": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-021": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-023": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-026": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "en-033": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-034": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-035": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-036": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-037": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-039": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-040": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-041": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-042": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-043": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-044": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-045": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-046": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "en-048": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "en-049": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "en-050": {
+   "verdict": "wrong",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "hz-02": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-03": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "hz-04": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-05": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-06": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "hz-08": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "hz-09": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-10": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "hz-11": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-12": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-13": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-14": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-15": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-16": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-17": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-18": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "hz-19": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "hz-20": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-01": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-02": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-04": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "he-05": {
+   "verdict": "wrong",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-06": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-07": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-08": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-09": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-10": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-11": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-12": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-13": {
+   "verdict": "wrong",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-14": {
+   "verdict": "wrong",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-15": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-16": {
+   "verdict": "partly",
+   "false": 1,
+   "ungrounded": 0
+  },
+  "he-17": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-18": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 0
+  },
+  "he-19": {
+   "verdict": "right",
+   "false": 0,
+   "ungrounded": 1
+  },
+  "he-20": {
+   "verdict": "partly",
+   "false": 0,
+   "ungrounded": 0
+  }
+ }
+}

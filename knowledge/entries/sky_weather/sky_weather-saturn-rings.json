@@ -1,0 +1,64 @@
+{
+  "id": "sky_weather-saturn-rings",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "土星",
+    "土星環",
+    "saturn"
+  ],
+  "question_patterns": [
+    "土星的環是什麼做的",
+    "為什麼土星有圈圈",
+    "土星的環是什麼",
+    "土星為什麼有環"
+  ],
+  "first_sentence": "土星的環，是冰和石頭做的。",
+  "facts": [
+    "環裡有很多冰塊和石頭",
+    "有的像灰塵，有的像一間房子",
+    "環不是一整片，是很多小塊"
+  ],
+  "ask_back": "土星的環，是冰做的還是糖做的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Saturn",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "saturn",
+      "saturn's rings"
+    ],
+    "question_patterns": [
+      "what are saturn's rings made of",
+      "why does saturn have rings",
+      "what is the ring around saturn",
+      "are saturn's rings solid"
+    ],
+    "first_sentence": "Saturn's rings are made of ice and rock.",
+    "facts": [
+      "The rings hold ice, rock, and dust.",
+      "Some bits are like dust, and some as big as a house.",
+      "The ring is many bits, not one piece."
+    ],
+    "ask_back": "Are Saturn's rings made of ice, or of sugar?",
+    "bridges": {},
+    "asks_en": [
+      "around",
+      "solid",
+      "ice",
+      "rock",
+      "hold",
+      "dust",
+      "bits",
+      "big",
+      "house",
+      "many",
+      "piece"
+    ]
+  }
+}

@@ -48,6 +48,28 @@
     "ask_back": "Do you think honey stays good for a long time, or goes bad fast?",
     "bridges": {
       "has_garden": "Will bees come to the flowers in your garden?"
-    }
+    },
+    "asks_en": [
+      "sticky",
+      "bees",
+      "slowly",
+      "turn",
+      "flower",
+      "juice",
+      "sip",
+      "sweet",
+      "carry",
+      "home",
+      "flap",
+      "wings",
+      "less",
+      "watery",
+      "little",
+      "water",
+      "germs",
+      "cannot",
+      "grow",
+      "easily"
+    ]
   }
 }

@@ -48,6 +48,24 @@
     "ask_back": "Do you think a whale can breathe underwater, or not?",
     "bridges": {
       "has_dog": "Your dog can swim too! Does it like the water?"
-    }
+    },
+    "asks_en": [
+      "air",
+      "swim",
+      "breathe",
+      "blow",
+      "water",
+      "because",
+      "cannot",
+      "underwater",
+      "animal",
+      "fish",
+      "top",
+      "mama",
+      "gives",
+      "baby",
+      "milk",
+      "drink"
+    ]
   }
 }

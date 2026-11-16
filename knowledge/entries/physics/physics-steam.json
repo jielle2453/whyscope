@@ -1,0 +1,67 @@
+{
+  "id": "physics-steam",
+  "topic": "physics",
+  "topic_zh": "水與物理",
+  "labels": [
+    "蒸氣",
+    "水蒸氣",
+    "steam"
+  ],
+  "question_patterns": [
+    "蒸氣是什麼",
+    "為什麼燒開的水會冒白煙",
+    "水蒸氣是什麼",
+    "熱水上面白白的是什麼"
+  ],
+  "first_sentence": "蒸氣是水變成的氣。",
+  "facts": [
+    "很熱的蒸氣，其實是看不見的",
+    "我們看到的白白一團，是變回小水滴的水氣",
+    "水在一百度會變成蒸氣"
+  ],
+  "ask_back": "很熱的蒸氣，看得見還是看不見？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Steam",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "steam",
+      "white steam"
+    ],
+    "question_patterns": [
+      "what is steam",
+      "why does hot water make white smoke",
+      "what is the white cloud over a hot pot",
+      "what is steam made of"
+    ],
+    "first_sentence": "Steam is water as a gas.",
+    "facts": [
+      "Really hot steam is invisible.",
+      "The white cloud you see is tiny drops of water.",
+      "Water turns to steam at 100 degrees Celsius."
+    ],
+    "ask_back": "Can you see really hot steam, or not?",
+    "bridges": {},
+    "asks_en": [
+      "hot",
+      "water",
+      "smoke",
+      "cloud",
+      "pot",
+      "gas",
+      "really",
+      "invisible",
+      "tiny",
+      "drops",
+      "turns",
+      "100",
+      "degrees",
+      "celsius"
+    ]
+  }
+}

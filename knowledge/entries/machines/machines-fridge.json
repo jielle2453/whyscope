@@ -37,7 +37,6 @@
       "what is this",
       "why is the fridge cold",
       "how does a fridge make things cold",
-      "why does the fridge hum",
       "how does a fridge work"
     ],
     "first_sentence": "This is a fridge! Heat goes outside, so the inside gets cold.",
@@ -49,6 +48,24 @@
     "ask_back": "Do you think the back of a fridge gets warm, or cold?",
     "bridges": {
       "has_cat": "Does your cat like to hide next to the fridge?"
-    }
+    },
+    "asks_en": [
+      "cold",
+      "work",
+      "heat",
+      "outside",
+      "inside",
+      "special",
+      "liquid",
+      "turns",
+      "gas",
+      "easily",
+      "pulls",
+      "nearby",
+      "leaves",
+      "through",
+      "back",
+      "bottom"
+    ]
   }
 }

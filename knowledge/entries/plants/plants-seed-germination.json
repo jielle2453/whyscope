@@ -48,6 +48,26 @@
     "ask_back": "Do you think a seed grows faster in water, or in a dry box?",
     "bridges": {
       "has_garden": "Have you planted a seed in a cup or in your garden?"
-    }
+    },
+    "asks_en": [
+      "start",
+      "grow",
+      "plants",
+      "because",
+      "drank",
+      "lots",
+      "water",
+      "inside",
+      "tiny",
+      "baby",
+      "waiting",
+      "new",
+      "needs",
+      "air",
+      "warmth",
+      "roots",
+      "first",
+      "leaves"
+    ]
   }
 }

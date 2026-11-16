@@ -1,0 +1,63 @@
+{
+  "id": "food-jelly-set",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "果凍",
+    "吉利丁",
+    "jelly"
+  ],
+  "question_patterns": [
+    "果凍為什麼會凝固",
+    "果凍是什麼做的",
+    "果凍為什麼變硬",
+    "果凍為什麼冷了才會成形"
+  ],
+  "first_sentence": "果凍冷了，就會變成固體。",
+  "facts": [
+    "果凍裡有一種叫吉利丁的東西",
+    "吉利丁熱的時候像液體",
+    "冷到比室溫低，就變成果凍"
+  ],
+  "ask_back": "熱的果凍水冷下來，會變固體還是更稀？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Gelatin",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "jelly",
+      "gelatin"
+    ],
+    "question_patterns": [
+      "why does jelly set",
+      "what is jelly made of",
+      "why does jelly get firm when it is cold",
+      "how does jelly turn solid"
+    ],
+    "first_sentence": "Jelly turns solid when it gets cold.",
+    "facts": [
+      "Jelly has a stuff in it called gelatin.",
+      "Gelatin is runny when it is warm.",
+      "When it cools, it sets into jelly."
+    ],
+    "ask_back": "When warm jelly cools down, does it turn solid, or runnier?",
+    "bridges": {},
+    "asks_en": [
+      "set",
+      "firm",
+      "cold",
+      "turn",
+      "solid",
+      "stuff",
+      "called",
+      "runny",
+      "warm",
+      "cools"
+    ]
+  }
+}

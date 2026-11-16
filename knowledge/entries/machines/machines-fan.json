@@ -49,6 +49,26 @@
     "ask_back": "Do you think a fan feels cooler in front of it, or behind it?",
     "bridges": {
       "has_cat": "Does your cat want to catch the spinning fan?"
-    }
+    },
+    "asks_en": [
+      "spin",
+      "wind",
+      "blow",
+      "air",
+      "work",
+      "motor",
+      "blades",
+      "electricity",
+      "turn",
+      "spinning",
+      "push",
+      "forward",
+      "making",
+      "skin",
+      "helps",
+      "sweat",
+      "dry",
+      "faster"
+    ]
   }
 }

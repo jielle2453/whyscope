@@ -1,35 +1,42 @@
 # Roadmap
 
-## Stage I (done: this prototype)
+## Stage I (done)
 
-Laptop hub, `mode: gpu` on an RTX 4060 laptop: text and voice questions, a growing knowledge base, abstention,
-sensitive-topic routing, parent page. See [benchmarks.md](benchmarks.md) for what was measured and what was not.
+A laptop hub (`mode: gpu`, RTX 4060 laptop): text and voice questions, a curated knowledge base, abstention, sensitive-topic
+routing, a parent page. See [benchmarks.md](benchmarks.md).
 
-## Stage II: 2026-11-06 to 2026-12-04 (four weeks)
+## Stage II (now, submit 2026-12-03)
 
-Goal: the same pipeline on a Raspberry Pi 5 with an ASUS UGen300, in a child-safe enclosure, with measured numbers.
+The same product running with an **ASUS UGen300 USB** as ears, eyes and helper ([ugen.md](ugen.md)): one worker, four models on one
+shared device (LLM, Whisper-Small, YOLOv8s, CLIP image encoder), parent drafts, accounts with several children, encrypted relay,
+offline curiosity jar. Results: {{V3_RIGHT}} correct on the clean held-out set ([eval/coverage_report.md](../eval/coverage_report.md)
+for the earlier measurement).
 
-| week | dates | work |
-|---|---|---|
-| W1 | 11-06 to 11-13 | Assemble hardware ([hardware.md](hardware.md)). Check the UGen300 over USB and over PCIe with HailoRT and a GenAI sample. Decide Pi vs mini-PC fallback. Record speech from **20 children** (consent, no names, audio kept only for CER scoring in a separate offline set). |
-| W2 | 11-14 to 11-20 | Port modules: SenseVoice-Small ASR, yolov8s + CLIP HEF vision, Hailo GenAI compose. Measure child Mandarin **CER** on the KB vocabulary from the W1 recordings. |
-| W3 | 11-21 to 11-27 | End-to-end latency on device. Build and run the 200-question **abstention set** (`eval/abstention_set.jsonl`). Add **streaming TTS** (Piper or Kokoro) so the first sentence starts speaking while the rest is composed. |
-| W4 | 11-28 to 12-04 | Enclosure, power and thermal soak. **Wizard-of-Oz** sessions with children. Cut a **10-minute video**. Write up results. |
+## The story: how the design changed
 
-### Five target metrics
+1. **LLM answers the child.** The first idea was a small on-device LLM answering children's "why" questions.
+2. **It hallucinated.** The 1.5B model gave false statements to children, even with retrieved passages
+   ([eval/coverage_report.md](../eval/coverage_report.md)) and even with the right principle
+   ([eval/principles/report.md](../eval/principles/report.md)). A child must not get raw LLM text as fact.
+3. **Facts moved to curated text with abstention.** Answers now come from a curated knowledge base (207 entries) and a principle
+   library (71 principles), with strict guards and an honest "I'm not sure, I'll ask your grown-up" that goes to a parent.
+4. **Worry: did the UGen lose its point?** If the LLM no longer answers, what is the accelerator for?
+5. **Repositioned: ears, eyes, helper.** Whisper-Small hears the child, YOLOv8s and CLIP see the object, and the LLM helps the parent
+   by drafting answers that a person approves. Privacy (everything at home) and the parent in the loop stay central.
+6. **Ask anywhere, one host many kids.** Households, several children, PIN-protected parents, QR pairing; an end-to-end encrypted
+   relay for away from home; an offline curiosity jar that holds questions until the hub is reachable again.
 
-| # | metric | target |
-|---|---|---|
-| 1 | First word latency (end of speech to first audio) | **<= 2.5 s** |
-| 2 | Child Mandarin character error rate on KB vocabulary | **<= 20 %** |
-| 3 | Pointing / object recognition accuracy at 0.5 to 1.5 m | **>= 85 %** |
-| 4 | Abstention error on 200 questions (wrong answer or wrong abstain) | **<= 10 %** |
-| 5 | Energy per question, measured at the wall with a USB power meter | measured and reported (no target yet) |
+## Next
 
-## After Stage II: watch and wearable clients
+| item | why |
+|---|---|
+| HailoRT 5.4+ | larger LLM (Qwen3-4B or Gemma) for better parent drafts; Whisper-Medium for better speech recognition, possibly Chinese |
+| Qwen3-VL-2B vision-language model | follow-up "what is this?" questions about the camera image |
+| Team review of drafts | review the 114 AI-draft entries and 71 principles (`reviewed_by`), then ship them as reviewed packs |
+| Dedicated box | CM5 + Hailo-10H M.2 on a custom carrier board (Pi 5 + AI HAT+ 2 as the prototype); always-on at home |
+| Kid wand and parent app | replace the prototype web pages with a kid device and a real parent app |
+| User studies | learn what children ask and how parents use the To-answer list |
+| Hosted relay as a service | subscription for away-from-home ([business.md](business.md)) |
 
-The hub already speaks a small HTTP API, so new clients are thin: a push-to-talk watch app or a wearable pendant
-that records a question, posts it to a household hub, and plays the answer. Hardware and software for these would
-come through **partnerships** with watch and wearable makers, not from building devices in-house. Open questions:
-BLE or Wi-Fi link to the hub, battery budget for streaming TTS, and how to keep the parent page the single place
-for oversight.
+Known limits we state openly: Chinese speech recognition stays on the CPU (UGen Whisper CER 10.7-15.3 % vs 2.7 %); drafts for
+a parent can be weak when no fact fits; the USB-C port on the test laptop advertised only 1.5 A.

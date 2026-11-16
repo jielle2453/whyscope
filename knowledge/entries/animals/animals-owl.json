@@ -1,0 +1,73 @@
+{
+  "id": "animals-owl",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "貓頭鷹",
+    "owl"
+  ],
+  "question_patterns": [
+    "為什麼貓頭鷹晚上不睡覺",
+    "貓頭鷹為什麼可以轉頭",
+    "貓頭鷹為什麼在晚上看得到",
+    "貓頭鷹為什麼飛起來沒有聲音"
+  ],
+  "first_sentence": "貓頭鷹在晚上找食物。",
+  "facts": [
+    "貓頭鷹的大眼睛，在暗處看得清楚",
+    "軟軟的羽毛，讓牠飛起來沒有聲音",
+    "貓頭鷹的頭可以轉很大圈"
+  ],
+  "ask_back": "貓頭鷹飛起來，聲音大還是很安靜？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Owl",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "owl",
+      "owls"
+    ],
+    "question_patterns": [
+      "why do owls hunt at night",
+      "why can an owl turn its head so far",
+      "how can an owl see in the dark",
+      "why is an owl so quiet when it flies"
+    ],
+    "first_sentence": "Owls hunt for food at night.",
+    "facts": [
+      "An owl has big eyes that see well in dim light.",
+      "Its soft feathers let it fly almost without a sound.",
+      "An owl can turn its head very far around."
+    ],
+    "ask_back": "Is an owl loud when it flies, or very quiet?",
+    "bridges": {},
+    "asks_en": [
+      "hunt",
+      "night",
+      "turn",
+      "head",
+      "far",
+      "dark",
+      "quiet",
+      "flies",
+      "food",
+      "big",
+      "eyes",
+      "well",
+      "dim",
+      "light",
+      "soft",
+      "feathers",
+      "let",
+      "almost",
+      "without",
+      "sound",
+      "around"
+    ]
+  }
+}

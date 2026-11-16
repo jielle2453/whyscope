@@ -47,6 +47,28 @@
     "ask_back": "Do you think fog is thicker in the morning, or at lunch?",
     "bridges": {
       "likes_cars": "You like cars! Do cars turn on their lights in thick fog?"
-    }
+    },
+    "asks_en": [
+      "outside",
+      "cant",
+      "far",
+      "air",
+      "foggy",
+      "cloud",
+      "near",
+      "ground",
+      "because",
+      "got",
+      "cold",
+      "tiny",
+      "water",
+      "drops",
+      "sitting",
+      "close",
+      "turns",
+      "sun",
+      "slowly",
+      "away"
+    ]
   }
 }

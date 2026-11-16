@@ -1,0 +1,67 @@
+{
+  "id": "people-flag",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "國旗",
+    "旗子",
+    "flag"
+  ],
+  "question_patterns": [
+    "為什麼每個國家都有國旗",
+    "國旗是做什麼的",
+    "旗子是什麼意思",
+    "旗子上的顏色有什麼意思"
+  ],
+  "first_sentence": "國旗代表一個國家。",
+  "facts": [
+    "旗子是一塊有圖畫的布",
+    "顏色和圖畫常常有不同的意思",
+    "學校和球隊也有自己的旗子"
+  ],
+  "ask_back": "旗子上的顏色，有特別的意思嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Flag",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "flag",
+      "flags"
+    ],
+    "question_patterns": [
+      "why does every country have a flag",
+      "what is a flag for",
+      "what do the colors on a flag mean",
+      "what is a flag"
+    ],
+    "first_sentence": "A national flag stands for a country.",
+    "facts": [
+      "A flag is cloth with a special design.",
+      "Colors and shapes often have meanings.",
+      "Teams and groups have flags too."
+    ],
+    "ask_back": "Do the colors on a flag have a meaning, or not?",
+    "bridges": {},
+    "asks_en": [
+      "every",
+      "country",
+      "colors",
+      "mean",
+      "national",
+      "stands",
+      "cloth",
+      "special",
+      "design",
+      "shapes",
+      "often",
+      "meanings",
+      "teams",
+      "groups"
+    ]
+  }
+}

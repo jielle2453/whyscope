@@ -1,0 +1,68 @@
+{
+  "id": "sky_weather-pluto",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "冥王星",
+    "pluto"
+  ],
+  "question_patterns": [
+    "冥王星為什麼不是行星",
+    "冥王星是什麼",
+    "冥王星為什麼叫矮行星",
+    "冥王星還是行星嗎"
+  ],
+  "first_sentence": "冥王星現在叫矮行星。",
+  "facts": [
+    "二〇〇六年，科學家重新分了類",
+    "冥王星是圓的，也繞著太陽轉",
+    "但它旁邊還有很多別的小東西"
+  ],
+  "ask_back": "冥王星現在是矮行星，還是大行星？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Pluto",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "pluto",
+      "dwarf planet"
+    ],
+    "question_patterns": [
+      "is pluto a planet",
+      "why is pluto not a planet anymore",
+      "what is a dwarf planet",
+      "what happened to pluto"
+    ],
+    "first_sentence": "Pluto is now called a dwarf planet.",
+    "facts": [
+      "In 2006, scientists put Pluto in a new group.",
+      "Pluto is round and goes around the sun.",
+      "But it shares its path with many other things."
+    ],
+    "ask_back": "Is Pluto now a dwarf planet, or a big planet?",
+    "bridges": {},
+    "asks_en": [
+      "anymore",
+      "happened",
+      "now",
+      "called",
+      "2006",
+      "scientists",
+      "put",
+      "new",
+      "group",
+      "round",
+      "around",
+      "sun",
+      "shares",
+      "path",
+      "many",
+      "other"
+    ]
+  }
+}

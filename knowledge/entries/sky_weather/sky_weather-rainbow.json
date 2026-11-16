@@ -48,6 +48,25 @@
     "ask_back": "Do you think a rainbow shows up when the sun is behind you?",
     "bridges": {
       "has_garden": "Have you seen a rainbow over your garden after the rain?"
-    }
+    },
+    "asks_en": [
+      "colors",
+      "sky",
+      "sunlight",
+      "shines",
+      "through",
+      "tiny",
+      "drops",
+      "water",
+      "air",
+      "inside",
+      "light",
+      "splits",
+      "many",
+      "sun",
+      "behind",
+      "rain",
+      "ahead"
+    ]
   }
 }

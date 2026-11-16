@@ -63,18 +63,25 @@ def common_chars() -> frozenset:
         return frozenset()
 
 
-def rare_chars(sentence: str) -> list:
+def rare_chars(sentence: str, allow=frozenset()) -> list:
+    """Characters outside the common list. `allow`: characters of the entry's own labels (the child just named that
+    thing, so its name is not an uncommon word; see `entry_allow_zh`)."""
     cc = common_chars()
     if not cc:
         return []
-    return [c for c in _PUNCT.sub("", sentence) if c not in cc]
+    return [c for c in _PUNCT.sub("", sentence) if c not in cc and c not in allow]
+
+
+def entry_allow_zh(entry: dict) -> frozenset:
+    """Characters of an entry's Chinese labels: allowed in its own explanation / ask-back."""
+    return frozenset("".join(entry.get("labels") or []))
 
 
 def has_banned(text: str) -> bool:
     return any(b in text for b in BANNED)
 
 
-def check_text(text: str, max_sentences: int = MAX_SENTENCES) -> list:
+def check_text(text: str, max_sentences: int = MAX_SENTENCES, allow=frozenset()) -> list:
     """Return a list of problems (empty = fine) for a spoken explanation."""
     probs = []
     ss = sentences(text)
@@ -85,7 +92,7 @@ def check_text(text: str, max_sentences: int = MAX_SENTENCES) -> list:
     for s in ss:
         if chars_of(s) > MAX_SENT_CHARS:
             probs.append(f"sentence too long: {s}")
-        if len(rare_chars(s)) > MAX_RARE:
+        if len(rare_chars(s, allow)) > MAX_RARE:
             probs.append(f"rare characters: {s}")
     if has_banned(text):
         probs.append("banned term")
@@ -110,8 +117,8 @@ def guessable(q: str) -> str:
 # * every spoken sentence <= 12 words, explanation <= 2 sentences (1 for age <= 6), spoken total <= 45 words
 #   (first sentence + reaction + explanation; the ask-back is a separate question of <= 16 words)
 # * PLAIN_EN: about 15 science terms -> child phrases (`plainify_en`); the terms are banned after rewriting
-# * "common words" are NOT listed by hand: the set is built at startup from every word in the `en` fields of
-#   knowledge/entries/**/*.json plus the words of the plain phrases. At most MAX_RARE_EN points of uncommon words
+# * "common words" are NOT listed by hand: the set is the frozen list hub/data/common_words_en_baseline.txt, built from the
+#   `en` fields of the REVIEWED entries (not AI drafts) plus the words of the plain phrases. At most MAX_RARE_EN points of uncommon words
 #   are allowed per sentence, and an uncommon word longer than LONG_WORD letters counts double.
 # =====================================================================================================
 KNOWLEDGE = Path(__file__).resolve().parent.parent / "knowledge" / "entries"
@@ -210,9 +217,21 @@ def has_banned_en(text: str) -> bool:
     return bool(_BANNED_EN.search(text or ""))
 
 
-@lru_cache(maxsize=1)
-def common_words_en() -> frozenset:
-    """Programmatic 'common words': all words of the `en` fields of every entry + the plain phrases (stemmed)."""
+COMMON_EN_FILE = Path(__file__).resolve().parent / "data" / "common_words_en_baseline.txt"
+
+
+COMMON_EN_BASIC_FILE = Path(__file__).resolve().parent / "data" / "common_words_en_basic.txt"
+
+
+def is_reviewed_entry(e: dict) -> bool:
+    """Reviewed content: an entry that is not an AI draft (or whose draft a person has reviewed)."""
+    return not e.get("draft") or bool(e.get("reviewed_by"))
+
+
+def baseline_words_en() -> set:
+    """Common words (base and stem forms) of the REVIEWED entries' `en` fields, the plain phrases and the reactions.
+    AI-draft entries never add to the set, so a draft is always checked against the reviewed vocabulary.
+    `scripts/build_common_chars.py` freezes this into hub/data/common_words_en_baseline.txt."""
     out = set()
 
     def add(s):
@@ -233,26 +252,63 @@ def common_words_en() -> frozenset:
 
     for f in KNOWLEDGE.glob("**/*.json"):
         try:
-            walk(json.loads(f.read_text(encoding="utf-8")).get("en") or {})
+            e = json.loads(f.read_text(encoding="utf-8"))
         except Exception:
             continue
+        if is_reviewed_entry(e):
+            walk(e.get("en") or {})
     for _, phrase, _ in PLAIN_EN:
         add(phrase)
     for r in REACTIONS_EN:
         add(r)
+    return out
+
+
+@lru_cache(maxsize=1)
+def common_words_en() -> frozenset:
+    """'Common words': the frozen list built from the reviewed entries (hub/data/common_words_en_baseline.txt); if the
+    file is missing, the same set is computed from the reviewed entries at startup. Drafts never widen it."""
+    try:
+        words = COMMON_EN_FILE.read_text(encoding="utf-8").split()
+    except OSError:
+        words = []
+    out = set(words) if words else set(baseline_words_en())
+    try:   # frozen, hand-written early-reader list (Dolch sight words and nouns): everyday words that no entry happens to use
+        for w in COMMON_EN_BASIC_FILE.read_text(encoding="utf-8").split():
+            b = _base(w)
+            out.add(b)
+            out.add(_stem(b))
+    except OSError:
+        pass
     return frozenset(out)
 
 
-def rare_words_en(sentence: str) -> list:
+def entry_allow_en(entry: dict) -> frozenset:
+    """Words (base and stem) of an entry's English labels and of its id after the topic ("animals-kangaroo-pouch" ->
+    kangaroo, pouch): the thing the child just asked about is named in its own answer, so its name is not counted as an
+    uncommon word. Nothing else is exempt, and the exemption never reaches another entry's words."""
+    en = entry.get("en") or {}
+    toks = list(en.get("labels") or []) + [str(entry.get("id", "")).split("-", 1)[-1].replace("-", " ").replace("_", " ")]
+    out = set()
+    for t in toks:
+        for w in words_en(t):
+            b = _base(w)
+            out.add(b)
+            out.add(_stem(b))
+    return frozenset(out)
+
+
+def rare_words_en(sentence: str, allow=frozenset()) -> list:
     cw = common_words_en()
     if not cw:
         return []
-    return [t for t in words_en(sentence) if not t.isdigit() and _base(t) not in cw and _stem(_base(t)) not in cw]
+    return [t for t in words_en(sentence) if not t.isdigit() and _base(t) not in cw and _stem(_base(t)) not in cw
+            and _base(t) not in allow and _stem(_base(t)) not in allow]
 
 
-def rare_score_en(sentence: str) -> int:
+def rare_score_en(sentence: str, allow=frozenset()) -> int:
     """Uncommon words in the sentence; one longer than LONG_WORD letters counts double."""
-    return sum(2 if len(_base(t)) > LONG_WORD else 1 for t in rare_words_en(sentence))
+    return sum(2 if len(_base(t)) > LONG_WORD else 1 for t in rare_words_en(sentence, allow))
 
 
 NOT_ALLOWED_EN = re.compile(
@@ -281,7 +337,7 @@ def guessable_en(q: str) -> str:
     return q if ask_ok_pattern_en(q) else "Can you tell me, " + q[:1].lower() + q[1:]
 
 
-def check_text_en(text: str, max_sentences: int = MAX_SENTENCES_EN) -> list:
+def check_text_en(text: str, max_sentences: int = MAX_SENTENCES_EN, allow=frozenset()) -> list:
     """Problems (empty = fine) for a spoken English explanation."""
     probs = []
     ss = sentences_en(text)
@@ -292,7 +348,7 @@ def check_text_en(text: str, max_sentences: int = MAX_SENTENCES_EN) -> list:
     for s in ss:
         if len(words_en(s)) > MAX_SENT_WORDS:
             probs.append(f"sentence too long: {s}")
-        if rare_score_en(s) > MAX_RARE_EN:
+        if rare_score_en(s, allow) > MAX_RARE_EN:
             probs.append(f"uncommon words: {s}")
     if has_banned_en(text):
         probs.append("banned term")

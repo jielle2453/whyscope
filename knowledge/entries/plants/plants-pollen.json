@@ -1,0 +1,66 @@
+{
+  "id": "plants-pollen",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "花粉",
+    "pollen"
+  ],
+  "question_patterns": [
+    "花粉是什麼",
+    "花粉是做什麼的",
+    "花粉怎麼傳來傳去",
+    "蜜蜂為什麼沾了黃黃的粉"
+  ],
+  "first_sentence": "花粉是花裡的小粉末，會幫植物結種子。",
+  "facts": [
+    "花粉要傳到另一朵花，才能結種子",
+    "蜜蜂、蝴蝶和小鳥會幫忙搬",
+    "有的花粉很輕，風可以吹走"
+  ],
+  "ask_back": "花粉是被風吹走，還是只會待在花裡？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Pollen",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "pollen"
+    ],
+    "question_patterns": [
+      "what is pollen",
+      "what is pollen for",
+      "how does pollen travel",
+      "why do bees get yellow dust on them"
+    ],
+    "first_sentence": "Pollen is a fine powder from flowers.",
+    "facts": [
+      "Pollen has to reach another flower to make seeds.",
+      "Bees, butterflies, and birds carry it.",
+      "Some pollen is so light that wind carries it."
+    ],
+    "ask_back": "Is pollen carried by wind, or does it stay in the flower?",
+    "bridges": {},
+    "asks_en": [
+      "travel",
+      "bees",
+      "yellow",
+      "dust",
+      "fine",
+      "powder",
+      "flowers",
+      "reach",
+      "another",
+      "seeds",
+      "butterflies",
+      "birds",
+      "carry",
+      "light",
+      "wind"
+    ]
+  }
+}

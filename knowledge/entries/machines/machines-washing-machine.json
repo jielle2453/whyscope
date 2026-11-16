@@ -49,6 +49,26 @@
     "ask_back": "Do you think a washing machine cleans better with soap, or without?",
     "bridges": {
       "has_dog": "Do you wash your dog's towel in the washing machine too?"
-    }
+    },
+    "asks_en": [
+      "clean",
+      "clothes",
+      "spin",
+      "work",
+      "spinning",
+      "water",
+      "dirt",
+      "off",
+      "drum",
+      "inside",
+      "turns",
+      "around",
+      "soap",
+      "helps",
+      "break",
+      "away",
+      "fast",
+      "thrown"
+    ]
   }
 }

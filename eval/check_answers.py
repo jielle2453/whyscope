@@ -21,6 +21,14 @@ from hub import wording  # noqa: E402
 from hub.safety import askback_ok  # noqa: E402
 
 
+def load_entry(kb_id):
+    """The knowledge entry behind an answer (its own labels are not counted as uncommon words, as in hub/compose.py)."""
+    for f in (ROOT / "knowledge" / "entries").glob("*/*.json"):
+        if f.stem == kb_id or f.name == f"{kb_id}.json":
+            return json.loads(f.read_text(encoding="utf-8"))
+    return {}
+
+
 def call(url, method="GET", body=None):
     req = urllib.request.Request(url, method=method, data=json.dumps(body).encode() if body is not None else None,
                                  headers={"Content-Type": "application/json"})
@@ -49,7 +57,7 @@ def main():
     call(a.url + "/api/memory", "POST", {"key": "child_age", "value": a.age})
     for b in bridges:
         call(a.url + "/api/memory", "POST", {"key": b, "value": True})
-    fails, firsts, totals, skipped, done = [], [], [], [], 0
+    fails, firsts, totals, skipped, done, n_immediate = [], [], [], [], 0, 0
     try:
         for q in qs:
             if done >= a.n:
@@ -57,36 +65,50 @@ def main():
             t0 = time.perf_counter()
             _, r = call(a.url + "/api/ask", "POST", {"text": q, "mode": "text", "lang": a.lang})
             t_first = (time.perf_counter() - t0) * 1000
-            if r["status"] != "answered":
-                skipped.append(q)   # recall abstained on this paraphrase (see run_abstention.py); try the next one
-                continue
+            if r["status"] != "answered" or r.get("kind") == "ai_guess":
+                skipped.append(q)   # recall abstained on this paraphrase (see run_abstention.py; an AI guess is not a
+                continue            # knowledge-base answer and is checked by hub/guard.py instead); try the next one
             done += 1
-            for _ in range(60):   # poll every 300 ms up to 18 s
-                code, full = call(a.url + "/api/ask/" + r["pending_id"])
-                if code == 200 and not full.get("pending"):
-                    break
-                time.sleep(0.3)
+            immediate = not r.get("pending_id")   # principle / family answers are complete at once: no compose phase,
+            if immediate:                         # no explanation and no question back, so only the spoken text is checked
+                full = {**r, "latency_ms": r.get("latency_ms") or {"total": r["first_sentence_ms"]}, "compose_source": r.get("source", "-")}
             else:
-                fails.append((q, "timeout"))
-                continue
+                for _ in range(60):   # poll every 300 ms up to 18 s
+                    code, full = call(a.url + "/api/ask/" + r["pending_id"])
+                    if code == 200 and not full.get("pending"):
+                        break
+                    time.sleep(0.3)
+                else:
+                    fails.append((q, "timeout"))
+                    continue
+            n_immediate += immediate
             firsts.append(r["first_sentence_ms"])
             totals.append(full["latency_ms"]["total"])
+            full.setdefault("reaction", "")
+            full.setdefault("explanation", "")
+            full.setdefault("ask_back", "")
+            full.setdefault("bridge_used", None)
             spoken = [full.get("reaction", ""), full["first_sentence"], full["explanation"]]
             allt = " ".join(spoken + [full["ask_back"]])
             problems = []
+            ent = load_entry(full.get("kb_id")) if full.get("kb_id") else {}
+            allow_en, allow_zh = wording.entry_allow_en(ent), wording.entry_allow_zh(ent)
             if a.lang == "en":
                 parts = [s for t in spoken for s in wording.sentences_en(t)]
                 if any(len(wording.words_en(s)) > wording.MAX_SENT_WORDS for s in parts):
                     problems.append("sentence>12 words")
-                if len(wording.sentences_en(full["explanation"])) > (1 if a.age <= 6 else 2):
+                if not immediate and len(wording.sentences_en(full["explanation"])) > (1 if a.age <= 6 else 2):
                     problems.append("explanation sentences")
                 if wording.spoken_words(*spoken) > wording.MAX_TOTAL_WORDS:
                     problems.append("total>45 words")
-                if any(wording.rare_score_en(s) > wording.MAX_RARE_EN for s in wording.sentences_en(full["explanation"])):
+                # compose answers: uncommon-word rule on the explanation (as before); immediate answers have no
+                # explanation, so the rule is applied to every spoken sentence instead
+                rare_src = parts if immediate else wording.sentences_en(full["explanation"])
+                if any(wording.rare_score_en(s, allow_en) > wording.MAX_RARE_EN for s in rare_src):
                     problems.append("uncommon words")
                 if wording.has_banned_en(allt):
                     problems.append("banned term")
-                if not wording.ask_ok_pattern_en(full["ask_back"]) or not wording.askback_ok_en(full["ask_back"]):
+                if not immediate and (not wording.ask_ok_pattern_en(full["ask_back"]) or not wording.askback_ok_en(full["ask_back"])):
                     problems.append("ask-back pattern/blocklist")
                 if wording.NOT_ALLOWED_EN.search(allt):
                     problems.append("feelings/flattery")
@@ -96,9 +118,11 @@ def main():
                     problems.append("sentence>18")
                 if sum(wording.chars_of(t) for t in spoken) > 60:
                     problems.append("total>60")
+                if any(len(wording.rare_chars(s, allow_zh)) > wording.MAX_RARE for s in (parts if immediate else wording.sentences(full["explanation"]))):
+                    problems.append("uncommon characters")
                 if wording.has_banned(allt):
                     problems.append("banned term")
-                if not wording.ask_ok_pattern(full["ask_back"]) or not askback_ok(full["ask_back"]):
+                if not immediate and (not wording.ask_ok_pattern(full["ask_back"]) or not askback_ok(full["ask_back"])):
                     problems.append("ask-back pattern/blocklist")
                 if wording.NOT_ALLOWED.search(allt):
                     problems.append("feelings/flattery")
@@ -114,7 +138,7 @@ def main():
                 call(a.url + "/api/memory", "POST", {"key": k, "value": old[k]["value"]})
             else:
                 call(a.url + "/api/memory?key=" + k, "DELETE")
-    print(f"\n{done - len(fails)}/{done} passed ({len(skipped)} abstained, replaced); first_sentence_ms max {max(firsts or [0])}, "
+    print(f"\n{done - len(fails)}/{done} passed ({n_immediate} immediate principle/family answers, {len(skipped)} abstained or sensitive, replaced); first_sentence_ms max {max(firsts or [0])}, "
           f"full answer ms mean {sum(totals) / max(1, len(totals)):.0f}")
     for q, why in fails:
         print("  fail:", q, why)

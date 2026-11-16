@@ -1,4 +1,5 @@
-"""Build hub/data/common_chars.txt (offline): every character used in knowledge/entries and cheat deflections,
+"""Build hub/data/common_chars.txt and hub/data/common_words_en_baseline.txt (offline), from REVIEWED entries only (not AI drafts).
+zh chars: every character used in the reviewed entries and cheat deflections,
 the replacement phrases of hub/wording.py, a hand-written list of everyday characters, digits and punctuation.
 
 No official education-ministry list ships with the repo, so this is the documented substitute.
@@ -11,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from hub.wording import REPLACEMENTS, REACTIONS  # noqa: E402
+from hub.wording import REPLACEMENTS, REACTIONS, is_reviewed_entry, baseline_words_en  # noqa: E402
 
 EVERYDAY = (
     "我你他她它牠們的了是不有在這那個什麼怎麼為會可以也都就很和跟但因所如果還要想看說聽問答吃喝睡玩走跑跳飛游爬坐站躺笑哭叫唱畫寫讀"
@@ -30,6 +31,8 @@ def main():
     chars = set(EVERYDAY) | set(PUNCT)
     for f in glob.glob(str(ROOT / "knowledge" / "entries" / "*" / "*.json")):
         e = json.load(open(f, encoding="utf-8"))
+        if not is_reviewed_entry(e):
+            continue   # AI-draft entries must not widen the "common" vocabulary they are checked against
         text = " ".join([e.get("first_sentence", ""), e.get("ask_back", ""), *e.get("facts", []), *e.get("labels", []),
                          *e.get("bridges", {}).values()])
         chars |= {c for c in text if ord(c) > 127}
@@ -46,6 +49,10 @@ def main():
     s = "".join(sorted(chars))
     out.write_text("\n".join(s[i:i + 50] for i in range(0, len(s), 50)) + "\n", encoding="utf-8")
     print(f"wrote {out} ({len(chars)} characters)")
+    words = sorted(baseline_words_en())
+    wout = ROOT / "hub" / "data" / "common_words_en_baseline.txt"
+    wout.write_text("\n".join(" ".join(words[i:i + 12]) for i in range(0, len(words), 12)) + "\n", encoding="utf-8")
+    print(f"wrote {wout} ({len(words)} words)")
 
 
 if __name__ == "__main__":

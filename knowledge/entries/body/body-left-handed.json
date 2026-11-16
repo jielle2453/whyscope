@@ -1,0 +1,68 @@
+{
+  "id": "body-left-handed",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "左撇子",
+    "左手",
+    "left-handed"
+  ],
+  "question_patterns": [
+    "為什麼有人是左撇子",
+    "左撇子是什麼",
+    "為什麼大部分人用右手",
+    "為什麼我習慣用左手"
+  ],
+  "first_sentence": "有人愛用左手，有人愛用右手。",
+  "facts": [
+    "大部分的人習慣用右手",
+    "這和腦袋分工的方式有關",
+    "為什麼，科學家還沒有完全弄懂"
+  ],
+  "ask_back": "大部分的人，是用右手還是左手寫字？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Handedness",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "left-handed",
+      "left hand"
+    ],
+    "question_patterns": [
+      "why are some people left-handed",
+      "why do most people use their right hand",
+      "what is a lefty",
+      "why do I write with my left hand"
+    ],
+    "first_sentence": "Some people use their left hand more.",
+    "facts": [
+      "Most people use their right hand more.",
+      "It depends on how the brain shares its work.",
+      "Scientists are still finding out why."
+    ],
+    "ask_back": "Do most people write with their right hand, or left?",
+    "bridges": {},
+    "asks_en": [
+      "people",
+      "most",
+      "use",
+      "right",
+      "lefty",
+      "write",
+      "more",
+      "depends",
+      "brain",
+      "shares",
+      "work",
+      "scientists",
+      "fully",
+      "understand",
+      "yet"
+    ]
+  }
+}

@@ -48,6 +48,23 @@
     "ask_back": "Do you think a tree with more rings is older, or younger?",
     "bridges": {
       "has_garden": "Have you seen a tree stump in a garden with rings on it?"
-    }
+    },
+    "asks_en": [
+      "circles",
+      "trunk",
+      "because",
+      "adds",
+      "year",
+      "shows",
+      "growing",
+      "spring",
+      "summer",
+      "light",
+      "fast",
+      "fall",
+      "winter",
+      "dark",
+      "slowly"
+    ]
   }
 }

@@ -48,6 +48,25 @@
     "ask_back": "Do you think rain falls up from the ground, or down from clouds?",
     "bridges": {
       "has_dog": "Does your dog like to run in the rain, or stay inside?"
-    }
+    },
+    "asks_en": [
+      "fall",
+      "down",
+      "clouds",
+      "because",
+      "water",
+      "drops",
+      "heavy",
+      "hold",
+      "lots",
+      "tiny",
+      "join",
+      "together",
+      "big",
+      "runs",
+      "rivers",
+      "back",
+      "sea"
+    ]
   }
 }

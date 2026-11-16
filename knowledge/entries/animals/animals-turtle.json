@@ -48,6 +48,21 @@
     "ask_back": "Do you think a turtle can walk fast, or slowly?",
     "bridges": {
       "has_garden": "Have you ever seen a turtle in a garden or pond?"
-    }
+    },
+    "asks_en": [
+      "shell",
+      "hard",
+      "joined",
+      "bones",
+      "keep",
+      "safe",
+      "ribs",
+      "spine",
+      "outside",
+      "helmet",
+      "pull",
+      "head",
+      "legs"
+    ]
   }
 }

@@ -1,0 +1,66 @@
+{
+  "id": "people-school",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "上學",
+    "學校",
+    "school"
+  ],
+  "question_patterns": [
+    "為什麼要上學",
+    "學校是做什麼的",
+    "為什麼小孩要去學校",
+    "我們為什麼要上課"
+  ],
+  "first_sentence": "學校是大家一起學東西的地方。",
+  "facts": [
+    "在學校，老師教我們很多事",
+    "學校也教我們怎麼和大家相處",
+    "長大以後，學到的本事能用在工作上"
+  ],
+  "ask_back": "上課是用來學東西，還是用來睡覺？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/School",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "school",
+      "going to school"
+    ],
+    "question_patterns": [
+      "why do children go to school",
+      "what is a school for",
+      "why do we have to go to class",
+      "why do kids have to learn"
+    ],
+    "first_sentence": "A school is a place where people learn.",
+    "facts": [
+      "At school, a teacher helps you learn many things.",
+      "School also helps you learn how to get along with others.",
+      "What you learn helps you do a job when you grow up."
+    ],
+    "ask_back": "Is a classroom a place to learn, or to sleep?",
+    "bridges": {},
+    "asks_en": [
+      "children",
+      "class",
+      "kids",
+      "learn",
+      "place",
+      "people",
+      "teacher",
+      "helps",
+      "many",
+      "along",
+      "others",
+      "job",
+      "grow"
+    ]
+  }
+}

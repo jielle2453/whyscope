@@ -1,0 +1,64 @@
+{
+  "id": "physics-boiling",
+  "topic": "physics",
+  "topic_zh": "水與物理",
+  "labels": [
+    "水燒開",
+    "沸騰",
+    "boiling"
+  ],
+  "question_patterns": [
+    "為什麼水燒開會冒泡泡",
+    "水為什麼會沸騰",
+    "燒開的水為什麼有泡泡",
+    "水滾了是什麼意思"
+  ],
+  "first_sentence": "水燒開的時候，水裡面會長出氣泡。",
+  "facts": [
+    "水變成氣，就是水蒸氣",
+    "整鍋水裡面都會冒出泡泡",
+    "泡泡升到水面就破掉"
+  ],
+  "ask_back": "水燒開的時候，泡泡是只在水面，還是整鍋水裡面都有？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Boiling",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "boiling water",
+      "boil"
+    ],
+    "question_patterns": [
+      "why does boiling water bubble",
+      "what is boiling",
+      "why does a pot of water bubble when it is hot",
+      "what does it mean when water boils"
+    ],
+    "first_sentence": "Water in a hot pot makes bubbles when it boils.",
+    "facts": [
+      "The bubbles are water turning into a gas.",
+      "Bubbles form all through the pot.",
+      "They rise to the top and pop."
+    ],
+    "ask_back": "When water boils, do bubbles form only on top, or all through the water?",
+    "bridges": {},
+    "asks_en": [
+      "bubble",
+      "pot",
+      "hot",
+      "mean",
+      "turning",
+      "gas",
+      "form",
+      "through",
+      "rise",
+      "top",
+      "pop"
+    ]
+  }
+}

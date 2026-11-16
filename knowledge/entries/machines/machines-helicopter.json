@@ -1,0 +1,71 @@
+{
+  "id": "machines-helicopter",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "直升機",
+    "helicopter"
+  ],
+  "question_patterns": [
+    "直升機為什麼會飛",
+    "直升機的葉片是做什麼的",
+    "直升機為什麼可以停在空中",
+    "直升機和飛機有什麼不一樣"
+  ],
+  "first_sentence": "直升機頭上的葉片轉動，把它抬起來。",
+  "facts": [
+    "葉片像好幾片小翅膀，一起轉",
+    "葉片一直轉，直升機就能停在空中",
+    "直升機不需要跑道也能降落"
+  ],
+  "ask_back": "能停在空中不動的，是直升機還是飛機？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Helicopter",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "helicopter"
+    ],
+    "question_patterns": [
+      "how does a helicopter fly",
+      "what are the helicopter blades for",
+      "why can a helicopter stay in one place in the air",
+      "how is a helicopter different from an airplane"
+    ],
+    "first_sentence": "Spinning blades lift a helicopter into the air.",
+    "facts": [
+      "The blades are like small wings that spin together.",
+      "Because they keep moving, it can hover in one place.",
+      "A helicopter does not need a runway to land."
+    ],
+    "ask_back": "Which can hover in one place, a helicopter or an airplane?",
+    "bridges": {},
+    "asks_en": [
+      "fly",
+      "blades",
+      "stay",
+      "place",
+      "air",
+      "different",
+      "airplane",
+      "spinning",
+      "lift",
+      "small",
+      "wings",
+      "spin",
+      "together",
+      "because",
+      "keep",
+      "moving",
+      "hover",
+      "need",
+      "runway",
+      "land"
+    ]
+  }
+}

@@ -35,8 +35,7 @@
     "question_patterns": [
       "why do bees dance",
       "what is this",
-      "how do bees find flowers",
-      "why do bees buzz around flowers"
+      "how do bees find flowers"
     ],
     "first_sentence": "Bees dance to show their friends where flowers are.",
     "facts": [
@@ -47,6 +46,22 @@
     "ask_back": "Do you think bees like bright flowers, or dark ones?",
     "bridges": {
       "has_garden": "Have you seen a bee buzzing in your garden?"
-    }
+    },
+    "asks_en": [
+      "dance",
+      "find",
+      "flowers",
+      "show",
+      "friends",
+      "way",
+      "bring",
+      "sweet",
+      "juice",
+      "home",
+      "honey",
+      "carries",
+      "dust",
+      "another"
+    ]
   }
 }

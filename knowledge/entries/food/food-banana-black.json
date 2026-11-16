@@ -49,6 +49,27 @@
     "ask_back": "Do you think a very ripe banana tastes sweeter, or more sour?",
     "bridges": {
       "has_dog": "Can dogs eat bananas too? Can you guess?"
-    }
+    },
+    "asks_en": [
+      "turn",
+      "spots",
+      "getting",
+      "dark",
+      "ripe",
+      "green",
+      "color",
+      "peel",
+      "slowly",
+      "away",
+      "bumped",
+      "special",
+      "juice",
+      "gives",
+      "off",
+      "gas",
+      "other",
+      "fruit",
+      "ripen"
+    ]
   }
 }

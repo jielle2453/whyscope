@@ -1,0 +1,73 @@
+{
+  "id": "animals-penguin",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "企鵝",
+    "penguin"
+  ],
+  "question_patterns": [
+    "為什麼企鵝不會飛",
+    "企鵝為什麼不怕冷",
+    "企鵝為什麼住在很冷的地方",
+    "企鵝的翅膀是做什麼的"
+  ],
+  "first_sentence": "企鵝不會飛，但很會游泳。",
+  "facts": [
+    "企鵝的翅膀變成短短的鰭",
+    "皮下有厚厚的脂肪保暖",
+    "厚厚的羽毛上有油，水進不去"
+  ],
+  "ask_back": "企鵝的翅膀，是拿來飛還是拿來游？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Penguin",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "penguin",
+      "penguins"
+    ],
+    "question_patterns": [
+      "why can't penguins fly",
+      "why don't penguins get cold",
+      "what are a penguin's wings for",
+      "how do penguins stay warm"
+    ],
+    "first_sentence": "Penguins cannot fly, but they swim well.",
+    "facts": [
+      "A penguin's wings are short flippers for swimming.",
+      "A thick layer of fat keeps it warm.",
+      "Its tight feathers have oil, so water stays out."
+    ],
+    "ask_back": "Does a penguin use its wings to fly, or to swim?",
+    "bridges": {},
+    "asks_en": [
+      "cant",
+      "fly",
+      "dont",
+      "cold",
+      "wings",
+      "stay",
+      "warm",
+      "cannot",
+      "swim",
+      "well",
+      "short",
+      "flippers",
+      "swimming",
+      "thick",
+      "layer",
+      "fat",
+      "keeps",
+      "tight",
+      "feathers",
+      "oil",
+      "water"
+    ]
+  }
+}

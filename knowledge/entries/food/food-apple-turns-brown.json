@@ -49,6 +49,28 @@
     "ask_back": "Do you think an apple turns brown faster in the sun, or in the fridge?",
     "bridges": {
       "has_dog": "Dogs can eat apples if you take out the core first, right?"
-    }
+    },
+    "asks_en": [
+      "turn",
+      "change",
+      "color",
+      "air",
+      "touching",
+      "inside",
+      "special",
+      "juice",
+      "reacts",
+      "dipping",
+      "lemon",
+      "slows",
+      "down",
+      "usually",
+      "still",
+      "fine",
+      "eat",
+      "bite",
+      "bitten",
+      "after"
+    ]
   }
 }

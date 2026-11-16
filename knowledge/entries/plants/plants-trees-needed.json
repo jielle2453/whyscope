@@ -1,0 +1,70 @@
+{
+  "id": "plants-trees-needed",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "大樹",
+    "樹的用處",
+    "tree"
+  ],
+  "question_patterns": [
+    "為什麼我們需要樹",
+    "樹有什麼用",
+    "樹對我們有什麼幫助",
+    "為什麼要保護樹"
+  ],
+  "first_sentence": "樹給我們空氣、木頭，也是動物的家。",
+  "facts": [
+    "樹會用陽光做養分，放出我們呼吸的空氣",
+    "樹可以做成木頭",
+    "森林是很多動物的家"
+  ],
+  "ask_back": "森林是動物的家，還是沒有動物住？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Tree",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "tree",
+      "why we need trees"
+    ],
+    "question_patterns": [
+      "why do we need trees",
+      "what are trees good for",
+      "how do trees help us",
+      "why should we protect trees"
+    ],
+    "first_sentence": "Trees give us fresh air and wood.",
+    "facts": [
+      "Trees use sunlight and let out the air we breathe.",
+      "Wood comes from trees, and new trees can grow.",
+      "Forests are homes for many animals."
+    ],
+    "ask_back": "Is a forest a home for animals, or empty?",
+    "bridges": {},
+    "asks_en": [
+      "good",
+      "help",
+      "protect",
+      "give",
+      "fresh",
+      "air",
+      "wood",
+      "use",
+      "sunlight",
+      "let",
+      "breathe",
+      "new",
+      "grow",
+      "forests",
+      "homes",
+      "many",
+      "animals"
+    ]
+  }
+}

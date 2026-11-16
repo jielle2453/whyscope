@@ -52,6 +52,29 @@
     "bridges": {
       "rides_bike": "When you ride your bike to a crossing, which light do you look at first?",
       "likes_cars": "What should a car do when the light is red?"
-    }
+    },
+    "asks_en": [
+      "change",
+      "colors",
+      "mean",
+      "red",
+      "take",
+      "turns",
+      "cars",
+      "stay",
+      "safe",
+      "stop",
+      "green",
+      "yellow",
+      "ready",
+      "order",
+      "always",
+      "same",
+      "crossings",
+      "sound",
+      "help",
+      "people",
+      "cannot"
+    ]
   }
 }

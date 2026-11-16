@@ -48,6 +48,24 @@
     "ask_back": "Do you think it is hotter in summer, or in winter?",
     "bridges": {
       "has_garden": "Have you seen flowers in your garden in summer or in winter?"
-    }
+    },
+    "asks_en": [
+      "summer",
+      "hot",
+      "winter",
+      "cold",
+      "because",
+      "earth",
+      "leans",
+      "little",
+      "tilted",
+      "spinning",
+      "top",
+      "sunlight",
+      "hits",
+      "more",
+      "straight",
+      "slant"
+    ]
   }
 }

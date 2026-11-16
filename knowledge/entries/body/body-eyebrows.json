@@ -1,0 +1,68 @@
+{
+  "id": "body-eyebrows",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "眉毛",
+    "eyebrow"
+  ],
+  "question_patterns": [
+    "為什麼人有眉毛",
+    "眉毛是做什麼的",
+    "眉毛為什麼長在眼睛上面",
+    "眉毛可以做什麼"
+  ],
+  "first_sentence": "眉毛可以保護眼睛。",
+  "facts": [
+    "水流過臉的時候，眉毛會擋住水",
+    "眉毛可以幫眼睛擋一點太陽光",
+    "眉毛會動，可以讓人看出表情"
+  ],
+  "ask_back": "眉毛是長在眼睛上面，還是下面？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Eyebrow",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "eyebrow",
+      "eyebrows"
+    ],
+    "question_patterns": [
+      "why do we have eyebrows",
+      "what are eyebrows for",
+      "why is there hair above my eyes",
+      "what do eyebrows do"
+    ],
+    "first_sentence": "Eyebrows help protect your eyes.",
+    "facts": [
+      "When water runs down your face, eyebrows guard your eyes.",
+      "Eyebrows shade your eyes from too much sun.",
+      "Moving eyebrows show how you feel."
+    ],
+    "ask_back": "Are eyebrows above your eyes, or below?",
+    "bridges": {},
+    "asks_en": [
+      "hair",
+      "above",
+      "eyes",
+      "help",
+      "protect",
+      "water",
+      "runs",
+      "down",
+      "face",
+      "guard",
+      "shade",
+      "much",
+      "sun",
+      "moving",
+      "show",
+      "feel"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "sky_weather-waves",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "海浪",
+    "浪",
+    "wave"
+  ],
+  "question_patterns": [
+    "為什麼海裡有浪",
+    "海浪是怎麼來的",
+    "海浪是什麼",
+    "為什麼風大浪就大"
+  ],
+  "first_sentence": "風吹過水面，就吹出了浪。",
+  "facts": [
+    "風吹在水面上，水就會起伏",
+    "風越大，浪常常越高",
+    "海浪會一直傳到海邊"
+  ],
+  "ask_back": "風大的時候，浪會比較大還是比較小？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Sea",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "wave",
+      "waves",
+      "ocean waves"
+    ],
+    "question_patterns": [
+      "why does the sea have waves",
+      "what makes waves",
+      "why are the waves big when it is windy",
+      "where do waves come from"
+    ],
+    "first_sentence": "Wind blowing over water makes waves.",
+    "facts": [
+      "Wind that blows across the water makes it rise and fall.",
+      "A stronger wind often makes bigger waves.",
+      "Waves travel on until they reach the shore."
+    ],
+    "ask_back": "When the wind is strong, are waves bigger, or smaller?",
+    "bridges": {},
+    "asks_en": [
+      "sea",
+      "big",
+      "windy",
+      "wind",
+      "blowing",
+      "water",
+      "across",
+      "rise",
+      "fall",
+      "stronger",
+      "often",
+      "bigger",
+      "travel",
+      "until",
+      "reach",
+      "shore"
+    ]
+  }
+}

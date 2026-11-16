@@ -1,0 +1,66 @@
+{
+  "id": "sky_weather-sunrise",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "日出",
+    "太陽升起",
+    "sunrise"
+  ],
+  "question_patterns": [
+    "為什麼太陽會升起來",
+    "太陽為什麼從東邊出來",
+    "太陽怎麼會出來",
+    "為什麼早上有太陽"
+  ],
+  "first_sentence": "太陽升起來，是因為地球在轉。",
+  "facts": [
+    "地球一直在慢慢轉圈",
+    "地球轉一圈，大約是一天",
+    "地球往東轉，所以太陽從東邊出來"
+  ],
+  "ask_back": "太陽是從東邊升起，還是從西邊升起？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Earth%27s_rotation",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "sunrise",
+      "sun coming up"
+    ],
+    "question_patterns": [
+      "why does the sun come up",
+      "why does the sun rise in the east",
+      "how does the sun come up in the morning",
+      "why does the sun go up and down"
+    ],
+    "first_sentence": "The sun comes up because the Earth turns.",
+    "facts": [
+      "The Earth keeps turning around, slowly.",
+      "One turn takes about one day.",
+      "It turns toward the east, so the sun comes up there."
+    ],
+    "ask_back": "Does the sun come up in the east, or in the west?",
+    "bridges": {},
+    "asks_en": [
+      "rise",
+      "east",
+      "morning",
+      "down",
+      "because",
+      "earth",
+      "turns",
+      "keeps",
+      "around",
+      "slowly",
+      "takes",
+      "day",
+      "toward"
+    ]
+  }
+}

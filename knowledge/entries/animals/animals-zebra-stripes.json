@@ -1,0 +1,72 @@
+{
+  "id": "animals-zebra-stripes",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "斑馬",
+    "斑馬條紋",
+    "zebra"
+  ],
+  "question_patterns": [
+    "為什麼斑馬有條紋",
+    "斑馬身上為什麼是黑白的",
+    "斑馬的條紋是做什麼的",
+    "斑馬為什麼有黑白條紋"
+  ],
+  "first_sentence": "斑馬的條紋，每一隻都不一樣。",
+  "facts": [
+    "每一隻斑馬的條紋都不同",
+    "科學家認為條紋可能幫牠降溫",
+    "住得越熱的斑馬，條紋越多"
+  ],
+  "ask_back": "每一隻斑馬的條紋，是一模一樣還是不一樣？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://kids.nationalgeographic.com/animals/mammals/facts/zebra",
+  "source_license": "facts paraphrased; source text not reproduced",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "zebra",
+      "zebra stripes"
+    ],
+    "question_patterns": [
+      "why do zebras have stripes",
+      "why is a zebra black and white",
+      "what are a zebra's stripes for",
+      "why does a zebra have lines on its body"
+    ],
+    "first_sentence": "Every zebra has its own stripe pattern.",
+    "facts": [
+      "Every zebra has different stripes, like a fingerprint.",
+      "Scientists think stripes may help a zebra stay cool.",
+      "Zebras in hotter places tend to have more stripes."
+    ],
+    "ask_back": "Are all zebras' stripes the same, or different?",
+    "bridges": {},
+    "asks_en": [
+      "black",
+      "white",
+      "lines",
+      "body",
+      "every",
+      "own",
+      "pattern",
+      "different",
+      "fingerprint",
+      "scientists",
+      "think",
+      "may",
+      "help",
+      "stay",
+      "cool",
+      "hotter",
+      "places",
+      "tend",
+      "more"
+    ]
+  }
+}

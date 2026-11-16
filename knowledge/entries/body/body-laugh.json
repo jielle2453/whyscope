@@ -1,0 +1,68 @@
+{
+  "id": "body-laugh",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "笑",
+    "大笑",
+    "laugh"
+  ],
+  "question_patterns": [
+    "為什麼我們會笑",
+    "為什麼被搔癢會笑",
+    "笑是什麼",
+    "為什麼大家會哈哈大笑"
+  ],
+  "first_sentence": "人覺得好笑的時候，就會笑。",
+  "facts": [
+    "聽到笑話或被搔癢，人會笑",
+    "有時候不好意思，也會笑出來",
+    "小寶寶三四個月大就會笑"
+  ],
+  "ask_back": "被搔癢的時候，你會笑還是會哭？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Laughter",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "laugh",
+      "laughing"
+    ],
+    "question_patterns": [
+      "why do we laugh",
+      "why do I laugh when I am tickled",
+      "what is laughing",
+      "why do people giggle"
+    ],
+    "first_sentence": "People laugh when something feels funny.",
+    "facts": [
+      "A joke or a tickle can make people laugh.",
+      "Sometimes people laugh when they feel shy, too.",
+      "Babies start to laugh at about three or four months."
+    ],
+    "ask_back": "When someone tickles you, do you laugh, or cry?",
+    "bridges": {},
+    "asks_en": [
+      "tickled",
+      "people",
+      "giggle",
+      "something",
+      "feels",
+      "funny",
+      "joke",
+      "tickle",
+      "sometimes",
+      "shy",
+      "babies",
+      "start",
+      "three",
+      "four",
+      "months"
+    ]
+  }
+}

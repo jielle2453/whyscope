@@ -52,6 +52,64 @@ Against a freshly started server (`scripts/run.ps1`) on a clean database:
 - Vision path: ran end to end with a synthetic JPEG (YOLOv8n + OpenCLIP on CUDA, about 3.3 s cold, 16 ms warm) and the
   result flowed into recall. It was not tested on real photographs, so accuracy is unknown.
 
+## Stage II: first run on the UGen300 USB (2026-11-13)
+
+Windows 11 Home laptop, ASUS UGen300 USB (Hailo-10H, firmware 5.3.2), HailoRT 5.3.2, Python 3.13.17,
+`qwen2.5:1.5b` HEF from hailo-ollama (Q4_0, 2,464,582,493 bytes). **Power: 1.5 A.** Both USB-C ports of this laptop
+(ASUS TUF Gaming A16) advertise 1.5 A, also with the charger connected, so HailoRT warns that the module may run in
+reduced-performance mode. All numbers below are at 1.5 A; a 3.0 A port has not been tried yet.
+Entry `animals-snail-shell`, age 6, Chinese.
+
+| measurement | value |
+|---|---|
+| model load (`LLM(vdevice, hef)`) | about 7.5 s, once at start-up |
+| prompt with 3 few-shot examples (985 characters) | first token after 3.74 s |
+| prompt without examples (392 characters) | first token after 1.88 s, but the output was not JSON |
+| generation speed | 5.9 to 6.0 tokens/s |
+| one compose answer (34 tokens) | about 9.4 s (RTX 4060 laptop: about 1.5 s) |
+| outcome | valid JSON; rejected by the "repeats the first sentence" check on all runs, so the template answer was used |
+
+Findings:
+
+- Content must be passed as plain strings (`{"role", "content": str}`, as in the ASUS manual). The hailo-apps form
+  (`content: [{"type": "text", ...}]`) made the model echo that structure and broke the JSON.
+- The first sentence is still instant (it comes from the knowledge base), so the child does not wait for the 9.4 s; the
+  explanation and question back arrive later. `compose.timeout_s_hailo` was 15 s at this point (10 s after the
+  speed-up below).
+- The quantized model behaves differently from the fp16 model on the GPU: it repeated the first sentence and borrowed a
+  word from a few-shot example ("小水滴") in its question back. The grounding checks caught both. Re-run
+  `eval/check_answers.py` in hailo mode before quoting acceptance rates.
+
+### Speed-up, same day: cached prefix, explanation only
+
+Three changes in `hub/hailo.py` and `Composer._run_hailo` (same hardware, same HEF, still 1.5 A):
+
+1. **Cached prefix.** The system prompt and the 3 few-shot turns (575 tokens) are the same for every question. They are
+   prefilled once per language at start-up and kept with `LLM.save_context()`; each question restores them with
+   `load_context()` (0.7 s for the 44 MB context) and prefills only its own turn (first token 0.94 s later).
+2. **Raw ChatML with an assistant prefill** (`{"explanation": "`), so the output is JSON from the first token.
+3. **Explanation only, stop early.** Generation stops at the closing quote or after the sentences allowed for the age
+   (1 for ages 5-6, 2 for 7-8). The question back comes from the knowledge entry instead of the model.
+
+| measurement | before | after |
+|---|---|---|
+| prefix prefill (once per language, at start-up) | every question, 3.7 s | 3.4 s once |
+| time to first explanation token | 3.74 s | 1.7 s (0.7 s restore + 0.94 s) |
+| one explanation, age 6 (8 entries) | about 9.4 s | 3.7 to 4.8 s, typically about 4 s |
+| one explanation, age 8 (8 entries) | about 9.4 s | 3.7 to 6.8 s, typically about 6 s |
+| LLM output accepted by the checks (16 runs: 8 entries x ages 6 and 8) | 0 of 3 (snail entry) | 11 of 16 |
+
+Sample: 8 entries (`ant`, `spider`, `sneeze`, `onion-tears`, `fan`, `cactus-spines`, `cloud`, `typhoon`). Rejections:
+3 added knowledge not in the entry (for example "細毛", or an invented cause), 2 restated the first sentence; those
+answers fall back to the template. `scripts/check_ugen.py --entry animals-spider` then gave 4.3 s and 3.7 s per
+explanation (Chinese, ages 6 and 8) and 3.9 s (English, age 6) after the first run.
+
+Seen in the output: the explanation could give away the answer to the entry's question back ("蜘蛛有八隻腳" followed by
+"你猜蜘蛛有幾隻腳？"). Fixed on 2026-11-14 with the reply turn (README, "The reply turn"): the fact that answers the
+question back is left out of the explanation and spoken after the child has answered. On the UGen300 the spider entry
+then gave "蜘蛛從肚子後面吐出絲，織成網。" (4.8 s) and the onion entry in English "Onions have a special juice that makes a
+gas when cut." (4.2 s).
+
 ## What was not verified
 
 - The microphone path in a real browser (MediaRecorder, hold-to-talk) and the camera toggle: the built-in browser pane has
@@ -59,7 +117,8 @@ Against a freshly started server (`scripts/run.ps1`) on a clean database:
 - Real children's speech: all ASR tests used one synthetic adult TTS voice. Whisper small already misheard it once.
 - Vision accuracy on real objects (`vision.min_confidence` 0.5 is a conservative guess).
 - The llama-cpp-python GGUF path (cpu mode): the package has no Windows cp314 wheel and was not built; code is written but unrun.
-- Hailo mode and anything on Raspberry Pi 5 / UGen300.
+- Hailo mode beyond compose (Whisper on Hailo, vision on Hailo) and the full hub in `mode: hailo` with a phone; anything
+  on Raspberry Pi 5.
 - Power, thermals, and long-run stability.
 
 ## Abstention evaluation caveat

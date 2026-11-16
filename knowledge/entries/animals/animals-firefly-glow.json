@@ -1,0 +1,71 @@
+{
+  "id": "animals-firefly-glow",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "螢火蟲",
+    "發光的蟲",
+    "firefly"
+  ],
+  "question_patterns": [
+    "為什麼螢火蟲會發光",
+    "螢火蟲的屁股為什麼亮亮的",
+    "螢火蟲為什麼一閃一閃",
+    "晚上會發光的小蟲是什麼"
+  ],
+  "first_sentence": "螢火蟲發光，是在找朋友。",
+  "facts": [
+    "大螢火蟲用閃光找同伴",
+    "螢火蟲寶寶發光是在提醒別人",
+    "牠們不好吃，所以發光警告"
+  ],
+  "ask_back": "螢火蟲是白天閃閃發光，還是晚上閃閃發光？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Firefly",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "firefly",
+      "glowing bug",
+      "lightning bug"
+    ],
+    "question_patterns": [
+      "why do fireflies glow",
+      "why does a firefly light up",
+      "why do fireflies blink at night",
+      "what is the bug that glows in the dark"
+    ],
+    "first_sentence": "Fireflies glow to find each other.",
+    "facts": [
+      "Grown-up fireflies flash to find a partner.",
+      "Baby fireflies glow too, as a warning.",
+      "Many taste bad, so the glow says stay away."
+    ],
+    "ask_back": "Do fireflies light up in the daytime, or at night?",
+    "bridges": {},
+    "asks_en": [
+      "light",
+      "blink",
+      "night",
+      "dark",
+      "find",
+      "other",
+      "grown",
+      "flash",
+      "partner",
+      "baby",
+      "warning",
+      "many",
+      "taste",
+      "bad",
+      "says",
+      "stay",
+      "away"
+    ]
+  }
+}

@@ -47,6 +47,22 @@
     "ask_back": "Do you think tree bark is soft, or hard and rough?",
     "bridges": {
       "has_garden": "Have you touched the bark of a tree in your garden?"
-    }
+    },
+    "asks_en": [
+      "tree",
+      "skin",
+      "rough",
+      "coat",
+      "keeps",
+      "safe",
+      "bugs",
+      "germs",
+      "helps",
+      "water",
+      "inside",
+      "thick",
+      "block",
+      "fire"
+    ]
   }
 }

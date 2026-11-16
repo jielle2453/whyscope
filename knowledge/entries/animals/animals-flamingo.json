@@ -1,0 +1,68 @@
+{
+  "id": "animals-flamingo",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "紅鶴",
+    "火烈鳥",
+    "flamingo"
+  ],
+  "question_patterns": [
+    "為什麼紅鶴是粉紅色的",
+    "紅鶴為什麼單腳站",
+    "火烈鳥為什麼是粉紅色",
+    "紅鶴為什麼只用一隻腳站著"
+  ],
+  "first_sentence": "紅鶴吃的東西，讓牠變成粉紅色。",
+  "facts": [
+    "牠吃水裡的小蝦和藻類",
+    "這些食物裡有紅色的色素",
+    "科學家發現單腳站比較省力"
+  ],
+  "ask_back": "紅鶴是因為吃東西才變粉紅，還是因為塗顏色？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Flamingo",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "flamingo",
+      "pink bird"
+    ],
+    "question_patterns": [
+      "why are flamingos pink",
+      "why do flamingos stand on one leg",
+      "what makes a flamingo's feathers pink",
+      "why is that bird pink"
+    ],
+    "first_sentence": "What a flamingo eats makes it pink.",
+    "facts": [
+      "It eats tiny water animals and algae.",
+      "That food has a color that makes its feathers pink.",
+      "Scientists found standing on one leg takes less effort."
+    ],
+    "ask_back": "Does a flamingo turn pink from its food, or from paint?",
+    "bridges": {},
+    "asks_en": [
+      "stand",
+      "leg",
+      "feathers",
+      "eats",
+      "tiny",
+      "water",
+      "animals",
+      "algae",
+      "food",
+      "color",
+      "scientists",
+      "found",
+      "takes",
+      "less",
+      "effort"
+    ]
+  }
+}

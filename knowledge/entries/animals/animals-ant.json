@@ -48,6 +48,24 @@
     "ask_back": "Do you think ants walk in a line, or in circles?",
     "bridges": {
       "has_garden": "Have you seen ants walking in your garden?"
-    }
+    },
+    "asks_en": [
+      "walk",
+      "line",
+      "follow",
+      "other",
+      "find",
+      "food",
+      "because",
+      "leave",
+      "smell",
+      "trails",
+      "ground",
+      "mark",
+      "way",
+      "same",
+      "path",
+      "friends"
+    ]
   }
 }

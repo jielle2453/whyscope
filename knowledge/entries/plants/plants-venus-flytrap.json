@@ -1,0 +1,74 @@
+{
+  "id": "plants-venus-flytrap",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "捕蠅草",
+    "會吃蟲的草",
+    "venus flytrap"
+  ],
+  "question_patterns": [
+    "為什麼有的植物會吃蟲",
+    "捕蠅草是什麼",
+    "捕蠅草怎麼抓蟲",
+    "植物為什麼會吃蟲子"
+  ],
+  "first_sentence": "捕蠅草的葉子，會夾住小蟲。",
+  "facts": [
+    "葉子裡有小毛，被碰到兩次才會夾",
+    "葉子紅紅的又香香的，會引來小蟲",
+    "牠住的土裡養分少，所以吃蟲補充"
+  ],
+  "ask_back": "捕蠅草的葉子要被碰一次還是兩次才會夾住？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Venus_flytrap",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "venus flytrap",
+      "bug eating plant"
+    ],
+    "question_patterns": [
+      "why do some plants eat bugs",
+      "how does a venus flytrap catch a fly",
+      "what is a venus flytrap",
+      "how does a plant snap shut"
+    ],
+    "first_sentence": "A Venus flytrap leaf can snap shut on a bug.",
+    "facts": [
+      "Tiny hairs inside must be touched twice to close it.",
+      "The red leaf smells sweet and calls bugs in.",
+      "Its soil has little food, so bugs help it grow."
+    ],
+    "ask_back": "Does a flytrap snap shut after one touch, or two?",
+    "bridges": {},
+    "asks_en": [
+      "catch",
+      "fly",
+      "snap",
+      "shut",
+      "leaf",
+      "tiny",
+      "hairs",
+      "inside",
+      "must",
+      "touched",
+      "twice",
+      "close",
+      "red",
+      "smells",
+      "sweet",
+      "calls",
+      "soil",
+      "little",
+      "food",
+      "help",
+      "grow"
+    ]
+  }
+}

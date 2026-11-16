@@ -48,6 +48,25 @@
     "ask_back": "Do you think a cat's eyes look bigger in the dark, or in the sun?",
     "bridges": {
       "has_cat": "You have a cat! Have you seen its eyes shine at night?"
-    }
+    },
+    "asks_en": [
+      "eyes",
+      "glow",
+      "shine",
+      "night",
+      "dark",
+      "because",
+      "bounce",
+      "light",
+      "back",
+      "much",
+      "better",
+      "people",
+      "shiny",
+      "layer",
+      "behind",
+      "pupils",
+      "big"
+    ]
   }
 }

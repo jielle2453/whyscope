@@ -1,0 +1,65 @@
+{
+  "id": "animals-camel-hump",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "駱駝",
+    "駱駝駝峰",
+    "camel"
+  ],
+  "question_patterns": [
+    "為什麼駱駝有駝峰",
+    "駱駝的駝峰裡面是什麼",
+    "駱駝為什麼可以不喝水",
+    "駱駝為什麼住在沙漠"
+  ],
+  "first_sentence": "駱駝的駝峰裡，裝著脂肪。",
+  "facts": [
+    "吃得飽的時候，駝峰會變大",
+    "食物少的時候，會用掉駝峰裡的脂肪",
+    "這時候駝峰會變小變軟"
+  ],
+  "ask_back": "駱駝很久沒吃東西，駝峰會變大還是變小？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Camel",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "camel",
+      "camel hump"
+    ],
+    "question_patterns": [
+      "why do camels have humps",
+      "what is inside a camel's hump",
+      "why can camels live in the desert",
+      "what is a camel's hump for"
+    ],
+    "first_sentence": "A camel's hump is full of fat.",
+    "facts": [
+      "Extra food turns into fat in the hump.",
+      "When food is scarce, the camel uses that fat.",
+      "Then the hump gets small and soft."
+    ],
+    "ask_back": "After a long time with no food, does a camel's hump get bigger, or smaller?",
+    "bridges": {},
+    "asks_en": [
+      "inside",
+      "live",
+      "desert",
+      "full",
+      "fat",
+      "extra",
+      "food",
+      "stored",
+      "scarce",
+      "uses",
+      "small",
+      "soft"
+    ]
+  }
+}

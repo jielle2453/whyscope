@@ -1,0 +1,66 @@
+{
+  "id": "sky_weather-shooting-star",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "流星",
+    "shooting star"
+  ],
+  "question_patterns": [
+    "流星是什麼",
+    "為什麼有星星會掉下來",
+    "流星為什麼會發亮",
+    "流星是星星嗎"
+  ],
+  "first_sentence": "流星不是星星，是掉進空氣裡的小石頭。",
+  "facts": [
+    "太空裡有很多小石頭",
+    "小石頭跑進地球的空氣裡，會變很熱",
+    "變熱以後，就會發亮"
+  ],
+  "ask_back": "流星是真的星星，還是小石頭？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Meteor",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "shooting star",
+      "falling star",
+      "meteor"
+    ],
+    "question_patterns": [
+      "what is a shooting star",
+      "why do stars fall from the sky",
+      "why does a shooting star glow",
+      "is a shooting star really a star"
+    ],
+    "first_sentence": "A shooting star is a space rock falling to Earth.",
+    "facts": [
+      "Space has many small rocks.",
+      "When one hits the air around Earth, it gets very hot.",
+      "The heat makes it glow."
+    ],
+    "ask_back": "Is a shooting star a real star, or a small rock?",
+    "bridges": {},
+    "asks_en": [
+      "sky",
+      "glow",
+      "really",
+      "space",
+      "rock",
+      "earth",
+      "many",
+      "small",
+      "hits",
+      "air",
+      "around",
+      "hot",
+      "heat"
+    ]
+  }
+}

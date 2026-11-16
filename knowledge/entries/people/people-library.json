@@ -1,0 +1,67 @@
+{
+  "id": "people-library",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "圖書館",
+    "library"
+  ],
+  "question_patterns": [
+    "圖書館是做什麼的",
+    "為什麼圖書館可以借書",
+    "圖書館的書要怎麼找",
+    "圖書館為什麼要安靜"
+  ],
+  "first_sentence": "圖書館有很多書，可以借回家。",
+  "facts": [
+    "圖書館讓大家都能讀到書和知識",
+    "住在附近的人可以借書回家",
+    "書會依照一定的順序放好，方便找"
+  ],
+  "ask_back": "圖書館的書，可以借回家，還是只能在那裡看？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Library",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "library",
+      "libraries"
+    ],
+    "question_patterns": [
+      "what is a library for",
+      "why can I borrow books from a library",
+      "how do I find a book in the library",
+      "what is a library"
+    ],
+    "first_sentence": "A library has lots of books you can borrow.",
+    "facts": [
+      "A library lets everyone read and learn.",
+      "People who live nearby can get a library card.",
+      "Books are put in order, so they are easy to find."
+    ],
+    "ask_back": "Can you take library books home, or only read them there?",
+    "bridges": {},
+    "asks_en": [
+      "borrow",
+      "books",
+      "find",
+      "lots",
+      "lets",
+      "everyone",
+      "read",
+      "learn",
+      "people",
+      "live",
+      "nearby",
+      "card",
+      "shelved",
+      "order",
+      "easy"
+    ]
+  }
+}

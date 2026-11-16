@@ -47,6 +47,27 @@
     "ask_back": "Do you think a dandelion seed can fly in the wind, or sink?",
     "bridges": {
       "has_garden": "Have you blown a dandelion in your garden? Where did it go?"
-    }
+    },
+    "asks_en": [
+      "seeds",
+      "fly",
+      "fluff",
+      "travel",
+      "far",
+      "because",
+      "tiny",
+      "fluffy",
+      "parachutes",
+      "little",
+      "wind",
+      "blows",
+      "away",
+      "new",
+      "places",
+      "bright",
+      "yellow",
+      "flowers",
+      "often"
+    ]
   }
 }

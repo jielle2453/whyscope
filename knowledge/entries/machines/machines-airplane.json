@@ -49,6 +49,25 @@
     "ask_back": "Do you think a plane can fly with no wings, or not?",
     "bridges": {
       "likes_cars": "Cars go very fast. Why can't they fly like planes?"
-    }
+    },
+    "asks_en": [
+      "fly",
+      "stay",
+      "sky",
+      "wings",
+      "push",
+      "air",
+      "down",
+      "rises",
+      "engines",
+      "forward",
+      "fast",
+      "must",
+      "enough",
+      "before",
+      "lift",
+      "off",
+      "shape"
+    ]
   }
 }

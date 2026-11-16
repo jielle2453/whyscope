@@ -1,0 +1,71 @@
+{
+  "id": "body-scab",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "結痂",
+    "傷口結痂",
+    "scab"
+  ],
+  "question_patterns": [
+    "為什麼受傷會結痂",
+    "痂是什麼",
+    "為什麼結痂的地方會癢",
+    "痂可以摳掉嗎"
+  ],
+  "first_sentence": "痂像一層小蓋子，保護傷口。",
+  "facts": [
+    "傷口下面的新皮膚，正在長好",
+    "痂會保護傷口，不被弄髒",
+    "痂乾了，會自己掉下來"
+  ],
+  "ask_back": "痂是要自己掉下來好，還是用手摳掉好？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://kidshealth.org/en/kids/scab.html",
+  "source_license": "facts paraphrased; source text not reproduced",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "scab",
+      "scabs"
+    ],
+    "question_patterns": [
+      "why does a cut make a scab",
+      "what is a scab",
+      "why does a scab itch",
+      "can I pick my scab"
+    ],
+    "first_sentence": "A scab is a little cover over a cut.",
+    "facts": [
+      "New skin is growing back under the scab.",
+      "The scab keeps the cut safe while it heals.",
+      "When it is done, the scab dries and falls off."
+    ],
+    "ask_back": "Is it better to let a scab fall off by itself, or pick it off?",
+    "bridges": {},
+    "asks_en": [
+      "cut",
+      "itch",
+      "pick",
+      "little",
+      "cover",
+      "new",
+      "skin",
+      "growing",
+      "back",
+      "under",
+      "keeps",
+      "safe",
+      "while",
+      "heals",
+      "done",
+      "dries",
+      "falls",
+      "off"
+    ]
+  }
+}

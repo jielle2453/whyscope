@@ -1,0 +1,75 @@
+{
+  "id": "machines-telephone",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "電話",
+    "打電話",
+    "telephone"
+  ],
+  "question_patterns": [
+    "電話是怎麼打通的",
+    "為什麼電話可以聽到很遠的人說話",
+    "電話是什麼",
+    "手機是怎麼通話的"
+  ],
+  "first_sentence": "電話可以把聲音送到很遠的地方。",
+  "facts": [
+    "很久以前，聲音是靠電線送的",
+    "後來有交換機，把很多電話連起來",
+    "手機是靠無線電波連線的"
+  ],
+  "ask_back": "手機是靠電線連線，還是靠無線電波？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Telephone",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "telephone",
+      "phone call"
+    ],
+    "question_patterns": [
+      "how does a telephone work",
+      "how can I hear someone far away on the phone",
+      "what is a telephone",
+      "how does a mobile phone make calls"
+    ],
+    "first_sentence": "A phone sends your voice to a faraway place.",
+    "facts": [
+      "Early phones sent voices along wires.",
+      "Later, exchanges joined many phones together.",
+      "Cell phones use radio waves."
+    ],
+    "ask_back": "Does a cell phone work with a wire, or with radio waves?",
+    "bridges": {},
+    "asks_en": [
+      "work",
+      "hear",
+      "someone",
+      "far",
+      "away",
+      "mobile",
+      "sends",
+      "voice",
+      "faraway",
+      "place",
+      "early",
+      "sent",
+      "along",
+      "wires",
+      "later",
+      "exchanges",
+      "joined",
+      "many",
+      "together",
+      "connect",
+      "radio",
+      "waves"
+    ]
+  }
+}

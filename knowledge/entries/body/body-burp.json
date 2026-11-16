@@ -1,0 +1,66 @@
+{
+  "id": "body-burp",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "打嗝",
+    "打飽嗝",
+    "burp"
+  ],
+  "question_patterns": [
+    "為什麼人會打飽嗝",
+    "打飽嗝是什麼",
+    "喝汽水為什麼會打嗝出來",
+    "為什麼會有嗝出來的氣"
+  ],
+  "first_sentence": "肚子裡有空氣，會從嘴巴跑出來。",
+  "facts": [
+    "空氣被困在胃裡，就會嗝出來",
+    "嗝也叫打飽嗝",
+    "嗝就是胃裡的氣從嘴巴出來"
+  ],
+  "ask_back": "嗝出來的是氣，還是水？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Burp",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "burp",
+      "burping"
+    ],
+    "question_patterns": [
+      "why do we burp",
+      "what is a burp",
+      "why does air come out of my mouth",
+      "why do I burp after a fizzy drink"
+    ],
+    "first_sentence": "A burp is air coming out of your tummy.",
+    "facts": [
+      "Air gets trapped in your stomach.",
+      "A burp is the air coming out through your mouth.",
+      "Another name for a burp is a belch."
+    ],
+    "ask_back": "Is a burp air, or water?",
+    "bridges": {},
+    "asks_en": [
+      "air",
+      "mouth",
+      "after",
+      "fizzy",
+      "drink",
+      "coming",
+      "tummy",
+      "trapped",
+      "stomach",
+      "through",
+      "another",
+      "name",
+      "belch"
+    ]
+  }
+}

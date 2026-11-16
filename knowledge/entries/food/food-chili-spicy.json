@@ -49,6 +49,27 @@
     "ask_back": "Do you think a chili is hotter than a banana, or cooler?",
     "bridges": {
       "has_dog": "Can dogs eat spicy food too? Take a guess!"
-    }
+    },
+    "asks_en": [
+      "burn",
+      "mouth",
+      "spicy",
+      "hot",
+      "tongue",
+      "special",
+      "stuff",
+      "feeling",
+      "heat",
+      "pain",
+      "taste",
+      "touches",
+      "places",
+      "drinking",
+      "water",
+      "really",
+      "take",
+      "spice",
+      "away"
+    ]
   }
 }

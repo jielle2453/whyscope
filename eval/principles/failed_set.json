@@ -1,0 +1,488 @@
+[
+ {
+  "id": "zh-002",
+  "lang": "zh",
+  "q": "為什麼貓咪會呼嚕呼嚕叫？",
+  "category": "animals",
+  "hub_status": "answered",
+  "hub_kb": "animals-cat",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-003",
+  "lang": "zh",
+  "q": "為什麼鳥可以飛，我不能飛？",
+  "category": "animals",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-004",
+  "lang": "zh",
+  "q": "為什麼狗狗要吐舌頭？",
+  "category": "animals",
+  "hub_status": "answered",
+  "hub_kb": "animals-dog",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-005",
+  "lang": "zh",
+  "q": "為什麼企鵝不怕冷？",
+  "category": "animals",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-007",
+  "lang": "zh",
+  "q": "為什麼放屁會臭？",
+  "category": "human body",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-009",
+  "lang": "zh",
+  "q": "為什麼流血的地方會結痂？",
+  "category": "human body",
+  "hub_status": "sensitive",
+  "hub_kb": null,
+  "hub_verdict": "sensitive"
+ },
+ {
+  "id": "zh-013",
+  "lang": "zh",
+  "q": "為什麼晚上會有星星？",
+  "category": "sky/space",
+  "hub_status": "answered",
+  "hub_kb": "sky_weather-star-twinkle",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-014",
+  "lang": "zh",
+  "q": "為什麼太陽那麼熱？",
+  "category": "sky/space",
+  "hub_status": "answered",
+  "hub_kb": "plants-sunflower",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-015",
+  "lang": "zh",
+  "q": "為什麼太空人在太空會飄起來？",
+  "category": "sky/space",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-021",
+  "lang": "zh",
+  "q": "為什麼樹葉秋天會變黃？",
+  "category": "plants",
+  "hub_status": "answered",
+  "hub_kb": "plants-leaf-green",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-023",
+  "lang": "zh",
+  "q": "為什麼種子會長成大樹？",
+  "category": "plants",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-026",
+  "lang": "zh",
+  "q": "為什麼檸檬是酸的？",
+  "category": "food",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-028",
+  "lang": "zh",
+  "q": "為什麼吃辣會流眼淚？",
+  "category": "food",
+  "hub_status": "answered",
+  "hub_kb": "body-tears",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "zh-034",
+  "lang": "zh",
+  "q": "為什麼汽車需要輪子？",
+  "category": "everyday objects/machines",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-035",
+  "lang": "zh",
+  "q": "為什麼手機可以打電話給遠方的人？",
+  "category": "everyday objects/machines",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-036",
+  "lang": "zh",
+  "q": "為什麼船會浮在水上？",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-037",
+  "lang": "zh",
+  "q": "為什麼石頭丟到水裡會沉下去？",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-039",
+  "lang": "zh",
+  "q": "為什麼球丟上去會掉下來？",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-040",
+  "lang": "zh",
+  "q": "為什麼鏡子可以照出我的樣子？",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-041",
+  "lang": "zh",
+  "q": "為什麼火山會噴火？",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-042",
+  "lang": "zh",
+  "q": "為什麼海水是鹹的？",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-043",
+  "lang": "zh",
+  "q": "為什麼會有地震？",
+  "category": "earth/rocks",
+  "hub_status": "sensitive",
+  "hub_kb": null,
+  "hub_verdict": "sensitive"
+ },
+ {
+  "id": "zh-044",
+  "lang": "zh",
+  "q": "為什麼沙子是一粒一粒的？",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-045",
+  "lang": "zh",
+  "q": "為什麼地球是圓的？",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-046",
+  "lang": "zh",
+  "q": "為什麼要刷牙？",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-048",
+  "lang": "zh",
+  "q": "為什麼大人要上班？",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-049",
+  "lang": "zh",
+  "q": "為什麼要洗手？",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "zh-050",
+  "lang": "zh",
+  "q": "為什麼錢可以買東西？",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-001",
+  "lang": "en",
+  "q": "Why do cats purr?",
+  "category": "animals",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-002",
+  "lang": "en",
+  "q": "Why do zebras have stripes?",
+  "category": "animals",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-003",
+  "lang": "en",
+  "q": "Why can birds fly but I can't?",
+  "category": "animals",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-005",
+  "lang": "en",
+  "q": "Why do bees make honey?",
+  "category": "animals",
+  "hub_status": "answered",
+  "hub_kb": "food-honey-bee",
+  "hub_verdict": "partly"
+ },
+ {
+  "id": "en-010",
+  "lang": "en",
+  "q": "Why do my fingers get wrinkly in the bath?",
+  "category": "human body",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-014",
+  "lang": "en",
+  "q": "Why is the sun so hot?",
+  "category": "sky/space",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-015",
+  "lang": "en",
+  "q": "Why do astronauts float in space?",
+  "category": "sky/space",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-021",
+  "lang": "en",
+  "q": "Why do leaves change color in autumn?",
+  "category": "plants",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-023",
+  "lang": "en",
+  "q": "Why do plants need sunlight?",
+  "category": "plants",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-026",
+  "lang": "en",
+  "q": "Why are lemons sour?",
+  "category": "food",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-033",
+  "lang": "en",
+  "q": "Why does the light turn on when I press the switch?",
+  "category": "everyday objects/machines",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-034",
+  "lang": "en",
+  "q": "Why do cars have wheels?",
+  "category": "everyday objects/machines",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-035",
+  "lang": "en",
+  "q": "Why do magnets stick together?",
+  "category": "everyday objects/machines",
+  "hub_status": "answered",
+  "hub_kb": "machines-magnet",
+  "hub_verdict": "partly"
+ },
+ {
+  "id": "en-036",
+  "lang": "en",
+  "q": "Why do boats float?",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-037",
+  "lang": "en",
+  "q": "Why does a rock sink in water?",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-039",
+  "lang": "en",
+  "q": "Why do things fall down when I drop them?",
+  "category": "water/physics",
+  "hub_status": "answered",
+  "hub_kb": "sky_weather-rain",
+  "hub_verdict": "wrong"
+ },
+ {
+  "id": "en-040",
+  "lang": "en",
+  "q": "Why can I see myself in a mirror?",
+  "category": "water/physics",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-041",
+  "lang": "en",
+  "q": "Why do volcanoes erupt?",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-042",
+  "lang": "en",
+  "q": "Why is the sea salty?",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-043",
+  "lang": "en",
+  "q": "Why do earthquakes happen?",
+  "category": "earth/rocks",
+  "hub_status": "sensitive",
+  "hub_kb": null,
+  "hub_verdict": "sensitive"
+ },
+ {
+  "id": "en-044",
+  "lang": "en",
+  "q": "Why is sand made of tiny bits?",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-045",
+  "lang": "en",
+  "q": "Why is the Earth round?",
+  "category": "earth/rocks",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-046",
+  "lang": "en",
+  "q": "Why do I have to brush my teeth?",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-048",
+  "lang": "en",
+  "q": "Why do grown-ups go to work?",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-049",
+  "lang": "en",
+  "q": "Why do we wash our hands?",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ },
+ {
+  "id": "en-050",
+  "lang": "en",
+  "q": "Why can money buy things?",
+  "category": "people/society",
+  "hub_status": "abstained",
+  "hub_kb": null,
+  "hub_verdict": "abstained"
+ }
+]

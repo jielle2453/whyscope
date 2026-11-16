@@ -49,6 +49,27 @@
     "ask_back": "Do you think a drink of water can stop your hiccups, or not?",
     "bridges": {
       "has_dog": "When your dog hiccups, does its tummy jump too?"
-    }
+    },
+    "asks_en": [
+      "keep",
+      "hic",
+      "sound",
+      "muscle",
+      "under",
+      "chest",
+      "jumps",
+      "suddenly",
+      "thin",
+      "lungs",
+      "helps",
+      "breathe",
+      "air",
+      "rushes",
+      "fast",
+      "hits",
+      "little",
+      "door",
+      "throat"
+    ]
   }
 }

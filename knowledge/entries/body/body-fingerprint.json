@@ -1,0 +1,66 @@
+{
+  "id": "body-fingerprint",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "指紋",
+    "fingerprint"
+  ],
+  "question_patterns": [
+    "為什麼手指上有紋路",
+    "指紋是什麼",
+    "每個人的指紋一樣嗎",
+    "指紋有什麼用"
+  ],
+  "first_sentence": "每個人的指紋，都不一樣。",
+  "facts": [
+    "指紋是手指上小小凸起的紋路",
+    "手指摸東西會留下指紋",
+    "警察可以用指紋認出是誰"
+  ],
+  "ask_back": "兩個人的指紋，是一樣還是不一樣？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Fingerprint",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "fingerprint",
+      "fingerprints"
+    ],
+    "question_patterns": [
+      "what is a fingerprint",
+      "why are there lines on my fingertips",
+      "is every fingerprint different",
+      "what are fingerprints used for"
+    ],
+    "first_sentence": "Everyone's fingerprints are different.",
+    "facts": [
+      "Fingerprints are tiny lines on your fingers.",
+      "Touching things can leave a fingerprint.",
+      "Experts can use fingerprints to tell who touched something."
+    ],
+    "ask_back": "Are two people's fingerprints the same, or different?",
+    "bridges": {},
+    "asks_en": [
+      "lines",
+      "fingertips",
+      "every",
+      "different",
+      "used",
+      "everyone",
+      "tiny",
+      "raised",
+      "touching",
+      "leave",
+      "experts",
+      "use",
+      "touched",
+      "something"
+    ]
+  }
+}

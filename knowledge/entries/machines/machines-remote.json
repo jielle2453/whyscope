@@ -49,6 +49,24 @@
     "ask_back": "Do you think a TV remote works without batteries, or not?",
     "bridges": {
       "has_cat": "Would your cat try to push the remote buttons with its paw?"
-    }
+    },
+    "asks_en": [
+      "work",
+      "change",
+      "tv",
+      "talk",
+      "button",
+      "channel",
+      "send",
+      "invisible",
+      "light",
+      "cannot",
+      "small",
+      "window",
+      "catch",
+      "battery",
+      "empty",
+      "stops"
+    ]
   }
 }

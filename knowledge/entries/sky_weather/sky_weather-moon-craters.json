@@ -1,0 +1,68 @@
+{
+  "id": "sky_weather-moon-craters",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "月球坑洞",
+    "月亮的洞",
+    "crater"
+  ],
+  "question_patterns": [
+    "月亮上為什麼有洞",
+    "月球的坑洞是什麼",
+    "月亮為什麼坑坑洞洞",
+    "隕石坑是什麼"
+  ],
+  "first_sentence": "月亮上的洞，是被太空石頭撞出來的。",
+  "facts": [
+    "太空石頭撞到月亮，會留下坑洞",
+    "這種坑洞叫隕石坑",
+    "月亮上沒有風雨，所以坑洞一直都在"
+  ],
+  "ask_back": "月亮上的坑洞，是被石頭撞出來的，還是被人挖的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://spaceplace.nasa.gov/craters/en/",
+  "source_license": "US government public domain (facts paraphrased)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "crater",
+      "craters",
+      "holes on the moon"
+    ],
+    "question_patterns": [
+      "why does the moon have holes",
+      "what are craters on the moon",
+      "why is the moon bumpy",
+      "what makes a crater"
+    ],
+    "first_sentence": "Craters are marks left by space rocks hitting the moon.",
+    "facts": [
+      "When a space rock hits the moon, it leaves a crater.",
+      "The moon has thousands of craters.",
+      "Nothing rubs them away, so they stay."
+    ],
+    "ask_back": "Were the moon's craters made by space rocks, or dug by people?",
+    "bridges": {},
+    "asks_en": [
+      "bumpy",
+      "marks",
+      "left",
+      "space",
+      "rocks",
+      "hitting",
+      "hits",
+      "leaves",
+      "thousands",
+      "almost",
+      "nothing",
+      "wears",
+      "away",
+      "stay"
+    ]
+  }
+}

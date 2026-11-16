@@ -48,6 +48,26 @@
     "ask_back": "Do you think a shadow is short at noon, or long?",
     "bridges": {
       "has_dog": "Your dog has a shadow too! Did you see it on the ground?"
-    }
+    },
+    "asks_en": [
+      "follow",
+      "dark",
+      "shape",
+      "ground",
+      "appears",
+      "because",
+      "body",
+      "blocks",
+      "light",
+      "straight",
+      "lines",
+      "cannot",
+      "around",
+      "sun",
+      "high",
+      "short",
+      "low",
+      "long"
+    ]
   }
 }

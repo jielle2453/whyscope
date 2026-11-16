@@ -1,0 +1,67 @@
+{
+  "id": "people-birthday",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "生日",
+    "生日蛋糕",
+    "birthday"
+  ],
+  "question_patterns": [
+    "為什麼要過生日",
+    "生日是什麼",
+    "為什麼生日要吃蛋糕",
+    "生日為什麼要吹蠟燭"
+  ],
+  "first_sentence": "生日是你出生的那一天。",
+  "facts": [
+    "很多人每年在這一天慶祝",
+    "常常會有蛋糕和禮物",
+    "蛋糕上的蠟燭，有時和你的歲數一樣多"
+  ],
+  "ask_back": "生日蛋糕上的蠟燭，有時和歲數一樣多嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Birthday",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "birthday",
+      "birthday cake"
+    ],
+    "question_patterns": [
+      "why do we have birthdays",
+      "what is a birthday",
+      "why do we eat cake on a birthday",
+      "why do we blow out candles"
+    ],
+    "first_sentence": "Your birthday is the day you were born.",
+    "facts": [
+      "Many people celebrate it every year.",
+      "There is often cake and gifts.",
+      "Sometimes there is one candle for each year of age."
+    ],
+    "ask_back": "Can a birthday cake have one candle for each year, or not?",
+    "bridges": {},
+    "asks_en": [
+      "eat",
+      "blow",
+      "candles",
+      "day",
+      "born",
+      "many",
+      "people",
+      "celebrate",
+      "every",
+      "year",
+      "often",
+      "gifts",
+      "sometimes",
+      "age"
+    ]
+  }
+}

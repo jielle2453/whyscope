@@ -48,6 +48,25 @@
     "ask_back": "Do you think a dog wags its tail when it is happy, or sleepy?",
     "bridges": {
       "has_dog": "You have a dog! Does yours wag its tail when you come home?"
-    }
+    },
+    "asks_en": [
+      "wag",
+      "tail",
+      "wagging",
+      "mean",
+      "because",
+      "happy",
+      "show",
+      "feel",
+      "people",
+      "lived",
+      "together",
+      "long",
+      "time",
+      "nose",
+      "good",
+      "smell",
+      "many"
+    ]
   }
 }

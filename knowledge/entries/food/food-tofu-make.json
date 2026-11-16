@@ -48,6 +48,28 @@
     "ask_back": "Do you think tofu is made from beans, or from rice?",
     "bridges": {
       "has_garden": "Can you grow yellow soybeans in your garden?"
-    }
+    },
+    "asks_en": [
+      "soft",
+      "white",
+      "soy",
+      "milk",
+      "becomes",
+      "solid",
+      "salty",
+      "water",
+      "added",
+      "yellow",
+      "soybeans",
+      "tiny",
+      "bits",
+      "inside",
+      "gather",
+      "together",
+      "clump",
+      "pressing",
+      "turns",
+      "blocks"
+    ]
   }
 }

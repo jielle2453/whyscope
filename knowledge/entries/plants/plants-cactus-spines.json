@@ -47,6 +47,25 @@
     "ask_back": "Do you think a cactus lives in a wet place, or a dry place?",
     "bridges": {
       "has_dog": "Dogs can get poked by cactus spikes. Would your dog touch one?"
-    }
+    },
+    "asks_en": [
+      "spikes",
+      "prickly",
+      "sharp",
+      "needles",
+      "keep",
+      "water",
+      "inside",
+      "really",
+      "leaf",
+      "changed",
+      "shape",
+      "stop",
+      "leaving",
+      "body",
+      "animals",
+      "wanting",
+      "eat"
+    ]
   }
 }

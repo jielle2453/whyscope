@@ -52,6 +52,26 @@
     "bridges": {
       "rides_bike": "After riding your bike a long way, do you get puffed out?",
       "has_dog": "Does your dog pant with its tongue out after running?"
-    }
+    },
+    "asks_en": [
+      "fast",
+      "breathe",
+      "run",
+      "running",
+      "needs",
+      "more",
+      "air",
+      "faster",
+      "muscles",
+      "use",
+      "heart",
+      "both",
+      "speed",
+      "rest",
+      "while",
+      "slowly",
+      "slows",
+      "down"
+    ]
   }
 }

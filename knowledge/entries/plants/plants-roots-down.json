@@ -1,0 +1,66 @@
+{
+  "id": "plants-roots-down",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "植物的根",
+    "根",
+    "roots"
+  ],
+  "question_patterns": [
+    "為什麼根往下長",
+    "根是做什麼的",
+    "植物的根為什麼在土裡",
+    "植物怎麼喝水"
+  ],
+  "first_sentence": "根長在土裡，幫植物喝水，也抓住土。",
+  "facts": [
+    "根從土裡吸水和養分",
+    "根也把植物固定在地上",
+    "有的植物有一條粗根直直往下"
+  ],
+  "ask_back": "植物是用根喝水，還是用葉子喝水？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Root",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "root",
+      "roots",
+      "plant roots"
+    ],
+    "question_patterns": [
+      "why do roots grow down",
+      "what are roots for",
+      "how do plants drink water",
+      "why are roots under the ground"
+    ],
+    "first_sentence": "Roots drink water and hold a plant in the soil.",
+    "facts": [
+      "Roots take in water and food from the soil.",
+      "Roots also hold the plant in the ground.",
+      "Some plants have one thick root going straight down."
+    ],
+    "ask_back": "Does a plant drink with its roots, or its leaves?",
+    "bridges": {},
+    "asks_en": [
+      "grow",
+      "down",
+      "drink",
+      "water",
+      "under",
+      "ground",
+      "hold",
+      "soil",
+      "take",
+      "food",
+      "thick",
+      "straight"
+    ]
+  }
+}

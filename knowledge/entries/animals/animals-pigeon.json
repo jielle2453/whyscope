@@ -48,6 +48,23 @@
     "ask_back": "Do you think a pigeon can find its way home in the rain?",
     "bridges": {
       "has_garden": "Have you seen pigeons walking around in your garden?"
-    }
+    },
+    "asks_en": [
+      "find",
+      "home",
+      "way",
+      "fly",
+      "far",
+      "because",
+      "good",
+      "trained",
+      "people",
+      "still",
+      "nest",
+      "long",
+      "ago",
+      "sent",
+      "messages"
+    ]
   }
 }

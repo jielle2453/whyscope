@@ -48,6 +48,28 @@
     "ask_back": "Do you think moss likes to be dry, or wet?",
     "bridges": {
       "has_garden": "Have you seen green moss on a wall or rock near home?"
-    }
+    },
+    "asks_en": [
+      "grow",
+      "rocks",
+      "green",
+      "soft",
+      "wet",
+      "places",
+      "likes",
+      "because",
+      "real",
+      "roots",
+      "drinks",
+      "through",
+      "body",
+      "small",
+      "stones",
+      "walls",
+      "flowers",
+      "tiny",
+      "dust",
+      "bits"
+    ]
   }
 }

@@ -47,6 +47,25 @@
     "ask_back": "Do you think a typhoon starts over warm water, or cold water?",
     "bridges": {
       "has_dog": "Your dog should stay inside in a typhoon. Does yours hide when it storms?"
-    }
+    },
+    "asks_en": [
+      "spin",
+      "wind",
+      "strong",
+      "because",
+      "earth",
+      "turns",
+      "time",
+      "forms",
+      "warm",
+      "sea",
+      "water",
+      "brings",
+      "lots",
+      "rain",
+      "middle",
+      "calm",
+      "eye"
+    ]
   }
 }

@@ -1,0 +1,3812 @@
+{
+ "_about": "Answer key for each entry's question back (ask_back), per language. options: two choices the child can tap or say. answer: index of the right option, \"both\", or null when there is no single right answer. fact: index of the entry fact that reveals the answer (left out of the explanation so it does not give the answer away); reveal: a sentence used instead when no fact states it. author: claude (2026-11-14); reviewed_by: empty until a person checks it.",
+ "author": "claude",
+ "reviewed_by": "",
+ "animals-ant": {
+  "zh": {
+   "options": [
+    "氣味",
+    "顏色"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "In a line",
+    "In circles"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-bee": {
+  "zh": {
+   "options": [
+    "花蜜",
+    "樹葉"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Bright flowers",
+    "Dark flowers"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Bees like bright, colorful flowers."
+  }
+ },
+ "animals-butterfly": {
+  "zh": {
+   "options": [
+    "蝴蝶",
+    "青蛙"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Heavy",
+    "Light"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "A butterfly's wings are very light."
+  }
+ },
+ "animals-cat": {
+  "zh": {
+   "options": [
+    "白天",
+    "晚上"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "In the dark",
+    "In the sun"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "animals-dog": {
+  "zh": {
+   "options": [
+    "耳朵",
+    "鼻子"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "When happy",
+    "When sleepy"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "animals-frog": {
+  "zh": {
+   "options": [
+    "水裡",
+    "土裡"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Dry",
+    "Wet"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "animals-gecko": {
+  "zh": {
+   "options": [
+    "白天",
+    "晚上"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "壁虎多半在晚上出來找蟲吃。"
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-giraffe": {
+  "zh": {
+   "options": [
+    "長頸鹿",
+    "大象"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Grass on the ground",
+    "Leaves up high"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "animals-goldfish": {
+  "zh": {
+   "options": [
+    "橘紅色",
+    "藍色"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "最常見的金魚是橘紅色的。"
+  },
+  "en": {
+   "options": [
+    "The sea",
+    "Ponds"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Goldfish live in fresh water, like ponds and fish tanks."
+  }
+ },
+ "animals-mosquito": {
+  "zh": {
+   "options": [
+    "水裡",
+    "土裡"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "In the water",
+    "On land"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "animals-pigeon": {
+  "zh": {
+   "options": [
+    "用眼睛看",
+    "用鼻子聞"
+   ],
+   "answer": null,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "animals-snail-shell": {
+  "zh": {
+   "options": [
+    "出來",
+    "躲在殼裡"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Comes out",
+    "Hides"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-sparrow": {
+  "zh": {
+   "options": [
+    "蟲",
+    "種子"
+   ],
+   "answer": "both",
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Seeds",
+    "Fish"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-spider": {
+  "zh": {
+   "options": [
+    "六隻",
+    "八隻"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "animals-turtle": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "很多烏龜都會游泳。"
+  },
+  "en": {
+   "options": [
+    "Fast",
+    "Slowly"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Most turtles walk slowly on land."
+  }
+ },
+ "animals-whale": {
+  "zh": {
+   "options": [
+    "魚",
+    "哺乳動物"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "body-baby-teeth": {
+  "zh": {
+   "options": [
+    "多",
+    "少"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "大人的牙齒比小朋友多。"
+  },
+  "en": {
+   "options": [
+    "Falls out soon",
+    "Stays for years"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "body-goosebumps": {
+  "zh": {
+   "options": [
+    "小小的顆粒",
+    "滑滑的"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Keeping warm",
+    "Scaring things"
+   ],
+   "answer": "both",
+   "fact": 1
+  }
+ },
+ "body-hair": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Summer",
+    "Winter"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "body-hearing": {
+  "zh": {
+   "options": [
+    "鼓",
+    "窗戶"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Better",
+    "Worse"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A dog can hear many sounds that we cannot hear."
+  }
+ },
+ "body-heartbeat": {
+  "zh": {
+   "options": [
+    "左邊",
+    "右邊"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "心臟在胸口中間，稍微偏左邊。"
+  },
+  "en": {
+   "options": [
+    "When you run",
+    "When you sleep"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-hiccup": {
+  "zh": {
+   "options": [
+    "嗝",
+    "汪"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "body-nails": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "剪指甲不會痛，就像剪頭髮一樣。"
+  },
+  "en": {
+   "options": [
+    "On your hand",
+    "On your foot"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-nosebleed": {
+  "zh": {
+   "options": [
+    "紅色",
+    "藍色"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "More",
+    "Less"
+   ],
+   "answer": null,
+   "fact": 2
+  }
+ },
+ "body-running-breath": {
+  "zh": {
+   "options": [
+    "變快",
+    "變慢"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "After a long run",
+    "After a nap"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "body-sleep": {
+  "zh": {
+   "options": [
+    "張開",
+    "閉著"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "睡覺的時候，眼睛是閉著的。"
+  },
+  "en": {
+   "options": [
+    "At night",
+    "In the daytime"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Most people sleep at night."
+  }
+ },
+ "body-sneeze": {
+  "zh": {
+   "options": [
+    "鼻子和嘴巴",
+    "耳朵"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Louder",
+    "Quieter"
+   ],
+   "answer": null,
+   "fact": 2
+  }
+ },
+ "body-stomach-growl": {
+  "zh": {
+   "options": [
+    "空的",
+    "滿的"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Before lunch",
+    "After lunch"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-sweat": {
+  "zh": {
+   "options": [
+    "甜的",
+    "鹹的"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "汗水裡有鹽，所以是鹹的。"
+  },
+  "en": {
+   "options": [
+    "A hot day",
+    "A cold day"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-tears": {
+  "zh": {
+   "options": [
+    "甜的",
+    "鹹的"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "眼淚裡有一點點鹽，所以是鹹的。"
+  },
+  "en": {
+   "options": [
+    "Salty",
+    "Sweet"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Tears have a little salt, so they taste salty."
+  }
+ },
+ "body-yawn": {
+  "zh": {
+   "options": [
+    "瞇起來",
+    "睜很大"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "打哈欠的時候，眼睛常常會瞇起來。"
+  },
+  "en": {
+   "options": [
+    "When tired",
+    "When hungry"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "We often yawn more when we are tired."
+  }
+ },
+ "food-apple-turns-brown": {
+  "zh": {
+   "options": [
+    "變黃",
+    "變藍"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "In the sun",
+    "In the fridge"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Cold slows it down, so the fridge keeps it fresh longer."
+  }
+ },
+ "food-banana-black": {
+  "zh": {
+   "options": [
+    "比較甜",
+    "比較苦"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "香蕉熟了，會變得比較甜。"
+  },
+  "en": {
+   "options": [
+    "Sweeter",
+    "More sour"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A ripe banana tastes sweeter."
+  }
+ },
+ "food-bread-rise": {
+  "zh": {
+   "options": [
+    "變大",
+    "變小"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "A cold room",
+    "A warm room"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Yeast works faster when it is warm."
+  }
+ },
+ "food-chili-spicy": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Hotter",
+    "Cooler"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "food-honey-bee": {
+  "zh": {
+   "options": [
+    "蜂巢",
+    "鳥巢"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "A long time",
+    "Goes bad fast"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "food-ice-cream-melt": {
+  "zh": {
+   "options": [
+    "變硬",
+    "變軟"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "In the sun",
+    "In the shade"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-ice-floats": {
+  "zh": {
+   "options": [
+    "變大",
+    "變小"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Sinks",
+    "Floats"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "food-milk-origin": {
+  "zh": {
+   "options": [
+    "乳房",
+    "嘴巴"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "A cow",
+    "A tree"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-onion-tears": {
+  "zh": {
+   "options": [
+    "地上",
+    "地下"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "On top",
+    "Under the ground"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "food-popcorn-pop": {
+  "zh": {
+   "options": [
+    "變大",
+    "變小"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Hot",
+    "Cold"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-rice-soft": {
+  "zh": {
+   "options": [
+    "田裡",
+    "樹上"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "米是在水田裡種出來的。"
+  },
+  "en": {
+   "options": [
+    "Bigger",
+    "Smaller"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-salt-taste": {
+  "zh": {
+   "options": [
+    "變鹹",
+    "變甜"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Sweet",
+    "Salty"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "food-soda-bubbles": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "In the fridge",
+    "On the table"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "food-sugar-sweet": {
+  "zh": {
+   "options": [
+    "甘蔗",
+    "樹上"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Sweet",
+    "Sour"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "food-tofu-make": {
+  "zh": {
+   "options": [
+    "黃豆",
+    "紅豆"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Beans",
+    "Rice"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-airplane": {
+  "zh": {
+   "options": [
+    "跑道",
+    "海上"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "machines-balloon": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Float",
+    "Sink"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "machines-battery": {
+  "zh": {
+   "options": [
+    "有",
+    "沒有"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "New batteries",
+    "Old ones"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-bicycle": {
+  "zh": {
+   "options": [
+    "兩個",
+    "三個"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "腳踏車通常有兩個輪子。"
+  },
+  "en": {
+   "options": [
+    "Fast",
+    "Slow"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-clock": {
+  "zh": {
+   "options": [
+    "秒針",
+    "時針"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "秒針走最快，一分鐘就繞一圈。"
+  },
+  "en": {
+   "options": [
+    "Faster",
+    "Slower"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "The big hand goes around once every hour."
+  }
+ },
+ "machines-elevator": {
+  "zh": {
+   "options": [
+    "樓層",
+    "時間"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "按鈕上的數字，就是要去的樓層。"
+  },
+  "en": {
+   "options": [
+    "Faster",
+    "Slower"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "machines-fan": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "In front",
+    "Behind"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-fridge": {
+  "zh": {
+   "options": [
+    "熱的",
+    "冷的"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Warm",
+    "Cold"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "machines-light-bulb": {
+  "zh": {
+   "options": [
+    "圓圓的",
+    "方方的"
+   ],
+   "answer": null,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Gets hot",
+    "Stays cold"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-magnet": {
+  "zh": {
+   "options": [
+    "能",
+    "不能"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "磁力可以穿過薄薄的紙。"
+  },
+  "en": {
+   "options": [
+    "Wood",
+    "Metal"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "machines-microwave": {
+  "zh": {
+   "options": [
+    "讓我們看到裡面",
+    "讓食物變熱"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "門上的玻璃，讓我們看到裡面的食物。"
+  },
+  "en": {
+   "options": [
+    "Fast",
+    "Slow"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-remote": {
+  "zh": {
+   "options": [
+    "看得到",
+    "看不到"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "machines-toilet": {
+  "zh": {
+   "options": [
+    "水箱",
+    "地板"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Water",
+    "Air"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-traffic-light": {
+  "zh": {
+   "options": [
+    "紅色",
+    "綠色"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Go fast",
+    "Get ready to stop"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "machines-vacuum": {
+  "zh": {
+   "options": [
+    "能",
+    "不能"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "大石頭太重，吸塵器吸不起來。"
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "machines-washing-machine": {
+  "zh": {
+   "options": [
+    "變乾",
+    "變濕"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "With soap",
+    "Without"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "plants-bamboo-fast-growth": {
+  "zh": {
+   "options": [
+    "樹",
+    "草"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "竹子其實是一種很高的草。"
+  },
+  "en": {
+   "options": [
+    "Empty",
+    "Solid"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "plants-banyan-aerial-roots": {
+  "zh": {
+   "options": [
+    "往上長",
+    "往下長"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "High in the tree",
+    "In the ground"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-bark": {
+  "zh": {
+   "options": [
+    "軟的",
+    "硬的"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "大部分的樹皮，摸起來硬硬的。"
+  },
+  "en": {
+   "options": [
+    "Soft",
+    "Hard and rough"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Most tree bark feels hard and rough."
+  }
+ },
+ "plants-cactus-spines": {
+  "zh": {
+   "options": [
+    "雨多的地方",
+    "很乾的地方"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "A wet place",
+    "A dry place"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "plants-dandelion": {
+  "zh": {
+   "options": [
+    "風",
+    "鳥"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Fly",
+    "Sink"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "plants-fallen-leaves": {
+  "zh": {
+   "options": [
+    "土裡的養分",
+    "石頭"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Summer",
+    "Winter"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "plants-flower-fragrance": {
+  "zh": {
+   "options": [
+    "蜜蜂和蝴蝶",
+    "蚊子"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-fruit-sweet": {
+  "zh": {
+   "options": [
+    "黃色",
+    "綠色"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "香蕉皮變黃的時候，就比較甜了。"
+  },
+  "en": {
+   "options": [
+    "Sweet",
+    "Sour"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "plants-leaf-green": {
+  "zh": {
+   "options": [
+    "陽光",
+    "月亮"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Sunlight",
+    "Sand"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-mimosa": {
+  "zh": {
+   "options": [
+    "合起來",
+    "變大"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Closes",
+    "Stays open"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-moss": {
+  "zh": {
+   "options": [
+    "乾的地方",
+    "濕的地方"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Dry",
+    "Wet"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "plants-rice": {
+  "zh": {
+   "options": [
+    "果實",
+    "根"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "On a tree",
+    "In a wet field"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Rice grows in wet, muddy fields."
+  }
+ },
+ "plants-seed-germination": {
+  "zh": {
+   "options": [
+    "先長根",
+    "先長葉"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "In water",
+    "In a dry box"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A seed needs water to start growing."
+  }
+ },
+ "plants-sunflower": {
+  "zh": {
+   "options": [
+    "能",
+    "不能"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "The sun",
+    "The moon"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-tree-rings": {
+  "zh": {
+   "options": [
+    "樹幾歲",
+    "樹多高"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Older",
+    "Younger"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-blue-sky": {
+  "zh": {
+   "options": [
+    "只有一種",
+    "很多種"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "In the day",
+    "At night"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "sky_weather-cloud": {
+  "zh": {
+   "options": [
+    "很遠的地方",
+    "掉到地上"
+   ],
+   "answer": null,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Heavy",
+    "Light"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Cloud drops are so tiny that the air holds them up."
+  }
+ },
+ "sky_weather-dew": {
+  "zh": {
+   "options": [
+    "清晨",
+    "中午"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "At noon",
+    "In the morning"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "sky_weather-fog": {
+  "zh": {
+   "options": [
+    "慢慢散掉",
+    "變得更濃"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "In the morning",
+    "At lunch"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "sky_weather-hail": {
+  "zh": {
+   "options": [
+    "雲裡",
+    "地上"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Soft like snow",
+    "Hard like ice"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "sky_weather-moon-follows-me": {
+  "zh": {
+   "options": [
+    "月亮",
+    "大樓"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Closer",
+    "Farther away"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "sky_weather-moon-shape": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Its own light",
+    "The sun's light"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "sky_weather-rain": {
+  "zh": {
+   "options": [
+    "小水滴",
+    "棉花"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Up from the ground",
+    "Down from clouds"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "sky_weather-rainbow": {
+  "zh": {
+   "options": [
+    "紅色",
+    "紫色"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "彩虹最外面一圈是紅色。"
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "You see a rainbow when the sun is behind you."
+  }
+ },
+ "sky_weather-shadow": {
+  "zh": {
+   "options": [
+    "比較長",
+    "比較短"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Short",
+    "Long"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "sky_weather-star-twinkle": {
+  "zh": {
+   "options": [
+    "自己發光",
+    "靠別的光"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Closer",
+    "Farther away"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "sky_weather-summer-hot-winter-cold": {
+  "zh": {
+   "options": [
+    "一年",
+    "一天"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "地球繞太陽一圈，大約要一年。"
+  },
+  "en": {
+   "options": [
+    "Summer",
+    "Winter"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "sky_weather-sunset-red-sky": {
+  "zh": {
+   "options": [
+    "紅色和橘色",
+    "綠色"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "At sunset",
+    "At noon"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "sky_weather-thunder-lightning": {
+  "zh": {
+   "options": [
+    "閃電",
+    "雷聲"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Before",
+    "After"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "sky_weather-typhoon": {
+  "zh": {
+   "options": [
+    "海上",
+    "山上"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Warm water",
+    "Cold water"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-wind": {
+  "zh": {
+   "options": [
+    "搖來搖去",
+    "不會動"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "風很大的時候，樹葉會被吹得搖來搖去。"
+  },
+  "en": {
+   "options": [
+    "On a hill",
+    "In a flat field"
+   ],
+   "answer": null,
+   "fact": 1
+  }
+ },
+ "animals-cat-purr": {
+  "zh": {
+   "options": [
+    "會呼嚕",
+    "跳開"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "被輕輕摸的時候，貓咪常常會呼嚕。"
+  },
+  "en": {
+   "options": [
+    "Purr",
+    "Jump away"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A cat often purrs when it is petted gently."
+  }
+ },
+ "animals-zebra-stripes": {
+  "zh": {
+   "options": [
+    "一模一樣",
+    "不一樣"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "The same",
+    "Different"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "animals-kangaroo-pouch": {
+  "zh": {
+   "options": [
+    "前腳",
+    "後腿"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Front legs",
+    "Back legs"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "animals-firefly-glow": {
+  "zh": {
+   "options": [
+    "白天",
+    "晚上"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "螢火蟲在晚上發光，最容易被看見。"
+  },
+  "en": {
+   "options": [
+    "Daytime",
+    "Night"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Fireflies glow at night, when the light is easy to see."
+  }
+ },
+ "animals-bat": {
+  "zh": {
+   "options": [
+    "頭朝上",
+    "頭朝下"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Up",
+    "Down"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "animals-owl": {
+  "zh": {
+   "options": [
+    "很大聲",
+    "很安靜"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Loud",
+    "Quiet"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "animals-chameleon": {
+  "zh": {
+   "options": [
+    "綠色",
+    "紅色"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "變色龍會變得像旁邊的東西，躲起來。"
+  },
+  "en": {
+   "options": [
+    "Green",
+    "Red"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A chameleon can blend in with the leaves around it."
+  }
+ },
+ "animals-snake-shed": {
+  "zh": {
+   "options": [
+    "裡面朝外",
+    "外面朝外"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Inside out",
+    "Not inside out"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "animals-penguin": {
+  "zh": {
+   "options": [
+    "飛",
+    "游"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Fly",
+    "Swim"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "animals-elephant-trunk": {
+  "zh": {
+   "options": [
+    "用鼻子吸",
+    "用嘴巴舔"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Sucking up",
+    "Licking"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-bird-song": {
+  "zh": {
+   "options": [
+    "叫同伴",
+    "睡覺"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Find a partner",
+    "Sleep"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "animals-bird-nest": {
+  "zh": {
+   "options": [
+    "樹枝",
+    "鐵"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Twigs",
+    "Metal"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-fish-breathe": {
+  "zh": {
+   "options": [
+    "鰓",
+    "耳朵"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "魚用鰓呼吸。"
+  },
+  "en": {
+   "options": [
+    "Gills",
+    "Ears"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A fish breathes with its gills."
+  }
+ },
+ "animals-shark": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "A new one grows",
+    "Not"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-camel-hump": {
+  "zh": {
+   "options": [
+    "變大",
+    "變小"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Bigger",
+    "Smaller"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "animals-woodpecker": {
+  "zh": {
+   "options": [
+    "嘴巴",
+    "腳"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Its bill",
+    "Its feet"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "animals-flamingo": {
+  "zh": {
+   "options": [
+    "吃東西",
+    "塗顏色"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Its food",
+    "Paint"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-octopus": {
+  "zh": {
+   "options": [
+    "三顆",
+    "一顆"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Three",
+    "One"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "animals-sloth": {
+  "zh": {
+   "options": [
+    "樹上",
+    "洞裡"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "In a tree",
+    "In a hole"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "animals-squirrel": {
+  "zh": {
+   "options": [
+    "夏天",
+    "冬天"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Summer",
+    "Winter"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "animals-duck": {
+  "zh": {
+   "options": [
+    "浮起來",
+    "沉下去"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "鴨子會浮在水上。"
+  },
+  "en": {
+   "options": [
+    "Float",
+    "Sink"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A duck floats on water."
+  }
+ },
+ "body-eyebrows": {
+  "zh": {
+   "options": [
+    "上面",
+    "下面"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "眉毛長在眼睛的上面。"
+  },
+  "en": {
+   "options": [
+    "Above",
+    "Below"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Eyebrows are above your eyes."
+  }
+ },
+ "body-blink": {
+  "zh": {
+   "options": [
+    "想一下才眨",
+    "自己就會眨"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Only when I think",
+    "By itself"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "body-bones": {
+  "zh": {
+   "options": [
+    "是活的",
+    "像石頭"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Alive",
+    "Like stones"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-dream": {
+  "zh": {
+   "options": [
+    "睡覺",
+    "跑步"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "我們是在睡覺的時候做夢。"
+  },
+  "en": {
+   "options": [
+    "Sleep",
+    "Run"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "We dream while we sleep."
+  }
+ },
+ "body-laugh": {
+  "zh": {
+   "options": [
+    "笑",
+    "哭"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Laugh",
+    "Cry"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "body-hungry": {
+  "zh": {
+   "options": [
+    "比較餓",
+    "比較不餓"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Less hungry",
+    "More hungry"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-crying": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "They can",
+    "They can't"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-skin-color": {
+  "zh": {
+   "options": [
+    "比較深",
+    "比較淺"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Darker",
+    "Lighter"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-scab": {
+  "zh": {
+   "options": [
+    "自己掉",
+    "用手摳"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "By itself",
+    "Pick it"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-fingerprint": {
+  "zh": {
+   "options": [
+    "一樣",
+    "不一樣"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "每個人的指紋都不一樣。"
+  },
+  "en": {
+   "options": [
+    "The same",
+    "Different"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Everyone's fingerprints are different."
+  }
+ },
+ "body-belly-button": {
+  "zh": {
+   "options": [
+    "肚子上",
+    "背上"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "肚臍在肚子的中間。"
+  },
+  "en": {
+   "options": [
+    "Tummy",
+    "Back"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A belly button is in the middle of your tummy."
+  }
+ },
+ "body-burp": {
+  "zh": {
+   "options": [
+    "氣",
+    "水"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Air",
+    "Water"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "body-bruise": {
+  "zh": {
+   "options": [
+    "不變",
+    "會變色"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Stay the same",
+    "Change colors"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "body-cough": {
+  "zh": {
+   "options": [
+    "咳嗽",
+    "打哈欠"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Cough",
+    "Yawn"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-fever": {
+  "zh": {
+   "options": [
+    "比較熱",
+    "比較冷"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Hotter",
+    "Colder"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "body-blood-red": {
+  "zh": {
+   "options": [
+    "變成一塊塊",
+    "一直流"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Form a clot",
+    "Keep flowing"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "body-left-handed": {
+  "zh": {
+   "options": [
+    "右手",
+    "左手"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Right hand",
+    "Left hand"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "body-snot": {
+  "zh": {
+   "options": [
+    "擋小蟲蟲",
+    "變重"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Guard from germs",
+    "Heavier"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "physics-boiling": {
+  "zh": {
+   "options": [
+    "只在水面",
+    "整鍋水裡"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Only on top",
+    "All through"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "physics-steam": {
+  "zh": {
+   "options": [
+    "看得見",
+    "看不見"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "earth-river": {
+  "zh": {
+   "options": [
+    "往高處",
+    "往低處"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Uphill",
+    "Downhill"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "earth-waterfall": {
+  "zh": {
+   "options": [
+    "往上衝",
+    "往下掉"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Up",
+    "Down"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "earth-mountain": {
+  "zh": {
+   "options": [
+    "一下子",
+    "很久很久"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "山是花了很久很久才長高的。"
+  },
+  "en": {
+   "options": [
+    "Quickly",
+    "Very slowly"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "Mountains grow tall over a very long time."
+  }
+ },
+ "earth-sand": {
+  "zh": {
+   "options": [
+    "磨碎的石頭",
+    "糖變的"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Ground-up rock",
+    "Sugar"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "earth-fossil": {
+  "zh": {
+   "options": [
+    "對",
+    "不對"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "earth-dinosaurs": {
+  "zh": {
+   "options": [
+    "化石",
+    "照片"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "我們是從化石知道有恐龍的。"
+  },
+  "en": {
+   "options": [
+    "Fossils",
+    "Photos"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "We know about dinosaurs from fossils."
+  }
+ },
+ "earth-diamond": {
+  "zh": {
+   "options": [
+    "地底深處",
+    "天上掉"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Underground",
+    "From the sky"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "earth-cave": {
+  "zh": {
+   "options": [
+    "水磨的",
+    "手挖的"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "By water",
+    "By hand"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "earth-glacier": {
+  "zh": {
+   "options": [
+    "很快",
+    "很慢"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Fast",
+    "Very slowly"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "earth-inside": {
+  "zh": {
+   "options": [
+    "薄薄的",
+    "厚厚的"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Thin",
+    "Thick"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "people-money": {
+  "zh": {
+   "options": [
+    "對",
+    "不對"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "錢是用來買東西的。"
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Money is used to buy things."
+  }
+ },
+ "people-school": {
+  "zh": {
+   "options": [
+    "學東西",
+    "睡覺"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Learn",
+    "Sleep"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "people-birthday": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "It can",
+    "It can't"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "people-languages": {
+  "zh": {
+   "options": [
+    "不變",
+    "慢慢改變"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Never change",
+    "Slowly change"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "people-leap-year": {
+  "zh": {
+   "options": [
+    "多一天",
+    "少一天"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "One extra",
+    "One less"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "people-recycling": {
+  "zh": {
+   "options": [
+    "可以",
+    "不可以"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "people-library": {
+  "zh": {
+   "options": [
+    "借回家",
+    "只能在那裡看"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Take them home",
+    "Only read there"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "people-doctor": {
+  "zh": {
+   "options": [
+    "會問",
+    "不會問"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Asks",
+    "Doesn't ask"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "people-firefighter": {
+  "zh": {
+   "options": [
+    "水",
+    "糖"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Water",
+    "Sugar"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "people-flag": {
+  "zh": {
+   "options": [
+    "有",
+    "沒有"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "They do",
+    "They don't"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "earth-desert": {
+  "zh": {
+   "options": [
+    "很常下雨",
+    "很少下雨"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Lots of rain",
+    "Very little"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "machines-telephone": {
+  "zh": {
+   "options": [
+    "電線",
+    "無線電波"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "By wire",
+    "Radio waves"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "machines-camera": {
+  "zh": {
+   "options": [
+    "需要光",
+    "不需要"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "相機拍照，需要光進去。"
+  },
+  "en": {
+   "options": [
+    "It needs light",
+    "It does not"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A camera needs light to take a picture."
+  }
+ },
+ "machines-internet": {
+  "zh": {
+   "options": [
+    "一台",
+    "很多台"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "One",
+    "Many"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "machines-umbrella": {
+  "zh": {
+   "options": [
+    "擋太陽",
+    "擋雨"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "The sun",
+    "Rain"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-eraser": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Yes, crumbs",
+    "No crumbs"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "machines-train": {
+  "zh": {
+   "options": [
+    "鐵軌上",
+    "水上"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "On rails",
+    "On water"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-car-engine": {
+  "zh": {
+   "options": [
+    "用電",
+    "用汽油"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Electricity",
+    "Gasoline"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "machines-seat-belt": {
+  "zh": {
+   "options": [
+    "會往前衝",
+    "不會動"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Fly forward",
+    "Stay still"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "machines-zipper": {
+  "zh": {
+   "options": [
+    "合起來",
+    "打開"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Close",
+    "Open"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "machines-clothes": {
+  "zh": {
+   "options": [
+    "保暖",
+    "涼快"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Warm",
+    "Cool"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-soap": {
+  "zh": {
+   "options": [
+    "沖走",
+    "留下來"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Wash it away",
+    "Keep it"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "physics-soap-bubble": {
+  "zh": {
+   "options": [
+    "破掉",
+    "變大"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Pop",
+    "Grow"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-mirror": {
+  "zh": {
+   "options": [
+    "彈回來",
+    "吃掉"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Bounce it back",
+    "Swallow it"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-wheel": {
+  "zh": {
+   "options": [
+    "圓的",
+    "方的"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "輪子是圓的，才能滾得動。"
+  },
+  "en": {
+   "options": [
+    "Round",
+    "Square"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "A wheel is round so it can roll."
+  }
+ },
+ "machines-glue": {
+  "zh": {
+   "options": [
+    "可以",
+    "不可以"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "machines-helicopter": {
+  "zh": {
+   "options": [
+    "直升機",
+    "飛機"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Helicopter",
+    "Airplane"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "machines-smoke-alarm": {
+  "zh": {
+   "options": [
+    "安靜",
+    "大聲叫"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Stay quiet",
+    "Beep loudly"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "machines-television": {
+  "zh": {
+   "options": [
+    "薄薄平平",
+    "又厚又鼓"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Thin and flat",
+    "Thick"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "plants-flower-colors": {
+  "zh": {
+   "options": [
+    "吸引",
+    "嚇走"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Call them",
+    "Scare them away"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-rose-prickles": {
+  "zh": {
+   "options": [
+    "擋動物",
+    "好看"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Keep animals away",
+    "Look nice"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-venus-flytrap": {
+  "zh": {
+   "options": [
+    "一次",
+    "兩次"
+   ],
+   "answer": 1,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "One",
+    "Two"
+   ],
+   "answer": 1,
+   "fact": 0
+  }
+ },
+ "plants-evergreen": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "plants-mushroom": {
+  "zh": {
+   "options": [
+    "植物",
+    "真菌"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "蘑菇不是植物，是真菌。"
+  },
+  "en": {
+   "options": [
+    "A plant",
+    "A fungus"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "A mushroom is a fungus, not a plant."
+  }
+ },
+ "plants-roots-down": {
+  "zh": {
+   "options": [
+    "根",
+    "葉子"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Roots",
+    "Leaves"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "plants-trees-needed": {
+  "zh": {
+   "options": [
+    "動物的家",
+    "沒有動物"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "A home",
+    "Empty"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "plants-pollen": {
+  "zh": {
+   "options": [
+    "被風吹走",
+    "待在花裡"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Carried by wind",
+    "Stay in the flower"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "food-honey-no-spoil": {
+  "zh": {
+   "options": [
+    "還能吃",
+    "壞掉了"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Still good",
+    "Spoiled"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-lemon-sour": {
+  "zh": {
+   "options": [
+    "酸的",
+    "甜的"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Sour",
+    "Sweet"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "food-chocolate-melt": {
+  "zh": {
+   "options": [
+    "變軟",
+    "變硬"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "巧克力一碰到熱，就會變軟。"
+  },
+  "en": {
+   "options": [
+    "Soft",
+    "Hard"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Chocolate gets soft when it is warm."
+  }
+ },
+ "food-cheese-milk": {
+  "zh": {
+   "options": [
+    "牛奶",
+    "石頭"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Milk",
+    "Stones"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "food-egg-cook": {
+  "zh": {
+   "options": [
+    "對",
+    "不對"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "food-jelly-set": {
+  "zh": {
+   "options": [
+    "變固體",
+    "更稀"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Solid",
+    "Runnier"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "food-cooking": {
+  "zh": {
+   "options": [
+    "熱",
+    "冰"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Heat",
+    "Ice"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-sunrise": {
+  "zh": {
+   "options": [
+    "東邊",
+    "西邊"
+   ],
+   "answer": 0,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "East",
+    "West"
+   ],
+   "answer": 0,
+   "fact": 2
+  }
+ },
+ "sky_weather-moon-daytime": {
+  "zh": {
+   "options": [
+    "自己發光",
+    "太陽照亮"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Its own light",
+    "Lit by the sun"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "sky_weather-sun-hot": {
+  "zh": {
+   "options": [
+    "很熱",
+    "很冷"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "太陽的中心非常非常熱。"
+  },
+  "en": {
+   "options": [
+    "Very hot",
+    "Very cold"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "The middle of the sun is extremely hot."
+  }
+ },
+ "sky_weather-sun-far": {
+  "zh": {
+   "options": [
+    "星星",
+    "行星"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "A star",
+    "A planet"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-black-hole": {
+  "zh": {
+   "options": [
+    "太空裡",
+    "海裡"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "In space",
+    "In the sea"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-shooting-star": {
+  "zh": {
+   "options": [
+    "真的星星",
+    "小石頭"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "流星是掉進空氣裡的小石頭。"
+  },
+  "en": {
+   "options": [
+    "A real star",
+    "A small rock"
+   ],
+   "answer": 1,
+   "fact": null,
+   "reveal": "A shooting star is a space rock."
+  }
+ },
+ "sky_weather-mars-red": {
+  "zh": {
+   "options": [
+    "比較大",
+    "比較小"
+   ],
+   "answer": 1,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Bigger",
+    "Smaller"
+   ],
+   "answer": 1,
+   "fact": 1
+  }
+ },
+ "sky_weather-saturn-rings": {
+  "zh": {
+   "options": [
+    "冰",
+    "糖"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Ice",
+    "Sugar"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-solar-eclipse": {
+  "zh": {
+   "options": [
+    "可以",
+    "不可以"
+   ],
+   "answer": 1,
+   "fact": 2
+  },
+  "en": {
+   "options": [
+    "Safe",
+    "Not safe"
+   ],
+   "answer": 1,
+   "fact": 2
+  }
+ },
+ "sky_weather-aurora": {
+  "zh": {
+   "options": [
+    "綠色",
+    "黑色"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "極光常常是綠色，也有紅色、藍色。"
+  },
+  "en": {
+   "options": [
+    "Green",
+    "Black"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Auroras are often green, or red, blue and purple."
+  }
+ },
+ "sky_weather-moon-craters": {
+  "zh": {
+   "options": [
+    "石頭撞的",
+    "人挖的"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Space rocks",
+    "People"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-milky-way": {
+  "zh": {
+   "options": [
+    "裡面",
+    "外面"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Inside",
+    "Outside"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "sky_weather-pluto": {
+  "zh": {
+   "options": [
+    "矮行星",
+    "大行星"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Dwarf planet",
+    "Big planet"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-tornado": {
+  "zh": {
+   "options": [
+    "從雲裡",
+    "從地底"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "From a cloud",
+    "From the ground"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "sky_weather-frost": {
+  "zh": {
+   "options": [
+    "冷的時候",
+    "熱的時候"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Cold",
+    "Hot"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-tides": {
+  "zh": {
+   "options": [
+    "會",
+    "不會"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "It does",
+    "It does not"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ },
+ "sky_weather-waves": {
+  "zh": {
+   "options": [
+    "比較大",
+    "比較小"
+   ],
+   "answer": 0,
+   "fact": 1
+  },
+  "en": {
+   "options": [
+    "Bigger",
+    "Smaller"
+   ],
+   "answer": 0,
+   "fact": 1
+  }
+ },
+ "sky_weather-sea-salty": {
+  "zh": {
+   "options": [
+    "鹹的",
+    "甜的"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "海水裡有很多鹽，所以是鹹的。"
+  },
+  "en": {
+   "options": [
+    "Salty",
+    "Sweet"
+   ],
+   "answer": 0,
+   "fact": null,
+   "reveal": "Sea water is salty."
+  }
+ },
+ "sky_weather-snow": {
+  "zh": {
+   "options": [
+    "冰",
+    "棉花"
+   ],
+   "answer": 0,
+   "fact": 0
+  },
+  "en": {
+   "options": [
+    "Ice",
+    "Cotton"
+   ],
+   "answer": 0,
+   "fact": 0
+  }
+ }
+}

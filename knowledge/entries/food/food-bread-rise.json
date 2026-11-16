@@ -49,6 +49,27 @@
     "ask_back": "Do you think bread would get bigger in a cold room, or a warm room?",
     "bridges": {
       "has_dog": "When dogs smell bread, do they wag their tails?"
-    }
+    },
+    "asks_en": [
+      "big",
+      "rise",
+      "fluffy",
+      "puffy",
+      "tiny",
+      "bugs",
+      "breathe",
+      "gas",
+      "bigger",
+      "yeast",
+      "living",
+      "lives",
+      "eat",
+      "sugar",
+      "flour",
+      "bakes",
+      "hot",
+      "puffs",
+      "more"
+    ]
   }
 }

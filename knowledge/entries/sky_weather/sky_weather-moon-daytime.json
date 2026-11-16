@@ -1,0 +1,60 @@
+{
+  "id": "sky_weather-moon-daytime",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "白天的月亮",
+    "白天月亮"
+  ],
+  "question_patterns": [
+    "為什麼白天也看得到月亮",
+    "月亮為什麼白天會出現",
+    "白天為什麼有月亮",
+    "月亮自己會發光嗎"
+  ],
+  "first_sentence": "月亮不是只有晚上才出現。",
+  "facts": [
+    "有時候白天也看得到月亮",
+    "月亮自己不會發光",
+    "我們看到的是被太陽照亮的月亮"
+  ],
+  "ask_back": "月亮是自己發光，還是被太陽照亮？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Moon",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "daytime moon",
+      "moon in the day"
+    ],
+    "question_patterns": [
+      "why can I see the moon in the daytime",
+      "why is the moon out in the day",
+      "does the moon make its own light",
+      "why is there a moon in the morning"
+    ],
+    "first_sentence": "The moon is not only out at night.",
+    "facts": [
+      "Sometimes you can see the moon in the day.",
+      "The moon does not make its own light.",
+      "We see the part the sun lights up."
+    ],
+    "ask_back": "Does the moon make its own light, or is it lit by the sun?",
+    "bridges": {},
+    "asks_en": [
+      "own",
+      "light",
+      "morning",
+      "only",
+      "night",
+      "sometimes",
+      "part",
+      "sun"
+    ]
+  }
+}

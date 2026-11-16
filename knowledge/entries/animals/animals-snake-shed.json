@@ -1,0 +1,70 @@
+{
+  "id": "animals-snake-shed",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "蛇蛻皮",
+    "蛇",
+    "snake"
+  ],
+  "question_patterns": [
+    "為什麼蛇會蛻皮",
+    "蛇為什麼要脫皮",
+    "蛇的皮為什麼會掉",
+    "蛇蛻下來的皮是什麼"
+  ],
+  "first_sentence": "蛇長大了，舊皮就會脫掉。",
+  "facts": [
+    "蛇的皮不會跟著長大",
+    "蛇會在粗粗的東西上磨掉舊皮",
+    "舊皮會被翻出來，像脫襪子"
+  ],
+  "ask_back": "蛇脫下來的舊皮，是裡面朝外還是外面朝外？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Snake",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "snake",
+      "snake skin"
+    ],
+    "question_patterns": [
+      "why do snakes shed their skin",
+      "why does a snake lose its skin",
+      "what is the old skin a snake leaves behind",
+      "how does a snake get out of its skin"
+    ],
+    "first_sentence": "A snake sheds its skin as it grows.",
+    "facts": [
+      "A snake needs to shed its skin while it grows.",
+      "It rubs its head on something rough until the skin splits.",
+      "Then it crawls out, turning the old skin inside out."
+    ],
+    "ask_back": "The old skin a snake leaves, is it turned inside out, or not?",
+    "bridges": {},
+    "asks_en": [
+      "shed",
+      "lose",
+      "old",
+      "leaves",
+      "behind",
+      "grows",
+      "needs",
+      "while",
+      "rubs",
+      "head",
+      "something",
+      "rough",
+      "until",
+      "splits",
+      "crawls",
+      "turning",
+      "inside"
+    ]
+  }
+}

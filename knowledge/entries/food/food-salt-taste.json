@@ -48,6 +48,29 @@
     "ask_back": "Do you think salt makes food taste sweet, or salty?",
     "bridges": {
       "has_dog": "Dog treats must not have salt. Do you know why?"
-    }
+    },
+    "asks_en": [
+      "salty",
+      "taste",
+      "chips",
+      "food",
+      "good",
+      "tongue",
+      "touches",
+      "two",
+      "kinds",
+      "tiny",
+      "bits",
+      "mixed",
+      "together",
+      "water",
+      "slowly",
+      "melts",
+      "away",
+      "disappears",
+      "special",
+      "spots",
+      "feel"
+    ]
   }
 }

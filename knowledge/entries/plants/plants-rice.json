@@ -48,6 +48,28 @@
     "ask_back": "Do you think rice grows on a tree, or in a wet field?",
     "bridges": {
       "has_garden": "Have you eaten rice at home? It grows in wet fields!"
-    }
+    },
+    "asks_en": [
+      "grow",
+      "water",
+      "planted",
+      "wet",
+      "fields",
+      "because",
+      "needs",
+      "lots",
+      "grains",
+      "seeds",
+      "eat",
+      "food",
+      "most",
+      "important",
+      "world",
+      "ready",
+      "stalks",
+      "bend",
+      "down",
+      "low"
+    ]
   }
 }

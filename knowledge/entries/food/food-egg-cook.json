@@ -1,0 +1,66 @@
+{
+  "id": "food-egg-cook",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "水煮蛋",
+    "雞蛋",
+    "egg"
+  ],
+  "question_patterns": [
+    "為什麼蛋要煮熟才吃",
+    "雞蛋可以怎麼吃",
+    "生雞蛋可以吃嗎",
+    "煮熟的蛋為什麼比較好"
+  ],
+  "first_sentence": "雞蛋煮熟了再吃，比較安全。",
+  "facts": [
+    "蛋可以水煮、煎、炒，做成很多樣子",
+    "生蛋可能有會讓人生病的小蟲蟲",
+    "煮熟的蛋，身體吸收得比較多"
+  ],
+  "ask_back": "生雞蛋有可能有小蟲蟲，對還是不對？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Egg_(food)",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "egg",
+      "boiled egg"
+    ],
+    "question_patterns": [
+      "why do we cook eggs",
+      "how can you eat an egg",
+      "can I eat a raw egg",
+      "why is a cooked egg better"
+    ],
+    "first_sentence": "It is safer to eat an egg when it is cooked.",
+    "facts": [
+      "Eggs can be boiled, fried, or scrambled.",
+      "A raw egg can have germs that make you sick.",
+      "Your body can use more of a cooked egg."
+    ],
+    "ask_back": "Can a raw egg have germs in it, yes or no?",
+    "bridges": {},
+    "asks_en": [
+      "cook",
+      "eat",
+      "raw",
+      "cooked",
+      "better",
+      "safer",
+      "fried",
+      "scrambled",
+      "germs",
+      "sick",
+      "body",
+      "use",
+      "more"
+    ]
+  }
+}

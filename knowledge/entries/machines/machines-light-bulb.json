@@ -50,6 +50,25 @@
     "ask_back": "Do you think a light bulb gets hot when it is on, or stays cold?",
     "bridges": {
       "likes_dinosaurs": "Dinosaurs lived long before lights were made, did you know that?"
-    }
+    },
+    "asks_en": [
+      "turn",
+      "work",
+      "glow",
+      "bright",
+      "electricity",
+      "thin",
+      "wire",
+      "old",
+      "inside",
+      "hot",
+      "gives",
+      "off",
+      "many",
+      "now",
+      "use",
+      "led",
+      "save"
+    ]
   }
 }

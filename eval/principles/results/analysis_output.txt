@@ -1,0 +1,67 @@
+=== A coverage by gold (failed set, 54)
+all Counter({'full': 29, 'partly': 13, 'none': 12})
+zh Counter({'full': 15, 'partly': 7, 'none': 6})
+en Counter({'full': 14, 'partly': 6, 'none': 6})
+animals {'partly': 5, 'none': 2, 'full': 1}
+earth/rocks {'full': 8, 'none': 2}
+everyday objects/machines {'full': 4, 'partly': 1}
+food {'none': 3}
+human body {'partly': 1, 'full': 1, 'none': 1}
+people/society {'full': 4, 'none': 4}
+plants {'partly': 2, 'full': 2}
+sky/space {'full': 1, 'partly': 4}
+water/physics {'full': 8}
+heldout Counter({'full': 22, 'partly': 10, 'none': 8})
+
+=== B UGen choice
+failed/all: gold-answerable n=42 (full 29): LLM choice correct 20/42 (48%), full-only 16/29 (55%); emb top1 31/42 (74%); gold in top5 39/42 (93%); LLM said none on answerable 6; picked wrong principle 16; 'none' precision 1/7 (14%), recall 1/12 (8%); picked a principle on gold-none 11/12
+failed/zh: gold-answerable n=22 (full 15): LLM choice correct 7/22 (32%), full-only 6/15 (40%); emb top1 15/22 (68%); gold in top5 20/22 (91%); LLM said none on answerable 6; picked wrong principle 9; 'none' precision 1/7 (14%), recall 1/6 (17%); picked a principle on gold-none 5/6
+failed/en: gold-answerable n=20 (full 14): LLM choice correct 13/20 (65%), full-only 10/14 (71%); emb top1 16/20 (80%); gold in top5 19/20 (95%); LLM said none on answerable 0; picked wrong principle 7; 'none' precision 0/0, recall 0/6 (0%); picked a principle on gold-none 6/6
+heldout/all: gold-answerable n=32 (full 22): LLM choice correct 16/32 (50%), full-only 14/22 (64%); emb top1 23/32 (72%); gold in top5 31/32 (97%); LLM said none on answerable 2; picked wrong principle 14; 'none' precision 1/3 (33%), recall 1/8 (12%); picked a principle on gold-none 7/8
+heldout/zh: gold-answerable n=15 (full 11): LLM choice correct 8/15 (53%), full-only 8/11 (73%); emb top1 10/15 (67%); gold in top5 15/15 (100%); LLM said none on answerable 1; picked wrong principle 6; 'none' precision 1/2 (50%), recall 1/5 (20%); picked a principle on gold-none 4/5
+heldout/en: gold-answerable n=17 (full 11): LLM choice correct 8/17 (47%), full-only 6/11 (55%); emb top1 13/17 (76%); gold in top5 16/17 (94%); LLM said none on answerable 1; picked wrong principle 8; 'none' precision 0/1 (0%), recall 0/3 (0%); picked a principle on gold-none 3/3
+
+=== C answer quality (UGen's own choice)
+failed/all: answers n=47 {'wrong': 23, 'partly': 16, 'right': 8} false=23 ungrounded-right=2 | correctly mapped n=20 {'partly': 8, 'right': 6, 'wrong': 6} false=9
+failed/zh: answers n=21 {'wrong': 13, 'partly': 5, 'right': 3} false=11 ungrounded-right=1 | correctly mapped n=7 {'partly': 2, 'right': 2, 'wrong': 3} false=3
+failed/en: answers n=26 {'wrong': 10, 'partly': 11, 'right': 5} false=12 ungrounded-right=1 | correctly mapped n=13 {'wrong': 3, 'partly': 6, 'right': 4} false=6
+heldout/all: answers n=37 {'wrong': 15, 'right': 10, 'partly': 12} false=18 ungrounded-right=2 | correctly mapped n=16 {'right': 7, 'partly': 6, 'wrong': 3} false=7
+heldout/zh: answers n=18 {'wrong': 9, 'right': 4, 'partly': 5} false=12 ungrounded-right=1 | correctly mapped n=8 {'right': 3, 'partly': 4, 'wrong': 1} false=4
+heldout/en: answers n=19 {'wrong': 6, 'partly': 7, 'right': 6} false=6 ungrounded-right=1 | correctly mapped n=8 {'right': 4, 'partly': 2, 'wrong': 2} false=3
+both/all: answers n=84 {'wrong': 38, 'partly': 28, 'right': 18} false=41 ungrounded-right=4 | correctly mapped n=36 {'partly': 14, 'right': 13, 'wrong': 9} false=16
+both/zh: answers n=39 {'wrong': 22, 'partly': 10, 'right': 7} false=23 ungrounded-right=2 | correctly mapped n=15 {'partly': 6, 'right': 5, 'wrong': 4} false=7
+both/en: answers n=45 {'wrong': 16, 'partly': 18, 'right': 11} false=18 ungrounded-right=2 | correctly mapped n=21 {'wrong': 5, 'partly': 8, 'right': 8} false=9
+
+-- oracle mapping (gold principle forced) answers
+failed all n 42 {'wrong': 13, 'right': 16, 'partly': 13} false 16 | gold-full only: {'partly': 8, 'right': 14, 'wrong': 7} false 10
+failed zh n 22 {'wrong': 9, 'right': 8, 'partly': 5} false 8 | gold-full only: {'partly': 3, 'right': 7, 'wrong': 5} false 5
+failed en n 20 {'wrong': 4, 'partly': 8, 'right': 8} false 8 | gold-full only: {'right': 7, 'partly': 5, 'wrong': 2} false 5
+heldout all n 32 {'right': 13, 'wrong': 10, 'partly': 9} false 14 | gold-full only: {'right': 12, 'wrong': 4, 'partly': 6} false 8
+heldout zh n 15 {'right': 5, 'wrong': 5, 'partly': 5} false 8 | gold-full only: {'right': 5, 'wrong': 2, 'partly': 4} false 5
+heldout en n 17 {'partly': 4, 'wrong': 5, 'right': 8} false 6 | gold-full only: {'right': 7, 'wrong': 2, 'partly': 2} false 3
+
+=== rule breaks (hub wording.py rules; checked on the opencc-converted text)
+zh: n=39 any rule problem 22/39 (56%); sentence-too-long 21; rare chars/words 7; other 0; jargon-in-raw 9; device feelings 0; sentence-count dist {2: 17, 1: 22}; clean answers 17 of which right 2; right answers 7 of which fully clean 2
+  other problems: []
+en: n=45 any rule problem 33/45 (73%); sentence-too-long 32; rare chars/words 17; other 0; jargon-in-raw 3; device feelings 0; sentence-count dist {2: 23, 1: 22}; clean answers 12 of which right 3; right answers 11 of which fully clean 3
+  other problems: []
+
+=== latency (s)
+all choice: p50 2.0 p95 2.1 n=94 mean 2.1 | answer: p50 5.1 p95 8.4 n=84 mean 5.5 | end-to-end (embed+choice+answer): p50 7.0 p95 10.3 n=94 mean 7.0 | end-to-end for answered: p50 7.2 p95 10.5 n=84 mean 7.6 | embed p50 0.0 p95 0.0 n=94 mean 0.0
+zh choice: p50 2.0 p95 2.1 n=48 mean 2.1 | answer: p50 5.0 p95 8.6 n=39 mean 5.6 | end-to-end (embed+choice+answer): p50 6.6 p95 10.5 n=48 mean 6.6 | end-to-end for answered: p50 7.0 p95 10.6 n=39 mean 7.6 | embed p50 0.0 p95 0.0 n=48 mean 0.0
+en choice: p50 2.0 p95 2.1 n=46 mean 2.1 | answer: p50 5.3 p95 7.9 n=45 mean 5.5 | end-to-end (embed+choice+answer): p50 7.4 p95 9.9 n=46 mean 7.5 | end-to-end for answered: p50 7.4 p95 9.9 n=45 mean 7.6 | embed p50 0.0 p95 0.0 n=46 mean 0.0
+
+=== D coverage
+all failed 54 abstained/sensitive 45 hub wrong/partly 9 | lib right on abstained: grounded 5 any 7 | partly 14 | lib right on all failed grounded 6 any 8
+zh failed 28 abstained/sensitive 22 hub wrong/partly 6 | lib right on abstained: grounded 2 any 3 | partly 4 | lib right on all failed grounded 2 any 3
+en failed 26 abstained/sensitive 23 hub wrong/partly 3 | lib right on abstained: grounded 3 any 4 | partly 10 | lib right on all failed grounded 4 any 5
+
+-- gates on all 94
+LLM choice only / failed: delivered 47 of 54: {'wrong': 23, 'partly': 16, 'right': 8} false=23 grounded-right=6
+LLM choice only / heldout: delivered 37 of 40: {'wrong': 15, 'right': 10, 'partly': 12} false=18 grounded-right=8
+LLM choice == emb top1 / failed: delivered 23 of 54: {'partly': 10, 'right': 6, 'wrong': 7} false=9 grounded-right=6
+LLM choice == emb top1 / heldout: delivered 17 of 40: {'right': 7, 'wrong': 5, 'partly': 5} false=8 grounded-right=6
+LLM choice == emb top1 and score>=0.55 / failed: delivered 15 of 54: {'right': 6, 'wrong': 4, 'partly': 5} false=6 grounded-right=6
+LLM choice == emb top1 and score>=0.55 / heldout: delivered 11 of 40: {'right': 5, 'wrong': 3, 'partly': 3} false=6 grounded-right=5
+LLM choice == emb top1 and score>=0.60 / failed: delivered 15 of 54: {'right': 6, 'wrong': 4, 'partly': 5} false=6 grounded-right=6
+LLM choice == emb top1 and score>=0.60 / heldout: delivered 8 of 40: {'right': 3, 'wrong': 2, 'partly': 3} false=5 grounded-right=3

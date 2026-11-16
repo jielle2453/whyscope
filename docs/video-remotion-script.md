@@ -1,3 +1,5 @@
+> Older video doc, kept for reference. The current script is [../submission/video_script.md](../submission/video_script.md).
+
 # Whyscope — product film (Remotion), 2:55
 
 Style: a product launch film, not a walkthrough. Dark, quiet cold open → light floods in at the reveal → pastel

@@ -49,6 +49,25 @@
     "ask_back": "Do you think you sweat more on a hot day, or a cold day?",
     "bridges": {
       "has_garden": "Do you sweat a lot when you play in the garden?"
-    }
+    },
+    "asks_en": [
+      "sweaty",
+      "play",
+      "skin",
+      "wet",
+      "body",
+      "hot",
+      "water",
+      "lots",
+      "tiny",
+      "tubes",
+      "slowly",
+      "through",
+      "holes",
+      "dries",
+      "takes",
+      "heat",
+      "away"
+    ]
   }
 }

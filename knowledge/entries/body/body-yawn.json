@@ -51,6 +51,26 @@
     "bridges": {
       "has_cat": "Do cats yawn too? Have you ever seen one?",
       "has_sibling": "When your brother or sister yawns, do you yawn too?"
-    }
+    },
+    "asks_en": [
+      "people",
+      "keep",
+      "sleepy",
+      "scientists",
+      "think",
+      "cools",
+      "brain",
+      "down",
+      "nobody",
+      "totally",
+      "sure",
+      "yet",
+      "idea",
+      "helps",
+      "big",
+      "stay",
+      "seeing",
+      "someone"
+    ]
   }
 }

@@ -134,6 +134,24 @@
   .okbtn { width: 100%; min-height: 52px; border-radius: 999px; border: 0; background: var(--mint); color: var(--mint-d); font-weight: 800; }
   .okbtn[disabled] { background: rgba(255,255,255,.7); color: var(--mint-d); cursor: default; }
 
+  /* to answer (parent assistant) */
+  .todo { padding: 16px 14px 14px; }
+  .todo .q { font-size: 16px; font-weight: 800; line-height: 1.3; }
+  .todo .meta { font-size: 12.5px; color: var(--body); margin-top: 2px; }
+  .todo .draft { margin: 12px 0 0; background: rgba(255,255,255,.75); border-radius: 20px; padding: 12px 14px; font-size: 14.5px; white-space: pre-line; }
+  .todo .warn { margin-top: 8px; font-size: 12.5px; font-weight: 700; color: var(--peach-d); background: var(--peach); border-radius: 14px; padding: 6px 12px; }
+  .todo .good { margin-top: 8px; font-size: 12.5px; font-weight: 700; color: var(--mint-d); }
+  .todo .note { margin: 10px 2px 0; }
+  .todo .tag { display: inline-block; font-size: 12.5px; font-weight: 800; color: var(--lemon-d); background: var(--lemon); border-radius: 999px; padding: 2px 12px; margin-bottom: 8px; }
+  .todo details { margin-top: 10px; font-size: 12.5px; color: var(--body); }
+  .todo details summary { cursor: pointer; font-weight: 700; min-height: 32px; display: flex; align-items: center; }
+  .todo details ul { margin: 4px 0 0; padding-left: 18px; } .todo details li { margin-bottom: 4px; }
+  .todo .acts { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .todo .acts .btn { min-height: 48px; padding: 0 18px; flex: 1 1 auto; }
+  .todo .acts .btn.go { background: var(--mint); border-color: var(--mint); color: var(--mint-d); }
+  .todo textarea { width: 100%; min-height: 150px; margin-top: 12px; border-radius: 20px; border: 1px solid var(--glass-line); padding: 12px 14px; font: inherit; font-size: 14.5px; line-height: 1.5; background: rgba(255,255,255,.85); color: var(--ink); resize: vertical; }
+  .todo textarea:focus { outline: none; border-color: var(--lav-ink); }
+
   /* kid tab */
   .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .tg { min-height: 64px; border-radius: 999px; border: 0; display: flex; align-items: center; gap: 12px; padding: 0 14px; font-size: 14.5px; font-weight: 700; text-align: left;
@@ -187,6 +205,46 @@
   .swrow { display: flex; align-items: center; gap: 14px; font-size: 14.5px; font-weight: 600; }
   .swrow span { flex: 1; }
 
+  /* connection badge, child switcher, modals, family */
+  .cbadge { display: inline-flex; align-items: center; gap: 5px; margin-left: 6px; padding: 0 9px; min-height: 20px; border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--cap); background: rgba(255,255,255,.7); vertical-align: middle; }
+  .cbadge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #A9A7C2; }
+  .cbadge[data-mode="home"] { color: var(--mint-d); } .cbadge[data-mode="home"]::before { background: #3DBE8B; }
+  .cbadge[data-mode="away"] { color: var(--sky-d); } .cbadge[data-mode="away"]::before { background: #2B6CB0; }
+  .cbadge[data-mode="offline"], .cbadge[data-mode="revoked"], .cbadge[data-mode="unpaired"] { color: var(--peach-d); } .cbadge[data-mode="offline"]::before, .cbadge[data-mode="revoked"]::before, .cbadge[data-mode="unpaired"]::before { background: #E07B39; }
+  .kids { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
+  .kids::-webkit-scrollbar { display: none; }
+  .kids[hidden] { display: none; }
+  .kids .kc { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 4px 16px 4px 5px; border-radius: 999px; border: 1px solid var(--glass-line); background: var(--glass); font-weight: 700; color: var(--ink); }
+  .kids .kc .kav { width: 38px; height: 38px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; overflow: hidden; font-size: 18px; }
+  .kids .kc .kav img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .kids .kc[aria-pressed="true"] { background: var(--lav-ink); color: #fff; border-color: var(--lav-ink); }
+  .kids .kc .kn { min-width: 20px; height: 20px; border-radius: 10px; background: var(--rose-ink); color: #fff; font-size: 12px; display: grid; place-items: center; padding: 0 5px; }
+  #pinwrap, #qrwrap { position: fixed; inset: 0; z-index: 80; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(43,42,74,.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); overflow-y: auto; }
+  #pinwrap.open, #qrwrap.open { display: flex; }
+  .modal { width: 100%; max-width: 380px; margin: auto; background: #fff; border-radius: 28px; padding: 22px 20px; box-shadow: var(--shadow); text-align: center; }
+  .modal h2 { justify-content: center; margin: 0 0 6px; }
+  .modal p { margin: 6px 0; color: var(--body); }
+  .modal .acts { display: flex; gap: 8px; margin-top: 14px; justify-content: center; flex-wrap: wrap; }
+  .modal .btn.go { background: var(--lav-ink); color: #fff; border-color: var(--lav-ink); }
+  .modal .err { color: var(--rose-d); font-weight: 700; }
+  .qrimg { width: min(100%, 320px); margin: 10px auto; }
+  .qrimg svg { width: 100%; height: auto; display: block; border: 1px solid #E5E0F3; border-radius: 8px; }
+  .modal details { text-align: left; margin-top: 8px; font-size: 12.5px; } .modal summary { cursor: pointer; font-weight: 700; min-height: 32px; display: flex; align-items: center; }
+  .modal textarea { width: 100%; height: 84px; border-radius: 14px; border: 1px solid #E5E0F3; padding: 6px 10px; font: 11px/1.4 ui-monospace, Consolas, monospace; word-break: break-all; }
+  .famrow { display: flex; align-items: center; gap: 10px; padding: 6px 0; flex-wrap: wrap; }
+  .famrow .kav { width: 40px; height: 40px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; overflow: hidden; flex: none; }
+  .famrow .kav img { width: 100%; height: 100%; object-fit: cover; }
+  .famrow .grow { flex: 1; min-width: 120px; }
+  .btn.sm { min-height: 40px; padding: 0 16px; font-size: 13px; }
+  .btn.go { background: var(--lav-ink); color: #fff; border-color: var(--lav-ink); }
+  .addkid { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+  .addkid input.txt { flex: 1 1 140px; min-height: 48px; } .addkid select { min-height: 48px; border-radius: 24px; border: 1px solid var(--glass-line); padding: 0 12px; font: inherit; background: rgba(255,255,255,.85); color: var(--ink); }
+  .dev-li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.8); flex-wrap: wrap; }
+  .dev-li .grow { flex: 1; min-width: 140px; } .dev-li small { display: block; color: var(--body); font-size: 12.5px; }
+  .dev-li.off { opacity: .55; }
+  .blocked { text-align: center; padding: 28px 18px; }
+  .blocked .eb { width: 96px; height: 96px; border-radius: 50%; background: var(--lav); display: grid; place-items: center; font-size: 38px; margin: 0 auto 12px; }
+
   /* bottom nav */
   nav { position: fixed; left: 16px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30; max-width: 488px; margin: 0 auto; height: 72px; border-radius: 36px;
         background: var(--glass); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1px solid var(--glass-line); box-shadow: var(--shadow); }
@@ -232,16 +290,17 @@
 <div id="app">
   <header class="top">
     <div class="avatar" id="avatar"><img src="/static/avatar-girl.png" alt="" width="48" height="48"><span class="dev" id="dev" role="status"><i aria-hidden="true"></i><span id="devl">Connecting</span></span></div>
-    <div class="who" id="who">My child<small>Whyscope</small></div>
+    <div class="who" id="who">My child<small>Whyscope<span class="cbadge" id="connbadge" role="status" data-mode="connecting">Connecting</span></small></div>
     <div class="lang" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
     <button class="icon-btn g" id="gear" data-i18n-aria="settings" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
+  <div class="kids" id="kids" role="group" data-i18n-aria="childSwitch" aria-label="Choose a child" hidden></div>
   <div class="seg" id="period" role="group" data-i18n-aria="timeRange" aria-label="Time range"><button data-period="day" aria-pressed="false" data-i18n="day">Day</button><button data-period="week" aria-pressed="true" data-i18n="week">Week</button><button data-period="month" aria-pressed="false" data-i18n="month">Month</button></div>
   <main id="view" aria-live="polite"></main>
 </div>
 
 <nav data-i18n-aria="mainMenu" aria-label="Main menu"><div class="in" role="tablist">
-  <button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">Home</span></button>
+  <button class="tab" role="tab" data-tab="week" data-i18n-aria="tabWeek" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i18n="tabWeek">Home</span><span class="badge" id="todobadge" hidden></span></button>
   <button class="tab" role="tab" data-tab="moments" data-i18n-aria="tabMoments" aria-label="Moments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span data-i18n="tabMoments">Moments</span></button>
   <span class="gap" aria-hidden="true"></span>
   <button class="tab" role="tab" data-tab="cheats" data-i18n-aria="parentCheat" aria-label="Parent cheat sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6h4c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></svg><span data-i18n="tabCheats">Cheats</span><span class="badge" id="cheatbadge" hidden></span></button>
@@ -253,18 +312,53 @@
 <div id="sheet" role="dialog" data-i18n-aria="settings" aria-label="Settings" aria-modal="true"><div class="in" id="sheetin"></div></div>
 <div class="toast" id="toast" role="status"></div>
 <div id="polwrap" role="dialog" aria-modal="true"></div>
+<div id="pinwrap" role="dialog" aria-modal="true"></div>
+<div id="qrwrap" role="dialog" aria-modal="true"></div>
+<script src="/static/tunnel.js"></script>
+<script src="/static/conn.js" data-role="parent"></script>
+<script src="/static/qr.js"></script>
 
 <script>
 (function () {
   "use strict";
   const $ = (s, r) => (r || document).querySelector(s);
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  // every call carries this phone's device token and goes over the LAN or the encrypted relay (hub/static/conn.js); calls that
+  // concern one child carry ?child=<id>; a 403 "pin_required" asks for the PIN and repeats the call with it
+  const CHILD_SCOPED = /^\/api\/(report\/week|events|cheats|memory|snapshots|todo)(\?.*)?$/;
+  const scoped = (path) => (S.child && CHILD_SCOPED.test(path) ? path + (path.includes("?") ? "&" : "?") + "child=" + S.child : path);
   const api = async (path, opts) => {
-    const r = await fetch(path, Object.assign({ cache: "no-store" }, opts || {}));
-    if (!r.ok) throw new Error(path + " " + r.status);
+    let o = Object.assign({}, opts || {}), r = await WhyConn.fetch(scoped(path), o);
+    for (let i = 0; i < 3 && (r.status === 403 || r.status === 429); i++) {
+      const j = await r.clone().json().catch(() => ({}));
+      if (j.detail === "pin_locked" || r.status === 429) { const e = new Error("pin_locked"); e.detail = "pin_locked"; throw e; }
+      if (j.detail !== "pin_required" && j.detail !== "pin_wrong") break;
+      const pin = await askPin(j.detail === "pin_wrong");
+      if (pin == null) { const e = new Error("cancel"); e.cancel = true; throw e; }
+      r = await WhyConn.fetch(scoped(path), Object.assign({}, o, { pin }));
+    }
+    if (!r.ok) { const e = new Error(path + " " + r.status); e.status = r.status; e.offline = !!r.offline; throw e; }
     return r.headers.get("content-type") && r.headers.get("content-type").includes("json") ? r.json() : r;
   };
   const post = (path, body) => api(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) });
+  function askPin(wrong) {
+    return new Promise((resolve) => {
+      const w = $("#pinwrap");
+      w.innerHTML = '<form class="modal" autocomplete="off"><h2>' + esc(tr("pinTitle")) + "</h2><p>" + esc(tr("pinBody")) + "</p>" + (wrong ? '<p class="err" role="alert">' + esc(tr("pinWrong")) + "</p>" : "") +
+        '<input class="txt" id="pinin" type="password" inputmode="numeric" maxlength="8" autocomplete="off" aria-label="' + esc(tr("pinTitle")) + '"><div class="acts"><button class="btn" type="button" id="pincancel">' + esc(tr("cancel")) + '</button><button class="btn go" type="submit">OK</button></div></form>';
+      w.classList.add("open"); $("#pinin").focus();
+      const done = (v) => { w.classList.remove("open"); w.innerHTML = ""; resolve(v); };
+      w.querySelector("form").onsubmit = (e) => { e.preventDefault(); done($("#pinin").value || null); };
+      $("#pincancel").onclick = () => done(null);
+    });
+  }
+  // photos need the token too, so they are fetched with it and shown from a blob URL
+  const snapCache = new Map();
+  function snapUrl(id) {
+    if (!snapCache.has(id)) snapCache.set(id, WhyConn.fetch("/api/snapshots/" + id + ".jpg").then((r) => (r.ok ? r.blob() : null)).then((b) => (b ? URL.createObjectURL(b) : "")).catch(() => ""));
+    return snapCache.get(id);
+  }
+  function hydrateSnaps(root) { (root || document).querySelectorAll("img[data-snap]").forEach((im) => { if (im.dataset.done) return; im.dataset.done = "1"; snapUrl(im.dataset.snap).then((u) => { if (u) im.src = u; }); }); }
 
 
   // ---------- i18n (chrome only; knowledge-base / child text stays Chinese) ----------
@@ -283,7 +377,10 @@
       cheatsUnread: (n) => n + " cheat sheets not read yet",
       tp_animals: "Animals", tp_plants: "Plants", tp_sky_weather: "Sky & weather", tp_body: "Body", tp_machines: "Machines", tp_food: "Food", tp_other: "Other",
       wd: ["M", "T", "W", "T", "F", "S", "S"], wdFull: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], today: "Today", yesterday: "Yesterday",
-      st_answered: "Answered", st_abstained: "Not sure", st_sensitive: "Passed to parent",
+      st_answered: "Answered", st_abstained: "Not sure", st_sensitive: "Passed to parent", st_chat: "Chatted", st_guess: "Best guess",
+      srcChat: "A short chat reply written by the on-device AI and checked by the safety filter.", srcGuess: "Whyscope did not know this one and said it was a guess. It is on your To-answer list: approve it or correct it.",
+      guessNote: "Your child already heard this guess (said as \"I think...\"). Approve to keep it as your answer, or edit it to correct it.",
+      guessTitle: "Best guesses", guessToggle: "Let Whyscope give a best guess when it does not know (you check it afterwards)", guessNoteSet: "When off, Whyscope says it does not know and saves the question for you.",
       cat_death: "Death", cat_birth_sex: "Birth & bodies", cat_violence_war: "Violence & war", cat_divorce_family: "Divorce & family change", cat_illness: "Illness",
       cat_self_harm: "Self-harm", cat_money_poverty: "Money & poverty", cat_religion: "Religion", cat_bullying: "Bullying", cat_scary_news: "Scary news",
       br_has_dog: "Has a dog", br_has_cat: "Has a cat", br_has_sibling: "Has siblings", br_likes_dinosaurs: "Likes dinosaurs", br_likes_cars: "Likes cars", br_has_garden: "Plants at home", br_rides_bike: "Rides a bike",
@@ -300,7 +397,25 @@
       soon: "Coming soon", noted: "Noted", failTry: "That didn't work. Please try again.", saved: "Saved", fail: "Didn't work", cleared: "Cleared",
       back: "Back", keepFor: "Keep records for", retAria: "Days to keep records", days: (n) => n + " days", retNow: (n) => "Now: " + n + " days, then auto-deleted",
       cloud: "Cloud backup", cloudOff: "Off", cloudSoon: "Coming in Stage II", data: "Data", export: "Export", clear: "Clear",
-      clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device" },
+      clearAsk: "Really clear all records?", clearYes: "Yes, clear", clearNo: "No", ver: (v, m) => "Version " + v + " · Mode " + m + " · Data stays on this device",
+      toAnswer: "To answer", toAnswerNone: "Nothing waiting for you 👍", draftNote: "Draft written by the device. Check it before your child hears it.",
+      drafting: "The device is writing a draft…", noDraft: "No draft yet. The device writes drafts while your child is not asking.", noDraftNoLlm: "No draft: write your own answer with Edit.",
+      askedN: (n) => "Asked " + n + " times", approve: "Approve", edit: "Edit", dismiss: "Dismiss", redraft: "New draft", saveApprove: "Save and approve", cancel: "Cancel",
+      basedOn: "Based on", ctxPrinciple: "principle", ctxEntry: "knowledge entry", wordingOk: "Wording checks passed", wordingBad: (p) => "Wording check failed: " + p,
+      notInFacts: (s) => "Not found in the facts: " + s, yourAnswer: "Your answer for the child", approvedToast: "Approved. Your child will hear it.", dismissedToast: "Dismissed",
+      draftMs: (s) => "Written in " + s + " s", todoAria: (q) => "Question to answer: " + q, editAria: "Edit the answer",
+      srcEntryDraft: "Answered from a knowledge entry written by AI that no person has reviewed.", srcPrinciple: "Answered from the principle library: an AI draft that no person has reviewed.", srcPartial: "This answer only covers part of the question.",
+      srcFamily: "Answer you approved earlier.", askedBadge: (n) => "× " + n,
+      weakNote: "The device found no close match in its facts, so this draft may be wrong.", ctxNotUsed: "closest match, too weak to use",
+      childSwitch: "Choose a child", family: "Family and devices", addChild: "Add a child", childName: "Child's name", addWand: (n) => "Add a wand for " + n, invite: "Invite another parent",
+      devices: "Devices", revoke: "Revoke", revokeAsk: (n) => "Revoke " + n + "?", revokedTag: "Revoked", lastSeen: (t) => "Last seen " + t, neverSeen: "Not used yet", relayTag: "works away too",
+      kindWand: "Wand", kindParent: "Parent phone", thisPhone: "this phone", you: "You", pinTitle: "Enter your PIN", pinBody: "Your PIN is needed for this.", pinWrong: "That PIN is not right.",
+      pinLocked: "Too many wrong PINs. Try again in a minute.", scanWand: (n) => "Scan with the wand for " + n, scanParent: "Scan with the other parent's phone",
+      scanHow: "Open the camera on the new device and scan. The code works once.", qrExpires: "Expires in", showLink: "Show the link instead", openLink: "Open the link", done: "Done",
+      relayYes: "Includes the encrypted relay key: works at home and away.", relayNo: "No relay set: works on the home network only.", pairedToast: "Paired!", childAdded: "Child added",
+      blockedUnpaired: "This phone is not paired", blockedUnpairedBody: "Scan the parent QR code shown on the hub computer (http://127.0.0.1:8000/setup), or ask another parent to invite you.",
+      blockedRevoked: "This phone was removed", blockedRevokedBody: "Another parent revoked this device. Ask for a new invitation.", noChildTitle: "Add your first child",
+      noChildBody: "Whyscope keeps each child's questions, drafts and photos separate.", ageLbl: "Age", exportFail: "Export failed", ver2: "This hub" },
     zh: { title: "好奇鏡｜家長", brand: "好奇鏡", myChild: "我的孩子", langGroup: "語言", settings: "設定", timeRange: "時間範圍",
       day: "日", week: "週", month: "月", mainMenu: "主要選單", tabWeek: "本週", askWhyscope: "問好奇鏡", tabCheats: "小抄", parentCheat: "家長小抄", tabKid: "孩子",
       tabMoments: "時刻", fPhotos: "有照片", fUnsure: "不確定", fParents: "轉給家長", noMatch: "這裡還沒有東西", momentsEmpty: "在設定裡打開相片，留住孩子眼中的世界",
@@ -315,7 +430,10 @@
       cheatsUnread: (n) => n + " 張小抄還沒看",
       tp_animals: "動物", tp_plants: "植物", tp_sky_weather: "天氣與天空", tp_body: "身體", tp_machines: "機器與家電", tp_food: "食物", tp_other: "其他",
       wd: ["一", "二", "三", "四", "五", "六", "日"], wdFull: ["日", "一", "二", "三", "四", "五", "六"], today: "今天", yesterday: "昨天",
-      st_answered: "答了", st_abstained: "不確定", st_sensitive: "轉給家長",
+      st_answered: "答了", st_abstained: "不確定", st_sensitive: "轉給家長", st_chat: "聊天", st_guess: "猜的",
+      srcChat: "裝置上的 AI 寫的簡短聊天回覆，已通過安全檢查。", srcGuess: "好奇鏡不知道答案，跟孩子說這是它猜的。已放進「等你回答」：請核准或更正。",
+      guessNote: "孩子已經聽過這個猜測（以「我想……」開頭）。核准就當作你的答案，或編輯來更正。",
+      guessTitle: "猜一猜", guessToggle: "不知道答案時，讓好奇鏡先猜一個（你事後檢查）", guessNoteSet: "關掉時，好奇鏡會說不知道，並把問題留給你。",
       br_has_dog: "有養狗", br_has_cat: "有養貓", br_has_sibling: "有兄弟姊妹", br_likes_dinosaurs: "喜歡恐龍", br_likes_cars: "喜歡車車", br_has_garden: "家裡有植物", br_rides_bike: "會騎腳踏車",
       bb_has_dog: "你家的狗", bb_has_cat: "你家的貓", bb_has_sibling: "兄弟姊妹", bb_likes_dinosaurs: "恐龍", bb_likes_cars: "車車", bb_has_garden: "家裡的植物", bb_rides_bike: "腳踏車",
       explained: (b, o) => "用" + b + "解釋了" + o,
@@ -330,7 +448,25 @@
       soon: "即將推出", noted: "好，記下來了", failTry: "沒有成功，請再試一次", saved: "已儲存", fail: "沒有成功", cleared: "已清除",
       back: "回上一頁", keepFor: "紀錄保存多久", retAria: "紀錄保存天數", days: (n) => n + " 天", retNow: (n) => "目前：" + n + " 天，過了就自動刪除",
       cloud: "雲端後備", cloudOff: "關閉", cloudSoon: "Stage II 才會有", data: "資料", export: "匯出", clear: "清除",
-      clearAsk: "真的要清除所有紀錄嗎？", clearYes: "確定清除", clearNo: "不要", ver: (v, m) => "版本 " + v + " · 模式 " + m + " · 資料只存在這台裝置" }
+      clearAsk: "真的要清除所有紀錄嗎？", clearYes: "確定清除", clearNo: "不要", ver: (v, m) => "版本 " + v + " · 模式 " + m + " · 資料只存在這台裝置",
+      toAnswer: "等你回答", toAnswerNone: "沒有等你回答的問題 👍", draftNote: "草稿是裝置寫的，請先看過再給孩子聽。",
+      drafting: "裝置正在寫草稿…", noDraft: "還沒有草稿，孩子不在問問題時，裝置會幫你寫。", noDraftNoLlm: "沒有草稿，請按「修改」自己寫答案。",
+      askedN: (n) => "問了 " + n + " 次", approve: "核准", edit: "修改", dismiss: "略過", redraft: "重寫草稿", saveApprove: "儲存並核准", cancel: "取消",
+      basedOn: "參考了", ctxPrinciple: "原理", ctxEntry: "知識條目", wordingOk: "用字檢查通過", wordingBad: (p) => "用字檢查沒通過：" + p,
+      notInFacts: (s) => "事實裡找不到：" + s, yourAnswer: "要對孩子說的答案", approvedToast: "已核准，孩子會聽到", dismissedToast: "已略過",
+      draftMs: (s) => "寫了 " + s + " 秒", todoAria: (q) => "等你回答的問題：" + q, editAria: "修改答案",
+      srcEntryDraft: "這個答案來自 AI 寫的知識條目，還沒有人審過。", srcPrinciple: "這個答案來自原理資料庫：是 AI 寫的草稿，還沒有人審過。", srcPartial: "這個答案只回答了問題的一部分。",
+      srcFamily: "你之前核准的答案。", askedBadge: (n) => "× " + n,
+      weakNote: "裝置在資料裡找不到很接近的內容，所以這份草稿可能是錯的。", ctxNotUsed: "最接近的內容，但太不像了，沒有用",
+      childSwitch: "選擇孩子", family: "家人與裝置", addChild: "新增孩子", childName: "孩子的名字", addWand: (n) => "為" + n + "新增魔法棒", invite: "邀請另一位家長",
+      devices: "裝置", revoke: "撤銷", revokeAsk: (n) => "要撤銷「" + n + "」嗎？", revokedTag: "已撤銷", lastSeen: (t) => "最後使用 " + t, neverSeen: "還沒用過", relayTag: "外出也能用",
+      kindWand: "魔法棒", kindParent: "家長手機", thisPhone: "這支手機", you: "你", pinTitle: "請輸入 PIN", pinBody: "這個操作需要你的 PIN。", pinWrong: "PIN 不正確。",
+      pinLocked: "PIN 錯太多次，請一分鐘後再試。", scanWand: (n) => "用" + n + "的魔法棒掃描", scanParent: "用另一位家長的手機掃描",
+      scanHow: "在新裝置上開相機掃描，這個代碼只能用一次。", qrExpires: "剩餘時間", showLink: "改看連結", openLink: "開啟連結", done: "完成",
+      relayYes: "包含加密中繼金鑰：在家和外出都能用。", relayNo: "尚未設定中繼：只能在家用。", pairedToast: "配對成功！", childAdded: "已新增孩子",
+      blockedUnpaired: "這支手機還沒配對", blockedUnpairedBody: "請掃描主機電腦上的家長 QR 代碼（http://127.0.0.1:8000/setup），或請另一位家長邀請你。",
+      blockedRevoked: "這支手機已被移除", blockedRevokedBody: "另一位家長撤銷了這個裝置，請重新要一個邀請。", noChildTitle: "新增第一個孩子",
+      noChildBody: "好奇鏡會把每個孩子的問題、草稿和相片分開保存。", ageLbl: "年齡", exportFail: "匯出失敗", ver2: "這台主機" }
   };
     let LANG = null;
   try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "zh") LANG = q; } catch (e) {}
@@ -338,17 +474,32 @@
   if (LANG !== "en" && LANG !== "zh") LANG = "en";
   const tr = (k, ...a) => { const v = T[LANG][k] != null ? T[LANG][k] : T.en[k] != null ? T.en[k] : k; return typeof v === "function" ? v(...a) : v; };
   let devKey = "connecting";
+  WhyConn.badge($("#connbadge"));
+  WhyConn.onMode((m) => { $("#dev").classList.toggle("ok", m === "home" || m === "away"); devKey = m === "home" || m === "away" ? "connected" : "offline"; renderChrome(); if (m === "home" || m === "away") refresh(); });
   const topicName = (k) => (TOPIC[k] ? tr("tp_" + k) : k || tr("tp_other"));
   const catName = (c) => (LANG === "zh" ? c.category_zh : T.en["cat_" + c.category] || c.category_zh);
   const wdLabel = (w) => (LANG === "zh" ? w : tr("wd")[Math.max(0, "一二三四五六日".indexOf(w))]);
   function renderChrome() {
     $("#devl").textContent = tr(devKey); $("#dev").setAttribute("aria-label", tr(devKey));
-    const nm = S.data && (S.data.mem.child_name || {}).value;
-    $("#who").innerHTML = esc(nm || tr("myChild")) + "<small>" + esc(tr("brand")) + "</small>";
-    const av = ((S.data && S.data.mem.avatar) || {}).value || "girl";
+    WhyConn.setLang(LANG);
+    const cur = (S.children || []).find((c) => c.id === S.child) || {};
+    const nm = cur.name && cur.name !== "My child" ? cur.name : (S.data && (S.data.mem.child_name || {}).value);
+    $("#who").innerHTML = esc(nm || tr("myChild")) + '<small>' + esc(tr("brand")) + '<span class="cbadge" id="connbadge" role="status" data-mode="' + WhyConn.mode + '">' + esc(WhyConn.label()) + "</span></small>";
+    WhyConn.badge($("#connbadge"));
+    renderKids();
+    const av = cur.avatar || ((S.data && S.data.mem.avatar) || {}).value || "girl";
     { const box = $("#avatar"), badge = $("#dev"); box.innerHTML = av === "emoji" ? "🧒" : '<img src="/static/avatar-' + (av === "boy" ? "boy" : "girl") + '.png" alt="" width="48" height="48">'; if (badge) box.appendChild(badge); }
     const undone = S.data ? S.data.ch.filter((c) => !c.cheat_done).length : 0, b = $("#cheatbadge");
     b.hidden = !undone; b.textContent = undone; b.setAttribute("aria-label", tr("cheatsUnread", undone));
+    const nt = S.data && S.data.todo ? S.data.todo.items.length : 0, tb = $("#todobadge");
+    tb.hidden = !nt; tb.textContent = nt; tb.setAttribute("aria-label", tr("toAnswer") + " " + nt);
+  }
+  const avatarHtml = (a, px) => (a === "emoji" ? "🧒" : '<img src="/static/avatar-' + (a === "boy" ? "boy" : "girl") + '.png" alt="" width="' + px + '" height="' + px + '">');
+  function renderKids() {
+    const box = $("#kids"), list = S.children || [];
+    box.hidden = list.length < 2;
+    box.innerHTML = list.length < 2 ? "" : list.map((c) => '<button class="kc" data-child="' + c.id + '" aria-pressed="' + (c.id === S.child) + '"><span class="kav" aria-hidden="true">' + avatarHtml(c.avatar, 38) + "</span>" +
+      esc(c.name) + (c.open_todos ? '<span class="kn" aria-label="' + esc(tr("toAnswer") + " " + c.open_todos) + '">' + c.open_todos + "</span>" : "") + "</button>").join("");
   }
   function applyLang() {
     document.documentElement.lang = LANG === "zh" ? "zh-TW" : "en";
@@ -366,7 +517,7 @@
     try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
     try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
     applyLang();
-    fetch("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) })
+    api("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) })
       .catch(() => {}).then(() => refresh());
   });
 
@@ -384,9 +535,10 @@
   const BRIDGE = { has_dog: ["🐶", "有養狗", "你家的狗", "peach"], has_cat: ["🐱", "有養貓", "你家的貓", "lemon"], has_sibling: ["👧", "有兄弟姊妹", "兄弟姊妹", "rose"],
                    likes_dinosaurs: ["🦖", "喜歡恐龍", "恐龍", "mint"], likes_cars: ["🚗", "喜歡車車", "車車", "sky"], has_garden: ["🌿", "家裡有植物", "家裡的植物", "mint"],
                    rides_bike: ["🚲", "會騎腳踏車", "腳踏車", "lav"] };
-  const STATUS = { answered: ["✅", "x"], abstained: ["❓", "x"], sensitive: ["🛡️", "x"] };
+  const STATUS = { answered: ["✅", "x"], abstained: ["❓", "x"], sensitive: ["🛡️", "x"], chat: ["💬", "x"], guess: ["💭", "x"] };
+  const stOf = (e) => (e.source === "ai_guess" ? "guess" : e.status);
 
-  const S = { tab: "week", topic: null, kind: "all", ageSeg: null, data: null };
+  const S = { tab: "week", topic: null, kind: "all", ageSeg: null, data: null, children: [], child: 0, devices: [], blocked: null };
 
   // ---------- helpers ----------
   const pd = (ts) => new Date(ts);
@@ -403,10 +555,13 @@
 
   // ---------- data ----------
   async function load() {
-    const [rep, ev, ch, mem, set, snaps, hz] = await Promise.all([
+    S.children = await api("/api/children");
+    if (!S.children.some((c) => c.id === S.child)) { let saved = 0; try { saved = +localStorage.getItem("whyscope_parent_child"); } catch (e) {} S.child = S.children.some((c) => c.id === saved) ? saved : (S.children[0] || {}).id || 0; }
+    S.blocked = null;
+    const [rep, ev, ch, mem, set, snaps, hz, todo] = await Promise.all([
       api("/api/report/week?lang=" + LANG), api("/api/events?days=14"), api("/api/cheats?lang=" + LANG), api("/api/memory"), api("/api/settings"), api("/api/snapshots").catch(() => []),
-      api("/healthz").catch(() => null)]);
-    S.data = { rep, ev, ch, mem: mem.memory || {}, memEmoji: mem.emoji || {}, set, snaps, ok: !!hz };
+      api("/healthz").catch(() => null), api("/api/todo").catch(() => ({ items: [] }))]);
+    S.data = { rep, ev, ch, mem: mem.memory || {}, memEmoji: mem.emoji || {}, set, snaps, ok: !!hz, todo };
     $("#dev").classList.toggle("ok", !!hz); devKey = hz ? "connected" : "offline";
     renderChrome();
   }
@@ -443,7 +598,41 @@
       '<circle cx="21" cy="21" r="15.915" fill="none" stroke="#ECE8F8" stroke-width="3.9"/>' + segs +
       '<text x="21" y="23.6" text-anchor="middle" font-size="8" font-weight="800" fill="#2B2A4A">' + total + '</text></svg>';
   }
-  function viewWeek() {
+  // ---------- To answer: questions the device could not answer, with the device's draft ----------
+  S.editing = null; S.editText = "";
+  function todoCard(it) {
+    const w = it.wording, ctx = it.context || [], editing = S.editing === it.id;
+    const draft = it.draft || "";
+    let h = '<article class="card todo" data-todo="' + it.id + '" aria-label="' + esc(tr("todoAria", it.question)) + '"><div class="q">' + esc(it.question) + "</div>";
+    h += '<div class="meta">' + (it.count > 1 ? esc(tr("askedN", it.count)) + " · " : "") + esc(hm(pd(it.last_ts || it.ts))) + (it.draft_ms && draft ? " · " + esc(tr("draftMs", (it.draft_ms / 1000).toFixed(0))) : "") + "</div>";
+    if (editing) {
+      h += '<div class="note"><b>' + esc(tr("yourAnswer")) + '</b></div><textarea id="todotext" aria-label="' + esc(tr("editAria")) + '" maxlength="800">' + esc(S.editText) + "</textarea>";
+      h += '<div class="acts"><button class="btn go" data-save="' + it.id + '">' + esc(tr("saveApprove")) + '</button><button class="btn" data-cancel="1">' + esc(tr("cancel")) + "</button></div></article>";
+      return h;
+    }
+    if (draft) {
+      h += '<div class="draft">' + (it.origin === "ai_guess" ? "💭 " : "") + esc(draft) + '</div><p class="note">' + esc(tr(it.origin === "ai_guess" ? "guessNote" : "draftNote")) + "</p>";
+      if (it.weak) h += '<div class="warn">' + esc(tr("weakNote")) + "</div>";
+      if (w && w.ok && !(w.not_in_facts || []).length) h += '<div class="good">✓ ' + esc(tr("wordingOk")) + "</div>";
+      else if (w) h += '<div class="warn">' + esc((w.problems || []).length ? tr("wordingBad", w.problems.join("; ")) : tr("notInFacts", (w.not_in_facts || []).join(" "))) + "</div>";
+    } else {
+      h += '<p class="note">' + esc(it.drafting || it.partial ? tr("drafting") : it.can_draft ? tr("noDraft") : tr("noDraftNoLlm")) + "</p>";
+    }
+    if (ctx.length) h += "<details><summary>" + esc(tr("basedOn")) + ": " + esc(ctx.map((c) => c.name).join(", ")) + "</summary><ul>" +
+      ctx.map((c) => "<li><b>" + esc(c.name) + "</b> (" + esc(tr(c.kind === "principle" ? "ctxPrinciple" : "ctxEntry")) + (c.used === false ? ", " + esc(tr("ctxNotUsed")) : "") + ")<br>" + c.facts.map(esc).join("<br>") + "</li>").join("") + "</ul></details>";
+    h += '<div class="acts">' + (draft ? '<button class="btn go" data-approve="' + it.id + '">' + esc(tr("approve")) + "</button>" : "") +
+      '<button class="btn" data-edit="' + it.id + '">' + esc(tr("edit")) + "</button>" +
+      (draft ? '<button class="btn" data-redraft="' + it.id + '">' + esc(tr("redraft")) + "</button>" : "") +
+      '<button class="btn danger" data-dismiss="' + it.id + '">' + esc(tr("dismiss")) + "</button></div></article>";
+    return h;
+  }
+  function viewTodo() {
+    const items = (S.data.todo || {}).items || [];
+    let h = "<h2>" + tr("toAnswer") + (items.length ? '<span class="n">' + items.length + "</span>" : "") + "</h2>";
+    return h + (items.length ? items.map(todoCard).join("") : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("toAnswerNone") + "</p></div></div>");
+  }
+  function viewWeek() { return viewTodo() + weekBody(); }
+  function weekBody() {
     const { rep } = S.data, d = rep.total;
     if (!d) return '<div class="card">' + empty(tr("noQ"), "chars") + "</div>";
     const diff = d - rep.prev_total;
@@ -460,7 +649,7 @@
       '</div><button class="talk-btn" data-talked="' + t.event_id + '" aria-label="' + esc(tr("talkedAria", t.object)) + '">' + tr("talked") + '</button></div></div>'; }).join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("allTalked") + "</p></div></div>";
     const un = rep.unanswered.filter((u) => !u.talked);
     h += "<h2>" + tr("unsure") + '<span class="n">' + un.length + "</span></h2>";
-    h += un.length ? '<div class="list">' + un.slice(0, 6).map((u) => '<div class="li"><span class="em" aria-hidden="true">❓</span><div class="tx">' + esc(u.question) + '</div><button class="talk-btn" data-talked="' + u.event_id + '" aria-label="' + esc(tr("talkedAria", u.question)) + '">' + tr("talked") + "</button></div>").join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("noUnsure") + "</p></div></div>";
+    h += un.length ? '<div class="list">' + un.slice(0, 6).map((u) => '<div class="li"><span class="em" aria-hidden="true">❓</span><div class="tx">' + esc(u.question) + (u.count > 1 ? " <small>" + esc(tr("askedBadge", u.count)) + "</small>" : "") + '</div><button class="talk-btn" data-talked="' + u.event_id + '" aria-label="' + esc(tr("talkedAria", u.question)) + '">' + tr("talked") + "</button></div>").join("") + "</div>" : '<div class="card"><div class="empty" style="padding:0"><p>' + tr("noUnsure") + "</p></div></div>";
     if (rep.bridges_used.length) {
       h += "<h2>" + tr("examples") + "</h2><div class=\"wrapchips\">" + rep.bridges_used.map((b) => '<span class="chip">' + esc(b.emoji) + " " + esc(tr("explained", BRIDGE[b.key] ? tr("bb_" + b.key) : "", b.objects.slice(0, 2).join("、"))) + "</span>").join("") + "</div>";
     }
@@ -473,7 +662,7 @@
   // events plus any stored photo that fell outside the event window
   const allItems = () => { const ev = S.data.ev, ids = new Set(ev.map((e) => e.id)); return ev.map((e) => Object.assign({}, e, { snapshot: !!e.snapshot })).concat((S.data.snaps || []).filter((x) => !ids.has(x.id)).map((x) => Object.assign({}, x, { snapshot: true }))); };
   const KINDS = [["all", "all"], ["photos", "fPhotos"], ["unsure", "fUnsure"], ["parents", "fParents"]];
-  const kindOk = { all: () => true, photos: (e) => e.snapshot, unsure: (e) => e.status === "abstained", parents: (e) => e.status === "sensitive" };
+  const kindOk = { all: () => true, photos: (e) => e.snapshot, unsure: (e) => e.status === "abstained" || e.source === "ai_guess", parents: (e) => e.status === "sensitive" };
   function viewMoments() {
     const all = allItems();
     if (!all.length) {
@@ -488,11 +677,11 @@
     Object.keys(groups).sort().reverse().forEach((k) => {
       const g = groups[k];
       h += '<div class="day">' + esc(dayLabel(g.d)) + '</div><div class="tl">' + g.list.map((e) => {
-        if (e.snapshot) return '<button class="pol" style="--rot:' + polRot(e.id) + 'deg" data-pol="' + e.id + '" aria-label="' + esc(tr("openPhoto", e.question || "")) + '"><div class="ph"><img src="/api/snapshots/' + e.id +
-          '.jpg" alt="" loading="lazy" decoding="async"></div><div class="cap">' + esc(e.question || tr("noCatch")) + '</div><div class="dt">' + hm(pd(e.ts)) + "</div></button>";
-        const st = STATUS[e.status] || ["", ""], em = e.emoji || (e.status === "sensitive" ? "🛡️" : e.status === "abstained" ? "❓" : topicOf(e.topic)[0]);
+        if (e.snapshot) return '<button class="pol" style="--rot:' + polRot(e.id) + 'deg" data-pol="' + e.id + '" aria-label="' + esc(tr("openPhoto", e.question || "")) + '"><div class="ph"><img data-snap="' + e.id +
+          '" alt="" decoding="async"></div><div class="cap">' + esc(e.question || tr("noCatch")) + '</div><div class="dt">' + hm(pd(e.ts)) + "</div></button>";
+        const sk = stOf(e), st = STATUS[sk] || ["", ""], em = e.emoji || (e.status === "sensitive" ? "🛡️" : e.status === "abstained" ? "❓" : topicOf(e.topic)[0]);
         return '<button class="ev" data-pol="' + e.id + '"><span class="em" style="background:' + pal(e.status === "sensitive" ? "rose" : e.status === "abstained" ? "lemon" : topicOf(e.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + '</span><span class="nm">' + esc(e.question || e.object || tr("noCatch")) +
-          '</span><span class="st" role="img" aria-label="' + (st[1] ? esc(tr("st_" + e.status)) : "") + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + "</span></button>";
+          '</span><span class="st" role="img" aria-label="' + (st[1] ? esc(tr("st_" + sk)) : "") + '">' + st[0] + '</span><span class="tm">' + hm(pd(e.ts)) + "</span></button>";
       }).join("") + "</div>";
     });
     return h;
@@ -506,11 +695,14 @@
     const em = p.emoji || (p.status === "sensitive" ? "🛡️" : p.status === "abstained" ? "❓" : topicOf(p.topic)[0]);
     const ans = (p.status === "answered" ? (p.first_sentence || "") + (p.explanation || "") : p.first_sentence || "");
     w.innerHTML = '<div class="polcard"><button class="icon-btn polx" id="polx" aria-label="' + esc(tr("close")) + '"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-      '<figure class="pol" style="--rot:' + (polRot(id) / 2).toFixed(1) + 'deg">' + (photo ? '<div class="ph"><img src="/api/snapshots/' + id + '.jpg" alt="' + esc(tr("photoAlt")) + '"></div>' :
+      '<figure class="pol" style="--rot:' + (polRot(id) / 2).toFixed(1) + 'deg">' + (photo ? '<div class="ph"><img data-snap="' + id + '" alt="' + esc(tr("photoAlt")) + '"></div>' :
         '<div class="nph"><span class="em" style="background:' + pal(p.status === "sensitive" ? "rose" : p.status === "abstained" ? "lemon" : topicOf(p.topic)[3])[0] + '" aria-hidden="true">' + esc(em) + "</span></div>") + '<figcaption><div class="cap">' + esc(p.question || tr("noCatch")) +
-      '</div><div class="dt">' + esc(polDate(p.ts)) + "</div>" + (ans ? '<div class="ans">' + esc(ans) + "</div>" : "") + (p.status === "answered" && p.ask_back ? '<div class="ans b">' + esc(p.ask_back) + "</div>" : "") + '</figcaption></figure>' +
+      '</div><div class="dt">' + esc(polDate(p.ts)) + "</div>" + (ans ? '<div class="ans">' + esc(ans) + "</div>" : "") + (p.status === "answered" && p.ask_back ? '<div class="ans b">' + esc(p.ask_back) + "</div>" : "") +
+      (p.source === "ai_guess" ? '<div class="ans b">💭 ' + esc(tr("srcGuess")) + "</div>" : p.status === "chat" || p.source === "chat" ? '<div class="ans b">💬 ' + esc(tr("srcChat")) + "</div>" : "") +
+      (p.draft && p.source !== "ai_guess" ? '<div class="ans b">✎ ' + esc(tr((p.source || "").indexOf("entry:") === 0 ? "srcEntryDraft" : "srcPrinciple")) + (p.partial ? " " + esc(tr("srcPartial")) : "") + "</div>" : "") +
+      ((p.source || "").indexOf("family:") === 0 ? '<div class="ans b">✓ ' + esc(tr("srcFamily")) + "</div>" : "") + '</figcaption></figure>' +
       (photo ? '<div class="acts" id="polacts"><button class="btn danger" id="poldel">🗑️ ' + esc(tr("delOne")) + "</button></div>" : "") + "</div>";
-    w.classList.add("open"); $("#polx").focus();
+    w.classList.add("open"); $("#polx").focus(); hydrateSnaps(w);
     $("#polx").onclick = closePol;
     if (!photo) return;
     $("#poldel").onclick = () => {
@@ -562,30 +754,56 @@
   // ---------- render / events ----------
   const VIEWS = { week: viewWeek, moments: viewMoments, cheats: viewCheats, kid: viewKid };
   let animNext = true;   // fade+rise only on first paint and tab switches, not on every refresh
+  function blockedHtml() {
+    const rv = S.blocked === "revoked";
+    return '<div class="card blocked"><div class="eb" aria-hidden="true">' + (rv ? "🚫" : "🔗") + "</div><h2 style=\"justify-content:center\">" + esc(tr(rv ? "blockedRevoked" : "blockedUnpaired")) + "</h2><p class=\"note\">" + esc(tr(rv ? "blockedRevokedBody" : "blockedUnpairedBody")) + "</p></div>";
+  }
+  function noChildHtml() {
+    return '<div class="card blocked"><div class="eb" aria-hidden="true">🧒</div><h2 style="justify-content:center">' + esc(tr("noChildTitle")) + '</h2><p class="note">' + esc(tr("noChildBody")) + '</p><div class="addkid" style="justify-content:center">' +
+      '<input class="txt" id="newkid" maxlength="24" placeholder="' + esc(tr("childName")) + '" aria-label="' + esc(tr("childName")) + '"><button class="btn go" id="addkid">' + esc(tr("addChild")) + "</button></div></div>";
+  }
   function render() {
+    if (S.blocked) { $("#view").innerHTML = blockedHtml(); $("#period").style.display = "none"; renderChrome(); return; }
     if (!S.data) return;
+    if (!S.children.length) { if (document.activeElement && document.activeElement.id === "newkid") return; $("#view").innerHTML = noChildHtml(); $("#period").style.display = "none"; return; }
     $("#period").style.display = S.tab === "week" ? "" : "none";
     document.querySelectorAll("nav .tab").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === S.tab));
-    const active = document.activeElement && document.activeElement.id === "cname";
+    const active = document.activeElement && (document.activeElement.id === "cname" || document.activeElement.tagName === "TEXTAREA");
     if (active) return;   // never re-render under a field the parent is typing in
     const view = $("#view");
     view.classList.toggle("anim", animNext); animNext = false;
     view.innerHTML = VIEWS[S.tab]();
+    hydrateSnaps(view);
   }
   function go(tab) { S.tab = tab; animNext = true; history.replaceState(null, "", "#" + tab); render(); window.scrollTo(0, 0); }
-  async function refresh() { try { await load(); render(); } catch (e) { $("#dev").classList.remove("ok"); devKey = "offline"; renderChrome(); } }
+  async function refresh() {
+    try { await load(); render(); }
+    catch (e) {
+      $("#dev").classList.remove("ok"); devKey = "offline";
+      if (WhyConn.mode === "unpaired" || WhyConn.mode === "revoked") { S.blocked = WhyConn.mode; render(); }
+      renderChrome();
+    }
+  }
 
   document.addEventListener("click", async (e) => {
-    const t = e.target.closest("[data-tab],[data-period],[data-topic],[data-filter],[data-tfilter],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age],[data-pol],[data-avatar],[data-opensettings]");
+    const t = e.target.closest("[data-tab],[data-period],[data-topic],[data-filter],[data-tfilter],[data-talked],[data-seg],[data-cheat],[data-mem],[data-age],[data-pol],[data-avatar],[data-opensettings],[data-approve],[data-edit],[data-dismiss],[data-redraft],[data-save],[data-cancel],[data-child],[data-addkid],#addkid");
     if (!t) return;
     try {
-      if (t.dataset.tab) go(t.dataset.tab);
+      if (t.id === "addkid") { await addChild(($("#newkid") || {}).value, 6, "girl"); }
+      else if (t.dataset.child) { S.child = +t.dataset.child; try { localStorage.setItem("whyscope_parent_child", String(S.child)); } catch (e) {} S.topic = null; S.kind = "all"; S.editing = null; S.ageSeg = null; animNext = true; await refresh(); }
+      else if (t.dataset.tab) go(t.dataset.tab);
       else if (t.dataset.period) { if (t.dataset.period !== "week") toast(tr("soon")); }
       else if (t.dataset.topic !== undefined) { S.topic = t.dataset.topic; S.kind = "all"; go("moments"); }
       else if (t.dataset.filter !== undefined) { S.kind = t.dataset.filter || "all"; S.topic = null; render(); }
       else if (t.dataset.tfilter) { S.topic = null; render(); }
       else if (t.dataset.pol) openPol(+t.dataset.pol, t);
       else if (t.dataset.opensettings) openSheet();
+      else if (t.dataset.approve) { await post("/api/todo/" + t.dataset.approve + "/approve"); toast(tr("approvedToast")); await refresh(); }
+      else if (t.dataset.edit) { const it = S.data.todo.items.find((x) => x.id === +t.dataset.edit); S.editing = +t.dataset.edit; S.editText = (it && (it.draft || it.partial)) || ""; render(); const ta = $("#todotext"); if (ta) ta.focus(); }
+      else if (t.dataset.cancel) { S.editing = null; render(); }
+      else if (t.dataset.save) { const txt = ($("#todotext") || {}).value || ""; if (!txt.trim()) { toast(tr("failTry")); return; } await post("/api/todo/" + t.dataset.save + "/approve", { answer: txt }); S.editing = null; toast(tr("approvedToast")); await refresh(); }
+      else if (t.dataset.dismiss) { await post("/api/todo/" + t.dataset.dismiss + "/dismiss"); toast(tr("dismissedToast")); await refresh(); }
+      else if (t.dataset.redraft) { await post("/api/todo/" + t.dataset.redraft + "/redraft"); await refresh(); }
       else if (t.dataset.avatar) { await post("/api/memory", { key: "avatar", value: t.dataset.avatar }); await refresh(); }
       else if (t.dataset.talked) { await post("/api/events/" + t.dataset.talked + "/talked"); toast(tr("noted")); await refresh(); }
       else if (t.dataset.seg) { S.ageSeg = t.dataset.seg; render(); }
@@ -596,7 +814,7 @@
         else await post("/api/memory", { key: k, value: k === "has_sibling" ? "有" : true });
         await refresh();
       } else if (t.dataset.age) { await post("/api/memory", { key: "child_age", value: +t.dataset.age }); await refresh(); }
-    } catch (err) { toast(tr("failTry")); }
+    } catch (err) { if (!err.cancel) toast(tr(err.detail === "pin_locked" ? "pinLocked" : "failTry")); }
   });
   document.addEventListener("change", async (e) => {
     if (e.target.id === "cname") {
@@ -611,10 +829,19 @@
   const RET = [7, 30, 90];
   const photosHtml = (set) => "<h2>" + tr("photos") + '</h2><div class="card"><div class="swrow"><span id="swlbl">' + tr("photosToggle") + '</span><button class="swt" id="snapsw" role="switch" aria-checked="' + !!set.snapshots + '" aria-labelledby="swlbl"></button></div>' +
     '<p class="note" id="snapnote">' + esc(tr("photosNote", set.snapshot_count || 0, set.snapshots_retention_days || 30)) + '</p><div id="snapdel" style="margin-top:12px"><button class="btn danger" id="snapclear">🗑️ ' + esc(tr("photosDelete")) + "</button></div></div>";
+  const guessHtml = (set) => "<h2>" + tr("guessTitle") + '</h2><div class="card"><div class="swrow"><span id="gslbl">' + tr("guessToggle") + '</span><button class="swt" id="guesssw" role="switch" aria-checked="' + (set.ai_guess !== false) + '" aria-labelledby="gslbl"></button></div>' +
+    '<p class="note">' + esc(tr("guessNoteSet")) + "</p></div>";
+  function bindGuess() {
+    const b = $("#guesssw"); if (!b) return;
+    b.onclick = async () => {
+      const on = b.getAttribute("aria-checked") !== "true";
+      try { await post("/api/settings", { ai_guess: on }); toast(tr("saved")); await load(); render(); openSheet(); $("#guesssw").focus(); } catch (err) { if (!err.cancel) toast(tr("fail")); }
+    };
+  }
   function bindPhotos() {
     $("#snapsw").onclick = async () => {
       const on = $("#snapsw").getAttribute("aria-checked") !== "true";
-      try { await post("/api/settings", { snapshots: on }); toast(tr("saved")); await load(); render(); openSheet(); $("#snapsw").focus(); } catch (err) { toast(tr("fail")); }
+      try { await post("/api/settings", { snapshots: on }); toast(tr("saved")); await load(); render(); openSheet(); $("#snapsw").focus(); } catch (err) { if (!err.cancel) toast(tr("fail")); }
     };
     $("#snapclear").onclick = () => {
       $("#snapdel").innerHTML = '<span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>' + esc(tr("photosDeleteAsk")) + '</b><button class="btn solid" id="snapyes">' + esc(tr("clearYes")) + '</button><button class="btn" id="snapno">' + esc(tr("clearNo")) + "</button></span>";
@@ -622,22 +849,78 @@
       $("#snapyes").onclick = async () => { try { await api("/api/snapshots", { method: "DELETE" }); toast(tr("photosDeleted")); await load(); render(); openSheet(); } catch (err) { toast(tr("fail")); } };
     };
   }
+  async function addChild(name, age, avatar) {
+    name = (name || "").trim();
+    if (!name) { toast(tr("childName")); return; }
+    try { const c = await post("/api/children", { name, age, avatar }); S.child = c.id; try { localStorage.setItem("whyscope_parent_child", String(c.id)); } catch (e) {} toast(tr("childAdded")); await refresh(); if ($("#sheet").classList.contains("open")) openSheet(); }
+    catch (err) { if (!err.cancel) toast(tr("failTry")); }
+  }
+  const ago = (ts) => { if (!ts) return tr("neverSeen"); const d = pd(ts); return dayLabel(d) + " " + hm(d); };
+  function famHtml() {
+    const kids = S.children || [], devs = S.devices || [];
+    let h = "<h2>" + tr("family") + '</h2><div class="card" id="famcard">';
+    h += kids.map((k) => '<div class="famrow"><span class="kav" aria-hidden="true">' + avatarHtml(k.avatar, 40) + '</span><div class="grow"><b>' + esc(k.name) + "</b> <small>" + esc(tr("yearsOld", k.age)) + '</small></div><button class="btn sm" data-addwand="' + k.id + '">' + esc(tr("addWand", k.name)) + "</button></div>").join("");
+    h += '<div class="addkid"><input class="txt" id="newkid2" maxlength="24" placeholder="' + esc(tr("childName")) + '" aria-label="' + esc(tr("childName")) + '">' +
+      '<select id="newage" aria-label="' + esc(tr("ageLbl")) + '">' + [5, 6, 7, 8].map((a) => '<option value="' + a + '"' + (a === 6 ? " selected" : "") + ">" + a + "</option>").join("") + "</select>" +
+      '<select id="newav" aria-label="' + esc(tr("avatar")) + '"><option value="girl">' + esc(tr("av_girl")) + '</option><option value="boy">' + esc(tr("av_boy")) + '</option><option value="emoji">' + esc(tr("av_emoji")) + "</option></select>" +
+      '<button class="btn go sm" id="addkid2">' + esc(tr("addChild")) + "</button></div>";
+    h += '<div style="margin-top:14px"><button class="btn" id="invite">' + esc(tr("invite")) + "</button></div>";
+    h += '<h2 style="margin:18px 0 4px">' + esc(tr("devices")) + "</h2>" + (devs.length ? devs.map((d) => {
+      const who = d.kind === "wand" ? tr("kindWand") + (d.child ? " · " + d.child : "") : tr("kindParent") + (d.parent ? " · " + d.parent : "");
+      return '<div class="dev-li' + (d.revoked ? " off" : "") + '"><span aria-hidden="true">' + (d.kind === "wand" ? "🪄" : "📱") + '</span><div class="grow"><b>' + esc(d.name) + (d.current ? " (" + esc(tr("thisPhone")) + ")" : "") + "</b><small>" + esc(who) + (d.relay ? " · " + esc(tr("relayTag")) : "") + " · " + esc(d.last_seen ? tr("lastSeen", ago(d.last_seen)) : tr("neverSeen")) + "</small></div>" +
+        (d.revoked ? '<span class="chip">' + esc(tr("revokedTag")) + "</span>" : S.revoking === d.id ? '<span style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b>' + esc(tr("revokeAsk", d.name)) + '</b><button class="btn solid sm" data-revokeyes="' + d.id + '">' + esc(tr("revoke")) + '</button><button class="btn sm" data-revokeno="1">' + esc(tr("clearNo")) + "</button></span>"
+          : '<button class="btn danger sm" data-revoke="' + d.id + '">' + esc(tr("revoke")) + "</button>") + "</div>";
+    }).join("") : '<p class="note">' + esc(tr("neverSeen")) + "</p>");
+    return h + "</div>";
+  }
+  async function loadDevices() { try { S.devices = await api("/api/devices"); const f = $("#famwrap"); if (f) { const keep = ($("#newkid2") || {}).value; f.innerHTML = famHtml(); if (keep) $("#newkid2").value = keep; } } catch (e) {} }
+  async function showPairing(kind, childId, name) {
+    let p;
+    try { p = await post("/api/pairing", { kind, child_id: childId }); } catch (err) { if (!err.cancel) toast(tr(err.detail === "pin_locked" ? "pinLocked" : "failTry")); return; }
+    const w = $("#qrwrap"), before = new Set((S.devices || []).map((d) => d.id)), end = Date.now() + p.expires_in * 1000;
+    let timer = 0, poll = 0;
+    const close = () => { clearInterval(timer); clearInterval(poll); w.classList.remove("open"); w.innerHTML = ""; if ($("#sheet").classList.contains("open")) loadDevices(); };
+    w.innerHTML = '<div class="modal"><h2>' + esc(kind === "wand" ? tr("scanWand", name) : tr("scanParent")) + "</h2><p>" + esc(tr("scanHow")) + '</p><div class="qrimg">' + WhyQR.svg(p.url, { ecl: "L", label: "QR code" }) + "</div>" +
+      '<p class="note">' + esc(tr(p.relay ? "relayYes" : "relayNo")) + " " + esc(tr("qrExpires")) + ' <b id="qleft"></b></p><details><summary>' + esc(tr("showLink")) + '</summary><textarea readonly id="qlink" aria-label="link"></textarea><a class="btn sm" id="qopen" target="_blank" rel="noopener" href="#">' + esc(tr("openLink")) + '</a></details><div class="acts"><button class="btn go" id="qdone">' + esc(tr("done")) + "</button></div></div>";
+    $("#qlink").value = p.url; $("#qopen").href = p.url; w.classList.add("open"); $("#qdone").focus(); $("#qdone").onclick = close;
+    timer = setInterval(() => { const s = Math.max(0, Math.round((end - Date.now()) / 1000)); const q = $("#qleft"); if (q) q.textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); if (!s) close(); }, 1000);
+    poll = setInterval(async () => {   // close by itself when the new device has scanned
+      try { const d = await api("/api/devices"); if (d.some((x) => !before.has(x.id))) { S.devices = d; close(); toast(tr("pairedToast")); } } catch (e) {}
+    }, 2000);
+  }
+  async function exportData() {
+    try { const r = await api("/api/data/export"); const b = await r.blob(), a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "whyscope-export.json"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }
+    catch (err) { if (!err.cancel) toast(tr("exportFail")); }
+  }
+  document.addEventListener("click", async (e) => {
+    const t = e.target.closest("[data-addwand],#invite,#addkid2,[data-revoke],[data-revokeyes],[data-revokeno],#exportbtn");
+    if (!t) return;
+    try {
+      if (t.dataset.addwand) { const c = S.children.find((k) => k.id === +t.dataset.addwand); await showPairing("wand", c.id, c.name); }
+      else if (t.id === "invite") await showPairing("parent");
+      else if (t.id === "addkid2") await addChild($("#newkid2").value, +$("#newage").value, $("#newav").value);
+      else if (t.id === "exportbtn") await exportData();
+      else if (t.dataset.revoke) { S.revoking = +t.dataset.revoke; loadDevices(); }
+      else if (t.dataset.revokeno) { S.revoking = null; loadDevices(); }
+      else if (t.dataset.revokeyes) { const id = +t.dataset.revokeyes; S.revoking = null; await api("/api/devices/" + id, { method: "DELETE" }); toast(tr("saved")); await loadDevices(); }
+    } catch (err) { if (!err.cancel) toast(tr("failTry")); }
+  });
   function openSheet() {
     const set = S.data.set, ri = Math.max(0, RET.indexOf(set.retention_days));
     $("#sheetin").innerHTML = '<div class="row" style="margin-bottom:6px"><button class="icon-btn" id="back" aria-label="' + esc(tr("back")) + '"><svg viewBox="0 0 24 24" fill="none" stroke="#2B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><h2 style="margin:0;font-size:19px">' + tr("settings") + '</h2></div>' +
-      "<h2>" + tr("keepFor") + '</h2><div class="card"><input class="range" id="ret" type="range" min="0" max="2" step="1" value="' + ri + '" aria-label="' + esc(tr("retAria")) + '"><div class="ticks"><span>' + tr("days", 7) + "</span><span>" + tr("days", 30) + "</span><span>" + tr("days", 90) + '</span></div><p class="note" id="retnote">' + tr("retNow", set.retention_days) + "</p></div>" +
+      '<div id="famwrap">' + famHtml() + "</div><h2>" + tr("keepFor") + '</h2><div class="card"><input class="range" id="ret" type="range" min="0" max="2" step="1" value="' + ri + '" aria-label="' + esc(tr("retAria")) + '"><div class="ticks"><span>' + tr("days", 7) + "</span><span>" + tr("days", 30) + "</span><span>" + tr("days", 90) + '</span></div><p class="note" id="retnote">' + tr("retNow", set.retention_days) + "</p></div>" +
       "<h2>" + tr("cloud") + '</h2><div class="card"><div class="switch-off"><span class="sw" aria-hidden="true"></span><span>' + tr("cloudOff") + '  <small style="color:var(--body);font-size:12.5px">' + tr("cloudSoon") + "</small></span></div></div>" +
-      photosHtml(set) +
-      "<h2>" + tr("data") + '</h2><div class="card" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/api/data/export" download="whyscope-export.json">⬇️ ' + tr("export") + '</a><button class="btn danger" id="clear">🗑️ ' + tr("clear") + "</button></div>" +
+      photosHtml(set) + guessHtml(set) +
+      "<h2>" + tr("data") + '</h2><div class="card" style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="exportbtn">⬇️ ' + tr("export") + '</button><button class="btn danger" id="clear">🗑️ ' + tr("clear") + "</button></div>" +
       '<p class="note" id="ver">' + esc(tr("ver", set.version || "", set.mode || "")) + "</p>";
-    $("#sheet").classList.add("open"); $("#back").focus();
+    $("#sheet").classList.add("open"); $("#back").focus(); loadDevices();
     $("#back").onclick = () => $("#sheet").classList.remove("open");
-    $("#ret").onchange = async (e) => { const d = RET[+e.target.value]; try { await post("/api/settings", { retention_days: d }); $("#retnote").textContent = tr("retNow", d); toast(tr("saved")); await load(); } catch (err) { toast(tr("fail")); } };
-    bindPhotos();
+    $("#ret").onchange = async (e) => { const d = RET[+e.target.value]; try { await post("/api/settings", { retention_days: d }); $("#retnote").textContent = tr("retNow", d); toast(tr("saved")); await load(); } catch (err) { if (!err.cancel) toast(tr("fail")); else openSheet(); } };
+    bindPhotos(); bindGuess();
     $("#clear").onclick = () => {
       $("#clear").outerHTML = '<span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>' + esc(tr("clearAsk")) + '</b><button class="btn solid" id="yes">' + esc(tr("clearYes")) + '</button><button class="btn" id="no">' + esc(tr("clearNo")) + "</button></span>";
       $("#no").onclick = openSheet;
-      $("#yes").onclick = async () => { try { await post("/api/data/clear"); toast(tr("cleared")); await refresh(); } catch (err) { toast(tr("fail")); } $("#sheet").classList.remove("open"); };
+      $("#yes").onclick = async () => { try { await post("/api/data/clear"); toast(tr("cleared")); await refresh(); $("#sheet").classList.remove("open"); } catch (err) { if (!err.cancel) toast(tr("fail")); else openSheet(); } };
     };
   }
   $("#gear").onclick = () => S.data && openSheet();
@@ -647,7 +930,16 @@
   const h0 = location.hash.slice(1) === "log" ? "moments" : location.hash.slice(1); if (VIEWS[h0]) S.tab = h0;
   applyLang();
   refresh();
+  WhyConn.start();
   setInterval(refresh, 30000);
+  // drafts appear while the parent looks at the page: check the to-answer list more often, redraw only when it changed
+  setInterval(async () => {
+    if (!S.data || document.hidden) return;
+    try {
+      const t = await api("/api/todo");
+      if (JSON.stringify(t.items) !== JSON.stringify((S.data.todo || {}).items)) { S.data.todo = t; renderChrome(); if (S.tab === "week") render(); }
+    } catch (e) {}
+  }, 8000);
   window.addEventListener("hashchange", () => { const t = location.hash.slice(1); if (VIEWS[t] && t !== S.tab) go(t); });
 })();
 </script>

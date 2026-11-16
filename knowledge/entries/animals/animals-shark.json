@@ -1,0 +1,69 @@
+{
+  "id": "animals-shark",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鯊魚",
+    "shark"
+  ],
+  "question_patterns": [
+    "鯊魚是魚嗎",
+    "鯊魚為什麼有很多牙齒",
+    "鯊魚有骨頭嗎",
+    "鯊魚的牙齒掉了怎麼辦"
+  ],
+  "first_sentence": "鯊魚是魚，不是哺乳動物。",
+  "facts": [
+    "鯊魚的身體是軟骨，不是硬骨",
+    "鯊魚的牙掉了會再長新的",
+    "一輩子可以換掉很多很多牙"
+  ],
+  "ask_back": "鯊魚的牙掉了，會再長新的還是不會？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Shark",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "shark",
+      "sharks"
+    ],
+    "question_patterns": [
+      "is a shark a fish",
+      "why do sharks have so many teeth",
+      "do sharks have bones",
+      "what happens when a shark loses a tooth"
+    ],
+    "first_sentence": "A shark is a fish, not a mammal.",
+    "facts": [
+      "A shark's body is held up by bendy stuff, not hard bone.",
+      "A shark can lose teeth and grow new ones.",
+      "In its life it can grow thousands of teeth."
+    ],
+    "ask_back": "When a shark loses a tooth, does a new one grow, or not?",
+    "bridges": {},
+    "asks_en": [
+      "fish",
+      "many",
+      "teeth",
+      "bones",
+      "happens",
+      "loses",
+      "tooth",
+      "mammal",
+      "skeleton",
+      "tough",
+      "bendy",
+      "cartilage",
+      "grow",
+      "new",
+      "ones",
+      "life",
+      "thousands"
+    ]
+  }
+}

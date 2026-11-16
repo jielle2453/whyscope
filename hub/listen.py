@@ -1,4 +1,5 @@
-"""ASR with faster-whisper (small, zh, beam 1). Audio is decoded in memory and never written to disk.
+"""ASR: per language faster-whisper on the CPU/GPU (small, beam 1) or Whisper on the UGen300 (listen.backend_by_lang;
+the UGen is reached through the worker, and any failure there falls back to faster-whisper). Audio is decoded in memory and never written to disk.
 
 Decoding: PCM16 wav via the stdlib; webm/ogg/mp4 via PyAV (bundles ffmpeg libraries, no ffmpeg binary needed);
 last resort an external ffmpeg binary if present.
@@ -6,6 +7,7 @@ last resort an external ffmpeg binary if present.
 import io
 import shutil
 import subprocess
+import time
 
 from .config import resolve, to_trad, torch_device
 
@@ -16,9 +18,29 @@ PROMPT_EN = "A child asks a short question in English."
 class Listener:
     def __init__(self, cfg: dict):
         self.cfg = cfg
-        self.model = None
+        self.model = None        # faster-whisper (zh, and the fallback for every language)
         self.error = None
         self.device = torch_device(cfg)
+        self._hailo = None       # HailoWhisperRemote (hailo.worker set) or in-process HailoWhisper
+        self.hailo_error = None  # why the last UGen call failed
+        self.last = {}           # lang -> {"backend": "hailo"|"faster-whisper", "fallback": bool, "ms": int}
+
+    def backend_for(self, lang: str) -> str:
+        """Configured backend for a language: listen.backend_by_lang (en: hailo, zh: faster-whisper), else the old
+        single listen.backend."""
+        lc = self.cfg["listen"]
+        return (lc.get("backend_by_lang") or {}).get(lang) or lc.get("backend") or "faster-whisper"
+
+    def _wants_hailo(self, lang: str) -> bool:
+        """UGen Whisper for this language: configured AND the hailo side exists (a worker or a whisper HEF)."""
+        h = self.cfg.get("hailo") or {}
+        return self.backend_for(lang) == "hailo" and bool(h.get("worker") or h.get("whisper_hef"))
+
+    def _hailo_model(self):
+        if self._hailo is None:
+            from .hailo import HailoWhisper, HailoWhisperRemote
+            self._hailo = HailoWhisperRemote(self.cfg) if (self.cfg.get("hailo") or {}).get("worker")                 else HailoWhisper(self.cfg)
+        return self._hailo
 
     def _load(self):
         if self.model is not None:
@@ -95,22 +117,43 @@ class Listener:
                            input=data, capture_output=True, check=True)
         return p.stdout
 
-    def _transcribe(self, audio, lang: str = "zh") -> str:
+    def _fw(self, audio, lang: str) -> str:
+        self._load()
         lc = self.cfg["listen"]
-        if len(audio) < 1600:  # < 0.1 s
-            return ""
         segs, _ = self.model.transcribe(audio, language=lang or lc.get("language", "zh"),
                                         beam_size=int(lc.get("beam_size", 1)), vad_filter=True,
                                         initial_prompt=PROMPT_EN if lang == "en" else PROMPT, condition_on_previous_text=False)
         return "".join(s.text for s in segs).strip()
 
-    def transcribe(self, data: bytes, lang: str = "zh") -> str:
-        """Return the transcript ('' if nothing was heard): Traditional script for zh, plain text for en.
-        faster-whisper is told the language (`language=lang`)."""
-        self._load()
-        text = self._transcribe(self._audio_array(data), lang)
+    def _transcribe(self, audio, lang: str = "zh"):
+        """-> (text, backend). The UGen is tried first when configured for `lang`; any error there (worker down, model
+        not loaded, timeout) falls back to faster-whisper for this request."""
+        if len(audio) < 1600:  # < 0.1 s
+            return "", "none"
+        want = self._wants_hailo(lang)
+        if want:
+            try:   # Hailo's Whisper takes no initial prompt or beam size
+                text = self._hailo_model().transcribe(audio, lang or self.cfg["listen"].get("language", "zh"))
+                self.hailo_error = None
+                return text, "hailo"
+            except Exception as e:
+                self.hailo_error = f"{type(e).__name__}: {str(e)[:200]}"
+        self._fallback = want
+        return self._fw(audio, lang), "faster-whisper"
+
+    def transcribe_ex(self, data: bytes, lang: str = "zh"):
+        """Like transcribe(), but returns (text, backend) where backend is "hailo" or "faster-whisper" (the one that
+        answered; "none" for audio too short to try). Also kept in self.last[lang] for /healthz."""
+        t = time.perf_counter()
+        self._fallback = False
+        text, backend = self._transcribe(self._audio_array(data), lang)
+        self.last[lang] = {"backend": backend, "fallback": self._fallback, "ms": int((time.perf_counter() - t) * 1000)}
         # Whisper sometimes echoes the prompt on silence.
         prompt = PROMPT_EN if lang == "en" else PROMPT
         if text.replace(" ", "") in prompt.replace(" ", "") and len(text) > 8:
-            return ""
-        return text.strip() if lang == "en" else to_trad(text).strip()
+            return "", backend
+        return (text.strip() if lang == "en" else to_trad(text).strip()), backend
+
+    def transcribe(self, data: bytes, lang: str = "zh") -> str:
+        """Return the transcript ('' if nothing was heard): Traditional script for zh, plain text for en."""
+        return self.transcribe_ex(data, lang)[0]

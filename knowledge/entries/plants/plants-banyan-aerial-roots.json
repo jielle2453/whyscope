@@ -48,6 +48,22 @@
     "ask_back": "Do you think the banyan's roots start high in the tree, or in the ground?",
     "bridges": {
       "has_garden": "Have you seen a big tree with roots hanging down?"
-    }
+    },
+    "asks_en": [
+      "roots",
+      "hanging",
+      "down",
+      "air",
+      "grows",
+      "hold",
+      "branches",
+      "beard",
+      "touches",
+      "soil",
+      "becomes",
+      "pillar",
+      "soak",
+      "water"
+    ]
   }
 }

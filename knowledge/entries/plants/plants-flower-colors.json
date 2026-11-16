@@ -1,0 +1,72 @@
+{
+  "id": "plants-flower-colors",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "花的顏色",
+    "花朵顏色",
+    "flower color"
+  ],
+  "question_patterns": [
+    "為什麼花有很多顏色",
+    "花為什麼那麼漂亮",
+    "花的顏色是做什麼的",
+    "為什麼花瓣是彩色的"
+  ],
+  "first_sentence": "花有漂亮的顏色，是為了吸引小動物。",
+  "facts": [
+    "花瓣的顏色，會吸引蜜蜂和小鳥",
+    "小動物會幫花搬花粉",
+    "花通常是植物最彩色的地方"
+  ],
+  "ask_back": "花的顏色是吸引蜜蜂，還是嚇走蜜蜂？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Flower",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "flower color",
+      "colorful flower",
+      "petals"
+    ],
+    "question_patterns": [
+      "why are flowers colorful",
+      "why do flowers have bright petals",
+      "what are the colors of flowers for",
+      "why are flowers so pretty"
+    ],
+    "first_sentence": "Bright flowers call insects and birds to visit.",
+    "facts": [
+      "Bright petals bring bees and other helpers.",
+      "Bees, birds, and bats carry pollen from flower to flower.",
+      "The flower is usually the most colorful part of a plant."
+    ],
+    "ask_back": "Do bright petals call bees, or scare them away?",
+    "bridges": {},
+    "asks_en": [
+      "bright",
+      "pretty",
+      "call",
+      "insects",
+      "birds",
+      "visit",
+      "often",
+      "colored",
+      "attract",
+      "helpers",
+      "bees",
+      "bats",
+      "carry",
+      "pollen",
+      "usually",
+      "most",
+      "part",
+      "plant"
+    ]
+  }
+}

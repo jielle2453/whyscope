@@ -46,6 +46,15 @@
   .conn.ok { background: #3DBE8B; }
 
   .hdr-r { display: flex; align-items: center; gap: 8px; }
+  /* connection badge (Home / Away (encrypted) / Offline) and the curiosity jar count */
+  .cbadge { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; padding: 2px 11px; border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--cap);
+            background: var(--glass); border: 1px solid var(--glass-line); white-space: nowrap; }
+  .cbadge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #A9A7C2; }
+  .cbadge[data-mode="home"] { color: var(--mint-ink); } .cbadge[data-mode="home"]::before { background: #3DBE8B; }
+  .cbadge[data-mode="away"] { color: var(--sky-ink); } .cbadge[data-mode="away"]::before { background: #2B6CB0; }
+  .cbadge[data-mode="offline"], .cbadge[data-mode="revoked"], .cbadge[data-mode="unpaired"] { color: var(--peach-ink); } .cbadge[data-mode="offline"]::before, .cbadge[data-mode="revoked"]::before, .cbadge[data-mode="unpaired"]::before { background: #E07B39; }
+  .jar { display: none; align-items: center; gap: 4px; min-height: 28px; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 800; color: var(--lemon-ink); background: var(--lemon); }
+  .jar.on { display: inline-flex; }
   .lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--cap); }
   .lang button { position: relative; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; padding: 3px 9px; border-radius: 999px; min-width: 30px; }
   .lang button::after { content: ""; position: absolute; inset: -14px -2px; }
@@ -77,11 +86,31 @@
            font-size: 35px; line-height: 1; }
   #emoji:empty { display: none; }
   #first { font-size: clamp(23px, 7.6vw, 30px); font-weight: 800; line-height: 1.3; color: var(--ink); }
+  /* an AI guess (not from the curated book): a small, friendly marker, no warning colours */
+  .guessmark { display: none; align-self: flex-start; align-items: center; gap: 6px; background: var(--lav); color: #3B2F8F;
+               font-size: 13px; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
+  .guessmark.on { display: inline-flex; }
+  .thinkdots { display: none; gap: 8px; padding: 6px 0; }
+  .thinkdots.on { display: flex; }
+  .thinkdots span { width: 14px; height: 14px; border-radius: 50%; background: var(--lav); animation: bounce .8s infinite; }
+  .thinkdots span:nth-child(2) { background: var(--sky); animation-delay: .15s; }
+  .thinkdots span:nth-child(3) { background: var(--peach); animation-delay: .3s; }
   #expl { font-size: 18px; line-height: 1.6; color: var(--body); }
   #askwrap { background: var(--peach); border-radius: 28px; padding: 14px 18px 18px; display: none; }
   #askwrap .badge { display: inline-block; background: var(--lemon); color: var(--lemon-ink); font-weight: 800; font-size: 14.5px;
                     padding: 2px 14px; border-radius: 999px; margin-bottom: 8px; }
   #askb { color: #8F2F06; font-size: 18px; font-weight: 700; line-height: 1.5; }
+  /* reply turn: the child taps (or says) an answer to the question back */
+  .choices { display: none; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .choices button { flex: 1 1 40%; min-height: 60px; padding: 6px 12px; border: 0; border-radius: 999px; background: #fff; color: #8F2F06;
+                    font: inherit; font-size: 17px; font-weight: 800; cursor: pointer; transition: transform .12s, background .2s; }
+  .choices button.idk { flex-basis: 100%; min-height: 48px; background: rgba(255,255,255,.5); font-size: 15px; font-weight: 700; }
+  .choices button:active { transform: scale(.96); }
+  .choices button.picked { background: var(--lav-ink); color: #fff; }
+  .choices button:disabled:not(.picked) { opacity: .45; }
+  .choices button:focus-visible { outline: 3px solid var(--lav-ink); outline-offset: 2px; }
+  #replywrap { display: none; background: var(--mint); border-radius: 28px; padding: 14px 18px; animation: rise .24s ease-out; }
+  #replyb { color: #14533F; font-size: 18px; font-weight: 700; line-height: 1.5; }
   .s { opacity: 0; transition: opacity .5s ease; }
   .s.in { opacity: 1; }
   .s.speaking { background: linear-gradient(transparent 62%, rgba(199,184,255,.55) 62%); }
@@ -169,6 +198,8 @@
       <span class="av" id="av"><span class="conn" id="conn" role="status"><i aria-hidden="true"></i><span id="connlbl">Connecting</span></span></span>
     </button>
     <div class="hdr-r">
+      <span class="jar" id="jar" role="status"><span aria-hidden="true">🫙</span><b id="jarn">0</b></span>
+      <span class="cbadge" id="connbadge" role="status" data-mode="connecting">Connecting</span>
       <div class="lang glass fx" id="lang" role="group" data-i18n-aria="langGroup" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><i aria-hidden="true">/</i><button type="button" data-lang="zh" aria-pressed="false">中</button></div>
     </div>
   </header>
@@ -183,9 +214,12 @@
     <svg class="art" id="art" viewBox="0 0 120 120" role="img" data-i18n-aria="artAsk" aria-label="Ask a grown-up together"></svg>
     <div class="headline" id="headline"></div>
     <div id="emoji" aria-hidden="true"></div>
+    <div class="guessmark" id="guessmark"><span aria-hidden="true">💭</span><span data-i18n="guessMark">My best guess</span></div>
+    <div class="thinkdots" id="thinkdots" role="status" data-i18n-aria="thinking" aria-label="Thinking"><span></span><span></span><span></span></div>
     <div id="first" lang="zh-TW"></div>
     <div id="expl" lang="zh-TW"></div>
-    <div id="askwrap"><span class="badge" data-i18n="guess">Your guess?</span><div id="askb" lang="zh-TW"></div></div>
+    <div id="askwrap"><span class="badge" data-i18n="guess">Your guess?</span><div id="askb" lang="zh-TW"></div><div class="choices" id="choices" role="group"></div></div>
+    <div id="replywrap"><div id="replyb" lang="zh-TW"></div></div>
     <div class="actions" id="actions">
       <button id="replay" type="button" data-i18n="replay">Say it again</button>
       <button id="another" type="button" data-i18n="another">New question</button>
@@ -215,10 +249,13 @@
   </div>
 </div>
 
+<script src="/static/tunnel.js"></script>
+<script src="/static/conn.js" data-role="wand"></script>
 <script>
 (function () {
   const $ = (id) => document.getElementById(id);
   const talk = $("talk"), ans = $("answer"), statusEl = $("status");
+  const net = (path, opts) => WhyConn.fetch(path, opts);   // fetch() with this wand's token, over the LAN or the encrypted relay
   let stream = null, rec = null, chunks = [], recStart = 0, busy = false, camStream = null, token = 0;
   let audioCtx = null, analyser = null, levelRaf = 0, lastItems = [];
 
@@ -230,14 +267,24 @@
       cam: "Camera on, show me", camAria: "Camera on", connecting: "Connecting", connected: "Connected", offline: "Offline", grown: "For grown-ups: hold to open the parent app",
       youAsked: "You asked: ", sensitive: "Let's ask a grown-up about this", unsure: "Let's go ask a grown-up", photoAlt: "Photo just taken",
       noIdea: "I can't figure it out. Can you ask again?", failed: "Connection failed", camFail: "Can't open the camera. Please check permissions.",
-      noRec: "This browser can't record. Please type your question.", needMic: "Please allow the microphone to talk.", tooShort: "Hold a bit longer, then let go when you're done." },
+      noRec: "This browser can't record. Please type your question.", needMic: "Please allow the microphone to talk.", tooShort: "Hold a bit longer, then let go when you're done.",
+      answerHold: "Tap an answer, or hold and say it", found: "Your grown-up found the answer!", tapHear: "Tap \"Say it again\" to hear it",
+      jarKept: "I'll keep your question in my curiosity jar until we're home again.", jarSent: "Your jar questions got answered!", jarAria: "Curiosity jar",
+      jarFull: "The jar is full. Ask me again when we're home.", jarBig: "That was too long to keep. Please type your question.", voiceQ: "(your spoken question)",
+      notPaired: "This wand is not connected yet. Ask a grown-up to scan its code.", revokedMsg: "This wand was switched off. Ask a grown-up.",
+      guessMark: "My best guess" },
     zh: { stuck: "哎呀，我卡住了，再試一次好嗎？", title: "好奇鏡", brand: "好奇鏡", logo: "好奇鏡標誌", langGroup: "語言", artAsk: "一起去問大人",
       hello: "有什麼想知道的嗎？", helloSub: "按住圓圓的按鈕說話", guess: "你猜猜看", replay: "再說一次", another: "換一個問題",
       hold: "按住說話", listening: "我在聽…", thinking: "想一想", typeQ: "或是打字問我", typeAria: "輸入問題", ask: "問問題",
       cam: "開鏡頭，拍給我看", camAria: "開鏡頭", connecting: "連線中", connected: "已連線", offline: "未連線", grown: "大人用：長按回到家長頁",
       youAsked: "你問：", sensitive: "這個我們一起問大人", unsure: "我們一起去問大人", photoAlt: "剛剛拍的照片",
       noIdea: "我想不出來了，再問一次好嗎？", failed: "連線失敗", camFail: "無法開啟鏡頭，請檢查權限",
-      noRec: "這個瀏覽器不能錄音，請用打字問我", needMic: "需要允許麥克風才能說話", tooShort: "按久一點，說完再放開喔" }
+      noRec: "這個瀏覽器不能錄音，請用打字問我", needMic: "需要允許麥克風才能說話", tooShort: "按久一點，說完再放開喔",
+      answerHold: "點一個答案，或按住說出來", found: "大人幫你找到答案了！", tapHear: "按「再說一次」來聽",
+      jarKept: "我先把你的問題放進好奇罐，回到家再回答你。", jarSent: "好奇罐裡的問題都有答案了！", jarAria: "好奇罐",
+      jarFull: "好奇罐滿了，回到家再問我喔。", jarBig: "這個太長了，請用打字問我。", voiceQ: "（你說的問題）",
+      notPaired: "這個魔法棒還沒連線，請大人掃描它的代碼。", revokedMsg: "這個魔法棒已被關閉，請問大人。",
+      guessMark: "我猜的" }
   };
   let LANG = null;
   try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "zh") LANG = q; } catch (e) {}
@@ -251,6 +298,7 @@
   const setLbl = (k) => { lblKey = k; $("talklabel").textContent = tr(k); };
   function applyLang() {
     document.documentElement.lang = LANG === "zh" ? "zh-TW" : "en";
+    if (window.WhyConn) WhyConn.setLang(LANG);
     document.title = tr("title");
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = tr(el.dataset.i18n); });
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.placeholder = tr(el.dataset.i18nPh); });
@@ -266,7 +314,8 @@
     try { localStorage.setItem("whyscope_lang", LANG); } catch (err) {}
     try { const u = new URL(location.href); if (u.searchParams.has("lang")) { u.searchParams.set("lang", LANG); history.replaceState(null, "", u); } } catch (err) {}
     applyLang();
-    fetch("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) }).catch(() => {});
+    WhyConn.setLang(LANG);
+    if (WhyConn.kind !== "wand") net("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language: LANG }) }).catch(() => {});   // (a wand sends its language with each question)
   });
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   // waveform: flat bars, scaled by the mic level (--lvl) while listening
@@ -284,22 +333,20 @@
   })();
   function micState(s) { micS = s; $("wave").classList.toggle("live", s === "listening"); talk.className = s; talk.setAttribute("aria-label", tr(s === "thinking" ? "thinking" : s === "listening" ? "listening" : "hold")); }
 
-  // ---------- connection dot ----------
-  async function health() {
-    try { const r = await fetch("/healthz", { cache: "no-store" }); const ok = r.ok;
-      $("conn").classList.toggle("ok", ok); connKey = ok ? "connected" : "offline"; $("connlbl").textContent = tr(connKey);
-    } catch (e) { $("conn").classList.remove("ok"); connKey = "offline"; $("connlbl").textContent = tr(connKey); }
-  }
-  applyLang();
-  // the avatar the parent picked (memory key `avatar`: girl | boy | emoji, default girl)
+  // ---------- connection badge: Home / Away (encrypted) / Offline ----------
+  WhyConn.badge($("connbadge"));
+  const markConn = (m) => { $("conn").classList.toggle("ok", m === "home" || m === "away"); connKey = (m === "home" || m === "away") ? "connected" : "offline"; $("connlbl").textContent = WhyConn.label(); };
+  WhyConn.onMode((m) => { markConn(m); if (m === "home" || m === "away") { jarFlush(); loadAvatar(); } });
+  applyLang(); WhyConn.setLang(LANG);
+  // the avatar of this wand's child (the grown-up picked it on the parent page)
   async function loadAvatar() {
-    let a = "girl";
-    try { const m = await (await fetch("/api/memory", { cache: "no-store" })).json(); a = ((m.memory || {}).avatar || {}).value || "girl"; } catch (e) {}
+    let a = (((WhyConn.cfg() || {}).child) || {}).avatar || "girl";
+    try { const r = await net("/api/me"); if (r.ok) { const m = await r.json(); if (m.child && m.child.avatar) a = m.child.avatar; } } catch (e) {}
     { const box = $("av"), badge = $("conn"); box.innerHTML = a === "emoji" ? "🧒" : '<img src="/static/avatar-' + (a === "boy" ? "boy" : "girl") + '.png" alt="" width="40" height="40">'; if (badge) box.appendChild(badge); }
     $("av").classList.add("on");
   }
-  loadAvatar(); document.addEventListener("visibilitychange", () => { if (!document.hidden) loadAvatar(); });
-  health(); setInterval(health, 10000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) { loadAvatar(); jarFlush(); } });
+  WhyConn.start();
 
   // ---------- speech out ----------
   let voices = [];
@@ -346,34 +393,45 @@
     });
   }
   let chain = Promise.resolve();
-  function enqueue(spans) { const my = token; chain = chain.then(async () => { for (const sp of spans) { if (my !== token) { sp.classList.add("in"); continue; } await speakOne(sp, sp.textContent, my); } }); }
+  let queued = 0;   // enqueue() calls still being spoken (the delivery poll waits until this is 0)
+  function enqueue(spans) {
+    const my = token; queued++;
+    chain = chain.then(async () => { for (const sp of spans) { if (my !== token) { sp.classList.add("in"); continue; } await speakOne(sp, sp.textContent, my); } })
+      .then(() => { queued--; }, () => { queued--; });
+  }
   function stopSpeech() { token++; if (window.speechSynthesis) speechSynthesis.cancel(); chain = Promise.resolve(); }
 
   // ---------- art ----------
   const ART_UNSURE = '<circle cx="60" cy="60" r="52" fill="#FFD6C2"/><path d="M44 46a16 16 0 1 1 24 14c-5 3-8 6-8 12" fill="none" stroke="#5B4AB8" stroke-width="9" stroke-linecap="round"/><circle cx="60" cy="92" r="6" fill="#FFB48F"/><path d="M92 28l5-9M100 40l9-3M25 28l-5-9" stroke="#2B6CB0" stroke-width="5" stroke-linecap="round"/>';
   const ART_SOFT = '<circle cx="60" cy="60" r="52" fill="#fff"/><path d="M60 94S26 74 26 49c0-12 9-20 19-20 7 0 12 4 15 9 3-5 8-9 15-9 10 0 19 8 19 20 0 25-34 45-34 45z" fill="#BFE0FF" stroke="#2B6CB0" stroke-width="5" stroke-linejoin="round"/>';
-  const EMO = { unsure: "🧐", not_heard: "🎤" };
+  const EMO = { unsure: "🧐", not_heard: "🎤", jar: "🫙" };
 
   // ---------- render ----------
   function resetCard() {
-    ["first", "expl", "askb"].forEach((i) => { $(i).textContent = ""; });
-    qText = ""; headKey = ""; renderQ(); renderHead();
+    ["first", "expl", "askb", "replyb", "choices"].forEach((i) => { $(i).textContent = ""; });
+    qText = ""; headKey = ""; renderQ(); renderHead(); closeQuiz();
     $("askwrap").style.display = "none"; $("actions").style.display = "none"; $("emoji").textContent = "";
+    $("replywrap").style.display = "none"; $("choices").style.display = "none";
+    $("guessmark").classList.remove("on"); $("thinkdots").classList.remove("on");
     ans.className = "show";
   }
   function showFirst(r) {
     document.body.classList.add("has-answer");
     ansLang = r.lang === "en" || r.lang === "zh" ? r.lang : LANG;
-    ["q", "first", "expl", "askb"].forEach((i) => { $(i).lang = ansLang === "en" ? "en" : "zh-TW"; });
+    ["q", "first", "expl", "askb", "replyb", "choices"].forEach((i) => { $(i).lang = ansLang === "en" ? "en" : "zh-TW"; });
     resetCard();
     const sensitive = r.status === "sensitive", unsure = r.status === "abstained";
     if (sensitive) { ans.className = "show soft"; $("art").innerHTML = ART_SOFT; headKey = "sensitive"; renderHead(); }
-    else if (unsure && r.reason !== "not_heard" && r.reason !== "no_question") {
+    else if (unsure && r.reason !== "not_heard" && r.reason !== "no_question" && r.reason !== "jar") {
       ans.className = "show unsure"; $("art").innerHTML = ART_UNSURE; headKey = "unsure"; renderHead();
       qText = r.question || ""; renderQ();
-    } else if (unsure) { $("emoji").textContent = EMO.not_heard; }
+    } else if (unsure) { $("emoji").textContent = EMO[r.reason] || EMO.not_heard; qText = r.question || ""; renderQ(); }
     else { $("emoji").textContent = r.emoji || "🔍"; qText = r.question || ""; renderQ(); }
-    const sp = fill($("first"), (r.reaction || "") + (ansLang === "en" && r.reaction ? " " : "") + (r.first_sentence || ""));
+    // a chat reply / AI guess is written on the UGen300 after this: thinking dots (and a short "let me think" for a guess)
+    const thinking = !!(r.pending && !r.first_sentence);
+    $("thinkdots").classList.toggle("on", thinking);
+    if (r.kind === "ai_guess" && !thinking) $("guessmark").classList.add("on");
+    const sp = fill($("first"), thinking ? (r.filler || "") : (r.reaction || "") + (ansLang === "en" && r.reaction ? " " : "") + (r.first_sentence || ""));
     enqueue(sp);
     lastItems = [sp];
     $("actions").style.display = "flex";
@@ -384,6 +442,55 @@
     if (b.length) $("askwrap").style.display = "block";
     enqueue([...a, ...b]);
     lastItems = [...lastItems, a, b].flat();
+    if (b.length) showQuiz(r);
+  }
+
+  // ---------- reply turn: the child answers the question back (tap a choice, or hold the mic and say it) ----------
+  let quizOpen = null;   // {id: event_id, lang} while the choices wait for an answer
+  function closeQuiz() { quizOpen = null; if (lblKey === "answerHold") setLbl("hold"); }
+  function showQuiz(r) {
+    const box = $("choices"); box.textContent = "";
+    if (!r.quiz || !r.event_id) { closeQuiz(); return; }
+    quizOpen = { id: r.event_id, lang: ansLang };
+    const add = (label, i, cls) => {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = label; if (cls) b.className = cls;
+      b.onclick = () => sendReply({ choice: i }, b); box.appendChild(b);
+    };
+    r.quiz.options.forEach((o, i) => add(o, i));
+    add(r.quiz.idk, -1, "idk");
+    box.style.display = "flex"; setLbl("answerHold");
+  }
+  async function sendReply(body, btn) {
+    if (!quizOpen || busy) return;
+    const q = quizOpen; closeQuiz(); busy = true; stopSpeech(); setStatus("");
+    const btns = [...$("choices").querySelectorAll("button")];
+    btns.forEach((b) => { b.disabled = true; }); if (btn) btn.classList.add("picked");
+    micState("thinking");
+    try {
+      let res;
+      if (body instanceof FormData) {
+        body.append("event_id", q.id); body.append("lang", q.lang);
+        res = await net("/api/reply", { method: "POST", body });
+      } else {
+        res = await net("/api/reply", { method: "POST", headers: { "Content-Type": "application/json" },
+                                          body: JSON.stringify({ ...body, event_id: q.id, lang: q.lang }) });
+      }
+      if (!res.ok) throw new Error(res.status);
+      const j = await res.json();
+      // a spoken reply that is really a new question ("為什麼…", "why…") is asked as one
+      if (j.result === "question" && j.heard) {
+        busy = false; micState("idle");
+        const fd = new FormData(); fd.append("mode", "voice"); fd.append("text", j.heard); return ask(fd);
+      }
+      if (j.choice != null && j.choice >= 0 && btns[j.choice]) btns[j.choice].classList.add("picked");
+      if (j.choice === -1 && btns.length) btns[btns.length - 1].classList.add("picked");
+      const sp = fill($("replyb"), j.say || "");
+      $("replywrap").style.display = "block";
+      enqueue(sp);
+      lastItems = [...lastItems, sp].flat();
+      $("replywrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (e) { setStatus("failed"); }
+    finally { busy = false; micState("idle"); }
   }
   $("replay").onclick = () => {
     stopSpeech();
@@ -392,7 +499,7 @@
     enqueue(spans);
   };
   $("another").onclick = () => {
-    stopSpeech(); ans.className = ""; document.body.classList.remove("has-answer"); setStatus("");
+    stopSpeech(); closeQuiz(); ans.className = ""; document.body.classList.remove("has-answer"); setStatus("");
     $("text").focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -431,30 +538,71 @@
   async function ask(fd) {
     if (busy) return;
     busy = true; $("send").disabled = true; stopSpeech(); setStatus(""); micState("thinking");
+    const askedAt = new Date().toISOString();
     try {
       const img = await grabFrame();
       if (img) { fd.append("image", img, "frame.jpg"); }
       fd.append("lang", LANG);
-      const res = await fetch("/api/ask", { method: "POST", body: fd });
+      const res = await net("/api/ask", { method: "POST", body: fd });
+      if (res.offline) { await toJar(fd, askedAt); return; }                 // neither the LAN nor the relay answers: keep it in the jar
+      if (res.status === 401) { showFirst({ status: "abstained", reason: "not_heard", first_sentence: tr(WhyConn.mode === "revoked" ? "revokedMsg" : "notPaired") }); return; }
       if (!res.ok) throw new Error(res.status);
       const r = await res.json();
       showFirst(r);
       if (img) flashThumb(img);
+      if (!r.pending && (r.explanation || r.ask_back)) showRest({ ...r });   // an answer that needs no compose step (family answer, "tell me more")
       if (r.pending && r.pending_id) {
         const t0 = Date.now(); let full = null;
-        while (Date.now() - t0 < 8000) {
+        while (Date.now() - t0 < 15000) {   // compose / chat / AI guess on the UGen300 take about 3-9 s (capped on the hub)
           await sleep(300);
-          const pr = await fetch("/api/ask/" + r.pending_id, { cache: "no-store" });
+          const pr = await net("/api/ask/" + r.pending_id);
           if (pr.status === 200) { const j = await pr.json(); if (!j.pending) { full = j; break; } }
         }
-        if (full) showRest(full);
-        else setStatus("noIdea");
+        if (full && !r.first_sentence) {   // a chat reply or an AI guess: the whole text comes now
+          showFirst({ ...full, event_id: full.event_id || r.event_id, keepFiller: true });
+          if (full.explanation || full.ask_back) showRest({ ...full, event_id: full.event_id || r.event_id });
+        } else if (full) showRest({ ...full, event_id: full.event_id || r.event_id });
+        else { showFirst({ status: "chat", kind: "chat", lang: r.lang, first_sentence: tr("noIdea") }); }
       }
     } catch (e) {
       showFirst({ status: "abstained", reason: "not_heard", first_sentence: tr("stuck") });
       setStatus("failed");
     } finally { busy = false; $("send").disabled = false; micState("idle"); }
   }
+
+  // ---------- curiosity jar: questions kept on this wand while the hub cannot be reached, sent when it can ----------
+  async function jarCount() { const n = await WhyConn.jar.count(); $("jarn").textContent = n; $("jar").classList.toggle("on", n > 0); $("jar").setAttribute("aria-label", tr("jarAria") + " " + n); return n; }
+  async function toJar(fd, askedAt) {
+    const audio = fd.get("audio"), text = (fd.get("text") || "").toString();
+    if (audio && audio.size > WhyConn.jar.MAX_AUDIO) { showFirst({ status: "abstained", reason: "jar", first_sentence: tr("jarBig") }); return; }
+    const ok = await WhyConn.jar.add({ text, audio: audio || null, mime: audio ? audio.type : "", ts: askedAt, lang: LANG, mode: audio ? "voice" : "text" });
+    showFirst({ status: "abstained", reason: "jar", question: text || tr("voiceQ"), first_sentence: tr(ok ? "jarKept" : "jarFull") });
+    jarCount();
+  }
+  let flushing = false;
+  async function jarFlush() {
+    if (flushing || busy || rec || quizOpen || document.hidden || (WhyConn.mode !== "home" && WhyConn.mode !== "away")) return;
+    flushing = true;
+    try {
+      const items = await WhyConn.jar.list(); let last = null, sent = 0;
+      for (const it of items) {
+        const fd = new FormData();
+        fd.append("mode", it.mode || "text"); fd.append("lang", it.lang || LANG); fd.append("asked_at", it.ts);   // the answer is logged with the time it was asked
+        if (it.text) fd.append("text", it.text);
+        if (it.audio) fd.append("audio", it.audio, "q." + ((it.mime || "").includes("ogg") ? "ogg" : (it.mime || "").includes("mp4") ? "m4a" : "webm"));
+        const res = await net("/api/ask?wait=1", { method: "POST", body: fd });
+        if (res.offline || res.status === 401 || res.status === 403 || res.status === 429 || res.status >= 500) break;   // try again later
+        if (res.ok) { const j = await res.json().catch(() => null); if (j && j.status === "answered") last = j; sent++; }
+        await WhyConn.jar.remove(it.id);   // answered (or a question the hub can never take: do not keep it forever)
+      }
+      await jarCount();
+      if (sent) {
+        setStatus("jarSent");
+        if (last) { const { quiz, ...r } = last; showFirst({ ...r, pending: false }); showRest({ ...r, ask_back: r.ask_back, explanation: r.explanation }); }
+      }
+    } catch (e) { /* the next ping tries again */ } finally { flushing = false; }
+  }
+  jarCount(); setInterval(() => { jarCount(); jarFlush(); }, 8000);
   $("form").addEventListener("submit", (e) => {
     e.preventDefault();
     const t = $("text").value.trim();
@@ -462,6 +610,35 @@
     const fd = new FormData(); fd.append("mode", "text"); fd.append("text", t);
     $("text").value = ""; ask(fd);
   });
+
+  // ---------- answers the grown-up approved: poll, announce, speak ----------
+  let delivering = false;
+  async function deliver(d) {
+    stopSpeech(); closeQuiz(); setStatus("");
+    ansLang = d.lang === "zh" ? "zh" : "en";
+    ["q", "first", "expl", "askb", "replyb", "choices"].forEach((i) => { $(i).lang = ansLang === "en" ? "en" : "zh-TW"; });
+    document.body.classList.add("has-answer");
+    resetCard();
+    $("emoji").textContent = "💌";
+    qText = d.question || ""; renderQ();
+    const a = fill($("first"), T[ansLang].found), b = fill($("expl"), d.answer || "");
+    $("actions").style.display = "flex";
+    lastItems = [a, b].flat();
+    if (!navigator.userActivation || navigator.userActivation.hasBeenActive) enqueue([...a, ...b]);   // browsers only speak after a tap
+    else { [...a, ...b].forEach((s) => s.classList.add("in")); setStatus("tapHear"); }
+    ans.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    await net("/api/deliveries/" + d.id + "/done", { method: "POST" });
+  }
+  async function checkDeliveries() {
+    if (busy || rec || quizOpen || queued > 0 || delivering || document.hidden) return;
+    let list = [];
+    try { const r = await net("/api/deliveries"); if (r.ok) list = await r.json(); } catch (e) { return; }
+    if (!Array.isArray(list) || !list.length) return;
+    delivering = true;
+    try { await deliver(list[0]); } catch (e) {} finally { delivering = false; }
+  }
+  checkDeliveries(); setInterval(checkDeliveries, 5000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) checkDeliveries(); });
 
   // ---------- voice (press and hold) with a live level meter ----------
   function meter() {
@@ -497,8 +674,10 @@
       rec = null; stopMeter(); micState("idle"); setLbl("hold");
       if (dur < 500) { setStatus("tooShort"); return; }
       const ext = type.includes("ogg") ? "ogg" : type.includes("mp4") ? "m4a" : "webm";
-      const fd = new FormData(); fd.append("mode", "voice");
+      const fd = new FormData();
       fd.append("audio", new Blob(chunks, { type }), "q." + ext);
+      if (quizOpen) { sendReply(fd, null); return; }   // the choices are open: this is the answer
+      fd.append("mode", "voice");
       ask(fd);
     };
     recStart = Date.now(); rec.start(); startMeter();

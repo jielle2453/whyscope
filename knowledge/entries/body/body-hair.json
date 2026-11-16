@@ -48,6 +48,26 @@
     "ask_back": "Do you think hair grows faster in summer, or in winter?",
     "bridges": {
       "has_dog": "Does your dog's hair keep growing too?"
-    }
+    },
+    "asks_en": [
+      "grow",
+      "back",
+      "keep",
+      "tiny",
+      "roots",
+      "skin",
+      "making",
+      "new",
+      "hard",
+      "stuff",
+      "nails",
+      "under",
+      "push",
+      "cutting",
+      "hurt",
+      "since",
+      "cannot",
+      "feel"
+    ]
   }
 }

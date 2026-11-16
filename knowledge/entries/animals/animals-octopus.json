@@ -1,0 +1,63 @@
+{
+  "id": "animals-octopus",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "章魚",
+    "octopus"
+  ],
+  "question_patterns": [
+    "章魚有幾隻腳",
+    "章魚為什麼會噴墨",
+    "章魚怎麼躲起來",
+    "章魚有幾顆心臟"
+  ],
+  "first_sentence": "章魚有八隻腕，還能變顏色。",
+  "facts": [
+    "章魚有八隻腕，上面有吸盤",
+    "遇到危險，章魚會噴出黑墨",
+    "章魚有三顆心臟"
+  ],
+  "ask_back": "章魚有三顆心臟，還是只有一顆？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Octopus",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "octopus"
+    ],
+    "question_patterns": [
+      "how many arms does an octopus have",
+      "why does an octopus squirt ink",
+      "how does an octopus hide",
+      "how many hearts does an octopus have"
+    ],
+    "first_sentence": "An octopus has eight arms.",
+    "facts": [
+      "An octopus has eight arms with suckers.",
+      "In danger, it shoots out black ink.",
+      "An octopus has three hearts."
+    ],
+    "ask_back": "Does an octopus have three hearts, or just one?",
+    "bridges": {},
+    "asks_en": [
+      "many",
+      "arms",
+      "squirt",
+      "ink",
+      "hide",
+      "hearts",
+      "eight",
+      "suckers",
+      "danger",
+      "cloud",
+      "black",
+      "three"
+    ]
+  }
+}

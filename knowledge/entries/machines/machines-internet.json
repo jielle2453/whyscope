@@ -1,0 +1,73 @@
+{
+  "id": "machines-internet",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "網路",
+    "網際網路",
+    "internet"
+  ],
+  "question_patterns": [
+    "網路是什麼",
+    "什麼是網際網路",
+    "為什麼電腦可以連上網路",
+    "網路是怎麼連起來的"
+  ],
+  "first_sentence": "網路把很多電腦連在一起。",
+  "facts": [
+    "家裡、學校和公司的小網路連在一起",
+    "全世界的電腦和手機都可以連上",
+    "多數人要付錢給網路公司才能上網"
+  ],
+  "ask_back": "網路是只連一台電腦，還是連很多台電腦？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Internet",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "internet",
+      "the internet"
+    ],
+    "question_patterns": [
+      "what is the internet",
+      "how do computers connect to each other",
+      "how does the internet work",
+      "where does the internet come from"
+    ],
+    "first_sentence": "The internet links many computers together.",
+    "facts": [
+      "Small networks at homes, schools, and offices join up.",
+      "Computers and phones everywhere can join in.",
+      "Most people pay a company to use it."
+    ],
+    "ask_back": "Does the internet link one computer, or many?",
+    "bridges": {},
+    "asks_en": [
+      "computers",
+      "connect",
+      "other",
+      "work",
+      "links",
+      "many",
+      "together",
+      "small",
+      "networks",
+      "homes",
+      "schools",
+      "offices",
+      "join",
+      "phones",
+      "world",
+      "most",
+      "people",
+      "pay",
+      "company",
+      "online"
+    ]
+  }
+}

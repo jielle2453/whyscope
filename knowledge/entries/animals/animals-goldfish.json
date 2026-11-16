@@ -47,6 +47,28 @@
     "ask_back": "Do you think goldfish live in the sea, or in ponds?",
     "bridges": {
       "has_cat": "You have a cat! Do you think it would like to watch goldfish?"
-    }
+    },
+    "asks_en": [
+      "many",
+      "colors",
+      "orange",
+      "because",
+      "people",
+      "chose",
+      "pretty",
+      "ones",
+      "came",
+      "fish",
+      "called",
+      "crucian",
+      "carp",
+      "started",
+      "china",
+      "kept",
+      "pets",
+      "years",
+      "prettiest",
+      "grew"
+    ]
   }
 }

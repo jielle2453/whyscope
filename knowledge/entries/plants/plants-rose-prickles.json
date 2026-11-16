@@ -1,0 +1,70 @@
+{
+  "id": "plants-rose-prickles",
+  "topic": "plants",
+  "topic_zh": "植物",
+  "labels": [
+    "玫瑰的刺",
+    "植物的刺",
+    "prickle"
+  ],
+  "question_patterns": [
+    "為什麼玫瑰有刺",
+    "植物為什麼有刺",
+    "刺是做什麼的",
+    "為什麼有的樹枝長刺"
+  ],
+  "first_sentence": "植物的刺，是用來保護自己。",
+  "facts": [
+    "刺可以擋住想吃它的動物",
+    "玫瑰的刺，其實叫皮刺",
+    "有的刺是樹枝尖尖的頭"
+  ],
+  "ask_back": "植物長刺，是為了擋動物，還是為了好看？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Thorns,_spines,_and_prickles",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "thorn",
+      "rose thorn",
+      "prickles"
+    ],
+    "question_patterns": [
+      "why do roses have thorns",
+      "why do some plants have thorns",
+      "what are thorns for",
+      "why does the rose stem prick me"
+    ],
+    "first_sentence": "Thorns help a plant protect itself.",
+    "facts": [
+      "Thorns help keep hungry animals away.",
+      "Rose stems have sharp growths called prickles.",
+      "A thorn can be the hard, sharp end of a branch."
+    ],
+    "ask_back": "Do plants grow thorns to keep animals away, or just to look nice?",
+    "bridges": {},
+    "asks_en": [
+      "plants",
+      "stem",
+      "prick",
+      "help",
+      "protect",
+      "itself",
+      "keep",
+      "hungry",
+      "animals",
+      "away",
+      "sharp",
+      "growths",
+      "called",
+      "hard",
+      "end",
+      "branch"
+    ]
+  }
+}

@@ -48,6 +48,23 @@
     "ask_back": "Do you think a magnet will stick to wood, or to metal?",
     "bridges": {
       "likes_cars": "If your toy car has iron in it, will a magnet pull it closer?"
-    }
+    },
+    "asks_en": [
+      "stick",
+      "pull",
+      "metal",
+      "work",
+      "grab",
+      "iron",
+      "strongest",
+      "two",
+      "ends",
+      "same",
+      "push",
+      "apart",
+      "different",
+      "together",
+      "other"
+    ]
   }
 }

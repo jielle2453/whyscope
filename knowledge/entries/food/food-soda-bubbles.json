@@ -50,6 +50,21 @@
     "ask_back": "Do you think soda stays fizzy longer in the fridge, or on the table?",
     "bridges": {
       "has_sibling": "Do you and your brother or sister race to drink soda?"
-    }
+    },
+    "asks_en": [
+      "bubbles",
+      "gas",
+      "pushed",
+      "fizzes",
+      "lots",
+      "open",
+      "cap",
+      "push",
+      "smaller",
+      "warm",
+      "loses",
+      "faster",
+      "cold"
+    ]
   }
 }

@@ -47,6 +47,21 @@
     "ask_back": "Do you think a spider can catch a fly in its web?",
     "bridges": {
       "has_garden": "Have you seen a spider web in your garden?"
-    }
+    },
+    "asks_en": [
+      "web",
+      "spin",
+      "catch",
+      "bugs",
+      "fly",
+      "silk",
+      "back",
+      "end",
+      "eight",
+      "legs",
+      "insect",
+      "thin",
+      "strong"
+    ]
   }
 }

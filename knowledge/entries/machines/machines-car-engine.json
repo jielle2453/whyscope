@@ -1,0 +1,67 @@
+{
+  "id": "machines-car-engine",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "汽車",
+    "汽車引擎",
+    "car"
+  ],
+  "question_patterns": [
+    "汽車為什麼會跑",
+    "汽車為什麼要加油",
+    "汽車的引擎是做什麼的",
+    "車子是怎麼動的"
+  ],
+  "first_sentence": "汽車的引擎燒油，讓車子跑。",
+  "facts": [
+    "大部分汽車燒汽油",
+    "引擎的力量，會傳到輪子上",
+    "電動車是用電池來轉動馬達"
+  ],
+  "ask_back": "電動車是用電，還是用汽油？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Car",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "car",
+      "car engine"
+    ],
+    "question_patterns": [
+      "why does a car go",
+      "why does a car need gas",
+      "what does a car engine do",
+      "how does a car move"
+    ],
+    "first_sentence": "A car engine burns fuel to make the car go.",
+    "facts": [
+      "Most cars burn gasoline.",
+      "The engine's power reaches the wheels.",
+      "An electric car uses a battery and a motor."
+    ],
+    "ask_back": "Does an electric car run on electricity, or gasoline?",
+    "bridges": {},
+    "asks_en": [
+      "need",
+      "gas",
+      "move",
+      "burns",
+      "fuel",
+      "most",
+      "gasoline",
+      "power",
+      "reaches",
+      "wheels",
+      "electric",
+      "uses",
+      "battery",
+      "motor"
+    ]
+  }
+}

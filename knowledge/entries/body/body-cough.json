@@ -1,0 +1,67 @@
+{
+  "id": "body-cough",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "咳嗽",
+    "cough"
+  ],
+  "question_patterns": [
+    "為什麼人會咳嗽",
+    "咳嗽是做什麼的",
+    "為什麼吸到灰塵會咳嗽",
+    "咳嗽是怎麼來的"
+  ],
+  "first_sentence": "咳嗽，是在把喉嚨裡的髒東西趕出去。",
+  "facts": [
+    "有東西刺激喉嚨，身體就會咳",
+    "咳嗽的時候，胸口會用力把氣擠出來",
+    "生病、灰塵和煙，都會讓人咳嗽"
+  ],
+  "ask_back": "灰塵跑進喉嚨，你會咳嗽還是會打哈欠？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Cough",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "cough",
+      "coughing"
+    ],
+    "question_patterns": [
+      "why do we cough",
+      "what is a cough for",
+      "why do I cough when dust gets in my throat",
+      "why does coughing happen"
+    ],
+    "first_sentence": "A cough pushes bothering things out of your throat.",
+    "facts": [
+      "When something bothers your lungs or throat, you cough.",
+      "Chest muscles push air out with a strong blast.",
+      "Being sick, dust, or smoke can make you cough."
+    ],
+    "ask_back": "If dust gets in your throat, do you cough, or yawn?",
+    "bridges": {},
+    "asks_en": [
+      "dust",
+      "throat",
+      "happen",
+      "pushes",
+      "bothering",
+      "something",
+      "lungs",
+      "chest",
+      "muscles",
+      "air",
+      "strong",
+      "blast",
+      "being",
+      "sick",
+      "smoke"
+    ]
+  }
+}

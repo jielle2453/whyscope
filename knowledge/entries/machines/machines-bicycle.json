@@ -50,6 +50,26 @@
     "ask_back": "Do you think a bike feels steadier when it is going fast, or slow?",
     "bridges": {
       "rides_bike": "When you ride your bike, how do you turn the handlebars?"
-    }
+    },
+    "asks_en": [
+      "stay",
+      "fall",
+      "work",
+      "doesnt",
+      "down",
+      "turning",
+      "handlebars",
+      "keeps",
+      "balanced",
+      "faster",
+      "ride",
+      "steadier",
+      "feels",
+      "riders",
+      "making",
+      "tiny",
+      "front",
+      "wheel"
+    ]
   }
 }

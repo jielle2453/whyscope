@@ -78,6 +78,14 @@ Rules for entries:
   `likes_cars`, `has_garden`, `rides_bike`); each is a question or sentence connecting the fact to that item.
 - `question_patterns`: 3–6 ways a 5–8-year-old might phrase it, including "這是什麼" style and "為什麼" style.
 - Source: Chinese Wikipedia (CC BY-SA 4.0) or public domain only. Never copy sentences; paraphrase facts.
+  (Entries added later also cite Simple English Wikipedia, NASA, NOAA, National Geographic Kids and KidsHealth; facts are paraphrased.)
+- Later additions (2026-11-15): `"draft": "ai"` marks an entry an AI wrote that no person has reviewed yet (with `reviewed_by: ""`;
+  remove `draft` when a reviewer signs it off). Extra topics `earth` (地球與岩石), `people` (人與社會), `physics` (水與物理).
+  `en.asks_en`: keywords for what the answer explains; the English matcher (hub/recall.py, `asks_guard`) only lets an entry answer
+  when the question's non-object words are among them or in the entry's first sentence and facts. Over-claiming example questions
+  (for instance "why does the fridge hum" on the fridge entry, which explains cooling) must not be listed in `question_patterns`.
+  `en.labels` should hold the nouns a child would use for the object ("chest" for the heartbeat entry): a question that names the
+  object only through a weak key (a pattern word, an id word, one word of a shared label) is scaled down.
 
 ## 3. Cheat sheet schema — `knowledge/cheats/<id>.json`
 

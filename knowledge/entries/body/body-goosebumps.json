@@ -31,7 +31,8 @@
   "en": {
     "labels": [
       "goosebumps",
-      "goose bumps"
+      "goose bumps",
+      "bumpy skin"
     ],
     "question_patterns": [
       "what are these bumps on my skin",
@@ -49,6 +50,25 @@
     "ask_back": "Do you think goosebumps are for keeping warm, or for scaring things?",
     "bridges": {
       "has_cat": "When your cat gets angry, does its fur stand up?"
-    }
+    },
+    "asks_en": [
+      "arms",
+      "tiny",
+      "hairs",
+      "stand",
+      "feel",
+      "cold",
+      "muscles",
+      "under",
+      "pull",
+      "many",
+      "animals",
+      "fluff",
+      "fur",
+      "stay",
+      "warm",
+      "scared",
+      "moved"
+    ]
   }
 }

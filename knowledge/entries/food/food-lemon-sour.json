@@ -1,0 +1,61 @@
+{
+  "id": "food-lemon-sour",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "檸檬",
+    "酸酸的",
+    "lemon"
+  ],
+  "question_patterns": [
+    "為什麼檸檬是酸的",
+    "檸檬為什麼那麼酸",
+    "檸檬汁是什麼味道",
+    "為什麼吃檸檬會皺眉"
+  ],
+  "first_sentence": "檸檬的汁裡面有酸，所以酸酸的。",
+  "facts": [
+    "檸檬汁裡有一種叫檸檬酸的東西",
+    "檸檬汁大約有二十分之一是酸",
+    "檸檬吃起來就是很酸"
+  ],
+  "ask_back": "檸檬吃起來是酸的，還是甜的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Lemon",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "lemon",
+      "sour taste"
+    ],
+    "question_patterns": [
+      "why is a lemon sour",
+      "why does lemon taste so sour",
+      "what is in lemon juice",
+      "why do I make a face when I eat a lemon"
+    ],
+    "first_sentence": "Lemon juice has acid in it, so it tastes sour.",
+    "facts": [
+      "The sour taste of a lemon comes from acid.",
+      "About one part in twenty of the juice is acid.",
+      "That is why a lemon tastes sour."
+    ],
+    "ask_back": "Does a lemon taste sour, or sweet?",
+    "bridges": {},
+    "asks_en": [
+      "juice",
+      "face",
+      "eat",
+      "acid",
+      "called",
+      "citric",
+      "part",
+      "twenty"
+    ]
+  }
+}

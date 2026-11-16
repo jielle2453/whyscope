@@ -49,6 +49,20 @@
     "ask_back": "Do you think a dog's ears hear better than yours, or worse?",
     "bridges": {
       "has_dog": "Did you know dogs can hear higher sounds than you?"
-    }
+    },
+    "asks_en": [
+      "sounds",
+      "air",
+      "wiggle",
+      "back",
+      "forth",
+      "again",
+      "inside",
+      "thin",
+      "skin",
+      "travel",
+      "brain",
+      "know"
+    ]
   }
 }

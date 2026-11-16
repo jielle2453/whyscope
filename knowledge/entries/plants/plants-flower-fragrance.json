@@ -48,6 +48,22 @@
     "ask_back": "Do you think bees like flowers that smell sweet?",
     "bridges": {
       "has_garden": "Have you smelled a flower in your garden? Was it sweet?"
-    }
+    },
+    "asks_en": [
+      "smell",
+      "nice",
+      "good",
+      "bring",
+      "bugs",
+      "visit",
+      "draw",
+      "near",
+      "bees",
+      "butterflies",
+      "carry",
+      "dust",
+      "kind",
+      "own"
+    ]
   }
 }

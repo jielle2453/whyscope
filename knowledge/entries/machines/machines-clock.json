@@ -48,6 +48,28 @@
     "ask_back": "Do you think the big hand moves faster than the little hand, or slower?",
     "bridges": {
       "has_dog": "Does your dog know when it is time to eat?"
-    }
+    },
+    "asks_en": [
+      "work",
+      "tick",
+      "know",
+      "time",
+      "move",
+      "gears",
+      "turn",
+      "hands",
+      "round",
+      "many",
+      "next",
+      "use",
+      "tiny",
+      "crystal",
+      "wiggles",
+      "keep",
+      "hour",
+      "sixty",
+      "minutes",
+      "seconds"
+    ]
   }
 }

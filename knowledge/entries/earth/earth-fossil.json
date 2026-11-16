@@ -1,0 +1,67 @@
+{
+  "id": "earth-fossil",
+  "topic": "earth",
+  "topic_zh": "地球與岩石",
+  "labels": [
+    "化石",
+    "fossil"
+  ],
+  "question_patterns": [
+    "化石是什麼",
+    "化石是怎麼來的",
+    "為什麼會有化石",
+    "化石是真的骨頭嗎"
+  ],
+  "first_sentence": "化石是很久很久以前生物留下的痕跡。",
+  "facts": [
+    "硬硬的部分，比較容易變成化石",
+    "腳印和蟲爬過的路，也是化石",
+    "我們靠化石知道很久以前的事"
+  ],
+  "ask_back": "腳印也可以是化石，對還是不對？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Fossil",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "fossil",
+      "fossils"
+    ],
+    "question_patterns": [
+      "what is a fossil",
+      "how is a fossil made",
+      "why do we find fossils",
+      "is a fossil a real bone"
+    ],
+    "first_sentence": "A fossil is what a living thing left long ago.",
+    "facts": [
+      "Hard parts, like bones and shells, fossilize best.",
+      "Footprints and trails can be fossils too.",
+      "Fossils tell us about life long ago."
+    ],
+    "ask_back": "Can a footprint be a fossil, yes or no?",
+    "bridges": {},
+    "asks_en": [
+      "find",
+      "real",
+      "bone",
+      "living",
+      "left",
+      "long",
+      "ago",
+      "hard",
+      "parts",
+      "shells",
+      "fossilize",
+      "best",
+      "footprints",
+      "trails",
+      "life"
+    ]
+  }
+}

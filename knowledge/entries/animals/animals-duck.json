@@ -1,0 +1,67 @@
+{
+  "id": "animals-duck",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鴨子",
+    "duck"
+  ],
+  "question_patterns": [
+    "為什麼鴨子浮在水上",
+    "鴨子為什麼會游泳",
+    "鴨子的嘴巴是做什麼的",
+    "鴨子為什麼潛水"
+  ],
+  "first_sentence": "鴨子是水鳥，可以浮在水上。",
+  "facts": [
+    "大部分鴨子住在水邊",
+    "鴨子身上的脂肪幫牠浮起來",
+    "有的鴨子會潛到水下找吃的"
+  ],
+  "ask_back": "鴨子是會浮在水上，還是會沉下去？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Duck",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "duck",
+      "ducks"
+    ],
+    "question_patterns": [
+      "why do ducks float",
+      "how do ducks swim",
+      "what is a duck's bill for",
+      "why do ducks dive under the water"
+    ],
+    "first_sentence": "A duck is a bird that floats on water.",
+    "facts": [
+      "Most ducks live on or near water.",
+      "Duck fat helps the bird float.",
+      "Some ducks dive deep to find food."
+    ],
+    "ask_back": "Does a duck float on water, or sink?",
+    "bridges": {},
+    "asks_en": [
+      "float",
+      "swim",
+      "bill",
+      "dive",
+      "under",
+      "water",
+      "bird",
+      "most",
+      "live",
+      "near",
+      "fat",
+      "helps",
+      "deep",
+      "find",
+      "food"
+    ]
+  }
+}

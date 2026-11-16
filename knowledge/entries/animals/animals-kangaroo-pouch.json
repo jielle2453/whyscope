@@ -1,0 +1,70 @@
+{
+  "id": "animals-kangaroo-pouch",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "袋鼠",
+    "袋鼠育兒袋",
+    "kangaroo"
+  ],
+  "question_patterns": [
+    "為什麼袋鼠有口袋",
+    "袋鼠的肚子上為什麼有袋子",
+    "袋鼠寶寶為什麼住在袋子裡",
+    "袋鼠為什麼會跳"
+  ],
+  "first_sentence": "袋鼠媽媽的肚子上有個袋子。",
+  "facts": [
+    "袋鼠寶寶叫小袋鼠，住在袋子裡",
+    "剛出生的小袋鼠只有一吋長",
+    "袋鼠有很有力的後腿，會一跳好遠"
+  ],
+  "ask_back": "袋鼠是用前腳跳，還是用後腿跳？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://kids.nationalgeographic.com/animals/mammals/facts/kangaroo",
+  "source_license": "facts paraphrased; source text not reproduced",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "kangaroo",
+      "kangaroo pouch"
+    ],
+    "question_patterns": [
+      "why do kangaroos have a pouch",
+      "why does a kangaroo have a pocket on its tummy",
+      "where does a baby kangaroo live",
+      "how do kangaroos hop so far"
+    ],
+    "first_sentence": "A mother kangaroo has a pouch on her tummy.",
+    "facts": [
+      "A baby kangaroo is called a joey and lives in the pouch.",
+      "A baby joey is very tiny when it is born.",
+      "Strong back legs let a kangaroo hop far."
+    ],
+    "ask_back": "Does a kangaroo hop with its front legs, or its back legs?",
+    "bridges": {},
+    "asks_en": [
+      "pocket",
+      "tummy",
+      "baby",
+      "live",
+      "hop",
+      "far",
+      "mother",
+      "called",
+      "joey",
+      "newborn",
+      "only",
+      "inch",
+      "long",
+      "strong",
+      "back",
+      "legs",
+      "let"
+    ]
+  }
+}

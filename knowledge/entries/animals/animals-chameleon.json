@@ -1,0 +1,64 @@
+{
+  "id": "animals-chameleon",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "變色龍",
+    "chameleon"
+  ],
+  "question_patterns": [
+    "為什麼變色龍會變色",
+    "變色龍為什麼可以變顏色",
+    "變色龍是怎麼變色的",
+    "變色龍變色是為了躲起來嗎"
+  ],
+  "first_sentence": "變色龍會變顏色，讓別人看不見牠。",
+  "facts": [
+    "變色龍變色，可以躲在旁邊的東西裡",
+    "牠也會用顏色告訴別的變色龍心情",
+    "不是每一種變色龍都會變色"
+  ],
+  "ask_back": "變色龍躲在綠葉裡，會變成綠色還是紅色？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Chameleon",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "chameleon",
+      "color changing lizard"
+    ],
+    "question_patterns": [
+      "why do chameleons change color",
+      "how does a chameleon change colors",
+      "why does a chameleon turn different colors",
+      "is a chameleon hiding when it changes color"
+    ],
+    "first_sentence": "A chameleon can change its skin color.",
+    "facts": [
+      "A chameleon can blend in with what is around it.",
+      "It also shows its mood to other chameleons with color.",
+      "Not every kind of chameleon can change color."
+    ],
+    "ask_back": "Hiding in green leaves, would a chameleon turn green, or red?",
+    "bridges": {},
+    "asks_en": [
+      "change",
+      "turn",
+      "different",
+      "hiding",
+      "skin",
+      "blend",
+      "around",
+      "shows",
+      "mood",
+      "other",
+      "every",
+      "kind"
+    ]
+  }
+}

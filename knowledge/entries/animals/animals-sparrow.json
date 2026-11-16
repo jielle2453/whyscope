@@ -47,6 +47,33 @@
     "ask_back": "Do you think a sparrow likes to eat seeds, or fish?",
     "bridges": {
       "has_garden": "Have you seen a sparrow hopping around your garden?"
-    }
+    },
+    "asks_en": [
+      "live",
+      "near",
+      "people",
+      "around",
+      "house",
+      "birds",
+      "because",
+      "find",
+      "food",
+      "easily",
+      "often",
+      "build",
+      "nests",
+      "under",
+      "roofs",
+      "holes",
+      "love",
+      "seeds",
+      "grains",
+      "tiny",
+      "bugs",
+      "eat",
+      "lived",
+      "long",
+      "time"
+    ]
   }
 }

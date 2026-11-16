@@ -1,0 +1,66 @@
+{
+  "id": "animals-bird-nest",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鳥巢",
+    "鳥窩",
+    "nest"
+  ],
+  "question_patterns": [
+    "為什麼鳥要做鳥巢",
+    "鳥巢是用什麼做的",
+    "鳥為什麼要築巢",
+    "鳥巢是做什麼的"
+  ],
+  "first_sentence": "鳥巢是鳥寶寶的家。",
+  "facts": [
+    "鳥把蛋放在巢裡，養小鳥",
+    "鳥巢常用小樹枝、草和葉子做",
+    "有的巢只是地上的小坑"
+  ],
+  "ask_back": "鳥巢常常是用樹枝做的，還是用鐵做的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Nest",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "nest",
+      "bird nest"
+    ],
+    "question_patterns": [
+      "why do birds build nests",
+      "what is a bird nest made of",
+      "what is a nest for",
+      "how do birds make a nest"
+    ],
+    "first_sentence": "A nest is a home for eggs and baby birds.",
+    "facts": [
+      "Birds keep their eggs in a nest and raise their chicks there.",
+      "Many nests are made of twigs, grass, and leaves.",
+      "Some nests are just a hollow in the ground."
+    ],
+    "ask_back": "Is a nest often made of twigs, or of metal?",
+    "bridges": {},
+    "asks_en": [
+      "build",
+      "home",
+      "eggs",
+      "baby",
+      "keep",
+      "raise",
+      "chicks",
+      "many",
+      "twigs",
+      "grass",
+      "leaves",
+      "hollow",
+      "ground"
+    ]
+  }
+}

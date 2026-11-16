@@ -48,6 +48,26 @@
     "ask_back": "Do you think bamboo is empty inside, or solid like a stick?",
     "bridges": {
       "has_garden": "Have you seen tall bamboo in a park or garden?"
-    }
+    },
+    "asks_en": [
+      "grow",
+      "fast",
+      "tall",
+      "quickly",
+      "because",
+      "underground",
+      "stems",
+      "new",
+      "shoots",
+      "foot",
+      "taller",
+      "day",
+      "empty",
+      "inside",
+      "light",
+      "little",
+      "rings",
+      "along"
+    ]
   }
 }

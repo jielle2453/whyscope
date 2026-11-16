@@ -1,0 +1,67 @@
+{
+  "id": "body-snot",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "鼻涕",
+    "流鼻涕",
+    "mucus"
+  ],
+  "question_patterns": [
+    "為什麼會有鼻涕",
+    "鼻涕是什麼",
+    "為什麼鼻子會流東西",
+    "鼻屎是什麼"
+  ],
+  "first_sentence": "鼻涕滑滑的，會保護鼻子。",
+  "facts": [
+    "鼻子和身體裡面會做出黏黏的東西",
+    "它可以幫身體擋住小蟲蟲",
+    "乾了會變硬，濕了又黏又滑"
+  ],
+  "ask_back": "鼻涕是幫身體擋小蟲蟲，還是幫身體變重？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Mucus",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "snot",
+      "mucus",
+      "runny nose"
+    ],
+    "question_patterns": [
+      "why do we have snot",
+      "what is snot",
+      "what is mucus for",
+      "why does my nose make slimy stuff"
+    ],
+    "first_sentence": "Snot is slippery stuff that protects you.",
+    "facts": [
+      "Your nose and body make slippery stuff called mucus.",
+      "It helps guard against germs.",
+      "It gets hard when dry and slippery when wet."
+    ],
+    "ask_back": "Does snot help guard your body from germs, or make it heavier?",
+    "bridges": {},
+    "asks_en": [
+      "slimy",
+      "stuff",
+      "slippery",
+      "protects",
+      "body",
+      "called",
+      "helps",
+      "guard",
+      "against",
+      "germs",
+      "hard",
+      "dry",
+      "wet"
+    ]
+  }
+}

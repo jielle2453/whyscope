@@ -1,0 +1,68 @@
+{
+  "id": "machines-umbrella",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "雨傘",
+    "傘",
+    "umbrella"
+  ],
+  "question_patterns": [
+    "雨傘是做什麼的",
+    "為什麼要撐傘",
+    "雨傘為什麼可以擋雨",
+    "傘是怎麼來的"
+  ],
+  "first_sentence": "雨傘可以擋雨，也可以擋太陽。",
+  "facts": [
+    "傘一撐開，就有一片遮住頭頂的地方",
+    "很久以前，埃及人就拿傘擋太陽",
+    "傘的英文字，來自一個意思是影子的老字"
+  ],
+  "ask_back": "很久以前的人最早用傘擋太陽，還是擋雨？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Umbrella",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "umbrella"
+    ],
+    "question_patterns": [
+      "what is an umbrella for",
+      "why do we use an umbrella",
+      "how does an umbrella keep the rain off",
+      "who made the first umbrella"
+    ],
+    "first_sentence": "An umbrella keeps off rain and sun.",
+    "facts": [
+      "An umbrella makes a shady cover over your head.",
+      "People in old Egypt used umbrellas against the sun.",
+      "The word comes from an old word for shade."
+    ],
+    "ask_back": "Did the first umbrellas shade people from the sun, or from rain?",
+    "bridges": {},
+    "asks_en": [
+      "use",
+      "keep",
+      "rain",
+      "off",
+      "first",
+      "sun",
+      "shady",
+      "cover",
+      "head",
+      "people",
+      "old",
+      "egypt",
+      "used",
+      "against",
+      "word",
+      "shade"
+    ]
+  }
+}

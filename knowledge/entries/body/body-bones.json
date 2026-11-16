@@ -1,0 +1,65 @@
+{
+  "id": "body-bones",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "骨頭",
+    "bone"
+  ],
+  "question_patterns": [
+    "為什麼人有骨頭",
+    "骨頭是做什麼的",
+    "骨頭是活的嗎",
+    "沒有骨頭會怎樣"
+  ],
+  "first_sentence": "骨頭撐住身體，也保護裡面的東西。",
+  "facts": [
+    "骨頭讓身體有形狀、站得起來",
+    "骨頭會保護腦袋和心臟",
+    "骨頭是活的，身體會一直更新它"
+  ],
+  "ask_back": "骨頭是活的，還是像石頭？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://kidshealth.org/en/kids/bones.html",
+  "source_license": "facts paraphrased; source text not reproduced",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "bone",
+      "bones"
+    ],
+    "question_patterns": [
+      "why do we have bones",
+      "what are bones for",
+      "are bones alive",
+      "what would happen with no bones"
+    ],
+    "first_sentence": "Bones hold up your body.",
+    "facts": [
+      "Bones give your body its shape.",
+      "Bones shield soft parts like the brain and heart.",
+      "Bones are alive, and your body keeps renewing them."
+    ],
+    "ask_back": "Are bones alive, or just like stones?",
+    "bridges": {},
+    "asks_en": [
+      "alive",
+      "happen",
+      "hold",
+      "body",
+      "give",
+      "shape",
+      "shield",
+      "soft",
+      "parts",
+      "brain",
+      "heart",
+      "keeps",
+      "renewing"
+    ]
+  }
+}

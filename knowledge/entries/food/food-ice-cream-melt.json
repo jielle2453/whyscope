@@ -48,6 +48,26 @@
     "ask_back": "Do you think ice cream melts faster in the sun, or in the shade?",
     "bridges": {
       "has_garden": "Eating ice cream in the garden? Eat it fast before it melts!"
-    }
+    },
+    "asks_en": [
+      "melt",
+      "soft",
+      "runny",
+      "warm",
+      "air",
+      "slowly",
+      "lots",
+      "tiny",
+      "bits",
+      "inside",
+      "heat",
+      "around",
+      "sneaks",
+      "once",
+      "turns",
+      "liquid",
+      "drips",
+      "down"
+    ]
   }
 }

@@ -1,0 +1,66 @@
+{
+  "id": "body-crying",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "哭",
+    "哭泣",
+    "cry"
+  ],
+  "question_patterns": [
+    "為什麼人會哭",
+    "為什麼小寶寶會哭",
+    "哭是什麼",
+    "為什麼開心也會哭"
+  ],
+  "first_sentence": "哭，是在告訴別人自己的心情。",
+  "facts": [
+    "人有心情的時候，眼淚會流出來",
+    "哭可以讓身邊的人知道你需要幫忙",
+    "太開心的時候，也可能會哭"
+  ],
+  "ask_back": "太高興的時候，人會流眼淚嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Crying",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "cry",
+      "crying"
+    ],
+    "question_patterns": [
+      "why do people cry",
+      "why do babies cry",
+      "why do tears come out when I cry",
+      "why do some people cry when they are happy"
+    ],
+    "first_sentence": "Crying shows other people how you feel.",
+    "facts": [
+      "Feelings can make tears come out of your eyes.",
+      "Crying tells people nearby how you feel.",
+      "Great joy can make people cry too."
+    ],
+    "ask_back": "Can people cry when they are very happy, or not?",
+    "bridges": {},
+    "asks_en": [
+      "people",
+      "babies",
+      "tears",
+      "happy",
+      "shows",
+      "other",
+      "feel",
+      "feelings",
+      "eyes",
+      "tells",
+      "nearby",
+      "great",
+      "joy"
+    ]
+  }
+}

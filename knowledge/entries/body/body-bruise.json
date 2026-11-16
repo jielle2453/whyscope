@@ -1,0 +1,73 @@
+{
+  "id": "body-bruise",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "瘀青",
+    "撞到變青色",
+    "bruise"
+  ],
+  "question_patterns": [
+    "為什麼撞到會瘀青",
+    "瘀青是什麼",
+    "瘀青為什麼會變色",
+    "瘀青多久會好"
+  ],
+  "first_sentence": "撞到以後，皮膚下的血漏出來，就變青了。",
+  "facts": [
+    "皮膚下面的小血管被撞破了",
+    "身體會慢慢把這些血清走",
+    "瘀青的顏色會一直變，大約兩個星期變好"
+  ],
+  "ask_back": "瘀青會一直不變，還是會變顏色？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Bruise",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "bruise",
+      "bruises"
+    ],
+    "question_patterns": [
+      "why do I get a bruise when I bump into something",
+      "what is a bruise",
+      "why does a bruise change color",
+      "how long does a bruise last"
+    ],
+    "first_sentence": "A bruise is a mark where blood leaked under your skin.",
+    "facts": [
+      "A bump can break tiny blood tubes under the skin.",
+      "Your body slowly cleans up that blood.",
+      "A bruise changes color and fades in about two weeks."
+    ],
+    "ask_back": "Does a bruise stay one color, or change colors?",
+    "bridges": {},
+    "asks_en": [
+      "bump",
+      "something",
+      "change",
+      "color",
+      "long",
+      "last",
+      "mark",
+      "blood",
+      "leaked",
+      "under",
+      "skin",
+      "break",
+      "tiny",
+      "tubes",
+      "body",
+      "slowly",
+      "cleans",
+      "fades",
+      "two",
+      "weeks"
+    ]
+  }
+}

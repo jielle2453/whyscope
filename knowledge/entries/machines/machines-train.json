@@ -1,0 +1,66 @@
+{
+  "id": "machines-train",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "火車",
+    "鐵軌",
+    "train"
+  ],
+  "question_patterns": [
+    "火車為什麼在鐵軌上跑",
+    "火車是什麼推動的",
+    "火車是怎麼動的",
+    "鐵軌是做什麼的"
+  ],
+  "first_sentence": "火車沿著兩條鐵軌跑。",
+  "facts": [
+    "鐵軌是兩條長長的鋼條",
+    "很多火車是由火車頭拉著走",
+    "火車頭有的燒柴油，有的用電"
+  ],
+  "ask_back": "火車是跑在鐵軌上，還是跑在水上？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Train",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "train",
+      "railway",
+      "train track"
+    ],
+    "question_patterns": [
+      "why do trains run on tracks",
+      "what makes a train go",
+      "what are train tracks for",
+      "how does a train move"
+    ],
+    "first_sentence": "A train runs along two steel rails.",
+    "facts": [
+      "The track is made of two long steel rails.",
+      "Most trains are pulled by an engine at the front.",
+      "Some engines burn fuel, and some use electricity."
+    ],
+    "ask_back": "Does a train run on rails, or on water?",
+    "bridges": {},
+    "asks_en": [
+      "run",
+      "move",
+      "along",
+      "two",
+      "steel",
+      "rails",
+      "long",
+      "most",
+      "pulled",
+      "locomotive",
+      "diesel",
+      "electricity"
+    ]
+  }
+}

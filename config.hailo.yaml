@@ -1,0 +1,122 @@
+# Local UGen300 setup on the team laptop (Windows 11, HailoRT 5.3.2): config.yaml + mode hailo, UGen vision, the 4 HEF paths.
+# Used by scripts/start_ugen.ps1. Machine-specific paths; copy and edit for another machine.
+# Whyscope config. mode: cpu | gpu | hailo   (hailo: compose on the ASUS UGen300, verified on Windows 11)
+mode: hailo
+
+paths:
+  db: data/whyscope.db
+  knowledge: knowledge
+  models: 'C:\Users\Jie\Desktop\whyscope\whyscope\models'
+listen:
+  # ASR backend per language: faster-whisper (CPU/GPU) | hailo (Whisper on the UGen300: needs hailo.worker, or
+  # hailo.whisper_hef in-process). English is the product's first language. Hailo Whisper-Small: English WER 1.4%;
+  # Chinese on Hailo is poor, so zh stays on faster-whisper. When the UGen is not configured, or the worker is down or
+  # errors, that request falls back to faster-whisper (/healthz "ugen.asr" shows which backend answered).
+  backend_by_lang: {en: hailo, zh: faster-whisper}
+  model: small          # faster-whisper model size (zh, and the fallback)
+  language: zh
+  beam_size: 1
+  # compute type per mode
+  compute_type: {cpu: int8, gpu: float16, hailo: int8}
+
+vision:
+  enabled: true         # no-op if ultralytics/open_clip not installed
+  backend: hailo          # cpu | hailo (yolov8s + CLIP image encoder on the UGen300; needs hailo.worker or the two hef keys)
+  yolo_model: yolov8n.pt
+  clip_model: ViT-B-32-quickgelu
+  clip_pretrained: openai   # the UGen's CLIP image encoder is OpenAI ViT-B/32; cpu backend loads the same weights
+  clip_labels: models/clip/labels_openai.npz   # precomputed text side (scripts/build_clip_labels.py); no CLIP text encoder at run time
+  min_confidence: 0.26    # raw cosine floor for the best label (right top-1 is typically 0.26-0.33); eval/ugen/vision_calib.py
+  clip_margin: 0.02       # ... and it must beat the best entry of ANOTHER object family by this much (cat vs cat-purr is one family)
+  yolo_min_score: 0.5     # a non-person YOLO (COCO) label is mapped to a KB label above this score when CLIP is not sure
+  exclude_topics: [body, people]   # never from the camera: a child in the frame looks like hair / eyebrows / tears to CLIP
+  # VLM (Qwen3-VL-2B on the UGen300, worker /describe): names the thing a child holds up when YOLO + CLIP is not sure; the
+  # phrase is matched to a KB label first, else it is only a note ("That looks like a toy car!"). Needs hailo.vlm_hef,
+  # which REPLACES the text LLM (one GenAI model per device): off by default, see docs/ugen.md "Eyes, part 2: the VLM".
+  vlm: {enabled: false, timeout_s: 6}
+
+recall:
+  model: paraphrase-multilingual-MiniLM-L12-v2
+  threshold: 0.55
+  coverage_weight: 0.4   # penalty for question details the entry does not mention (0 = off)
+  coverage_weight_en: 0.8  # English questions carry more filler words, so uncovered detail words weigh more
+  label_guard: true        # the question must name the entry's object (label word / distinctive pattern word) ...
+  no_label_threshold: 0.85 # ... otherwise the entry needs this score instead of `threshold` (English only, see label_guard_langs)
+  label_guard_langs: [en]
+  label_key_df: 2          # a question-pattern word counts as naming the object if at most this many entries use it
+
+# Principle library (knowledge/principles/principles.json, AI draft): pre-written answers chosen by embedding, used when
+# no entry matches and no approved family answer fits. Below `floor`, or with a runner-up within `margin`, the hub abstains.
+# English precision gates (they can only veto the best principle, see hub/principles.py): the question must contain one of
+# its keywords_en (require_keyword), and must be covered by what the principle knows (min_coverage = share of the question's
+# content words found in its examples / applies_to / keywords; coverage_weight scales the score down for the uncovered rest).
+principles:
+  enabled: true
+  floor: 0.60
+  margin: 0.05
+  require_keyword: true
+  min_coverage: 0.6
+  coverage_weight: 0.5
+
+# Answers a parent approved from the "To answer" list: a near-duplicate question gets that answer.
+family:
+  threshold: 0.88
+
+# Parent assistant: while no child request has arrived for idle_s seconds, the UGen300 drafts answers for the parent's
+# "To answer" list (hailo mode only), one sentence per worker call so a child request is never stuck behind a draft.
+assistant:
+  enabled: true
+  idle_s: 20
+
+# Chat turn (2026-11-15): the UGen300's LLM talks to the child (hub/chat.py) for chit-chat, rule questions, "what is this?"
+# without a confident camera label, and (household setting `ai_guess`, default on) a hedged AI guess for real questions
+# nothing curated covers. Every model text passes hub/guard.py; a failure, a busy LLM or a timeout gives a canned line.
+# max_new caps the tokens (about 6 tokens/s on the UGen300 at 1.5 A plus about 1.7 s to the first token).
+chat:
+  enabled: true
+  timeout_s: 8.0          # hard cap on waiting for the worker (queue + generation); canned line after it
+  guess_timeout_s: 9.0
+  max_new: 30
+  guess_max_new: 36
+  context_floor: 0.6      # nearest entries / principles below this are not given to the AI guess
+  guess_sentences: 1      # one sentence: the second sentence of a 1.5B guess was made up far more often (eval/chat_report.md)
+  guess_max_words: 20     # one guess sentence; 16 cut most of the right "because" guesses
+  guess_needs_context: false   # true: guess only when a nearby entry / principle backs it (fewer guesses, fewer made-up facts)
+  memory_s: 180           # follow-ups ("why?", "tell me more") see the last turns of the same child within this time
+  memory_turns: 3
+
+compose:
+  enabled: true
+  model: Qwen/Qwen2.5-1.5B-Instruct
+  timeout_s: 6.0
+  timeout_s_hailo: 10.0   # UGen300: about 4 s (age 5-6) to 6 s (age 7-8) per explanation at 1.5 A, see docs/benchmarks.md
+  max_new_tokens: 120
+
+# ASUS UGen300 USB, Hailo-10H, HailoRT 5.x. See docs/hardware.md "Day one" and step 9.
+# Paths are relative to the repo root or absolute; empty = not used. Only ONE process can open the UGen300: run
+# `python -m hub.hailo_worker` (it loads every HEF set here on one device) and set `worker`, or leave `worker` empty
+# and the hub loads the HEFs in-process (then the hub's Python needs the HailoRT wheel).
+hailo:
+  # Text LLM (chat replies, AI guesses, explanations, parent drafts): Qwen2.5-1.5B-Instruct (hailo-ollama qwen2.5:1.5b).
+  # A/B on a fresh question set (eval/model_ab_report.md, AI-judged): fewest false statements in AI guesses (8/41) and the
+  # fastest (5.7 tokens/s, guess median 4.9 s) against Qwen3-1.7B-Instruct (15/42, 3.8 tokens/s, 8.8 s) and
+  # Qwen3-VL-2B-Instruct as the text model (13/46, 3.5 tokens/s, 7.8 s).
+  llm_hef: 'C:\Users\Jie\AppData\Local\hailo-ollama\models\blob\sha256_0856a10c2b804cfe1590b80aa5e28369eb7169a9b36de836420a0b8cdf5b8d05'
+  # Qwen3-VL-2B-Instruct HEF (Hailo model zoo v5.3.0, 3.19 GB). Only ONE GenAI LLM or VLM fits on the device: to use it, set
+  # vlm_hef, empty llm_hef (the VLM then also writes the text) and set vision.vlm.enabled; or start with config.hailo-vlm.yaml.
+  #   C:\Users\Jie\Desktop\whyscope\whyscope\models\hailo\Qwen3-VL-2B-Instruct.hef
+  vlm_hef: ''
+  llm_restore: auto       # auto | context | prefill: how the fixed prompt prefix is restored per call (hub/hailo.py)
+  whisper_hef: 'C:\Users\Jie\Desktop\whyscope\whyscope\models\hailo\Whisper-Small.hef'      # Whisper-Small.hef (English WER 1.4%, about 1.0 s) or Whisper-Base.hef (3.4%, 0.43 s); listen.backend_by_lang
+  yolo_hef: 'C:\Users\Jie\Desktop\whyscope\whyscope\models\hailo\yolov8s.hef'         # yolov8s.hef, used when vision.backend is hailo
+  clip_image_hef: 'C:\Users\Jie\Desktop\whyscope\whyscope\models\hailo\clip_vit_b_32_image_encoder.hef'   # clip_vit_b_32_image_encoder.hef, used when vision.backend is hailo
+  worker: 'http://127.0.0.1:8711'           # e.g. http://127.0.0.1:8711 (127.0.0.1 only); empty = in-process
+  temperature: 0.1
+  seed: 42
+
+safety:
+  rules_file: knowledge/sensitive_rules.json
+  cheats_dir: knowledge/cheats
+
+retention_days: 30
+cloud_fallback: false   # not available in this prototype

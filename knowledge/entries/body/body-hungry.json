@@ -1,0 +1,66 @@
+{
+  "id": "body-hungry",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "肚子餓",
+    "餓",
+    "hungry"
+  ],
+  "question_patterns": [
+    "為什麼我們會肚子餓",
+    "肚子餓是什麼感覺",
+    "為什麼過一陣子就會餓",
+    "肚子餓是怎麼來的"
+  ],
+  "first_sentence": "好幾個小時沒吃東西，就會餓。",
+  "facts": [
+    "身體裡有東西會告訴你該吃了",
+    "餓是想吃東西的感覺",
+    "吃了東西以後，就不那麼餓了"
+  ],
+  "ask_back": "吃飽以後，會比較餓還是比較不餓？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Hunger",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "hungry",
+      "hunger"
+    ],
+    "question_patterns": [
+      "why do we feel hungry",
+      "why does my tummy want food",
+      "why do I get hungry again",
+      "what makes us hungry"
+    ],
+    "first_sentence": "After a few hours with no food, you feel hungry.",
+    "facts": [
+      "Your body has helpers that tell you it is time to eat.",
+      "Hunger is the feeling of wanting food.",
+      "After you eat, you feel less hungry."
+    ],
+    "ask_back": "After eating, is a person less hungry, or more hungry?",
+    "bridges": {},
+    "asks_en": [
+      "feel",
+      "tummy",
+      "want",
+      "food",
+      "again",
+      "after",
+      "few",
+      "hours",
+      "body",
+      "helpers",
+      "time",
+      "eat",
+      "less"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "animals-bird-song",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "鳥叫",
+    "鳥唱歌",
+    "birdsong"
+  ],
+  "question_patterns": [
+    "為什麼小鳥會唱歌",
+    "鳥為什麼一直叫",
+    "鳥為什麼早上叫",
+    "鳥叫是在說什麼"
+  ],
+  "first_sentence": "小鳥唱歌，是在跟別的鳥說話。",
+  "facts": [
+    "鳥唱歌可以找到伴",
+    "鳥唱歌也是在說這裡是我的地方",
+    "鳥的歌聲可能讓人知道牠好不好"
+  ],
+  "ask_back": "小鳥唱歌，是在叫同伴還是在睡覺？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Bird_song",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "birdsong",
+      "bird singing",
+      "bird call"
+    ],
+    "question_patterns": [
+      "why do birds sing",
+      "why do birds chirp so much",
+      "what are birds saying when they sing",
+      "why are the birds loud in the morning"
+    ],
+    "first_sentence": "Birds sing to talk to other birds.",
+    "facts": [
+      "Birds sing to find a partner.",
+      "A song can also say keep out, this is my place.",
+      "A bird's song may show how healthy it is."
+    ],
+    "ask_back": "Is a bird singing to find a partner, or to sleep?",
+    "bridges": {},
+    "asks_en": [
+      "chirp",
+      "much",
+      "saying",
+      "loud",
+      "morning",
+      "talk",
+      "other",
+      "find",
+      "partner",
+      "song",
+      "keep",
+      "place",
+      "may",
+      "show",
+      "healthy"
+    ]
+  }
+}

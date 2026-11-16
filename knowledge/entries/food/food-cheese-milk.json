@@ -1,0 +1,65 @@
+{
+  "id": "food-cheese-milk",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "起司",
+    "乳酪",
+    "cheese"
+  ],
+  "question_patterns": [
+    "起司是用什麼做的",
+    "起司是怎麼來的",
+    "乳酪是什麼",
+    "起司是牛奶做的嗎"
+  ],
+  "first_sentence": "起司是用牛奶做的。",
+  "facts": [
+    "起司用牛、羊的奶做成",
+    "很久很久以前，人就會做起司",
+    "不同的奶和做法，會做出不同的起司"
+  ],
+  "ask_back": "起司是用牛奶做的，還是用石頭做的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Cheese",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "cheese"
+    ],
+    "question_patterns": [
+      "what is cheese made of",
+      "how is cheese made",
+      "is cheese made from milk",
+      "where does cheese come from"
+    ],
+    "first_sentence": "Cheese is made from milk.",
+    "facts": [
+      "Cheese is made from the milk of cows, goats, or sheep.",
+      "People made cheese long before writing began.",
+      "Different milk and ways of making give different cheeses."
+    ],
+    "ask_back": "Is cheese made from milk, or from stones?",
+    "bridges": {},
+    "asks_en": [
+      "milk",
+      "cows",
+      "goats",
+      "sheep",
+      "people",
+      "long",
+      "before",
+      "writing",
+      "began",
+      "different",
+      "ways",
+      "making",
+      "give"
+    ]
+  }
+}

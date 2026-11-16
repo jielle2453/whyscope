@@ -1,0 +1,64 @@
+{
+  "id": "sky_weather-sea-salty",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "海水",
+    "海水鹹鹹的",
+    "seawater"
+  ],
+  "question_patterns": [
+    "為什麼海水是鹹的",
+    "海水為什麼鹹鹹的",
+    "海水可以喝嗎",
+    "海水裡有什麼"
+  ],
+  "first_sentence": "海水裡有很多鹽，所以是鹹的。",
+  "facts": [
+    "海水裡的鹽，和家裡的鹽是同一種",
+    "每一百杯海水，大約有三杯半的鹽",
+    "鹹鹹的海水，不能直接喝"
+  ],
+  "ask_back": "海水是鹹的，還是甜的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Sea",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "seawater",
+      "sea water",
+      "salty water"
+    ],
+    "question_patterns": [
+      "why is the sea salty",
+      "why does seawater taste salty",
+      "what is in sea water",
+      "can I drink sea water"
+    ],
+    "first_sentence": "Sea water has a lot of salt, so it tastes salty.",
+    "facts": [
+      "The main salt in the sea is the same kind you eat.",
+      "Sea water is a bit salty everywhere you go.",
+      "Sea water is too salty to drink."
+    ],
+    "ask_back": "Does sea water taste salty, or sweet?",
+    "bridges": {},
+    "asks_en": [
+      "taste",
+      "drink",
+      "lot",
+      "salt",
+      "main",
+      "same",
+      "kind",
+      "eat",
+      "bit",
+      "everywhere"
+    ]
+  }
+}

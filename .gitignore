@@ -14,3 +14,13 @@ models/
 !hub/static/*.png
 .impeccable/
 .venvpath
+certs/
+
+# answer bank process files (writer/checker/judge intermediates) are kept local
+eval/answer_bank/parts/
+eval/answer_bank/parts_v2/
+*.log
+node_modules/
+.wrangler/
+.dev.vars
+relay/relay-state.json

@@ -1,0 +1,68 @@
+{
+  "id": "sky_weather-sun-far",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "太陽有多遠",
+    "太陽有多大",
+    "sun distance"
+  ],
+  "question_patterns": [
+    "太陽離我們有多遠",
+    "太陽有多大",
+    "太陽光要走多久才到地球",
+    "太陽是不是一顆星星"
+  ],
+  "first_sentence": "太陽離我們非常遠，也非常大。",
+  "facts": [
+    "太陽是一顆星星，在太陽系的中心",
+    "太陽光走到地球，要大約八分鐘",
+    "太陽的寬度，大約是地球的一百倍"
+  ],
+  "ask_back": "太陽是一顆星星，還是一顆行星？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Sun",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "how far is the sun",
+      "how big is the sun"
+    ],
+    "question_patterns": [
+      "how far away is the sun",
+      "how big is the sun",
+      "how long does sunlight take to get to us",
+      "is the sun a star"
+    ],
+    "first_sentence": "The sun is very far away, and very big.",
+    "facts": [
+      "The sun is a star in the middle of the planets.",
+      "Sunlight takes about eight minutes to reach Earth.",
+      "The sun is about 109 times wider than the Earth."
+    ],
+    "ask_back": "Is the sun a star, or a planet?",
+    "bridges": {},
+    "asks_en": [
+      "away",
+      "long",
+      "sunlight",
+      "take",
+      "star",
+      "center",
+      "solar",
+      "system",
+      "eight",
+      "minutes",
+      "reach",
+      "earth",
+      "109",
+      "times",
+      "wider"
+    ]
+  }
+}

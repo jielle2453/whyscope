@@ -1,0 +1,70 @@
+{
+  "id": "sky_weather-frost",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "霜",
+    "結霜",
+    "frost"
+  ],
+  "question_patterns": [
+    "霜是什麼",
+    "為什麼早上會有一層白白的霜",
+    "霜是怎麼來的",
+    "為什麼冬天草上有白白的"
+  ],
+  "first_sentence": "霜是冷冷的小冰晶，白白的。",
+  "facts": [
+    "空氣裡的水氣碰到很冷的東西，會結成冰",
+    "霜看起來白白粉粉的",
+    "霜太冷，可能會凍壞植物"
+  ],
+  "ask_back": "霜是冷的時候出現，還是熱的時候出現？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Frost",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "frost",
+      "frosty"
+    ],
+    "question_patterns": [
+      "what is frost",
+      "why is the grass white in the morning",
+      "how does frost form",
+      "why is there white stuff on the windows"
+    ],
+    "first_sentence": "Frost is white, powdery ice.",
+    "facts": [
+      "Water in the air freezes onto cold surfaces.",
+      "Frost looks white and powdery.",
+      "Frost can hurt plants."
+    ],
+    "ask_back": "Does frost show up when it is cold, or hot?",
+    "bridges": {},
+    "asks_en": [
+      "grass",
+      "white",
+      "morning",
+      "form",
+      "stuff",
+      "windows",
+      "powdery",
+      "ice",
+      "water",
+      "air",
+      "freezes",
+      "onto",
+      "cold",
+      "surfaces",
+      "looks",
+      "hurt",
+      "plants"
+    ]
+  }
+}

@@ -48,6 +48,21 @@
     "ask_back": "Do you think the sky looks blue in the day, or at night?",
     "bridges": {
       "has_garden": "Have you looked up at the blue sky from your garden?"
-    }
+    },
+    "asks_en": [
+      "because",
+      "light",
+      "spreads",
+      "air",
+      "sunlight",
+      "looks",
+      "white",
+      "many",
+      "colors",
+      "inside",
+      "bounces",
+      "more",
+      "other"
+    ]
   }
 }

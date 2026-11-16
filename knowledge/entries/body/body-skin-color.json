@@ -1,0 +1,67 @@
+{
+  "id": "body-skin-color",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "膚色",
+    "皮膚的顏色",
+    "skin color"
+  ],
+  "question_patterns": [
+    "為什麼人的膚色不一樣",
+    "為什麼有的人皮膚比較黑",
+    "皮膚的顏色是怎麼來的",
+    "為什麼每個人皮膚顏色不同"
+  ],
+  "first_sentence": "皮膚裡有一種色素，決定膚色。",
+  "facts": [
+    "皮膚裡的色素叫黑色素",
+    "色素可以擋住一些太陽的傷害",
+    "太陽很大的地方，人的膚色常常比較深"
+  ],
+  "ask_back": "太陽很大的地方，人的皮膚常常比較深還是比較淺？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Human_skin_color",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "skin color",
+      "skin colour"
+    ],
+    "question_patterns": [
+      "why do people have different skin colors",
+      "why is some skin darker",
+      "where does skin color come from",
+      "why is my skin a different color from my friend's"
+    ],
+    "first_sentence": "A coloring in the skin makes skin color.",
+    "facts": [
+      "The coloring is called melanin.",
+      "It helps protect skin from the harm of strong sun.",
+      "People from very sunny places often have darker skin."
+    ],
+    "ask_back": "In very sunny places, is skin often darker, or lighter?",
+    "bridges": {},
+    "asks_en": [
+      "people",
+      "different",
+      "darker",
+      "friends",
+      "called",
+      "melanin",
+      "helps",
+      "protect",
+      "harm",
+      "strong",
+      "sun",
+      "sunny",
+      "places",
+      "often"
+    ]
+  }
+}

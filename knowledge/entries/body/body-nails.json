@@ -49,6 +49,26 @@
     "ask_back": "Do you think nails grow faster on your hand, or on your foot?",
     "bridges": {
       "has_cat": "Do cat claws keep growing long too?"
-    }
+    },
+    "asks_en": [
+      "grow",
+      "back",
+      "keep",
+      "need",
+      "cut",
+      "roots",
+      "under",
+      "skin",
+      "making",
+      "new",
+      "same",
+      "hard",
+      "stuff",
+      "hair",
+      "hides",
+      "usually",
+      "faster",
+      "toenails"
+    ]
   }
 }

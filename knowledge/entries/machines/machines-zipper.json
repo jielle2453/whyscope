@@ -1,0 +1,70 @@
+{
+  "id": "machines-zipper",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "拉鍊",
+    "zipper"
+  ],
+  "question_patterns": [
+    "拉鍊是怎麼拉起來的",
+    "拉鍊為什麼可以合起來",
+    "拉鍊怎麼打開",
+    "拉鍊為什麼叫拉鍊"
+  ],
+  "first_sentence": "拉鍊的小齒，被拉頭擠在一起。",
+  "facts": [
+    "兩邊各有一排小小的齒",
+    "拉頭裡有一個Y字形的小通道",
+    "拉頭往上，兩排齒就扣在一起"
+  ],
+  "ask_back": "拉頭往上拉，拉鍊會合起來還是打開？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Zipper",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "zipper",
+      "zip"
+    ],
+    "question_patterns": [
+      "how does a zipper work",
+      "why does a zipper close",
+      "how does a zip open",
+      "why is it called a zip"
+    ],
+    "first_sentence": "A zipper has two rows of little teeth.",
+    "facts": [
+      "Each side has a row of tiny teeth.",
+      "The pull has a Y-shaped path inside.",
+      "Pull it up, and the two rows lock together."
+    ],
+    "ask_back": "When you pull the slider up, does the zipper close, or open?",
+    "bridges": {},
+    "asks_en": [
+      "work",
+      "close",
+      "open",
+      "called",
+      "two",
+      "rows",
+      "little",
+      "teeth",
+      "side",
+      "tiny",
+      "slider",
+      "y",
+      "shaped",
+      "path",
+      "inside",
+      "pull",
+      "lock",
+      "together"
+    ]
+  }
+}

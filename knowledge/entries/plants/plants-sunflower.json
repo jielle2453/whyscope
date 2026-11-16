@@ -47,6 +47,23 @@
     "ask_back": "Do you think a sunflower turns to the sun, or to the moon?",
     "bridges": {
       "has_garden": "Have you seen sunflowers in a garden? Which way were they facing?"
-    }
+    },
+    "asks_en": [
+      "follow",
+      "sun",
+      "turn",
+      "face",
+      "more",
+      "sunshine",
+      "young",
+      "heads",
+      "grown",
+      "mostly",
+      "toward",
+      "east",
+      "seeds",
+      "eaten",
+      "oil"
+    ]
   }
 }

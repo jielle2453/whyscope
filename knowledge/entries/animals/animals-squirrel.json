@@ -1,0 +1,69 @@
+{
+  "id": "animals-squirrel",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "松鼠",
+    "squirrel"
+  ],
+  "question_patterns": [
+    "為什麼松鼠要藏堅果",
+    "松鼠吃什麼",
+    "松鼠冬天怎麼辦",
+    "松鼠為什麼把東西埋起來"
+  ],
+  "first_sentence": "松鼠把食物存起來，冬天吃。",
+  "facts": [
+    "很多松鼠秋天就存好食物",
+    "松鼠吃種子、莓果和松果",
+    "有的地松鼠冬天會深深睡著"
+  ],
+  "ask_back": "松鼠存食物，是為了夏天還是為了冬天？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Squirrel",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "squirrel"
+    ],
+    "question_patterns": [
+      "why do squirrels bury nuts",
+      "what do squirrels eat",
+      "what do squirrels do in winter",
+      "why does a squirrel hide its food"
+    ],
+    "first_sentence": "A squirrel saves food to eat in winter.",
+    "facts": [
+      "Many tree squirrels store food in the fall.",
+      "Squirrels eat seeds, nuts, and fruit.",
+      "Some ground squirrels sleep deeply all winter."
+    ],
+    "ask_back": "Does a squirrel save food for summer, or for winter?",
+    "bridges": {},
+    "asks_en": [
+      "bury",
+      "nuts",
+      "eat",
+      "winter",
+      "hide",
+      "food",
+      "saves",
+      "many",
+      "tree",
+      "store",
+      "fall",
+      "seeds",
+      "berries",
+      "pine",
+      "cones",
+      "ground",
+      "sleep",
+      "deeply"
+    ]
+  }
+}

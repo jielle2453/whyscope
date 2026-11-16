@@ -1,0 +1,66 @@
+{
+  "id": "sky_weather-solar-eclipse",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "日食",
+    "日蝕",
+    "solar eclipse"
+  ],
+  "question_patterns": [
+    "日食是什麼",
+    "為什麼太陽會被擋住",
+    "日食的時候天為什麼變暗",
+    "日蝕可以直接看嗎"
+  ],
+  "first_sentence": "日食是月亮擋在太陽前面。",
+  "facts": [
+    "月亮走到太陽和地球中間",
+    "月亮把太陽擋住一部分或全部",
+    "不可以直接看太陽，眼睛會受傷"
+  ],
+  "ask_back": "日食的時候，可以直接看太陽嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Solar_eclipse",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "solar eclipse",
+      "eclipse"
+    ],
+    "question_patterns": [
+      "what is a solar eclipse",
+      "why does the sun get covered up",
+      "why does it get dark in an eclipse",
+      "can I look at an eclipse"
+    ],
+    "first_sentence": "In a solar eclipse, the moon covers the sun.",
+    "facts": [
+      "The moon moves between the Earth and the sun.",
+      "It blocks part or all of the sun.",
+      "Never look straight at the sun, it hurts."
+    ],
+    "ask_back": "Is it safe to look at the sun in an eclipse?",
+    "bridges": {},
+    "asks_en": [
+      "sun",
+      "covered",
+      "dark",
+      "moon",
+      "covers",
+      "moves",
+      "between",
+      "earth",
+      "blocks",
+      "part",
+      "never",
+      "straight",
+      "hurts"
+    ]
+  }
+}

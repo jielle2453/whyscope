@@ -47,6 +47,24 @@
     "ask_back": "Do you think the wind is stronger on a hill, or in a flat field?",
     "bridges": {
       "rides_bike": "You ride a bike! Have you felt the wind on your face?"
-    }
+    },
+    "asks_en": [
+      "blow",
+      "because",
+      "sun",
+      "warms",
+      "ground",
+      "different",
+      "ways",
+      "places",
+      "more",
+      "others",
+      "moving",
+      "air",
+      "feel",
+      "turn",
+      "windmill",
+      "electricity"
+    ]
   }
 }

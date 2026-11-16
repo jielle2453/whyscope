@@ -1,0 +1,300 @@
+v3-001|Why do ducks have webbed feet?|ani-051 Why do ducks have webbed feet?|1.00
+v3-001|Why do ducks have webbed feet?|ani-067 Why do ducks quack?|0.69
+v3-002|Why do giraffes have long necks?|ani-068 Why do giraffes have long necks?|1.00
+v3-003|Why do chickens lay eggs?|ani-055 Why do chickens lay eggs?|1.00
+v3-003|Why do chickens lay eggs?|ani-040 Why do birds lay eggs?|0.91
+v3-004|Why do elephants have big ears?|ani-070 Why do elephants have big ears?|1.00
+v3-005|Why do caterpillars turn into butterflies?|ani-112 How does a caterpillar turn into a butterfly?|0.95
+v3-005|Why do caterpillars turn into butterflies?|ani-105 Why do bees visit flowers?|0.68
+v3-006|Why do horses sleep standing up?|ani-065 Why do horses sleep standing up?|1.00
+v3-006|Why do horses sleep standing up?|ani-208 What do animals do at night?|0.69
+v3-006|Why do horses sleep standing up?|ani-030 Why do hamsters sleep in the day?|0.62
+v3-007|Why do kittens like to chase string?|ani-021 Why do cats chase mice?|0.79
+v3-008|Why do worms come out when it rains?|ani-123 Why do worms come out when it rains?|1.00
+v3-008|Why do worms come out when it rains?|ani-126 Why do snails leave a slimy trail?|0.56
+v3-009|Why do I get a runny nose when I have a cold?|bod-042 Why does my nose run when I am cold?|0.92
+v3-010|Why do I have two eyes?|bod-031 Why do we have two eyes?|0.94
+v3-010|Why do I have two eyes?|soc-197 Why can't I touch everything?|0.73
+v3-011|Why does my hair keep growing?|bod-064 Why does hair grow?|0.87
+v3-012|Why do I blink all the time?|bod-027 Why do we blink?|0.92
+v3-012|Why do I blink all the time?|bod-174 Why do I see stars when I rub my eyes?|0.58
+v3-012|Why do I blink all the time?|sky-018 Why does fog happen?|0.53
+v3-013|Why do my legs feel wobbly after running?|bod-097 Why do my legs get tired?|0.68
+v3-013|Why do my legs feel wobbly after running?|bod-176 Why do we get butterflies in our tummy?|0.54
+v3-013|Why do my legs feel wobbly after running?|bod-088 Why do we get dizzy when we spin?|0.50
+v3-014|Why do I get tired after lunch?|soc-019 Why do I feel tired?|0.75
+v3-014|Why do I get tired after lunch?|bod-144 Why do we get tired?|0.71
+v3-015|Why do bruises turn purple?|bod-056 Why do we get bruises?|0.74
+v3-015|Why do bruises turn purple?|bod-050 Why do we have different skin colors?|0.50
+v3-015|Why do bruises turn purple?|pfd-097 Why is chili spicy?|0.48
+v3-016|Why do I have teeth that fall out?|bod-019 Why do we lose baby teeth?|0.94
+v3-017|Why does the sun come up in the morning?|sky-043 Why does the sun come up in the morning?|1.00
+v3-017|Why does the sun come up in the morning?|soc-187 Why do we have to get dressed?|0.69
+v3-018|Why are there so many stars?|soc-145 Why are there stars?|0.91
+v3-018|Why are there so many stars?|bod-174 Why do I see stars when I rub my eyes?|0.70
+v3-018|Why are there so many stars?|sky-095 What is a galaxy?|0.51
+v3-019|Why is Mars red?|sky-073 Why is Mars red?|1.00
+v3-019|Why is Mars red?|sky-061 What is a lunar eclipse?|0.67
+v3-019|Why is Mars red?|bod-033 Why do we see colors?|0.60
+v3-020|Why does the moon follow our car?|sky-052 Why does the moon follow us?|0.98
+v3-020|Why does the moon follow our car?|sky-197 Why does the Earth have a moon?|0.75
+v3-020|Why does the moon follow our car?|sky-048 Why does the moon change shape?|0.70
+v3-021|Why do planets have moons?|sky-197 Why does the Earth have a moon?|0.84
+v3-021|Why do planets have moons?|sky-048 Why does the moon change shape?|0.68
+v3-022|Why can't we breathe in space?|sky-090 Why is there no air in space?|1.00
+v3-023|Why do comets have tails?|sky-059 What is a comet?|0.86
+v3-024|Why is the sky gray when it is cloudy?|sky-006 Why are some clouds gray?|0.91
+v3-024|Why is the sky gray when it is cloudy?|sky-037 Why does the sky get dark before it rains?|0.77
+v3-025|Why does fog make it hard to see?|sky-018 Why does fog happen?|0.87
+v3-026|Why do we get hail in a storm?|sky-016 What is hail?|0.74
+v3-026|Why do we get hail in a storm?|sky-025 Why is there thunder?|0.64
+v3-027|Why does the ground get wet with morning dew?|sky-019 What is dew?|0.79
+v3-028|Why do raindrops make circles on a pond?|thg-049 Why does water make a splash?|0.68
+v3-028|Why do raindrops make circles on a pond?|sky-175 Why does water go down the drain in a swirl?|0.65
+v3-028|Why do raindrops make circles on a pond?|sky-019 What is dew?|0.62
+v3-029|Why do tornadoes spin?|sky-029 What is a tornado?|0.81
+v3-030|Why do icicles hang from the roof?|sky-151 Why does ice float?|0.53
+v3-030|Why do icicles hang from the roof?|pfd-163 Why does ice float in a drink?|0.52
+v3-031|Why does the sea breeze feel cool?|sky-206 Why do we have wind in some places?|0.76
+v3-031|Why does the sea breeze feel cool?|sky-166 Why is the water cold in the sea?|0.66
+v3-032|Why does frost cover the window in winter?|soc-101 Why do we wear different clothes in different seasons?|0.77
+v3-032|Why does frost cover the window in winter?|sky-012 Why is snow cold?|0.74
+v3-032|Why does frost cover the window in winter?|thg-033 Why do things get cold?|0.68
+v3-033|Why do roots grow down?|pfd-008 What do roots do?|0.83
+v3-033|Why do roots grow down?|sky-034 Why do leaves fall off trees?|0.68
+v3-034|Why do fruits have different colors?|pfd-039 Why do fruits change color when they get ripe?|0.94
+v3-034|Why do fruits have different colors?|pfd-036 What is the difference between a fruit and a vegetable?|0.76
+v3-034|Why do fruits have different colors?|pfd-035 What is a fruit?|0.76
+v3-035|Why do some plants have thorns?|pfd-057 Why do roses have thorns?|0.87
+v3-035|Why do some plants have thorns?|pfd-068 Why are some plants poisonous?|0.70
+v3-036|Why do tomatoes turn red?|sky-033 Why do leaves change color in fall?|0.78
+v3-036|Why do tomatoes turn red?|pfd-036 What is the difference between a fruit and a vegetable?|0.77
+v3-036|Why do tomatoes turn red?|pfd-013 Why do flowers have bright colors?|0.70
+v3-037|Why do dandelions turn into fluffy puffs?|pfd-041 What is a dandelion?|0.70
+v3-037|Why do dandelions turn into fluffy puffs?|ani-105 Why do bees visit flowers?|0.60
+v3-038|Why do bamboo shoots grow so tall?|ani-075 Why do pandas eat bamboo?|0.66
+v3-038|Why do bamboo shoots grow so tall?|sky-138 Why do trees grow tall?|0.62
+v3-038|Why do bamboo shoots grow so tall?|pfd-050 Why are some leaves big and some small?|0.57
+v3-039|Why do vines climb up fences?|pfd-042 Why do some plants climb?|0.87
+v3-039|Why do vines climb up fences?|pfd-077 Why do apples grow on trees?|0.61
+v3-040|Why do flowers have petals?|pfd-018 What is a flower for?|0.87
+v3-040|Why do flowers have petals?|thg-095 What is a vase for?|0.80
+v3-041|Why does bread get hard when it is old?|pfd-088 Why does bread rise?|0.76
+v3-041|Why does bread get hard when it is old?|pfd-090 What is bread made of?|0.73
+v3-042|Why does honey never go bad?|pfd-156 Why does honey not go bad?|0.96
+v3-042|Why does honey never go bad?|pfd-101 Where does honey come from?|0.76
+v3-043|Why do bananas get brown spots?|pfd-127 Why do bananas have a peel?|0.75
+v3-043|Why do bananas get brown spots?|pfd-050 Why are some leaves big and some small?|0.63
+v3-044|Why does butter melt on warm toast?|pfd-161 Why does butter melt?|0.85
+v3-044|Why does butter melt on warm toast?|thg-163 How does a toaster work?|0.76
+v3-044|Why does butter melt on warm toast?|pfd-141 What is a toaster?|0.65
+v3-045|Why do we cook meat?|pfd-111 Where does meat come from?|0.84
+v3-045|Why do we cook meat?|soc-112 Why do we need food?|0.62
+v3-046|Why does jelly wobble?|pfd-125 Why does jelly wobble?|1.00
+v3-046|Why does jelly wobble?|ani-134 Do bugs have bones?|0.64
+v3-047|Why do eggs float when they are old?|ani-042 How do baby birds hatch?|0.78
+v3-047|Why do eggs float when they are old?|ani-040 Why do birds lay eggs?|0.77
+v3-048|Why does lemonade taste sweet when I add sugar?|pfd-164 Why does juice taste sweet?|0.81
+v3-048|Why does lemonade taste sweet when I add sugar?|bod-170 Why do foods taste different?|0.73
+v3-049|Why do lights come on when I flip the switch?|soc-193 Why do we turn off lights?|0.82
+v3-049|Why do lights come on when I flip the switch?|soc-130 What is electricity?|0.68
+v3-049|Why do lights come on when I flip the switch?|thg-110 How does a light bulb work?|0.65
+v3-050|Why do zippers hold together?|thg-102 What is a zipper?|0.79
+v3-051|Why does a kettle whistle?|pfd-140 Why does a kettle whistle?|1.00
+v3-051|Why does a kettle whistle?|pfd-139 What is a kettle?|0.70
+v3-052|Why does a refrigerator hum?|thg-087 What is a fridge for?|0.86
+v3-052|Why does a refrigerator hum?|bod-186 Why do we shiver?|0.47
+v3-053|Why does a candle go out when I cover it with a jar?|pfd-158 Why do we put candles on a birthday cake?|0.67
+v3-053|Why does a candle go out when I cover it with a jar?|thg-095 What is a vase for?|0.63
+v3-054|Why do glasses help people see?|thg-078 Why do some people wear glasses?|0.89
+v3-054|Why do glasses help people see?|soc-197 Why can't I touch everything?|0.74
+v3-055|Why does soap make bubbles?|sky-170 Why does soap make bubbles?|1.00
+v3-055|Why does soap make bubbles?|bod-135 How does soap make things clean?|0.98
+v3-055|Why does soap make bubbles?|pfd-162 Why does water boil?|0.79
+v3-056|Why do clocks tick?|thg-062 How does a clock work?|0.95
+v3-056|Why do clocks tick?|soc-107 Why do we have clocks?|0.82
+v3-057|Why does ice melt in my hand?|thg-022 Why does ice melt?|0.85
+v3-057|Why does ice melt in my hand?|pfd-163 Why does ice float in a drink?|0.79
+v3-058|Why does water boil when it is hot?|sky-157 Why does water boil?|0.93
+v3-058|Why does water boil when it is hot?|pfd-162 Why does water boil?|0.93
+v3-059|Why does a straw let me drink?|bod-008 Why do we need to drink water?|0.68
+v3-059|Why does a straw let me drink?|thg-041 Why does a straw look bent in water?|0.68
+v3-059|Why does a straw let me drink?|pfd-162 Why does water boil?|0.58
+v3-060|Why does oil stay on top of water?|thg-029 Why don't oil and water mix?|0.91
+v3-060|Why does oil stay on top of water?|pfd-163 Why does ice float in a drink?|0.60
+v3-061|Why does a swing go back and forth?|thg-047 Why does a swing go back and forth?|1.00
+v3-062|Why do wet clothes dry in the sun?|thg-101 What is a dryer for?|0.77
+v3-062|Why do wet clothes dry in the sun?|sky-141 Why does the ocean go in and out?|0.73
+v3-062|Why do wet clothes dry in the sun?|sky-166 Why is the water cold in the sea?|0.61
+v3-063|Why does a bubble pop?|thg-026 Why do bubbles pop?|0.99
+v3-063|Why does a bubble pop?|pfd-162 Why does water boil?|0.81
+v3-064|Why does a skipping stone bounce on the lake?|thg-005 Why does a boat float?|0.61
+v3-064|Why does a skipping stone bounce on the lake?|thg-004 Why do some things float and some things sink?|0.61
+v3-064|Why does a skipping stone bounce on the lake?|sky-164 Why do things sink or float?|0.59
+v3-065|Why is lava red?|sky-115 What is lava?|0.81
+v3-065|Why is lava red?|bod-033 Why do we see colors?|0.67
+v3-066|Why do rivers flow to the sea?|sky-147 Why do rivers flow?|0.90
+v3-067|Why are there caves under the ground?|sky-124 What is a cave?|0.78
+v3-068|Why is the desert so dry?|sky-129 Why is the desert hot and dry?|0.91
+v3-068|Why is the desert so dry?|sky-128 What is a desert?|0.81
+v3-068|Why is the desert so dry?|sky-134 Why is the ground hard?|0.52
+v3-069|Why do we find fossils in rocks?|sky-131 How are fossils made?|0.94
+v3-069|Why do we find fossils in rocks?|sky-118 What are rocks?|0.69
+v3-070|Why do islands exist?|sky-127 How are islands made?|0.86
+v3-070|Why do islands exist?|sky-203 What is a continent?|0.45
+v3-071|Why is the ocean deep?|sky-172 Why does it get dark deep in the sea?|0.75
+v3-071|Why is the ocean deep?|sky-141 Why does the ocean go in and out?|0.69
+v3-071|Why is the ocean deep?|sky-166 Why is the water cold in the sea?|0.61
+v3-072|Why do some rocks have holes in them?|sky-124 What is a cave?|0.87
+v3-073|Why do we have to pay for things in a shop?|soc-093 What is a shop?|0.73
+v3-074|Why do police wear uniforms?|soc-084 What does a police officer do?|0.76
+v3-074|Why do police wear uniforms?|soc-031 Why do we wear a helmet?|0.47
+v3-075|Why do we have rules?|soc-032 Why do we have rules?|1.00
+v3-075|Why do we have rules?|soc-156 Why do we play?|0.56
+v3-076|Why do people get married?|soc-069 Why do people get married?|1.00
+v3-076|Why do people get married?|soc-146 What is luck?|0.44
+v3-077|Why do some people wear glasses?|thg-078 Why do some people wear glasses?|1.00
+v3-077|Why do some people wear glasses?|bod-068 Why do we have eyelashes?|0.65
+v3-078|Why do we vote?|soc-108 What is a vote?|0.85
+v3-078|Why do we vote?|bod-011 Why do we need to sleep?|0.47
+v3-079|Why do doctors give shots?|bod-123 Why do we need vaccines?|0.78
+v3-079|Why do doctors give shots?|bod-122 Why do we need medicine?|0.62
+v3-079|Why do doctors give shots?|bod-177 What is a throat for?|0.41
+v3-080|Why do we celebrate holidays?|soc-099 Why do we have holidays?|0.96
+v3-080|Why do we celebrate holidays?|soc-061 Why do we have summer vacation?|0.83
+f-001|Why does my foot fall asleep?|bod-098 Why do my feet fall asleep?|0.97
+f-001|Why does my foot fall asleep?|bod-099 Why do we have toes?|0.68
+f-001|Why does my foot fall asleep?|bod-011 Why do we need to sleep?|0.62
+f-002|Why do my cheeks get red when I'm shy?|soc-011 Why do we blush?|0.89
+f-002|Why do my cheeks get red when I'm shy?|bod-114 Why do we blush?|0.79
+f-003|Why do I have knees?|bod-101 Why do we have knees?|0.94
+f-003|Why do I have knees?|bod-103 Why do my joints crack?|0.88
+f-004|Why do my lips get dry in winter?|bod-042 Why does my nose run when I am cold?|0.65
+f-005|Why does my nose run when I eat spicy food?|bod-172 Why do spicy foods burn my mouth?|0.81
+f-005|Why does my nose run when I eat spicy food?|bod-042 Why does my nose run when I am cold?|0.73
+f-006|Why do I get a cramp in my leg?|bod-097 Why do my legs get tired?|0.58
+f-006|Why do I get a cramp in my leg?|bod-103 Why do my joints crack?|0.54
+f-007|Why do I have hair on my arms?|bod-070 Why do we have hair on our arms?|0.90
+f-007|Why do I have hair on my arms?|bod-062 Why do we have hair?|0.71
+f-007|Why do I have hair on my arms?|bod-068 Why do we have eyelashes?|0.58
+f-008|Why does my mouth water when I see candy?|bod-045 Why does my mouth water when I see food?|0.82
+f-008|Why does my mouth water when I see candy?|bod-044 Why do we have spit?|0.71
+f-009|Why can't I tickle myself?|bod-113 Why can we not tickle ourselves?|0.95
+f-009|Why can't I tickle myself?|soc-197 Why can't I touch everything?|0.51
+f-010|Why do I talk in my sleep?|bod-151 Why do we talk in our sleep?|0.96
+f-010|Why do I talk in my sleep?|bod-011 Why do we need to sleep?|0.75
+f-011|Why do cows chew all day?|ani-060 What do cows eat?|0.74
+f-011|Why do cows chew all day?|ani-066 Why do goats eat everything?|0.71
+f-012|Why do crabs walk sideways?|ani-148 Why do crabs walk sideways?|1.00
+f-012|Why do crabs walk sideways?|ani-154 Why do sea turtles go to the beach?|0.61
+f-012|Why do crabs walk sideways?|ani-126 Why do snails leave a slimy trail?|0.57
+f-013|Why do parrots copy what we say?|ani-053 Why do parrots talk?|0.88
+f-013|Why do parrots copy what we say?|ani-054 Why do birds have beaks?|0.75
+f-014|Why do ducks walk in a line?|ani-182 Why do birds fly in a V shape?|0.80
+f-014|Why do ducks walk in a line?|ani-067 Why do ducks quack?|0.70
+f-015|Why do hamsters stuff their cheeks?|ani-028 Why do hamsters have big cheeks?|0.90
+f-015|Why do hamsters stuff their cheeks?|ani-062 Why do pigs roll in mud?|0.68
+f-016|Why do goats climb rocks?|ani-066 Why do goats eat everything?|0.65
+f-017|Why do ladybugs have spots?|ani-122 Why do ladybugs have spots?|1.00
+f-017|Why do ladybugs have spots?|ani-203 Why do some animals have eyes on the sides of their heads?|0.48
+f-018|Why do dogs pant?|ani-006 Why do dogs pant?|1.00
+f-018|Why do dogs pant?|ani-009 Why do dogs roll over?|0.74
+f-019|Why do cats bring dead mice home?|ani-021 Why do cats chase mice?|0.83
+f-020|Why do hippos stay in the water?|ani-082 Why do hippos stay in water?|0.99
+f-020|Why do hippos stay in the water?|ani-156 Why do fish swim in groups?|0.61
+f-021|Why are pine cones closed when it rains?|pfd-028 What is a pine cone?|0.71
+f-021|Why are pine cones closed when it rains?|sky-110 Why is it cold at the North and South Poles?|0.53
+f-022|Why are some caves cold?|sky-125 Why are caves dark?|0.76
+f-022|Why are some caves cold?|sky-112 Why are mountain tops cold?|0.76
+f-023|Why is mud sticky?|sky-205 Why is the ground sometimes muddy?|0.99
+f-024|Why do some leaves feel fuzzy?|pfd-050 Why are some leaves big and some small?|0.66
+f-025|Why are some lakes green?|sky-190 Why are the leaves green?|0.68
+f-025|Why are some lakes green?|pfd-151 Why is broccoli good for me?|0.55
+f-026|Why does a rainbow have a curve?|sky-009 Why is the rainbow curved?|0.93
+f-026|Why does a rainbow have a curve?|thg-039 Why is there a rainbow?|0.78
+f-027|Why do leaves have veins?|pfd-051 What are the lines on a leaf?|0.90
+f-027|Why do leaves have veins?|sky-034 Why do leaves fall off trees?|0.55
+f-028|Why does a puddle look like a mirror?|sky-154 Why do puddles go away?|0.72
+f-028|Why does a puddle look like a mirror?|sky-168 What is a puddle?|0.71
+f-029|Why are some clouds pink?|sky-065 Why does the sky turn pink in the morning?|0.79
+f-029|Why are some clouds pink?|sky-041 Why are sunsets red?|0.73
+f-030|Why do acorns have little hats?|bod-002 Why do we sneeze?|0.57
+f-030|Why do acorns have little hats?|bod-053 Why do we get freckles?|0.54
+f-030|Why do acorns have little hats?|ani-064 Why do horses have horseshoes?|0.48
+f-031|Why do some berries make you sick?|bod-126 Why do we get allergies?|0.68
+f-031|Why do some berries make you sick?|pfd-038 Why are fruits sweet?|0.64
+f-032|Why is space dark?|sky-091 Why is space dark?|1.00
+f-032|Why is space dark?|bod-034 Why can we not see in the dark?|0.75
+f-033|Why does the moon look orange sometimes?|sky-061 What is a lunar eclipse?|0.77
+f-033|Why does the moon look orange sometimes?|sky-048 Why does the moon change shape?|0.76
+f-034|Why do astronauts wear big suits?|sky-084 Why do astronauts float in space?|0.72
+f-034|Why do astronauts wear big suits?|sky-085 Who is an astronaut?|0.71
+f-035|Why do rockets need fire?|sky-087 Why do rockets go so fast?|0.76
+f-035|Why do rockets need fire?|sky-086 How do rockets go up?|0.71
+f-036|Why is Jupiter so big?|sky-075 Which planet is the biggest?|0.69
+f-036|Why is Jupiter so big?|sky-048 Why does the moon change shape?|0.46
+f-037|Why do stars have points in drawings?|soc-145 Why are there stars?|0.73
+f-037|Why do stars have points in drawings?|bod-174 Why do I see stars when I rub my eyes?|0.64
+f-037|Why do stars have points in drawings?|soc-107 Why do we have clocks?|0.41
+f-038|Why does the moon have a face?|sky-048 Why does the moon change shape?|0.78
+f-039|Why do astronauts eat food from bags?|sky-084 Why do astronauts float in space?|0.64
+f-039|Why do astronauts eat food from bags?|sky-085 Who is an astronaut?|0.58
+f-040|Why does the moon make the sea move?|sky-098 How does the moon go around the Earth?|0.79
+f-040|Why does the moon make the sea move?|sky-048 Why does the moon change shape?|0.75
+f-041|Why does the toast pop up?|pfd-142 Why does toast get crispy?|0.84
+f-041|Why does the toast pop up?|thg-163 How does a toaster work?|0.77
+f-041|Why does the toast pop up?|pfd-141 What is a toaster?|0.77
+f-042|Why does the vacuum cleaner make noise?|thg-099 How does a vacuum cleaner work?|0.83
+f-043|Why does the floor feel cold in the morning?|thg-033 Why do things get cold?|0.76
+f-044|Why does a door squeak?|thg-160 How does a doorbell work?|0.71
+f-045|Why do rubber bands snap back?|thg-052 What is a rubber band?|0.83
+f-045|Why do rubber bands snap back?|bod-103 Why do my joints crack?|0.58
+f-046|Why does the oven get hot?|thg-032 Why do things get hot?|0.89
+f-047|Why do pots have handles?|pfd-144 Why do pots get hot on the stove?|0.69
+f-048|Why do keys open locks?|thg-165 Why does a lock need a key?|0.88
+f-048|Why do keys open locks?|soc-147 What is a secret?|0.48
+f-049|Why do my crayons break?|thg-146 How are crayons made?|0.75
+f-049|Why do my crayons break?|bod-010 Why do we brush our teeth?|0.56
+f-050|Why does paper turn yellow?|thg-147 How is paper made?|0.61
+f-050|Why does paper turn yellow?|thg-074 What is a pencil?|0.51
+f-051|Why are there holes in cheese?|pfd-102 Where does cheese come from?|0.75
+f-051|Why are there holes in cheese?|pfd-170 Why do pizzas have cheese?|0.73
+f-051|Why are there holes in cheese?|bod-185 Why do we have two nostrils?|0.50
+f-052|Why do people shake hands?|soc-179 Why do people use sign language?|0.66
+f-052|Why do people shake hands?|bod-105 Why are some people left-handed?|0.63
+f-052|Why do people shake hands?|bod-186 Why do we shiver?|0.59
+f-053|Why do we have to raise our hand in class?|soc-042 Why do I have to hold hands when crossing the road?|0.62
+f-053|Why do we have to raise our hand in class?|bod-105 Why are some people left-handed?|0.58
+f-053|Why do we have to raise our hand in class?|soc-050 Why do we have to go to school?|0.48
+f-054|Why do we clap at the end of a show?|soc-162 Why do we dance?|0.56
+f-054|Why do we clap at the end of a show?|bod-110 Why do we smile?|0.52
+f-054|Why do we clap at the end of a show?|bod-114 Why do we blush?|0.48
+f-055|Why do people put flags on buildings?|soc-090 What is a flag?|0.81
+f-056|Why do we have to share toys?|soc-164 Why do we have toys?|0.84
+f-056|Why do we have to share toys?|thg-081 What is a toy?|0.80
+f-056|Why do we have to share toys?|thg-150 How are toys made?|0.65
+f-057|Why do grown-ups go to work?|soc-063 Why do grown-ups have to work?|0.92
+f-057|Why do grown-ups go to work?|soc-082 What is a job?|0.56
+f-058|Why do we send letters?|soc-177 Why do we have letters?|0.86
+f-058|Why do we send letters?|thg-160 How does a doorbell work?|0.51
+f-059|Why do people wave hello?|soc-200 Why do we say good morning?|0.78
+f-059|Why do people wave hello?|soc-076 Why do we hug?|0.55
+f-060|Why do we have to knock on doors?|thg-064 What is a door for?|0.83
+f-060|Why do we have to knock on doors?|thg-160 How does a doorbell work?|0.72
+f-061|Why do we have weekends?|thg-107 Why do we have days of the week?|0.69
+f-062|Why do we have to be quiet in the library?|soc-196 Why do we have to be quiet sometimes?|0.71
+f-062|Why do we have to be quiet in the library?|thg-020 Why are some sounds loud and some quiet?|0.54
+f-062|Why do we have to be quiet in the library?|thg-076 What is a book?|0.45
+f-063|Why do people give presents?|soc-099 Why do we have holidays?|0.59
+f-063|Why do people give presents?|thg-081 What is a toy?|0.53
+f-063|Why do people give presents?|soc-061 Why do we have summer vacation?|0.52
+f-064|Why my hair is black? I want a blonded hair|bod-063 Why is my hair black?|0.83
+f-064|Why my hair is black? I want a blonded hair|bod-062 Why do we have hair?|0.67
+f-064|Why my hair is black? I want a blonded hair|bod-064 Why does hair grow?|0.55
+f-065|why i need to go to bed at 10|soc-029 Why do we have bedtime?|0.80
+f-065|why i need to go to bed at 10|bod-011 Why do we need to sleep?|0.67
+u-1|Why my hair is black? I want a blonded hair|bod-063 Why is my hair black?|0.83
+u-1|Why my hair is black? I want a blonded hair|bod-062 Why do we have hair?|0.67
+u-1|Why my hair is black? I want a blonded hair|bod-064 Why does hair grow?|0.55
+u-2|why i need to go to bed at 10|soc-029 Why do we have bedtime?|0.80
+u-2|why i need to go to bed at 10|bod-011 Why do we need to sleep?|0.67

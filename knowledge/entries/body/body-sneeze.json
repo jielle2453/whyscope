@@ -50,6 +50,24 @@
     "ask_back": "Do you think a sneeze is louder than a cough, or quieter?",
     "bridges": {
       "has_dog": "Does your dog sneeze too?"
-    }
+    },
+    "asks_en": [
+      "much",
+      "nose",
+      "tickle",
+      "tickly",
+      "dust",
+      "blow",
+      "air",
+      "tiny",
+      "hairs",
+      "inside",
+      "catch",
+      "flower",
+      "sick",
+      "germ",
+      "rushes",
+      "fast"
+    ]
   }
 }

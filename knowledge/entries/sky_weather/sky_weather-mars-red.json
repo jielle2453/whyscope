@@ -1,0 +1,65 @@
+{
+  "id": "sky_weather-mars-red",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "火星",
+    "mars"
+  ],
+  "question_patterns": [
+    "為什麼火星是紅色的",
+    "火星是什麼樣子",
+    "火星很冷嗎",
+    "火星為什麼叫紅色星球"
+  ],
+  "first_sentence": "火星是紅色的，因為地上有鐵鏽。",
+  "facts": [
+    "火星的土和石頭裡有鐵鏽",
+    "火星比地球小，大約只有一半寬",
+    "火星很冷，空氣也很稀薄"
+  ],
+  "ask_back": "火星比地球大，還是比地球小？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Mars_(planet)",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "mars",
+      "the red planet"
+    ],
+    "question_patterns": [
+      "why is mars red",
+      "is mars cold",
+      "what is mars like",
+      "why is mars called the red planet"
+    ],
+    "first_sentence": "Mars looks red because its ground has rust in it.",
+    "facts": [
+      "Mars has rust in its rocks and dust.",
+      "Mars is about half as wide as Earth.",
+      "Mars is cold, and its air is very thin."
+    ],
+    "ask_back": "Is Mars bigger than Earth, or smaller?",
+    "bridges": {},
+    "asks_en": [
+      "cold",
+      "called",
+      "looks",
+      "because",
+      "ground",
+      "rust",
+      "rocks",
+      "dust",
+      "half",
+      "wide",
+      "earth",
+      "air",
+      "thin"
+    ]
+  }
+}

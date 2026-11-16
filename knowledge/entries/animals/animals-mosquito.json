@@ -47,6 +47,24 @@
     "ask_back": "Do you think a mosquito's baby lives in the water, or on land?",
     "bridges": {
       "has_dog": "Mosquitoes bite dogs too! Has your dog ever been bitten?"
-    }
+    },
+    "asks_en": [
+      "mosquitoes",
+      "bite",
+      "want",
+      "blood",
+      "people",
+      "because",
+      "girl",
+      "need",
+      "eggs",
+      "only",
+      "drink",
+      "after",
+      "slowly",
+      "baby",
+      "live",
+      "water"
+    ]
   }
 }

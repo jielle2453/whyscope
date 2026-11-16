@@ -1,0 +1,71 @@
+{
+  "id": "people-firefighter",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "消防員",
+    "消防車",
+    "firefighter"
+  ],
+  "question_patterns": [
+    "消防員是做什麼的",
+    "消防車為什麼要響",
+    "消防員怎麼滅火",
+    "消防員為什麼穿厚衣服"
+  ],
+  "first_sentence": "消防員會滅火，也會救人。",
+  "facts": [
+    "消防員坐消防車趕到現場",
+    "他們用水管和長長的梯子",
+    "他們穿特別的衣服，擋熱和煙"
+  ],
+  "ask_back": "消防員是用水滅火，還是用糖滅火？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Firefighter",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "firefighter",
+      "fire truck"
+    ],
+    "question_patterns": [
+      "what do firefighters do",
+      "why does a fire truck have a siren",
+      "how do firefighters put out fires",
+      "why do firefighters wear thick clothes"
+    ],
+    "first_sentence": "Firefighters put out fires and help people.",
+    "facts": [
+      "Firefighters travel to the fire on a fire engine.",
+      "They use big hoses and long ladders.",
+      "Their special clothes protect them from heat and smoke."
+    ],
+    "ask_back": "Do firefighters put out fires with water, or with sugar?",
+    "bridges": {},
+    "asks_en": [
+      "siren",
+      "put",
+      "wear",
+      "thick",
+      "clothes",
+      "help",
+      "people",
+      "travel",
+      "engine",
+      "use",
+      "hoses",
+      "pumps",
+      "rescue",
+      "tools",
+      "special",
+      "protect",
+      "heat",
+      "smoke"
+    ]
+  }
+}

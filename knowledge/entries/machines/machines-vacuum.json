@@ -38,8 +38,7 @@
       "what is this",
       "how does a vacuum suck up dirt",
       "why does the vacuum pull dust in",
-      "how does a vacuum work",
-      "why is the vacuum so loud"
+      "how does a vacuum work"
     ],
     "first_sentence": "This is a vacuum! A fast fan pulls dust into it.",
     "facts": [
@@ -50,6 +49,22 @@
     "ask_back": "Do you think a vacuum cleaner can pick up a small pebble, or not?",
     "bridges": {
       "has_dog": "Dog hair on the floor? Can the vacuum suck that up too?"
-    }
+    },
+    "asks_en": [
+      "suck",
+      "dirt",
+      "pull",
+      "dust",
+      "work",
+      "fast",
+      "fan",
+      "motor",
+      "spin",
+      "quickly",
+      "air",
+      "machine",
+      "bag",
+      "stays"
+    ]
   }
 }

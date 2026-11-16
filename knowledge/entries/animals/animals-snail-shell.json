@@ -50,6 +50,19 @@
     "bridges": {
       "has_dog": "Your dog has fur. Why do you think a snail has none?",
       "has_sibling": "You share a home with your sibling. A snail carries its own."
-    }
+    },
+    "asks_en": [
+      "shell",
+      "carry",
+      "house",
+      "keeps",
+      "soft",
+      "body",
+      "safe",
+      "dry",
+      "hides",
+      "inside",
+      "grows"
+    ]
   }
 }

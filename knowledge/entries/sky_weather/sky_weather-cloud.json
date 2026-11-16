@@ -47,6 +47,25 @@
     "ask_back": "Do you think a cloud is heavy, or light enough to float?",
     "bridges": {
       "has_garden": "Have you looked for shapes in the clouds above your garden?"
-    }
+    },
+    "asks_en": [
+      "float",
+      "sky",
+      "light",
+      "stay",
+      "high",
+      "because",
+      "tiny",
+      "water",
+      "drops",
+      "many",
+      "air",
+      "rises",
+      "cold",
+      "form",
+      "kinds",
+      "different",
+      "shapes"
+    ]
   }
 }

@@ -48,6 +48,20 @@
     "ask_back": "Do you think milk comes from a cow, or from a tree?",
     "bridges": {
       "has_garden": "Have you ever seen a cow in a garden?"
-    }
+    },
+    "asks_en": [
+      "cow",
+      "after",
+      "baby",
+      "must",
+      "before",
+      "inside",
+      "special",
+      "part",
+      "heated",
+      "kill",
+      "germs",
+      "store"
+    ]
   }
 }

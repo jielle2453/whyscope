@@ -48,6 +48,26 @@
     "ask_back": "Do you think you see lightning before you hear thunder, or after?",
     "bridges": {
       "has_cat": "Does your cat hide when it thunders?"
-    }
+    },
+    "asks_en": [
+      "thunder",
+      "boom",
+      "hear",
+      "after",
+      "loud",
+      "because",
+      "shakes",
+      "air",
+      "hard",
+      "huge",
+      "spark",
+      "electricity",
+      "super",
+      "hot",
+      "first",
+      "light",
+      "faster",
+      "sound"
+    ]
   }
 }

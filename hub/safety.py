@@ -19,6 +19,22 @@ PRIORITY = ["self_harm", "death", "violence_war", "birth_sex"]  # tie-break only
 _STRIP = re.compile(r"[\s，。！？、,.!?~～「」『』（）()]+")
 
 # An ask-back may never probe the child's day, feelings, family or friends (product pass 1, A.1).
+# Science questions about natural events ("Why do earthquakes happen?") are not scary news. A category may list
+# `science_words` / `science_words_en` in the rules file: when a hit comes ONLY from such words and the question is a
+# plain "why / how / what" question with no fear, news, danger, death or personal cue, it is not sensitive.
+# "Will an earthquake kill us?", "Is the earthquake dangerous?", "the news said ..." still go to a parent.
+# The same holds for body science ("Why is blood red?": `science_words_en` of violence_war). Injuries, fights, war, illness and
+# anything personal ("Why does my knee bleed?", "Why do people fight with blood?", "I cut myself, there is blood") still go to a parent.
+_SCI_FORM_EN = re.compile(r"^\s*(?:why|how|what|where)\b", re.I)
+_SCI_CUE_EN = re.compile(
+    r"\b(?:kill\w*|die[ds]?|dying|dead|death|deaths|hurt\w*|injur\w*|scar(?:y|ed|es|ing)|afraid|fear\w*|frighten\w*|"
+    r"danger\w*|news|tv|will|would|gonna|going|worr\w*|destroy\w*|collaps\w*|crush\w*|trap\w*|victims?|surviv\w*|"
+    r"safe\w*|hide|escape|bad|us|me|my|our|i|tonight|tomorrow|today|here|"
+    r"fight\w*|war|wars|gun\w*|shoot\w*|shot|bomb\w*|knife|knives|soldiers?|police|bleed\w*|wound\w*|cuts?|punch\w*|"
+    r"sick|ill|illness|pain\w*|ouch|stab\w*|attack\w*|murder\w*|weapons?)\b", re.I)
+_SCI_FORM_ZH = re.compile(r"為什麼|為甚麼|為何|怎麼會|是什麼|什麼是|什麼叫|怎樣")
+_SCI_CUE_ZH = re.compile(r"死|怕|危險|受傷|新聞|電視|會不會|可怕|逃|躲|倒|壓|傷|救|災|我")
+
 ASKBACK_BLOCK = re.compile(r"今天|開心|難過|傷心|生氣|害怕|爸爸媽媽有沒有|朋友|同學|學校|老師|你的家人|你家人|你喜歡|你愛")
 
 
@@ -71,13 +87,14 @@ class Safety:
         self.zh = {}         # category -> category_zh
         self.cheats = {}     # category -> cheat dict
         self.urgent = set()  # categories flagged urgent in the rules file
+        self.science = {}    # category -> set(normalised science words, zh and en): hits from these alone may be exempt
         for cat, words in BASELINE.items():
             self._add(cat, words)
         self._load_rules()
         self._load_cheats()
         flat = [(len(w), w, c) for c, ws in self.triggers.items() for w in ws if w]
         self._flat = sorted(flat, key=lambda t: -t[0])
-        en = sorted(((len(w), _en_regex(w), c) for c, ws in self.triggers_en.items() for w in ws if w),
+        en = sorted(((len(w), _en_regex(w), c, w) for c, ws in self.triggers_en.items() for w in ws if w),
                     key=lambda t: -t[0])
         self._flat_en = [t for t in en if t[1]]
 
@@ -88,6 +105,11 @@ class Safety:
 
     def _add_en(self, cat, words):
         self.triggers_en.setdefault(cat, set()).update(_norm_en(w) for w in words if w)
+
+    def _add_science(self, cat, v):
+        words = [_norm(w) for w in (v.get("science_words") or [])] + [_norm_en(w) for w in (v.get("science_words_en") or [])]
+        if words:
+            self.science.setdefault(cat, set()).update(words)
 
     def _load_rules(self):
         try:
@@ -105,12 +127,14 @@ class Safety:
                 elif isinstance(v, dict):
                     self._add(cat, v.get("triggers") or v.get("keywords") or [], v.get("category_zh"))
                     self._add_en(cat, v.get("triggers_en") or [])
+                    self._add_science(cat, v)
         elif isinstance(data, list):
             for v in data:
                 cat = v.get("category") or v.get("id")
                 if cat:
                     self._add(cat, v.get("triggers") or v.get("keywords") or [], v.get("category_zh"))
                     self._add_en(cat, v.get("triggers_en") or [])
+                    self._add_science(cat, v)
                     if v.get("urgent"):
                         self.urgent.add(cat)
 
@@ -133,14 +157,15 @@ class Safety:
         """Return the sensitive category hit (with deflection text in `lang`) or None.
         zh: Chinese triggers. en: English triggers (case-insensitive, word boundary); Chinese triggers are also
         tried when an English-mode text contains Chinese characters."""
-        hits = {}
+        hits, matched = {}, {}
         if lang == "en":
             t = _norm_en(text)
             if not t:
                 return None
-            for n, rx, cat in self._flat_en:
+            for n, rx, cat, w in self._flat_en:
                 if rx.search(t):
                     hits[cat] = max(hits.get(cat, 0), n)
+                    matched.setdefault(cat, set()).add(w)
         if lang != "en" or _CJK.search(text or ""):
             t = _norm(text)
             if not t and not hits:
@@ -148,6 +173,11 @@ class Safety:
             for _, w, cat in self._flat:
                 if w and w in t:
                     hits[cat] = max(hits.get(cat, 0), len(w))
+                    matched.setdefault(cat, set()).add(w)
+        for cat in list(hits):   # a science question about a natural event is not scary news
+            sci = self.science.get(cat)
+            if sci and matched.get(cat, set()) <= sci and self.science_question(text):
+                del hits[cat]
         if not hits:
             return None
         best = max(hits, key=lambda c: (hits[c], -PRIORITY.index(c) if c in PRIORITY else -99))
@@ -160,6 +190,13 @@ class Safety:
                 "deflection_zh": zh_text, "deflection_en": en_text,
                 "deflection": en_text if lang == "en" else zh_text,
                 "urgent": bool(cheat.get("urgent", best in self.urgent or best == "self_harm"))}
+
+    @staticmethod
+    def science_question(text: str) -> bool:
+        """A plain why / how / what question with no fear, news, danger, death or personal cue."""
+        if _CJK.search(text or ""):
+            return bool(_SCI_FORM_ZH.search(text)) and not _SCI_CUE_ZH.search(text)
+        return bool(_SCI_FORM_EN.search(text or "")) and not _SCI_CUE_EN.search(text or "")
 
     def cheat(self, category):
         return self.cheats.get(category)

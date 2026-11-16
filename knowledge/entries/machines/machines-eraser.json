@@ -1,0 +1,69 @@
+{
+  "id": "machines-eraser",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "橡皮擦",
+    "擦子",
+    "eraser"
+  ],
+  "question_patterns": [
+    "橡皮擦為什麼可以擦掉字",
+    "橡皮擦是用什麼做的",
+    "橡皮擦為什麼會掉屑屑",
+    "橡皮擦怎麼擦掉鉛筆字"
+  ],
+  "first_sentence": "橡皮擦一擦，鉛筆字就慢慢不見。",
+  "facts": [
+    "橡皮擦是用橡膠做的",
+    "用力擦，字就一點一點被擦掉",
+    "每一塊橡皮擦都會掉出小屑屑"
+  ],
+  "ask_back": "橡皮擦擦東西的時候，會掉屑屑嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Eraser",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "eraser",
+      "rubber"
+    ],
+    "question_patterns": [
+      "how does an eraser rub out pencil",
+      "what is an eraser made of",
+      "why does an eraser make crumbs",
+      "why can an eraser clean up writing"
+    ],
+    "first_sentence": "Rub an eraser, and the pencil mark slowly goes away.",
+    "facts": [
+      "Erasers are made of rubber or vinyl.",
+      "Rubbing takes the mark off little by little.",
+      "Every eraser leaves behind some crumbs."
+    ],
+    "ask_back": "Does an eraser leave crumbs when you rub, or not?",
+    "bridges": {},
+    "asks_en": [
+      "rub",
+      "pencil",
+      "crumbs",
+      "clean",
+      "writing",
+      "mark",
+      "slowly",
+      "away",
+      "vinyl",
+      "rubbing",
+      "takes",
+      "off",
+      "little",
+      "every",
+      "leaves",
+      "behind"
+    ]
+  }
+}

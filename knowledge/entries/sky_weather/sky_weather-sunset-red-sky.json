@@ -48,6 +48,26 @@
     "ask_back": "Do you think the sky is redder at sunset, or at noon?",
     "bridges": {
       "has_garden": "Have you watched a red sunset from your garden?"
-    }
+    },
+    "asks_en": [
+      "sky",
+      "red",
+      "orange",
+      "night",
+      "turn",
+      "because",
+      "sunlight",
+      "passes",
+      "through",
+      "thick",
+      "air",
+      "more",
+      "blue",
+      "light",
+      "spread",
+      "way",
+      "reach",
+      "eyes"
+    ]
   }
 }

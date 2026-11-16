@@ -49,6 +49,28 @@
     "ask_back": "Do you think a nosebleed hurts more than a scratch, or less?",
     "bridges": {
       "has_dog": "Your dog's nose is wet. Can it get a nosebleed too?"
-    }
+    },
+    "asks_en": [
+      "bleeding",
+      "blood",
+      "red",
+      "stuff",
+      "tiny",
+      "tube",
+      "broke",
+      "lots",
+      "thin",
+      "inside",
+      "dry",
+      "bumped",
+      "breaks",
+      "more",
+      "easily",
+      "pinch",
+      "lean",
+      "forward",
+      "usually",
+      "stops"
+    ]
   }
 }

@@ -1,0 +1,65 @@
+{
+  "id": "machines-glue",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "膠水",
+    "黏膠",
+    "glue"
+  ],
+  "question_patterns": [
+    "膠水為什麼會黏東西",
+    "膠水是什麼做的",
+    "為什麼膠水可以把紙黏起來",
+    "膠水是什麼"
+  ],
+  "first_sentence": "膠水是黏黏的東西，可以把東西連起來。",
+  "facts": [
+    "膠水大多是一種黏黏的液體",
+    "有的膠水用植物或動物做成",
+    "麵粉加水，也能做成簡單的膠水"
+  ],
+  "ask_back": "麵粉加水，可以黏紙嗎？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Glue",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "glue"
+    ],
+    "question_patterns": [
+      "why does glue stick",
+      "what is glue made of",
+      "how does glue stick paper together",
+      "what is glue"
+    ],
+    "first_sentence": "Glue is a sticky stuff that joins things.",
+    "facts": [
+      "Glue is usually a sticky liquid.",
+      "Some glue is made from plants or animals.",
+      "Flour and water make a simple glue for paper."
+    ],
+    "ask_back": "Can flour and water stick paper together, or not?",
+    "bridges": {},
+    "asks_en": [
+      "stick",
+      "paper",
+      "together",
+      "sticky",
+      "stuff",
+      "joins",
+      "usually",
+      "liquid",
+      "plants",
+      "animals",
+      "flour",
+      "water",
+      "simple"
+    ]
+  }
+}

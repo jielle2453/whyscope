@@ -1,0 +1,65 @@
+{
+  "id": "body-fever",
+  "topic": "body",
+  "topic_zh": "身體",
+  "labels": [
+    "發燒",
+    "fever"
+  ],
+  "question_patterns": [
+    "為什麼人會發燒",
+    "發燒是什麼",
+    "發燒的時候身體怎麼了",
+    "為什麼生病會發燒"
+  ],
+  "first_sentence": "發燒，是身體在對抗生病的小蟲蟲。",
+  "facts": [
+    "身體在抗病的時候，體溫會升高",
+    "很熱的身體，會讓小蟲蟲不好過",
+    "發燒多半是因為被感染了"
+  ],
+  "ask_back": "發燒的時候，身體會變比較熱還是比較冷？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Fever",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "fever",
+      "high temperature"
+    ],
+    "question_patterns": [
+      "why do we get a fever",
+      "what is a fever",
+      "why am I hot when I am sick",
+      "why does my body get hot when I have a cold"
+    ],
+    "first_sentence": "A fever is your body fighting an illness.",
+    "facts": [
+      "When your body fights germs, it gets warmer.",
+      "A hotter body is harder for germs to live in.",
+      "Most fevers come from an infection."
+    ],
+    "ask_back": "With a fever, is your body hotter, or colder?",
+    "bridges": {},
+    "asks_en": [
+      "hot",
+      "sick",
+      "body",
+      "cold",
+      "fighting",
+      "illness",
+      "germs",
+      "warmer",
+      "hotter",
+      "harder",
+      "live",
+      "most",
+      "infection"
+    ]
+  }
+}

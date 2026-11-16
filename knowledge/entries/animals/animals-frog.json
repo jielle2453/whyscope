@@ -35,8 +35,7 @@
     "question_patterns": [
       "why does a frog croak",
       "what is this",
-      "why do frogs make that noise",
-      "why do frogs sing at night"
+      "why do frogs make that noise"
     ],
     "first_sentence": "Frogs croak because boy frogs want to find girl frogs.",
     "facts": [
@@ -47,6 +46,26 @@
     "ask_back": "Do you think a frog's skin is dry, or wet?",
     "bridges": {
       "has_garden": "Have you heard frogs croaking in your garden at night?"
-    }
+    },
+    "asks_en": [
+      "croak",
+      "noise",
+      "because",
+      "boy",
+      "want",
+      "find",
+      "girl",
+      "many",
+      "call",
+      "baby",
+      "tadpoles",
+      "live",
+      "water",
+      "first",
+      "skin",
+      "wet",
+      "helps",
+      "breathe"
+    ]
   }
 }

@@ -49,6 +49,24 @@
     "ask_back": "Do you think rice gets bigger after cooking, or smaller?",
     "bridges": {
       "has_garden": "Could you grow a bowl of rice in your garden?"
-    }
+    },
+    "asks_en": [
+      "soft",
+      "squishy",
+      "big",
+      "grains",
+      "drink",
+      "water",
+      "full",
+      "stuff",
+      "soak",
+      "grow",
+      "bigger",
+      "hard",
+      "again",
+      "sits",
+      "long",
+      "time"
+    ]
   }
 }

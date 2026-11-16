@@ -1,0 +1,68 @@
+{
+  "id": "food-cooking",
+  "topic": "food",
+  "topic_zh": "食物",
+  "labels": [
+    "煮飯",
+    "煮東西",
+    "cooking"
+  ],
+  "question_patterns": [
+    "為什麼食物要煮熟",
+    "煮東西是什麼意思",
+    "為什麼要用火煮東西",
+    "煮菜是怎麼煮的"
+  ],
+  "first_sentence": "煮東西，是用熱讓食物變成可以吃。",
+  "facts": [
+    "可以用爐子、烤箱或營火來煮",
+    "熱可以來自火、瓦斯或電",
+    "煮、煎、烤，用在不同的食物上"
+  ],
+  "ask_back": "煮東西需要熱，還是需要冰？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Cooking",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "cooking",
+      "cook food"
+    ],
+    "question_patterns": [
+      "why do we cook food",
+      "what is cooking",
+      "why do we heat our food",
+      "how do people cook"
+    ],
+    "first_sentence": "Cooking uses heat to get food ready to eat.",
+    "facts": [
+      "Cook on a stove, in an oven, or on a fire.",
+      "The heat can come from fire, gas, or electricity.",
+      "Different foods are cooked in different ways."
+    ],
+    "ask_back": "Does cooking need heat, or ice?",
+    "bridges": {},
+    "asks_en": [
+      "heat",
+      "people",
+      "uses",
+      "ready",
+      "eat",
+      "stove",
+      "oven",
+      "fire",
+      "gas",
+      "electricity",
+      "boiling",
+      "frying",
+      "baking",
+      "suit",
+      "different"
+    ]
+  }
+}

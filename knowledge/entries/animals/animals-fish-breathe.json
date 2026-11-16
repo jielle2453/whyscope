@@ -1,0 +1,70 @@
+{
+  "id": "animals-fish-breathe",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "魚的呼吸",
+    "魚鰓",
+    "gills"
+  ],
+  "question_patterns": [
+    "為什麼魚可以在水裡呼吸",
+    "魚怎麼在水裡呼吸",
+    "魚的鰓是做什麼的",
+    "魚不會淹死嗎"
+  ],
+  "first_sentence": "魚用鰓呼吸，所以不用上岸。",
+  "facts": [
+    "魚的鰓可以從水裡拿到空氣",
+    "魚鰓在魚頭兩邊，有鰓蓋蓋著",
+    "有一種肺魚，乾的時候用肺呼吸"
+  ],
+  "ask_back": "魚是用鰓呼吸，還是用耳朵呼吸？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Fish",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "gills",
+      "fish breathing"
+    ],
+    "question_patterns": [
+      "how do fish breathe underwater",
+      "why can fish breathe in water",
+      "what are a fish's gills for",
+      "why don't fish drown"
+    ],
+    "first_sentence": "A fish breathes with its gills.",
+    "facts": [
+      "Gills take the air we breathe out of the water.",
+      "Gills sit on both sides of the head under a gill cover.",
+      "A lungfish can breathe with lungs when its pond dries up."
+    ],
+    "ask_back": "Does a fish breathe with gills, or with ears?",
+    "bridges": {},
+    "asks_en": [
+      "breathe",
+      "underwater",
+      "water",
+      "dont",
+      "drown",
+      "take",
+      "air",
+      "sit",
+      "both",
+      "sides",
+      "head",
+      "under",
+      "cover",
+      "lungfish",
+      "lungs",
+      "pond",
+      "dries"
+    ]
+  }
+}

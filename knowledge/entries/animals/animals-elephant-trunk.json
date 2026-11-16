@@ -1,0 +1,67 @@
+{
+  "id": "animals-elephant-trunk",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "大象",
+    "象鼻",
+    "elephant"
+  ],
+  "question_patterns": [
+    "為什麼大象有長鼻子",
+    "大象的鼻子是做什麼的",
+    "大象怎麼用鼻子喝水",
+    "大象的鼻子可以做什麼"
+  ],
+  "first_sentence": "大象的長鼻子，什麼都能做。",
+  "facts": [
+    "象鼻可以聞味道",
+    "象鼻會吸水，再噴進嘴裡",
+    "象鼻尖像手指，能撿起一片葉子"
+  ],
+  "ask_back": "大象喝水，是用鼻子吸水還是用嘴巴舔？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://kids.nationalgeographic.com/animals/mammals/facts/african-elephant",
+  "source_license": "facts paraphrased; source text not reproduced",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "elephant",
+      "elephant trunk"
+    ],
+    "question_patterns": [
+      "why do elephants have long noses",
+      "what is an elephant's trunk for",
+      "how does an elephant drink with its trunk",
+      "what can an elephant do with its trunk"
+    ],
+    "first_sentence": "An elephant's trunk can do many things.",
+    "facts": [
+      "An elephant smells with its trunk.",
+      "It sucks up water, then squirts it into its mouth.",
+      "The tip works like fingers and can pick up one leaf."
+    ],
+    "ask_back": "Does an elephant drink by sucking water up its trunk, or by licking?",
+    "bridges": {},
+    "asks_en": [
+      "long",
+      "noses",
+      "drink",
+      "many",
+      "smells",
+      "sucks",
+      "water",
+      "squirts",
+      "mouth",
+      "tip",
+      "works",
+      "fingers",
+      "pick",
+      "leaf"
+    ]
+  }
+}

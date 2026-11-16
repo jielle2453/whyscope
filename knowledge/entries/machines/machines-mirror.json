@@ -1,0 +1,65 @@
+{
+  "id": "machines-mirror",
+  "topic": "machines",
+  "topic_zh": "機器與家電",
+  "labels": [
+    "鏡子",
+    "mirror"
+  ],
+  "question_patterns": [
+    "為什麼鏡子可以看到自己",
+    "鏡子是怎麼做的",
+    "鏡子為什麼會照出東西",
+    "鏡子裡的人是誰"
+  ],
+  "first_sentence": "光打到鏡子上，會彈回我們的眼睛。",
+  "facts": [
+    "光照到你身上，再到鏡子",
+    "光從鏡子彈回來，被你的眼睛看到",
+    "鏡子是玻璃，後面有一層金屬"
+  ],
+  "ask_back": "鏡子是靠把光彈回來，還是把光吃掉？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Mirror",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "mirror"
+    ],
+    "question_patterns": [
+      "why can I see myself in a mirror",
+      "how does a mirror work",
+      "what is a mirror made of",
+      "why does a mirror show things"
+    ],
+    "first_sentence": "Light bounces off a mirror into your eyes.",
+    "facts": [
+      "Light bounces off you, onto the mirror, and back.",
+      "That light reaches your eyes, so you see yourself.",
+      "A mirror is glass with a metal layer on the back."
+    ],
+    "ask_back": "Does a mirror bounce light back, or swallow it?",
+    "bridges": {},
+    "asks_en": [
+      "myself",
+      "work",
+      "show",
+      "light",
+      "bounces",
+      "off",
+      "eyes",
+      "onto",
+      "back",
+      "reaches",
+      "yourself",
+      "glass",
+      "metal",
+      "layer"
+    ]
+  }
+}

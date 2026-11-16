@@ -52,6 +52,29 @@
     "bridges": {
       "has_cat": "Cats sleep a lot every day, right?",
       "has_dog": "Do you think dogs dream when they sleep?"
-    }
+    },
+    "asks_en": [
+      "need",
+      "sleepy",
+      "bed",
+      "body",
+      "tired",
+      "rests",
+      "recharges",
+      "while",
+      "fixes",
+      "places",
+      "got",
+      "hurt",
+      "brain",
+      "sorts",
+      "learned",
+      "during",
+      "day",
+      "kids",
+      "more",
+      "grown",
+      "ups"
+    ]
   }
 }

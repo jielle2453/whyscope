@@ -1,0 +1,64 @@
+{
+  "id": "sky_weather-snow",
+  "topic": "sky_weather",
+  "topic_zh": "天氣與天空",
+  "labels": [
+    "雪",
+    "下雪",
+    "snow"
+  ],
+  "question_patterns": [
+    "為什麼會下雪",
+    "雪是什麼",
+    "雪是怎麼來的",
+    "雪是用什麼做的"
+  ],
+  "first_sentence": "雪是天上掉下來的小冰晶。",
+  "facts": [
+    "雪是冰的一種",
+    "雲裡的水氣結成冰晶，慢慢變大",
+    "太冷的時候冰晶掉下來，就是雪"
+  ],
+  "ask_back": "雪是冰做的，還是棉花做的？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Snow",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "snow",
+      "snowing"
+    ],
+    "question_patterns": [
+      "why does it snow",
+      "what is snow",
+      "how is snow made",
+      "what is snow made of"
+    ],
+    "first_sentence": "Snow is tiny pieces of ice falling from the sky.",
+    "facts": [
+      "Snow is a kind of ice.",
+      "Ice crystals grow up in the clouds.",
+      "Then they fall and land on the ground."
+    ],
+    "ask_back": "Is snow made of ice, or of cotton?",
+    "bridges": {},
+    "asks_en": [
+      "tiny",
+      "pieces",
+      "ice",
+      "falling",
+      "sky",
+      "kind",
+      "crystals",
+      "grow",
+      "clouds",
+      "land",
+      "ground"
+    ]
+  }
+}

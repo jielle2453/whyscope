@@ -1,0 +1,72 @@
+{
+  "id": "animals-woodpecker",
+  "topic": "animals",
+  "topic_zh": "動物",
+  "labels": [
+    "啄木鳥",
+    "woodpecker"
+  ],
+  "question_patterns": [
+    "為什麼啄木鳥要啄樹",
+    "啄木鳥為什麼一直敲樹",
+    "啄木鳥的頭不會痛嗎",
+    "啄木鳥在樹上做什麼"
+  ],
+  "first_sentence": "啄木鳥啄樹，是在找蟲吃。",
+  "facts": [
+    "牠用硬硬的嘴巴在樹上打洞",
+    "長長的舌頭可以伸進洞裡找小蟲",
+    "啄樹也能讓嘴巴保持尖尖的"
+  ],
+  "ask_back": "啄木鳥是用嘴巴還是用腳去敲樹？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Woodpecker",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "woodpecker"
+    ],
+    "question_patterns": [
+      "why do woodpeckers peck trees",
+      "why does a woodpecker knock on wood",
+      "what is a woodpecker doing on the tree",
+      "how does a woodpecker get bugs out of a tree"
+    ],
+    "first_sentence": "A woodpecker pecks wood to find food.",
+    "facts": [
+      "It uses its strong bill to drill into wood.",
+      "Its long, sticky tongue grabs bugs deep inside.",
+      "Pecking also keeps its beak sharp."
+    ],
+    "ask_back": "Does a woodpecker knock with its bill, or with its feet?",
+    "bridges": {},
+    "asks_en": [
+      "peck",
+      "trees",
+      "knock",
+      "wood",
+      "doing",
+      "bugs",
+      "find",
+      "food",
+      "uses",
+      "strong",
+      "bill",
+      "drill",
+      "long",
+      "sticky",
+      "tongue",
+      "grabs",
+      "deep",
+      "inside",
+      "keeps",
+      "tip",
+      "sharp"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "people-money",
+  "topic": "people",
+  "topic_zh": "人與社會",
+  "labels": [
+    "錢",
+    "金錢",
+    "money"
+  ],
+  "question_patterns": [
+    "為什麼要用錢",
+    "錢是什麼",
+    "為什麼不用東西換東西",
+    "為什麼買東西要付錢"
+  ],
+  "first_sentence": "錢，是大家用來買東西的東西。",
+  "facts": [
+    "錢可以分成很小的數目",
+    "錢比牛或麥子放得久",
+    "同樣的錢，每個都值一樣多"
+  ],
+  "ask_back": "錢可以拿來買東西，對還是不對？",
+  "bridges": {},
+  "age": "5-8",
+  "source_url": "https://simple.wikipedia.org/wiki/Money",
+  "source_license": "CC BY-SA 4.0 (facts paraphrased from Simple English Wikipedia)",
+  "author": "claude-sonnet-5.5 (AI draft)",
+  "reviewed_by": "",
+  "spot_checked": false,
+  "draft": "ai",
+  "en": {
+    "labels": [
+      "money",
+      "coins and notes"
+    ],
+    "question_patterns": [
+      "why do we use money",
+      "what is money",
+      "why do we pay for things",
+      "why not just trade things"
+    ],
+    "first_sentence": "Money is what people use to buy things.",
+    "facts": [
+      "Money can be split into small amounts.",
+      "Money lasts longer than things like wheat or cows.",
+      "Each coin of the same kind is worth the same."
+    ],
+    "ask_back": "Can money be used to buy things, yes or no?",
+    "bridges": {},
+    "asks_en": [
+      "use",
+      "pay",
+      "trade",
+      "people",
+      "buy",
+      "split",
+      "small",
+      "amounts",
+      "lasts",
+      "longer",
+      "wheat",
+      "cows",
+      "same",
+      "kind",
+      "worth"
+    ]
+  }
+}

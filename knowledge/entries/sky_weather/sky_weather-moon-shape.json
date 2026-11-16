@@ -48,6 +48,27 @@
     "ask_back": "Do you think the moon makes its own light, or uses the sun's light?",
     "bridges": {
       "has_garden": "Have you looked up at the moon from your garden at night?"
-    }
+    },
+    "asks_en": [
+      "change",
+      "shape",
+      "sometimes",
+      "thin",
+      "round",
+      "nights",
+      "looks",
+      "because",
+      "different",
+      "lit",
+      "parts",
+      "own",
+      "light",
+      "shines",
+      "bouncing",
+      "back",
+      "sun",
+      "month",
+      "through"
+    ]
   }
 }

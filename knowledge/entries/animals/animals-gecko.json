@@ -47,6 +47,25 @@
     "ask_back": "Do you think a gecko can walk up a glass window?",
     "bridges": {
       "has_garden": "Have you seen a little lizard on a wall near your home?"
-    }
+    },
+    "asks_en": [
+      "stick",
+      "walls",
+      "walk",
+      "fall",
+      "down",
+      "because",
+      "toes",
+      "tiny",
+      "hairs",
+      "many",
+      "hold",
+      "smooth",
+      "eat",
+      "mosquitoes",
+      "other",
+      "small",
+      "bugs"
+    ]
   }
 }

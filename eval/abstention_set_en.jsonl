@@ -36,19 +36,19 @@
 {"q": "Who made the first elevator?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
 {"q": "Which country invented traffic lights first?", "kind": "near_kb", "expect": "abstain", "kb_id": null}
 {"q": "How do astronauts use the bathroom in space?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
-{"q": "Why do we have to go to school?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
-{"q": "Why did the dinosaurs disappear?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we have to go to school?", "kind": "in_kb", "expect": "answer", "kb_id": "people-school"}
+{"q": "Why did the dinosaurs disappear?", "kind": "in_kb", "expect": "answer", "kb_id": "earth-dinosaurs"}
 {"q": "Where does money come from?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do we brush our teeth?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do we say thank you?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do we celebrate Lunar New Year?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do kids have birthdays?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
-{"q": "Why does every country have its own flag?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why does every country have its own flag?", "kind": "in_kb", "expect": "answer", "kb_id": "people-flag"}
 {"q": "Why should we cross at the zebra crossing?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do we wait in line for the bus?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why does the Earth keep spinning by itself?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "Why do some people get sick?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
-{"q": "Why do we wear clothes?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
+{"q": "Why do we wear clothes?", "kind": "in_kb", "expect": "answer", "kb_id": "machines-clothes"}
 {"q": "Why should we eat breakfast?", "kind": "out_kb", "expect": "abstain", "kb_id": null}
 {"q": "boo hoo hoo", "kind": "nonsense", "expect": "abstain", "kb_id": null}
 {"q": "apple", "kind": "nonsense", "expect": "abstain", "kb_id": null}
