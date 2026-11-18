@@ -406,6 +406,8 @@
       draftMs: (s) => "Written in " + s + " s", todoAria: (q) => "Question to answer: " + q, editAria: "Edit the answer",
       srcEntryDraft: "Answered from a knowledge entry written by AI that no person has reviewed.", srcPrinciple: "Answered from the principle library: an AI draft that no person has reviewed.", srcPartial: "This answer only covers part of the question.",
       srcFamily: "Answer you approved earlier.", askedBadge: (n) => "× " + n,
+      srcBank: "Answered from the answer bank: short answers written by AI and fact-checked by separate AI checkers, not yet by a person.",
+      srcBankGentle: "A gentle topic: the answer asked your child to talk with a grown-up.",
       weakNote: "The device found no close match in its facts, so this draft may be wrong.", ctxNotUsed: "closest match, too weak to use",
       childSwitch: "Choose a child", family: "Family and devices", addChild: "Add a child", childName: "Child's name", addWand: (n) => "Add a wand for " + n, invite: "Invite another parent",
       devices: "Devices", revoke: "Revoke", revokeAsk: (n) => "Revoke " + n + "?", revokedTag: "Revoked", lastSeen: (t) => "Last seen " + t, neverSeen: "Not used yet", relayTag: "works away too",
@@ -457,6 +459,8 @@
       draftMs: (s) => "寫了 " + s + " 秒", todoAria: (q) => "等你回答的問題：" + q, editAria: "修改答案",
       srcEntryDraft: "這個答案來自 AI 寫的知識條目，還沒有人審過。", srcPrinciple: "這個答案來自原理資料庫：是 AI 寫的草稿，還沒有人審過。", srcPartial: "這個答案只回答了問題的一部分。",
       srcFamily: "你之前核准的答案。", askedBadge: (n) => "× " + n,
+      srcBank: "這個答案來自答案庫：由 AI 撰寫、另一組 AI 查核過事實，還沒有人審過。",
+      srcBankGentle: "這是比較敏感的話題：答案請孩子去找大人聊聊。",
       weakNote: "裝置在資料裡找不到很接近的內容，所以這份草稿可能是錯的。", ctxNotUsed: "最接近的內容，但太不像了，沒有用",
       childSwitch: "選擇孩子", family: "家人與裝置", addChild: "新增孩子", childName: "孩子的名字", addWand: (n) => "為" + n + "新增魔法棒", invite: "邀請另一位家長",
       devices: "裝置", revoke: "撤銷", revokeAsk: (n) => "要撤銷「" + n + "」嗎？", revokedTag: "已撤銷", lastSeen: (t) => "最後使用 " + t, neverSeen: "還沒用過", relayTag: "外出也能用",
@@ -662,7 +666,7 @@
   // events plus any stored photo that fell outside the event window
   const allItems = () => { const ev = S.data.ev, ids = new Set(ev.map((e) => e.id)); return ev.map((e) => Object.assign({}, e, { snapshot: !!e.snapshot })).concat((S.data.snaps || []).filter((x) => !ids.has(x.id)).map((x) => Object.assign({}, x, { snapshot: true }))); };
   const KINDS = [["all", "all"], ["photos", "fPhotos"], ["unsure", "fUnsure"], ["parents", "fParents"]];
-  const kindOk = { all: () => true, photos: (e) => e.snapshot, unsure: (e) => e.status === "abstained" || e.source === "ai_guess", parents: (e) => e.status === "sensitive" };
+  const kindOk = { all: () => true, photos: (e) => e.snapshot, unsure: (e) => e.status === "abstained" || e.source === "ai_guess", parents: (e) => e.status === "sensitive" || !!e.sensitive_category };
   function viewMoments() {
     const all = allItems();
     if (!all.length) {
@@ -700,7 +704,8 @@
       '</div><div class="dt">' + esc(polDate(p.ts)) + "</div>" + (ans ? '<div class="ans">' + esc(ans) + "</div>" : "") + (p.status === "answered" && p.ask_back ? '<div class="ans b">' + esc(p.ask_back) + "</div>" : "") +
       (p.source === "ai_guess" ? '<div class="ans b">💭 ' + esc(tr("srcGuess")) + "</div>" : p.status === "chat" || p.source === "chat" ? '<div class="ans b">💬 ' + esc(tr("srcChat")) + "</div>" : "") +
       (p.draft && p.source !== "ai_guess" ? '<div class="ans b">✎ ' + esc(tr((p.source || "").indexOf("entry:") === 0 ? "srcEntryDraft" : "srcPrinciple")) + (p.partial ? " " + esc(tr("srcPartial")) : "") + "</div>" : "") +
-      ((p.source || "").indexOf("family:") === 0 ? '<div class="ans b">✓ ' + esc(tr("srcFamily")) + "</div>" : "") + '</figcaption></figure>' +
+      ((p.source || "").indexOf("family:") === 0 ? '<div class="ans b">✓ ' + esc(tr("srcFamily")) + "</div>" : "") +
+      ((p.source || "").indexOf("bank:") === 0 ? '<div class="ans b">📚 ' + esc(tr("srcBank")) + "</div>" + (p.sensitive_category ? '<div class="ans b">💙 ' + esc(tr("srcBankGentle")) + "</div>" : "") : "") + '</figcaption></figure>' +
       (photo ? '<div class="acts" id="polacts"><button class="btn danger" id="poldel">🗑️ ' + esc(tr("delOne")) + "</button></div>" : "") + "</div>";
     w.classList.add("open"); $("#polx").focus(); hydrateSnaps(w);
     $("#polx").onclick = closePol;

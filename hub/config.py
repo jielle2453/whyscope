@@ -6,6 +6,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 _CONV = None
+_S2T = None
 
 
 def load_config(path=None) -> dict:
@@ -34,12 +35,17 @@ def torch_device(cfg: dict) -> str:
 
 
 def to_trad(text: str) -> str:
-    """Simplified -> Traditional (Taiwan) if opencc is installed; otherwise unchanged."""
-    global _CONV
+    """Simplified -> Traditional (Taiwan) if opencc is installed; otherwise unchanged.
+    Text that is already Traditional is returned as is: s2twp's phrase table would otherwise rewrite correct Taiwan
+    words (打開 -> 開啟, 社區 -> 社群, 循環 -> 迴圈). Only text with simplified characters (ASR output) is converted."""
+    global _CONV, _S2T
     if _CONV is None:
         try:
             from opencc import OpenCC
             _CONV = OpenCC("s2twp").convert
+            _S2T = OpenCC("s2t").convert
         except Exception:
-            _CONV = lambda s: s  # noqa: E731
+            _CONV = _S2T = lambda s: s  # noqa: E731
+    if not text or _S2T(text) == text:
+        return text
     return _CONV(text)

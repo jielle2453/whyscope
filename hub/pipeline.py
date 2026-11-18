@@ -15,10 +15,12 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from . import bank as bankm
 from . import db as dbm
 from . import intent as intents
 from . import quiz, wording
 from .assistant import ParentAssistant
+from .bank import AnswerBank
 from .chat import GUESS_FAIL_EN, GUESS_FAIL_ZH, Chat
 from .compose import Composer, en_view, repeats_en
 from .config import load_config, resolve
@@ -74,6 +76,13 @@ class Pipeline:
         self.sweep_snapshots()
         self.safety = Safety(self.cfg)
         self.recall = Recall(self.cfg)
+        self.bank = AnswerBank(self.cfg, self.recall)         # fact-checked English answer bank (English questions only)
+        ab = self.cfg.get("answer_bank") or {}
+        self.bank_kb_strong = float(ab.get("kb_strong", 0.85))   # a KB match at or above this keeps priority over the bank
+        self.bank_kb_margin = float(ab.get("kb_margin", 0.05))   # a weaker KB match loses only to a clearly closer bank item
+        # a question (near-)verbatim to a bank item marked sensitive goes to the parent like a safety hit; a looser match to
+        # such an item is not used at all (see _sensitive_hit and the bank step)
+        self.bank_sensitive = float(ab.get("sensitive_threshold", 0.93))
         self.principles = Principles(self.cfg, self.recall)   # pre-written principle answers (draft, AI-written)
         self.family = Family(self.cfg, self.db, self.recall)  # answers a parent approved
         self.listener = Listener(self.cfg)
@@ -198,7 +207,7 @@ class Pipeline:
                 "vision": v, "ugen": self.ugen_status(),
                 "principles": {"enabled": self.principles.enabled, "count": len(self.principles.items),
                                "draft": self.principles.draft, "error": self.principles.error},
-                "family_answers": self.family.count(),
+                "family_answers": self.family.count(), "answer_bank": self.bank.status(),
                 "assistant": self.assistant.status(), "chat": self.chat.status(),
                 "safety_categories": sorted(self.safety.triggers), "language": self.default_lang()}
 
@@ -206,10 +215,12 @@ class Pipeline:
         """The UGen300 as the hub sees it: is the worker reachable, which models are loaded, and which backend each
         stage uses (what is configured, and what actually answered last)."""
         h = self.cfg.get("hailo") or {}
-        out = {"worker": h.get("worker") or None, "worker_reachable": None, "models": {}, "worker_error": None}
+        out = {"worker": h.get("worker") or None, "worker_reachable": None, "models": {}, "worker_error": None,
+               "health": None}   # worker's device guard: {"state": ok|recovering|degraded, "message", "recoveries", ...}
         if h.get("worker"):
             try:
-                out["models"] = self.vision._hailo().client.info(2).get("models") or {}
+                info = self.vision._hailo().client.info(2)
+                out["models"], out["health"] = info.get("models") or {}, info.get("health")
                 out["worker_reachable"] = True
             except Exception as e:
                 out["worker_reachable"], out["worker_error"] = False, f"{type(e).__name__}: {str(e)[:120]}"
@@ -345,11 +356,13 @@ class Pipeline:
 
         # 2. safety (always first: a sensitive text never reaches recall, chat or an AI guess)
         t = time.perf_counter()
-        hit = self.safety.check(text, lang)
         history = self.chat.memory.recent(child_id)
         it = intents.classify(text, lang, bool(image), bool(history))
+        hit = self._sensitive_hit(text, lang, it.kind != "followup")
         if not hit and it.kind == "followup" and history and history[-1]["source"] == "sensitive":
-            hit = self.safety.check(history[-1]["q"], lang)   # "why?" after a sensitive question: still the parent's topic
+            hit = self._sensitive_hit(history[-1]["q"], lang)   # "why?" after a sensitive question: still the parent's topic
+        if hit and hit.get("bank_id"):
+            r["bank"] = {"id": hit["bank_id"], "score": hit.get("bank_score"), "sensitive": True}
         lat["safety"] = _ms(t)
         r["intent"] = it.kind + (":" + it.sub if it.sub else "")
         if hit:
@@ -421,6 +434,11 @@ class Pipeline:
             entry, score = self.recall.search(text, lang, use_obj)
         lat["recall"] = _ms(t)
         r["confidence"] = round(score, 3)
+        # 4b. English: the fact-checked answer bank, before a weak KB match, principles and the AI guess (see _bank_first)
+        if en and it.kind in ("question", "rule") and not use_obj and self.bank.ready:
+            res = self._bank_first(text, qtext, entry, score, r, lat, mode, t0, log, hh, child_id)
+            if res is not None:
+                return res
         if entry is None or score < float(self.cfg["recall"]["threshold"]):
             # 2. an answer the parent approved, 3. the principle library
             extra = self._family_or_principle(text, lang, use_obj, r, lat, mode, t0, log, hh, child_id)
@@ -541,6 +559,8 @@ class Pipeline:
         """"Tell me more" / "why?" right after a knowledge-base answer: the entry's next fact nobody has said yet
         (deterministic, curated text). None when there is nothing left (a chat reply follows instead)."""
         last = history[-1]
+        if str(last.get("source", "")).startswith("bank:"):
+            return self._bank_followup(last, r, lat, mode, t0, log, child_id) if lang == "en" else None
         if not (last.get("kb_id") and str(last.get("source", "")).startswith("entry:")):
             return None
         entry = self.entry_map().get(last["kb_id"])
@@ -652,21 +672,131 @@ class Pipeline:
         finally:
             self.assistant.child_end()
 
+    # ------------------------------------------------------------------ answer bank (English)
+    def _bank_first(self, text, qtext, entry, score, r, lat, mode, t0, log, hh, child_id):
+        """English answer order around the answer bank (hub/bank.py), after safety and intent:
+
+        1. a strong KB match keeps priority: score >= answer_bank.kb_strong (0.85) or a near-verbatim example question
+           (plain cosine >= recall.verbatim_score, 0.93). Returns None: the KB answer follows as before.
+        2. the bank's best item at or above answer_bank.threshold (0.80). Against a weaker KB match (recall threshold up
+           to kb_strong) the bank wins only if its score is at least kb_margin (0.05) above the KB entry's plain cosine:
+           both are max cosines to a stored example question, so this keeps the KB when it has an example about as close.
+        3. before the bank answers, an approved family answer (the parent's own words) for the same question wins.
+        None = no bank answer: the old order goes on (weak KB entry, family, principle, chat for rules, AI guess)."""
+        thr = float(self.cfg["recall"]["threshold"])
+        kb_ok = entry is not None and score >= thr
+        raw = float(getattr(self.recall, "last_raw", 0.0) or 0.0) if kb_ok else 0.0
+        info = {"kb": {"id": entry["id"], "score": round(score, 3), "raw": round(raw, 3)} if kb_ok else None}
+        r["bank"] = info
+        if kb_ok and (score >= self.bank_kb_strong or raw >= self.recall.verbatim):
+            info["why"] = "kb strong"
+            return None
+        t = time.perf_counter()
+        item, bs = self.bank.search(qtext, "en")
+        best = self.bank.last
+        if item is None and qtext != text:
+            item, bs = self.bank.search(text, "en")
+            if self.bank.last and (not best or self.bank.last["score"] > best["score"]):
+                best = self.bank.last
+        lat["bank"] = _ms(t)
+        info["best"] = best
+        if item is None:
+            info["why"] = "below threshold"
+            return None
+        if bankm.sensitive_category(item) and bs < self.bank_sensitive:
+            # cosine cannot tell "Why do kids laugh?" from the sensitive "Why do kids laugh at me?" (0.90): a sensitive
+            # item answers or hands over only when (near-)verbatim; otherwise fall through to the normal order
+            info["why"] = "sensitive item not close enough"
+            return None
+        if kb_ok and self.bank.own_model:
+            # the bank has its own embedding model (answer_bank.model): measure the KB entry's example questions with that
+            # same model, so the margin compares like with like (the recall model's cosine is on another scale)
+            raw = self.bank.kb_cosine(entry, {qtext, text})
+            info["kb"]["raw_bank_model"] = round(raw, 3)
+        if kb_ok and bs < raw + self.bank_kb_margin:
+            info["why"] = "kb as close"
+            return None
+        fam = self._family(text, "en", r, lat, mode, t0, log, hh)
+        if fam is not None:
+            info["why"] = "family answer first"
+            self.chat.memory.add(child_id, text, fam["first_sentence"] + " " + fam.get("explanation", ""), fam.get("source", ""), lang="en")
+            return fam
+        info["why"] = "bank"
+        return self._bank_answer(item, bs, r, text, lat, mode, t0, log, child_id)
+
+    def _sensitive_hit(self, text, lang, use_bank=True):
+        """Safety rules first; then (English) a question whose closest bank item is marked sensitive ("Why did my
+        grandpa die?", "Is it my fault my parents split up?") gets that item's category: the child hears the gentle
+        hand-over to a grown-up and the parent gets the cheat sheet, as for a rule hit."""
+        hit = self.safety.check(text, lang)
+        if hit or not use_bank or lang != "en" or not self.bank.ready:
+            return hit
+        self.bank.search(text, "en")
+        last = self.bank.last
+        if not last or last["score"] < self.bank_sensitive:
+            return None
+        item = self.bank.by_id.get(last["id"])
+        cat = bankm.sensitive_category(item) if item else None
+        if not cat:
+            return None
+        return {**self.safety.hit_for(cat, lang), "bank_id": item["id"], "bank_score": last["score"]}
+
+    def _bank_answer(self, item, bs, r, text, lat, mode, t0, log, child_id):
+        """Speak a1 now (verbatim: the bank text was written in this voice and fact-checked; plainify_en would break it)
+        with the item's ask_back; a2 waits for "why?" / "tell me more" (_followup), like an entry's next fact. The KB's
+        ask-back rule (never the child's day, feelings, family or friends) drops an ask_back that breaks it, except on
+        items marked sensitive: those keep their gentle wording and the ask_back that points to a grown-up."""
+        cat = bankm.sensitive_category(item)
+        a1 = item["a1"].strip()
+        ask = (item.get("ask_back") or "").strip()
+        if ask and not cat and not wording.askback_ok_en(ask):
+            ask = ""
+        r.update(status="answered", object=None, topic=bankm.hub_topic(item), kb_id=None, source="bank:" + item["id"], kind="bank",
+                 draft=False, partial=False, first_sentence=a1, explanation="", ask_back=ask, emoji=bankm.emoji(item),
+                 confidence=round(bs, 3), sensitive_category=cat)
+        r["bank"] = {**(r.get("bank") or {}), "id": item["id"], "q": item["q"], "score": round(bs, 3), "topic": item.get("topic")}
+        res = self._answered_now(mode, r, lat, t0, log)
+        if log:
+            self.memory.note_asked(r["topic"], None, child_id)
+        self.chat.memory.add(child_id, text, (a1 + " " + ask).strip(), "bank:" + item["id"], None, None, [a1], "en")
+        return res
+
+    def _bank_followup(self, last, r, lat, mode, t0, log, child_id):
+        """"Why?" / "tell me more" after a bank answer: its a2 (once), then None (a canned "that's all I know" follows)."""
+        item = self.bank.by_id.get(str(last.get("source", ""))[5:])
+        said = list(last.get("said") or [])
+        a2 = ((item or {}).get("a2") or "").strip()
+        if not item or not a2 or a2 in said:
+            return None
+        r.update(status="answered", object=None, topic=bankm.hub_topic(item), kb_id=None, source="bank:" + item["id"], kind="bank",
+                 draft=False, partial=False, first_sentence=a2, explanation="", ask_back="", emoji=bankm.emoji(item),
+                 sensitive_category=bankm.sensitive_category(item), bank={"id": item["id"], "q": item["q"], "level": 2})
+        res = self._answered_now(mode, r, lat, t0, log)
+        self.chat.memory.update_last(child_id, said=said + [a2], ts=time.time())
+        return res
+
+    def _family(self, text, lang, r, lat, mode, t0, log, hh=1):
+        """An approved family answer for a near-duplicate question (finished result), or None."""
+        en = lang == "en"
+        t = time.perf_counter()
+        row, fscore = self.family.match(text, lang, hh or 1)
+        lat["family"] = _ms(t)
+        if not row:
+            return None
+        sents = wording.sentences_en(row["answer"]) if en else wording.sentences(row["answer"])
+        sep = " " if en else ""
+        r.update(status="answered", object=None, topic=None, kb_id=None, source=f"family:{row['id']}", family_id=row["id"],
+                 kind="family", first_sentence=(sents[0] if sents else row["answer"]), explanation=sep.join(sents[1:]),
+                 ask_back="", emoji="\U0001F48C", confidence=round(fscore, 3), draft=False, partial=False)
+        return self._answered_now(mode, r, lat, t0, log)
+
     def _family_or_principle(self, text, lang, obj, r, lat, mode, t0, log, hh=1, child_id=None):
         """Order step 2 and 3: an approved family answer (near-duplicate question), else the principle library.
         Returns the finished result (status "answered", nothing left to compose), or None."""
         en = lang == "en"
-        t = time.perf_counter()
-        row, fscore = self.family.match(text, lang, hh or 1)
-        if row:
-            sents = wording.sentences_en(row["answer"]) if en else wording.sentences(row["answer"])
-            sep = " " if en else ""
-            r.update(status="answered", object=None, source=f"family:{row['id']}", family_id=row["id"],
-                     first_sentence=(sents[0] if sents else row["answer"]), explanation=sep.join(sents[1:]), emoji="\U0001F48C",
-                     confidence=round(fscore, 3), draft=False, partial=False)
-            lat["family"] = _ms(t)
-            return self._answered_now(mode, r, lat, t0, log)
-        lat["family"] = _ms(t)
+        fam = self._family(text, lang, r, lat, mode, t0, log, hh)
+        if fam is not None:
+            return fam
         t = time.perf_counter()
         m = self.principles.search(text, lang, obj)
         lat["principle"] = _ms(t)

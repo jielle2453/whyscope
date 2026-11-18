@@ -114,6 +114,9 @@ class Vision:
         if "_error" in info:
             return {"yolo": False, "clip_image": False, "reachable": False, "error": info["_error"]}
         m = info.get("models") or {}
+        health = info.get("health") or {}
+        if health.get("state") and health["state"] != "ok":   # the worker is recovering the UGen / degraded
+            return {"yolo": False, "clip_image": False, "reachable": True, "error": health.get("message") or health["state"]}
         return {"yolo": bool((m.get("yolo") or {}).get("loaded")), "clip_image": bool((m.get("clip_image") or {}).get("loaded")),
                 "reachable": True,
                 "error": "; ".join(v["error"] for k, v in m.items() if k in ("yolo", "clip_image") and v.get("error")) or None}

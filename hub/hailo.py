@@ -27,6 +27,7 @@ Numbers: docs/benchmarks.md and docs/hardware.md (step 9).
 """
 import re
 import threading
+from collections import OrderedDict
 from pathlib import Path
 
 from .config import ROOT
@@ -157,7 +158,11 @@ class HailoLLM:
         # prefix + turn in one pass every call (cheaper when the saved context is big: Qwen3 contexts are 147 MB, a
         # load takes about 3 s over USB); "auto" measures both on the first use of each prefix.
         self.restore_mode = str(h.get("llm_restore") or "auto")
-        self._ctx = {}   # prefix text -> saved context, or None when this prefix is prefilled every call
+        # prefix text -> saved context, or None when this prefix is prefilled every call. LRU, at most llm_ctx_max
+        # prefixes (each saved Qwen2.5 context is 44 MB of host memory; the hub uses 8 fixed prefixes: chat, guess,
+        # compose and the parent assistant, en + zh). An evicted prefix is prefilled and saved again on its next use.
+        self._ctx = OrderedDict()
+        self.ctx_max = max(1, int(h.get("llm_ctx_max") or 8))
         self.stats = {}  # prefix length -> {"prefill_s", "load_s", "mode"} (shown in the worker's /info)
         self.frame_shape = [int(x) for x in self.llm.input_frame_shape()] if vlm else None
 
@@ -172,6 +177,7 @@ class HailoLLM:
         the turn needs prefilling; False: the context is clear and the caller sends prefix + turn in one pass."""
         import time
         if prefix in self._ctx:
+            self._ctx.move_to_end(prefix)
             ctx = self._ctx[prefix]
             if ctx is None:
                 self.llm.clear_context()
@@ -179,7 +185,7 @@ class HailoLLM:
             self.llm.load_context(ctx)
             return True
         if self.restore_mode == "prefill":
-            self._ctx[prefix] = None
+            self._remember(prefix, None)
             self.llm.clear_context()
             return False
         self.llm.clear_context()
@@ -192,12 +198,29 @@ class HailoLLM:
         self.llm.load_context(ctx)
         load_s = time.perf_counter() - t
         keep = self.restore_mode == "context" or load_s < prefill_s
-        self._ctx[prefix] = ctx if keep else None
+        self._remember(prefix, ctx if keep else None)
         self.stats[str(len(prefix))] = {"prefill_s": round(prefill_s, 2), "load_s": round(load_s, 2),
                                         "mode": "context" if keep else "prefill"}
         if not keep:
             self.llm.clear_context()
         return keep
+
+    def _remember(self, prefix: str, ctx):
+        self._ctx[prefix] = ctx
+        self._ctx.move_to_end(prefix)
+        while len(self._ctx) > self.ctx_max:
+            self._ctx.popitem(last=False)
+
+    def prefixes(self) -> list:
+        """Known prefixes, least recently used first (the worker re-primes the recent ones after a recovery)."""
+        return list(self._ctx.keys())
+
+    def release(self):
+        """Free the saved contexts and the model on the device (errors from a dead device are the caller's to ignore)."""
+        self._ctx.clear()
+        llm, self.llm = self.llm, None
+        if llm is not None:
+            llm.release()
 
     def prime(self, prefix: str):
         """Prefill and save a prefix ahead of the first question (hub start-up)."""
@@ -271,6 +294,31 @@ class HailoLLM:
         return visible(out).strip().splitlines()[0].strip() if visible(out).strip() else ""
 
 
+class WorkerUnavailable(RuntimeError):
+    """The worker is down, recovering the UGen, or degraded: the caller should use its fallback right away."""
+
+
+# worker url -> (monotonic time until which calls fail fast, why). Set when the worker says it is recovering / degraded /
+# busy (HTTP 503 with "state"), or cannot be reached; cleared by a good /info. Shared by every client of that worker
+# (chat, compose, assistant, ASR, vision), so one failed call spares the others the wait. /info always goes through.
+_DOWN = {}
+DOWN_HOLD_S = {"recovering": 3.0, "busy": 5.0, "degraded": 10.0, "unreachable": 10.0}
+
+
+def _mark_down(url: str, state: str, why: str, hold: float = None):
+    import time
+    why = why if why.startswith("UGen") else f"UGen {state}: {why}"
+    _DOWN[url] = (time.monotonic() + (DOWN_HOLD_S.get(state, 3.0) if hold is None else hold), why)
+
+
+def worker_down(cfg_or_url) -> str:
+    """Why the worker is known to be unusable right now ("" when it is not): lets callers skip a call they would lose."""
+    import time
+    url = cfg_or_url if isinstance(cfg_or_url, str) else str((cfg_or_url.get("hailo") or {}).get("worker") or "")
+    hit = _DOWN.get(url.rstrip("/")) if url else None
+    return hit[1] if hit and time.monotonic() < hit[0] else ""
+
+
 class WorkerClient:
     """Localhost HTTP client for `python -m hub.hailo_worker` (cfg['hailo']['worker']); never goes through a proxy."""
 
@@ -280,21 +328,45 @@ class WorkerClient:
         self._open = urllib.request.build_opener(urllib.request.ProxyHandler({})).open
 
     def post(self, path: str, body=None, timeout: float = 120, ctype: str = "application/json"):
-        """POST `body` (a dict -> JSON, or raw bytes with `ctype`); returns the decoded JSON reply."""
+        """POST `body` (a dict -> JSON, or raw bytes with `ctype`); returns the decoded JSON reply. Raises
+        WorkerUnavailable at once while the worker is known to be down (see _DOWN), RuntimeError for other errors."""
         import json
+        import socket
         import urllib.error
         import urllib.request
+        if path not in ("/info", "/recover", "/shutdown"):   # device calls only
+            why = worker_down(self.url)
+            if why:
+                raise WorkerUnavailable(f"worker {path}: {why}")
         data = body if isinstance(body, (bytes, bytearray)) else json.dumps(body or {}).encode("utf-8")
         req = urllib.request.Request(self.url + path, data, {"Content-Type": ctype})
         try:
             with self._open(req, timeout=timeout) as r:
-                return json.loads(r.read())
+                out = json.loads(r.read())
         except urllib.error.HTTPError as e:   # keep the worker's own message
             try:
-                msg = json.loads(e.read()).get("error")
+                rep = json.loads(e.read())
             except Exception:
-                msg = None
+                rep = {}
+            msg, state = rep.get("error"), rep.get("state")
+            if e.code == 503 and state:   # the worker's device guard: recovering / degraded / busy
+                _mark_down(self.url, state, str(msg or ""), min(float(rep.get("retry_after") or 3), DOWN_HOLD_S.get(state, 3.0)))
+                raise WorkerUnavailable(f"worker {path} -> HTTP 503 ({state}): {msg}") from None
             raise RuntimeError(f"worker {path} -> HTTP {e.code}: {msg}") from None
+        except (urllib.error.URLError, ConnectionError) as e:   # not running (Windows takes ~2 s to refuse localhost)
+            _mark_down(self.url, "unreachable", f"{type(e).__name__}: {str(e)[:120]}")
+            raise WorkerUnavailable(f"worker {path}: cannot reach {self.url}: {e}") from None
+        except (TimeoutError, socket.timeout) as e:
+            if timeout >= 20:   # a long wait ran out: the worker is stuck, so the next callers fall back at once
+                _mark_down(self.url, "busy", f"no reply in {timeout:g} s")   # (a short /describe or /info wait is no sign)
+            raise WorkerUnavailable(f"worker {path}: no reply in {timeout:g} s") from e
+        if path == "/info":
+            h = out.get("health") or {}
+            if h.get("state") and h["state"] != "ok":
+                _mark_down(self.url, h["state"], str(h.get("message") or ""))
+            else:
+                _DOWN.pop(self.url, None)
+        return out
 
     def info(self, timeout: float = 10) -> dict:
         return self.post("/info", {}, timeout)

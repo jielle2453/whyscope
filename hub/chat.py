@@ -300,6 +300,9 @@ class Chat:
             except Exception:
                 pass
             return None, "llm not ready", 0
+        down = _ugen_down(self.p)
+        if down:   # the worker is recovering the UGen / degraded / unreachable: the canned line now, not after a timeout
+            return None, down[:160], 0
         t = time.perf_counter()
         fut = self._pool.submit(self._generate, mode, lang, turn_msgs, max_new, stop)
         try:
@@ -419,6 +422,15 @@ class Chat:
     def status(self) -> dict:
         return {"enabled": self.enabled, "llm_ready": self.llm_ready(), "primed": sorted("/".join(k) for k in self._primed),
                 "timeout_s": self.timeout_s, "guess_timeout_s": self.guess_timeout_s, "stats": dict(self.stats)}
+
+
+def _ugen_down(p) -> str:
+    """Why the UGen worker is known to be unusable right now ("" if it is not, or the LLM is not on the worker)."""
+    cp = p.composer
+    if getattr(cp, "backend", None) != "hailo" or not (p.cfg.get("hailo") or {}).get("worker"):
+        return ""
+    from .hailo import worker_down
+    return worker_down(p.cfg)
 
 
 def _trim_words(s: str, n: int) -> str:

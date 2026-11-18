@@ -62,6 +62,21 @@ principles:
 family:
   threshold: 0.88
 
+# English answer bank (hub/bank.py): 5,090 fact-checked short answers (a1 spoken, a2 on "why?" / "tell me more", the item's
+# ask_back), retrieved as in eval/answer_bank/report_v2.md (max cosine over q + variants). English questions only. Order:
+# safety, intent, a strong KB match (score >= kb_strong, or a near-verbatim example question), family answer, bank item at
+# >= threshold (against a weaker KB match only when its score is >= the KB entry's plain cosine + kb_margin), weaker KB
+# match, principle, AI guess. Embeddings are cached in data/answer_bank_en.npz (keyed by the bank file's hash and the model).
+answer_bank:
+  enabled: true
+  path: knowledge/answer_bank_en.jsonl
+  threshold: 0.80
+  kb_strong: 0.85
+  kb_margin: 0.05
+  # fine-tuned bank-only retriever (eval/answer_bank/finetune_v1/report.md); KB / Chinese keep recall.model. Rollback: drop `model`, sensitive 0.93
+  model: models/recall/whyscope-minilm-en-v1
+  sensitive_threshold: 0.899  # item marked sensitive: at or above -> hand over to a parent (like a safety hit); below -> not used
+
 # Parent assistant: while no child request has arrived for idle_s seconds, the UGen300 drafts answers for the parent's
 # "To answer" list (hailo mode only), one sentence per worker call so a child request is never stuck behind a draft.
 assistant:

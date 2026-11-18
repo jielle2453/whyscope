@@ -135,6 +135,7 @@ class Recall:
         self.model = None
         self.device = "cpu"
         self.load_error = None
+        self.last_raw = 0.0   # plain max cosine of the best entry in the last search (see search)
         self._load_model()
         self.build_index()
 
@@ -315,6 +316,7 @@ class Recall:
         if lang not in self.idx:
             lang = "zh"
         ok = plausible(text) if lang == "zh" else plausible_en(text, self.idx["en"]["known"])
+        self.last_raw = 0.0
         if not self.entries or (not obj and not ok):
             return None, 0.0
         raw = None
@@ -343,6 +345,11 @@ class Recall:
                 if o in [l.lower() for l in labs]:
                     sc[i] = max(sc[i], 0.75)  # the camera saw it: strong evidence for this entry
         i = int(np.argmax(sc))
+        # the best entry's plain max cosine (before coverage and guards): hub/pipeline.py compares it with the answer
+        # bank's score, which is the same kind of number
+        if raw is None and lang == "en":
+            raw = self.raw_scores(text, lang)
+        self.last_raw = float(raw[i]) if raw is not None else 0.0
         return self.entries[i], float(sc[i])
 
     def vision_labels(self):

@@ -1,0 +1,3002 @@
+{
+ "variant": "C",
+ "prefix": "<|im_start|>system\nPick the list question that means the same as the child's question. Reply with its number. If none means the same (only the same topic is not enough), reply 0. One digit only.<|im_end|>\n<|im_start|>user\nChild: Why does my dog wag his tail?\nList:\n1. Why do dogs bark?\n2. Why do cats purr?\n3. Why do dogs wag their tails?\n4. Why do dogs have wet noses?\n5. Why do dogs sniff everything?<|im_end|>\n<|im_start|>assistant\n3<|im_end|>\n<|im_start|>user\nChild: Why is the sea salty?\nList:\n1. Why is the sea blue?\n2. Why can't I drink sea water?\n3. Why are there waves?\n4. Why do fish live in the sea?\n5. Why is the sea so big?<|im_end|>\n<|im_start|>assistant\n0<|im_end|>\n<|im_start|>user\nChild: why do the leaves fall off trees\nList:\n1. Why are leaves green?\n2. Why do trees lose their leaves in autumn?\n3. Why do trees grow tall?\n4. Why do leaves crunch?\n5. Why do some trees stay green?<|im_end|>\n<|im_start|>assistant\n2<|im_end|>\n",
+ "example_turn": "<|im_start|>user\nChild: Why do ducks have webbed feet?\nList:\n1. Why do ducks have webbed feet?\n2. Why do animals have different feet?\n3. Why do birds have scaly feet?\n4. Why do birds have such skinny legs?\n5. Why don't ducks' feet get cold in icy water?<|im_end|>\n<|im_start|>assistant\n",
+ "worker_info": {
+  "name": "sha256_0856a10c2b804cfe1590b80aa5e28369eb7169a9b36de836420a0b8cdf5b8d05",
+  "models": {
+   "llm": {
+    "loaded": true,
+    "name": "sha256_0856a10c2b804cfe1590b80aa5e28369eb7169a9b36de836420a0b8cdf5b8d05",
+    "load_s": 7.42,
+    "restore": {
+     "581": {
+      "prefill_s": 1.43,
+      "load_s": 0.73,
+      "mode": "context"
+     },
+     "1688": {
+      "prefill_s": 1.9,
+      "load_s": 0.73,
+      "mode": "context"
+     },
+     "58": {
+      "prefill_s": 0.48,
+      "load_s": 0.71,
+      "mode": "prefill"
+     },
+     "943": {
+      "prefill_s": 1.42,
+      "load_s": 0.7,
+      "mode": "context"
+     }
+    },
+    "contexts": 4
+   },
+   "whisper": {
+    "loaded": true,
+    "name": "Whisper-Small.hef",
+    "load_s": 3.29
+   },
+   "yolo": {
+    "loaded": true,
+    "name": "yolov8s.hef",
+    "load_s": 0.36
+   },
+   "clip_image": {
+    "loaded": true,
+    "name": "clip_vit_b_32_image_encoder.hef",
+    "load_s": 0.71
+   }
+  }
+ },
+ "policies": [
+  {
+   "policy": "(a) threshold top-1 >= 0.8",
+   "n": 145,
+   "answered": 137,
+   "R": 106,
+   "P": 28,
+   "W": 3,
+   "answer_rate": 94.5,
+   "R_rate": 73.1,
+   "RP_rate": 92.4,
+   "off_share_W": 2.2,
+   "off_share_PW": 22.6,
+   "selector_calls": 0
+  },
+  {
+   "policy": "(a) threshold top-1 >= 0.85",
+   "n": 145,
+   "answered": 121,
+   "R": 102,
+   "P": 16,
+   "W": 3,
+   "answer_rate": 83.4,
+   "R_rate": 70.3,
+   "RP_rate": 81.4,
+   "off_share_W": 2.5,
+   "off_share_PW": 15.7,
+   "selector_calls": 0
+  },
+  {
+   "policy": "always top-1",
+   "n": 145,
+   "answered": 145,
+   "R": 107,
+   "P": 34,
+   "W": 4,
+   "answer_rate": 100.0,
+   "R_rate": 73.8,
+   "RP_rate": 97.2,
+   "off_share_W": 2.8,
+   "off_share_PW": 26.2,
+   "selector_calls": 0
+  },
+  {
+   "policy": "selector k=5, every question",
+   "n": 145,
+   "answered": 107,
+   "R": 93,
+   "P": 13,
+   "W": 1,
+   "answer_rate": 73.8,
+   "R_rate": 64.1,
+   "RP_rate": 73.1,
+   "off_share_W": 0.9,
+   "off_share_PW": 13.1,
+   "selector_calls": 145
+  },
+  {
+   "policy": "selector k=5 when top-1 >= 0.80",
+   "n": 145,
+   "answered": 105,
+   "R": 92,
+   "P": 12,
+   "W": 1,
+   "answer_rate": 72.4,
+   "R_rate": 63.4,
+   "RP_rate": 71.7,
+   "off_share_W": 1.0,
+   "off_share_PW": 12.4,
+   "selector_calls": 137
+  },
+  {
+   "policy": "(b) gray zone k=5: >= 0.88 top-1, 0.7-0.88 selector",
+   "n": 145,
+   "answered": 120,
+   "R": 103,
+   "P": 16,
+   "W": 1,
+   "answer_rate": 82.8,
+   "R_rate": 71.0,
+   "RP_rate": 82.1,
+   "off_share_W": 0.8,
+   "off_share_PW": 14.2,
+   "selector_calls": 38
+  },
+  {
+   "policy": "(b) gray zone k=5: >= 0.88 top-1, 0.75-0.88 selector",
+   "n": 145,
+   "answered": 120,
+   "R": 103,
+   "P": 16,
+   "W": 1,
+   "answer_rate": 82.8,
+   "R_rate": 71.0,
+   "RP_rate": 82.1,
+   "off_share_W": 0.8,
+   "off_share_PW": 14.2,
+   "selector_calls": 37
+  },
+  {
+   "policy": "(b) gray zone k=5: >= 0.92 top-1, 0.7-0.92 selector",
+   "n": 145,
+   "answered": 114,
+   "R": 100,
+   "P": 13,
+   "W": 1,
+   "answer_rate": 78.6,
+   "R_rate": 69.0,
+   "RP_rate": 77.9,
+   "off_share_W": 0.9,
+   "off_share_PW": 12.3,
+   "selector_calls": 64
+  },
+  {
+   "policy": "selector k=3, every question",
+   "n": 145,
+   "answered": 108,
+   "R": 93,
+   "P": 14,
+   "W": 1,
+   "answer_rate": 74.5,
+   "R_rate": 64.1,
+   "RP_rate": 73.8,
+   "off_share_W": 0.9,
+   "off_share_PW": 13.9,
+   "selector_calls": 145
+  },
+  {
+   "policy": "selector k=3 when top-1 >= 0.80",
+   "n": 145,
+   "answered": 106,
+   "R": 92,
+   "P": 13,
+   "W": 1,
+   "answer_rate": 73.1,
+   "R_rate": 63.4,
+   "RP_rate": 72.4,
+   "off_share_W": 0.9,
+   "off_share_PW": 13.2,
+   "selector_calls": 137
+  },
+  {
+   "policy": "(b) gray zone k=3: >= 0.88 top-1, 0.7-0.88 selector",
+   "n": 145,
+   "answered": 120,
+   "R": 103,
+   "P": 16,
+   "W": 1,
+   "answer_rate": 82.8,
+   "R_rate": 71.0,
+   "RP_rate": 82.1,
+   "off_share_W": 0.8,
+   "off_share_PW": 14.2,
+   "selector_calls": 38
+  },
+  {
+   "policy": "(b) gray zone k=3: >= 0.88 top-1, 0.75-0.88 selector",
+   "n": 145,
+   "answered": 120,
+   "R": 103,
+   "P": 16,
+   "W": 1,
+   "answer_rate": 82.8,
+   "R_rate": 71.0,
+   "RP_rate": 82.1,
+   "off_share_W": 0.8,
+   "off_share_PW": 14.2,
+   "selector_calls": 37
+  },
+  {
+   "policy": "(b) gray zone k=3: >= 0.92 top-1, 0.7-0.92 selector",
+   "n": 145,
+   "answered": 114,
+   "R": 98,
+   "P": 15,
+   "W": 1,
+   "answer_rate": 78.6,
+   "R_rate": 67.6,
+   "RP_rate": 77.9,
+   "off_share_W": 0.9,
+   "off_share_PW": 14.0,
+   "selector_calls": 64
+  },
+  {
+   "policy": "(c) big-AI prototype, every question",
+   "n": 145,
+   "answered": 124,
+   "R": 116,
+   "P": 8,
+   "W": 0,
+   "answer_rate": 85.5,
+   "R_rate": 80.0,
+   "RP_rate": 85.5,
+   "off_share_W": 0.0,
+   "off_share_PW": 6.5,
+   "selector_calls": 145
+  },
+  {
+   "policy": "(c) big-AI prototype when top-1 >= 0.80",
+   "n": 145,
+   "answered": 120,
+   "R": 113,
+   "P": 7,
+   "W": 0,
+   "answer_rate": 82.8,
+   "R_rate": 77.9,
+   "RP_rate": 82.8,
+   "off_share_W": 0.0,
+   "off_share_PW": 5.8,
+   "selector_calls": 145
+  },
+  {
+   "policy": "(c) big-AI prototype, gray zone 0.70-0.88",
+   "n": 145,
+   "answered": 128,
+   "R": 113,
+   "P": 14,
+   "W": 1,
+   "answer_rate": 88.3,
+   "R_rate": 77.9,
+   "RP_rate": 87.6,
+   "off_share_W": 0.8,
+   "off_share_PW": 11.7,
+   "selector_calls": 38
+  }
+ ],
+ "confusion": {
+  "k5": {
+   "R_in_topk": 119,
+   "none_but_R_in_topk (missed)": 20,
+   "none_correct (no R in top-k)": 18,
+   "pick_rank_0": 38,
+   "pick_rank_1": 95,
+   "pick_rank_2": 7,
+   "pick_rank_3": 2,
+   "pick_rank_4": 3,
+   "picked P": 6,
+   "picked P (no R in top-k)": 7,
+   "picked R": 93,
+   "picked W (no R in top-k)": 1
+  },
+  "k3": {
+   "R_in_topk": 118,
+   "none_but_R_in_topk (missed)": 20,
+   "none_correct (no R in top-k)": 17,
+   "pick_rank_0": 37,
+   "pick_rank_1": 100,
+   "pick_rank_2": 7,
+   "pick_rank_3": 1,
+   "picked P": 5,
+   "picked P (no R in top-k)": 9,
+   "picked R": 93,
+   "picked W (no R in top-k)": 1
+  },
+  "prototype_k5": {
+   "none_but_R_in_topk (missed)": 2,
+   "none_correct (no R in top-k)": 19,
+   "picked P": 1,
+   "picked P (no R in top-k)": 7,
+   "picked R": 116
+  }
+ },
+ "agree_with_prototype_k5": 108,
+ "latency": {
+  "k5": {
+   "n": 145,
+   "worker_ms_mean": 1260,
+   "worker_ms_median": 1221,
+   "worker_ms_p90": 1395,
+   "worker_ms_max": 3225,
+   "wall_ms_mean": 1272,
+   "wall_ms_p90": 1398,
+   "turn_chars_mean": 270,
+   "preempted_retries": 0
+  },
+  "k3": {
+   "n": 145,
+   "worker_ms_mean": 1261,
+   "worker_ms_median": 1229,
+   "worker_ms_p90": 1402,
+   "worker_ms_max": 1543,
+   "wall_ms_mean": 1273,
+   "wall_ms_p90": 1408,
+   "turn_chars_mean": 197,
+   "preempted_retries": 0
+  },
+  "dev_A": {
+   "n": 42,
+   "worker_ms_median": 1202,
+   "worker_ms_p90": 1224,
+   "turn_chars_mean": 273
+  },
+  "dev_B": {
+   "n": 42,
+   "worker_ms_median": 1679,
+   "worker_ms_p90": 1698,
+   "turn_chars_mean": 554
+  },
+  "dev_C": {
+   "n": 42,
+   "worker_ms_median": 1209,
+   "worker_ms_p90": 1240,
+   "turn_chars_mean": 273
+  }
+ },
+ "dev": {
+  "A": {
+   "wrong_pick_on_none": 14,
+   "right_pick": 20,
+   "right_none": 1,
+   "wrong_pick": 4,
+   "missed(none)": 3,
+   "ms_median": 1219
+  },
+  "B": {
+   "right_none": 8,
+   "missed(none)": 20,
+   "wrong_pick": 1,
+   "right_pick": 6,
+   "wrong_pick_on_none": 7,
+   "ms_median": 1694
+  },
+  "C": {
+   "wrong_pick_on_none": 6,
+   "right_pick": 16,
+   "wrong_pick": 4,
+   "missed(none)": 7,
+   "right_none": 9,
+   "ms_median": 1225
+  }
+ },
+ "dev_n": {
+  "questions": 32,
+  "with_answer": 27,
+  "real_none": 5,
+  "synthetic_none": 10
+ },
+ "per_question": [
+  {
+   "id": "v3-001",
+   "q": "Why do ducks have webbed feet?",
+   "top1": [
+    "ani-051",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-002",
+   "q": "Why do giraffes have long necks?",
+   "top1": [
+    "ani-068",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-003",
+   "q": "Why do chickens lay eggs?",
+   "top1": [
+    "ani-055",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "R",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-004",
+   "q": "Why do elephants have big ears?",
+   "top1": [
+    "ani-070",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-005",
+   "q": "Why do caterpillars turn into butterflies?",
+   "top1": [
+    "ani-112",
+    0.952
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-006",
+   "q": "Why do horses sleep standing up?",
+   "top1": [
+    "ani-065",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-007",
+   "q": "Why do kittens like to chase string?",
+   "top1": [
+    "ani-021",
+    0.794
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 2
+  },
+  {
+   "id": "v3-008",
+   "q": "Why do worms come out when it rains?",
+   "top1": [
+    "ani-123",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-009",
+   "q": "Why do I get a runny nose when I have a cold?",
+   "top1": [
+    "bod-042",
+    0.918
+   ],
+   "labels_top5": [
+    "W",
+    "W",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": null
+  },
+  {
+   "id": "v3-010",
+   "q": "Why do I have two eyes?",
+   "top1": [
+    "bod-031",
+    0.941
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-011",
+   "q": "Why does my hair keep growing?",
+   "top1": [
+    "bod-n12057",
+    0.935
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "P",
+    "R",
+    "W"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 2
+  },
+  {
+   "id": "v3-012",
+   "q": "Why do I blink all the time?",
+   "top1": [
+    "bod-027",
+    0.925
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-013",
+   "q": "Why do my legs feel wobbly after running?",
+   "top1": [
+    "bod-n01176",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-014",
+   "q": "Why do I get tired after lunch?",
+   "top1": [
+    "bod-n01271",
+    0.882
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-015",
+   "q": "Why do bruises turn purple?",
+   "top1": [
+    "bod-n02069",
+    0.945
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-016",
+   "q": "Why do I have teeth that fall out?",
+   "top1": [
+    "bod-019",
+    0.944
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "R"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-017",
+   "q": "Why does the sun come up in the morning?",
+   "top1": [
+    "sky-043",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-018",
+   "q": "Why are there so many stars?",
+   "top1": [
+    "soc-145",
+    0.908
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 2
+  },
+  {
+   "id": "v3-019",
+   "q": "Why is Mars red?",
+   "top1": [
+    "sky-073",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-020",
+   "q": "Why does the moon follow our car?",
+   "top1": [
+    "sky-052",
+    0.981
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-021",
+   "q": "Why do planets have moons?",
+   "top1": [
+    "sky-197",
+    0.836
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-022",
+   "q": "Why can't we breathe in space?",
+   "top1": [
+    "sky-090",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-023",
+   "q": "Why do comets have tails?",
+   "top1": [
+    "sky-059",
+    0.859
+   ],
+   "labels_top5": [
+    "P",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-024",
+   "q": "Why is the sky gray when it is cloudy?",
+   "top1": [
+    "sky-006",
+    0.91
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-025",
+   "q": "Why does fog make it hard to see?",
+   "top1": [
+    "sky-n07092",
+    0.981
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-026",
+   "q": "Why do we get hail in a storm?",
+   "top1": [
+    "sky-n07067",
+    0.797
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 2
+  },
+  {
+   "id": "v3-027",
+   "q": "Why does the ground get wet with morning dew?",
+   "top1": [
+    "sky-n07098",
+    0.869
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 2
+  },
+  {
+   "id": "v3-028",
+   "q": "Why do raindrops make circles on a pond?",
+   "top1": [
+    "sky-n07015",
+    0.934
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-029",
+   "q": "Why do tornadoes spin?",
+   "top1": [
+    "sky-n07120",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-030",
+   "q": "Why do icicles hang from the roof?",
+   "top1": [
+    "sky-n07037",
+    0.915
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-031",
+   "q": "Why does the sea breeze feel cool?",
+   "top1": [
+    "sky-n07173",
+    0.842
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-032",
+   "q": "Why does frost cover the window in winter?",
+   "top1": [
+    "sky-n07041",
+    0.916
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-033",
+   "q": "Why do roots grow down?",
+   "top1": [
+    "pfd-008",
+    0.831
+   ],
+   "labels_top5": [
+    "P",
+    "W",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-034",
+   "q": "Why do fruits have different colors?",
+   "top1": [
+    "pfd-039",
+    0.941
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-035",
+   "q": "Why do some plants have thorns?",
+   "top1": [
+    "pfd-057",
+    0.87
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-036",
+   "q": "Why do tomatoes turn red?",
+   "top1": [
+    "pfd-n05175",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-037",
+   "q": "Why do dandelions turn into fluffy puffs?",
+   "top1": [
+    "pfd-n05099",
+    0.892
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-038",
+   "q": "Why do bamboo shoots grow so tall?",
+   "top1": [
+    "pfd-n05251",
+    0.913
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 4,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-039",
+   "q": "Why do vines climb up fences?",
+   "top1": [
+    "pfd-042",
+    0.874
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "P",
+    "R"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-040",
+   "q": "Why do flowers have petals?",
+   "top1": [
+    "pfd-n05102",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-041",
+   "q": "Why does bread get hard when it is old?",
+   "top1": [
+    "pfd-n06041",
+    0.881
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-042",
+   "q": "Why does honey never go bad?",
+   "top1": [
+    "pfd-156",
+    0.964
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-043",
+   "q": "Why do bananas get brown spots?",
+   "top1": [
+    "pfd-n06001",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-044",
+   "q": "Why does butter melt on warm toast?",
+   "top1": [
+    "pfd-161",
+    0.853
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-045",
+   "q": "Why do we cook meat?",
+   "top1": [
+    "pfd-n06269",
+    0.897
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "R",
+    "P",
+    "P"
+   ],
+   "pick_k5": 3,
+   "pick_k3": 0,
+   "proto": 3
+  },
+  {
+   "id": "v3-046",
+   "q": "Why does jelly wobble?",
+   "top1": [
+    "pfd-125",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-047",
+   "q": "Why do eggs float when they are old?",
+   "top1": [
+    "pfd-n06128",
+    0.969
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-048",
+   "q": "Why does lemonade taste sweet when I add sugar?",
+   "top1": [
+    "pfd-n06205",
+    0.89
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-049",
+   "q": "Why do lights come on when I flip the switch?",
+   "top1": [
+    "thg-n09264",
+    0.886
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-050",
+   "q": "Why do zippers hold together?",
+   "top1": [
+    "thg-n09114",
+    0.85
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-051",
+   "q": "Why does a kettle whistle?",
+   "top1": [
+    "pfd-140",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-052",
+   "q": "Why does a refrigerator hum?",
+   "top1": [
+    "thg-n09041",
+    0.987
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-053",
+   "q": "Why does a candle go out when I cover it with a jar?",
+   "top1": [
+    "thg-n08345",
+    0.935
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 1
+  },
+  {
+   "id": "v3-054",
+   "q": "Why do glasses help people see?",
+   "top1": [
+    "bod-n02277",
+    0.947
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-055",
+   "q": "Why does soap make bubbles?",
+   "top1": [
+    "sky-170",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-056",
+   "q": "Why do clocks tick?",
+   "top1": [
+    "thg-062",
+    0.952
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": null
+  },
+  {
+   "id": "v3-057",
+   "q": "Why does ice melt in my hand?",
+   "top1": [
+    "thg-n08190",
+    0.874
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 2
+  },
+  {
+   "id": "v3-058",
+   "q": "Why does water boil when it is hot?",
+   "top1": [
+    "sky-157",
+    0.931
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-059",
+   "q": "Why does a straw let me drink?",
+   "top1": [
+    "thg-n08276",
+    0.842
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 2
+  },
+  {
+   "id": "v3-060",
+   "q": "Why does oil stay on top of water?",
+   "top1": [
+    "thg-029",
+    0.909
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-061",
+   "q": "Why does a swing go back and forth?",
+   "top1": [
+    "thg-047",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-062",
+   "q": "Why do wet clothes dry in the sun?",
+   "top1": [
+    "thg-n08218",
+    0.889
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 2
+  },
+  {
+   "id": "v3-063",
+   "q": "Why does a bubble pop?",
+   "top1": [
+    "thg-026",
+    0.987
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-064",
+   "q": "Why does a skipping stone bounce on the lake?",
+   "top1": [
+    "sky-n07061",
+    0.69
+   ],
+   "labels_top5": [
+    "W",
+    "W",
+    "R",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-065",
+   "q": "Why is lava red?",
+   "top1": [
+    "sky-n07230",
+    0.991
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-066",
+   "q": "Why do rivers flow to the sea?",
+   "top1": [
+    "sky-n07286",
+    0.926
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-067",
+   "q": "Why are there caves under the ground?",
+   "top1": [
+    "sky-n07316",
+    0.862
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-068",
+   "q": "Why is the desert so dry?",
+   "top1": [
+    "sky-129",
+    0.912
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-069",
+   "q": "Why do we find fossils in rocks?",
+   "top1": [
+    "sky-131",
+    0.935
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-070",
+   "q": "Why do islands exist?",
+   "top1": [
+    "sky-127",
+    0.86
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-071",
+   "q": "Why is the ocean deep?",
+   "top1": [
+    "sky-n07264",
+    0.799
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-072",
+   "q": "Why do some rocks have holes in them?",
+   "top1": [
+    "sky-n07210",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "v3-073",
+   "q": "Why do we have to pay for things in a shop?",
+   "top1": [
+    "soc-n11111",
+    0.98
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 2
+  },
+  {
+   "id": "v3-074",
+   "q": "Why do police wear uniforms?",
+   "top1": [
+    "soc-n11075",
+    0.979
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-075",
+   "q": "Why do we have rules?",
+   "top1": [
+    "soc-032",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-076",
+   "q": "Why do people get married?",
+   "top1": [
+    "soc-069",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-077",
+   "q": "Why do some people wear glasses?",
+   "top1": [
+    "thg-078",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-078",
+   "q": "Why do we vote?",
+   "top1": [
+    "soc-108",
+    0.854
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "v3-079",
+   "q": "Why do doctors give shots?",
+   "top1": [
+    "bod-123",
+    0.782
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "v3-080",
+   "q": "Why do we celebrate holidays?",
+   "top1": [
+    "soc-099",
+    0.957
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-001",
+   "q": "Why does my foot fall asleep?",
+   "top1": [
+    "bod-098",
+    0.97
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-002",
+   "q": "Why do my cheeks get red when I'm shy?",
+   "top1": [
+    "soc-011",
+    0.894
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "R",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 3
+  },
+  {
+   "id": "f-003",
+   "q": "Why do I have knees?",
+   "top1": [
+    "bod-101",
+    0.939
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-004",
+   "q": "Why do my lips get dry in winter?",
+   "top1": [
+    "bod-n01092",
+    0.942
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 4,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-005",
+   "q": "Why does my nose run when I eat spicy food?",
+   "top1": [
+    "bod-n01066",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-006",
+   "q": "Why do I get a cramp in my leg?",
+   "top1": [
+    "bod-n01186",
+    0.986
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-007",
+   "q": "Why do I have hair on my arms?",
+   "top1": [
+    "bod-070",
+    0.895
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-008",
+   "q": "Why does my mouth water when I see candy?",
+   "top1": [
+    "bod-045",
+    0.816
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-009",
+   "q": "Why can't I tickle myself?",
+   "top1": [
+    "bod-113",
+    0.953
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-010",
+   "q": "Why do I talk in my sleep?",
+   "top1": [
+    "bod-151",
+    0.956
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-011",
+   "q": "Why do cows chew all day?",
+   "top1": [
+    "ani-n03153",
+    0.946
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-012",
+   "q": "Why do crabs walk sideways?",
+   "top1": [
+    "ani-148",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-013",
+   "q": "Why do parrots copy what we say?",
+   "top1": [
+    "ani-053",
+    0.876
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-014",
+   "q": "Why do ducks walk in a line?",
+   "top1": [
+    "ani-n04080",
+    0.885
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-015",
+   "q": "Why do hamsters stuff their cheeks?",
+   "top1": [
+    "ani-028",
+    0.902
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-016",
+   "q": "Why do goats climb rocks?",
+   "top1": [
+    "ani-n03179",
+    0.898
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-017",
+   "q": "Why do ladybugs have spots?",
+   "top1": [
+    "ani-122",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-018",
+   "q": "Why do dogs pant?",
+   "top1": [
+    "ani-006",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-019",
+   "q": "Why do cats bring dead mice home?",
+   "top1": [
+    "ani-n03053",
+    0.996
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-020",
+   "q": "Why do hippos stay in the water?",
+   "top1": [
+    "ani-082",
+    0.993
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-021",
+   "q": "Why are pine cones closed when it rains?",
+   "top1": [
+    "pfd-n05001",
+    0.939
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-022",
+   "q": "Why are some caves cold?",
+   "top1": [
+    "sky-n07314",
+    0.974
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-023",
+   "q": "Why is mud sticky?",
+   "top1": [
+    "sky-205",
+    0.992
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "R"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 5
+  },
+  {
+   "id": "f-024",
+   "q": "Why do some leaves feel fuzzy?",
+   "top1": [
+    "pfd-n05052",
+    0.944
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-025",
+   "q": "Why are some lakes green?",
+   "top1": [
+    "sky-n07274",
+    0.901
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-026",
+   "q": "Why does a rainbow have a curve?",
+   "top1": [
+    "sky-009",
+    0.932
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-027",
+   "q": "Why do leaves have veins?",
+   "top1": [
+    "pfd-051",
+    0.898
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-028",
+   "q": "Why does a puddle look like a mirror?",
+   "top1": [
+    "thg-n08153",
+    0.926
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-029",
+   "q": "Why are some clouds pink?",
+   "top1": [
+    "sky-n07100",
+    0.805
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 4,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-030",
+   "q": "Why do acorns have little hats?",
+   "top1": [
+    "pfd-n05004",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-031",
+   "q": "Why do some berries make you sick?",
+   "top1": [
+    "pfd-n06040",
+    0.768
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-032",
+   "q": "Why is space dark?",
+   "top1": [
+    "sky-091",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-033",
+   "q": "Why does the moon look orange sometimes?",
+   "top1": [
+    "sky-n08048",
+    0.957
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-034",
+   "q": "Why do astronauts wear big suits?",
+   "top1": [
+    "sky-n08063",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-035",
+   "q": "Why do rockets need fire?",
+   "top1": [
+    "sky-087",
+    0.762
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "R",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 3
+  },
+  {
+   "id": "f-036",
+   "q": "Why is Jupiter so big?",
+   "top1": [
+    "sky-n08067",
+    0.803
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-037",
+   "q": "Why do stars have points in drawings?",
+   "top1": [
+    "sky-n08097",
+    0.745
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-038",
+   "q": "Why does the moon have a face?",
+   "top1": [
+    "sky-n08044",
+    0.993
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-039",
+   "q": "Why do astronauts eat food from bags?",
+   "top1": [
+    "sky-n08078",
+    0.885
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-040",
+   "q": "Why does the moon make the sea move?",
+   "top1": [
+    "sky-n08060",
+    0.854
+   ],
+   "labels_top5": [
+    "W",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-041",
+   "q": "Why does the toast pop up?",
+   "top1": [
+    "thg-n09043",
+    0.935
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "R",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-042",
+   "q": "Why does the vacuum cleaner make noise?",
+   "top1": [
+    "thg-099",
+    0.833
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-043",
+   "q": "Why does the floor feel cold in the morning?",
+   "top1": [
+    "sky-n07155",
+    0.811
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": null
+  },
+  {
+   "id": "f-044",
+   "q": "Why does a door squeak?",
+   "top1": [
+    "thg-n09001",
+    0.986
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-045",
+   "q": "Why do rubber bands snap back?",
+   "top1": [
+    "thg-n08293",
+    0.969
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-046",
+   "q": "Why does the oven get hot?",
+   "top1": [
+    "thg-032",
+    0.892
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": null
+  },
+  {
+   "id": "f-047",
+   "q": "Why do pots have handles?",
+   "top1": [
+    "thg-n09071",
+    0.839
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 3,
+   "pick_k3": 3,
+   "proto": null
+  },
+  {
+   "id": "f-048",
+   "q": "Why do keys open locks?",
+   "top1": [
+    "thg-n09034",
+    0.88
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 2
+  },
+  {
+   "id": "f-049",
+   "q": "Why do my crayons break?",
+   "top1": [
+    "soc-n11300",
+    0.818
+   ],
+   "labels_top5": [
+    "P",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-050",
+   "q": "Why does paper turn yellow?",
+   "top1": [
+    "thg-n09196",
+    0.946
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-051",
+   "q": "Why are there holes in cheese?",
+   "top1": [
+    "pfd-n06121",
+    0.978
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-052",
+   "q": "Why do people shake hands?",
+   "top1": [
+    "soc-n10091",
+    0.972
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "W",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-053",
+   "q": "Why do we have to raise our hand in class?",
+   "top1": [
+    "soc-n11001",
+    0.875
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-054",
+   "q": "Why do we clap at the end of a show?",
+   "top1": [
+    "soc-n10092",
+    0.948
+   ],
+   "labels_top5": [
+    "R",
+    "W",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-055",
+   "q": "Why do people put flags on buildings?",
+   "top1": [
+    "soc-090",
+    0.807
+   ],
+   "labels_top5": [
+    "P",
+    "W",
+    "W",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-056",
+   "q": "Why do we have to share toys?",
+   "top1": [
+    "soc-164",
+    0.838
+   ],
+   "labels_top5": [
+    "P",
+    "R",
+    "W",
+    "P",
+    "W"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 2
+  },
+  {
+   "id": "f-057",
+   "q": "Why do grown-ups go to work?",
+   "top1": [
+    "soc-063",
+    0.917
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-058",
+   "q": "Why do we send letters?",
+   "top1": [
+    "soc-177",
+    0.856
+   ],
+   "labels_top5": [
+    "W",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": null
+  },
+  {
+   "id": "f-059",
+   "q": "Why do people wave hello?",
+   "top1": [
+    "soc-n10093",
+    0.88
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 0,
+   "proto": 1
+  },
+  {
+   "id": "f-060",
+   "q": "Why do we have to knock on doors?",
+   "top1": [
+    "soc-n10097",
+    0.867
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "R",
+    "W",
+    "W"
+   ],
+   "pick_k5": 0,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-061",
+   "q": "Why do we have weekends?",
+   "top1": [
+    "soc-n11167",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "W",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-062",
+   "q": "Why do we have to be quiet in the library?",
+   "top1": [
+    "soc-n11010",
+    1.0
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "P",
+    "P",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-063",
+   "q": "Why do people give presents?",
+   "top1": [
+    "soc-n11178",
+    0.974
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "P",
+    "P"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-064",
+   "q": "Why my hair is black? I want a blonded hair",
+   "top1": [
+    "bod-063",
+    0.834
+   ],
+   "labels_top5": [
+    "R",
+    "P",
+    "P",
+    "W",
+    "W"
+   ],
+   "pick_k5": 1,
+   "pick_k3": 1,
+   "proto": 1
+  },
+  {
+   "id": "f-065",
+   "q": "why i need to go to bed at 10",
+   "top1": [
+    "soc-029",
+    0.8
+   ],
+   "labels_top5": [
+    "R",
+    "R",
+    "R",
+    "P",
+    "P"
+   ],
+   "pick_k5": 2,
+   "pick_k3": 2,
+   "proto": 2
+  }
+ ]
+}

@@ -559,6 +559,10 @@ class Composer:
             if self.cfg.get("enabled", True):
                 self._maybe_reload()
             return tpl()
+        if self.backend == "hailo" and (self.full_cfg.get("hailo") or {}).get("worker"):
+            from .hailo import worker_down
+            if worker_down(self.full_cfg):   # the worker is recovering the UGen / degraded: the template right away
+                return tpl("ugen-down")
         if self._timeouts >= 2 and self._skipped < 10:
             self._skipped += 1
             return tpl("llm-too-slow")

@@ -117,6 +117,38 @@ and may only rewrite a curated entry's own facts under a grounding check with a 
 The test laptop's USB-C ports advertise only 1.5 A, so the UGen300 may run in reduced-performance mode there; the measured numbers
 were taken at 1.5 A and a 3.0 A port may be faster.
 
+## If the UGen stops responding
+
+What it looks like: every LLM call fails with `HAILO_LIBUSB_FAILURE(98)` (hailort.log: `LIBUSB_ERROR_IO` in
+`load_context` / `save_context` / `clear_context`), while the worker's `/info` still answers and Windows still lists the
+device as OK. It happened on 2026-11-18 at 15:01 after about 146 `/complete` calls, and earlier on 11-16 22:55, 11-17 16:36
+(8 s after start-up) and 11-17 18:00. Every one was a USB transfer that stopped; the cause is not known (see below).
+
+What the worker does now (`hub/ugen_guard.py`): a device-level error (LIBUSB failure, communication closed, driver / RPC
+errors; or 3 other HailoRT errors in a row) marks it unhealthy. It releases every model and the VDevice and loads them
+again (backoff 2 s, 5 s, 15 s), re-priming the 2 most recent prompt prefixes to prove the LLM path works. Meanwhile device
+calls get HTTP 503 `{"state": "recovering"}` at once, and the hub skips the UGen for a few seconds: chat, AI guess and
+explanations use their canned lines / templates, English speech goes to faster-whisper, vision falls back to the CPU models
+(or no label), and parent drafts pause. A bad request (empty turn, invalid argument) is HTTP 400 and never starts a recovery.
+After 3 failed attempts the worker stays `degraded` and retries every 60 s. `/info` and the hub's `/healthz`
+(`ugen.health`) show the state, the message, the recovery count and the last error. Not yet seen on the real device: whether
+the in-process rebuild clears a real LIBUSB failure, or only a replug does (then the worker goes `degraded` within about a
+minute and the replug below should bring it back without a worker restart).
+
+What to do:
+1. `/healthz` → `ugen.health.state`. `ok` or `recovering`: wait about 20 s.
+2. `degraded`: unplug the UGen300, wait 5 s, plug it back in (the same 1.5 A or a 3 A port), then
+   `curl -X POST http://127.0.0.1:8711/recover -d "{}"` (or wait up to 60 s for the retry).
+3. Still not `ok`: `scripts\start_ugen.ps1 -RestartWorker` (a graceful `/shutdown`, then a new worker).
+
+Known vs guessed: known: the first failure is a bulk USB write inside `load_context` (each `/complete` restores a 44 MB
+saved context over USB, so 146 calls moved about 6 GB), the link then stays dead for the whole process, and a replug +
+worker restart fixed it. The number of prefixes (3) did not matter: the same prefix is reloaded on every call. Guessed: the
+USB link or the module drops under sustained bulk traffic at 1.5 A, or Windows USB power management (selective suspend);
+Hailo's forum reports similar Hailo-10H `COMMUNICATION_CLOSED` hangs under continuous load with no root cause yet. Not yet
+tried: `hailo.llm_restore: prefill` (no 44 MB transfer per call, about 2 s slower to the first token), a 3 A port or
+powered hub, and turning off USB selective suspend.
+
 ## Reproduce
 
 `python scripts/check_ugen.py`, the worker's `POST /info`, `eval/ugen/` (ASR, vision, CLIP match, sharing benchmarks), and

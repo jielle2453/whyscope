@@ -37,6 +37,23 @@ def main():
     from hub.assistant import worth_asking
     from hub.principles import Principles
     pr = Principles(cfg, rc)
+    from hub.bank import AnswerBank
+    bk = AnswerBank(cfg, rc) if lang == "en" else None
+    ab = cfg.get("answer_bank") or {}
+    kb_strong, kb_margin = float(ab.get("kb_strong", 0.85)), float(ab.get("kb_margin", 0.05))
+
+    def bank_route(q, q2, ik):
+        """hub/pipeline.py _bank_first: does the English answer bank answer before a weak KB match / principle / guess?"""
+        if not (bk and bk.ready and ik.kind in ("question", "rule")):
+            return False
+        e, s = rc.search(q2, lang)
+        raw = rc.last_raw
+        if e is not None and s >= thr and (s >= kb_strong or raw >= rc.verbatim):
+            return False
+        item, bs = bk.search(q2)
+        if item is None and q2 != q:
+            item, bs = bk.search(q)
+        return item is not None and not (e is not None and s >= thr and bs < raw + kb_margin)
     items = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
     res = []
     for it in items:
@@ -49,6 +66,8 @@ def main():
             s2 = rc.search(q2, lang)[1] if q2 != it["q"] else score
             if ik.kind == "chat":
                 route = "chat"
+            elif bank_route(it["q"], q2, ik):
+                route = "bank"
             elif max(score, s2) >= thr:
                 route = "kb"
             elif pr.search(it["q"], lang, None):
@@ -88,7 +107,7 @@ def main():
         fa = sum(1 for r in res if r["expect"] == "abstain" and pred(r, t) == "answer")
         fb = sum(1 for r in res if r["expect"] == "answer" and pred(r, t) == "abstain")
         out.append(f"| {t} | {100 * acc / max(1, len(res)):.1f}% | {fa} | {fb} |")
-    routes = ["sensitive", "kb", "principle", "chat", "ai_guess", "abstain"]
+    routes = ["sensitive", "kb", "bank", "principle", "chat", "ai_guess", "abstain"]
     out += ["", "Full answer order (where each question goes now, AI guess on):", "",
             "| kind | n | " + " | ".join(routes) + " |", "|---|---|" + "---|" * len(routes)]
     for k in KINDS:
@@ -99,6 +118,12 @@ def main():
     fa_kb = sum(1 for r in nk if r["route"] == "kb")
     fa_pr = sum(1 for r in nk if r["route"] == "principle")
     g = [r for r in nk if r["route"] == "ai_guess"]
+    bb = [r for r in nk if r["route"] == "bank"]
+    if bb:
+        out.append(f"- non-in_kb questions answered from the answer bank (fact-checked, English): {len(bb)}/{len(nk)}"
+                   f" (out_kb {sum(r['kind'] == 'out_kb' for r in bb)}, near_kb {sum(r['kind'] == 'near_kb' for r in bb)},"
+                   f" nonsense {sum(r['kind'] == 'nonsense' for r in bb)}); in_kb questions sent to the bank:"
+                   f" {sum(1 for r in res if r['kind'] == 'in_kb' and r['route'] == 'bank')}")
     out += ["", f"- false answers from the KB on non-in_kb questions: {fa_kb}/{len(nk)} = {100 * fa_kb / max(1, len(nk)):.1f}%"
             f" (plus {fa_pr} answered from the principle library, a general answer that may only partly fit)",
             f"- non-in_kb questions now given a hedged AI guess (draft, on the parent's list), counted apart: {len(g)}/{len(nk)}"

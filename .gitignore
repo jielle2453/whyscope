@@ -24,3 +24,17 @@ node_modules/
 .wrangler/
 .dev.vars
 relay/relay-state.json
+knowledge/*.npz
+
+# retriever fine-tune: eval caches and synthesized audio (models/ is ignored already)
+eval/answer_bank/finetune_v1/work/cache_*.npz
+eval/answer_bank/finetune_v1/work/best_tmp/
+
+# round-3 process files (drafts, reviewer verdicts, judge sheets, raw calls, TTS audio) are kept local
+eval/answer_bank/fixes_v3/work/
+eval/answer_bank/fixes_v3/gaps_v3_work/
+eval/answer_bank/finetune_v1/work/
+eval/answer_bank/zh_pilot/batches/
+eval/answer_bank/zh_pilot/work/
+eval/answer_bank/selector_ondevice_calls.jsonl
+eval/asr/

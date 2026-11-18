@@ -23,9 +23,23 @@
         "how did i come out of mommy",
         "what are private parts",
         "where did i come from",
-        "how does a baby grow"
+        "how does a baby grow",
+        "where do babies come out",
+        "how are babies made"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "pregnant",
+        "pregnancy",
+        "sex",
+        "penis",
+        "vagina",
+        "vulva",
+        "private parts",
+        "make a baby",
+        "making babies",
+        "have a baby"
+      ]
     },
     {
       "id": "bullying",
@@ -53,7 +67,21 @@
         "they made fun of me",
         "they teased me"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "bully",
+        "bullies",
+        "bullied",
+        "bullying",
+        "picks on me",
+        "pick on me",
+        "picking on me",
+        "made fun of me",
+        "make fun of me",
+        "mean to me",
+        "laugh at me",
+        "laughed at me"
+      ]
     },
     {
       "id": "death",
@@ -81,7 +109,74 @@
         "will everyone die",
         "died"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "die",
+        "dies",
+        "died",
+        "dying",
+        "dead",
+        "death",
+        "deaths",
+        "funeral",
+        "grave",
+        "graves",
+        "cemetery",
+        "coffin",
+        "passed away",
+        "pass away",
+        "rest in peace"
+      ],
+      "exempt_en": [
+        "plant",
+        "plants",
+        "flower",
+        "flowers",
+        "leaf",
+        "leaves",
+        "tree",
+        "trees",
+        "grass",
+        "battery",
+        "batteries",
+        "phone",
+        "tablet",
+        "star",
+        "stars",
+        "cell",
+        "cells",
+        "skin",
+        "hair",
+        "coral",
+        "dinosaur",
+        "dinosaurs",
+        "extinct",
+        "bug",
+        "bugs",
+        "insect",
+        "insects",
+        "fly",
+        "flies",
+        "mosquito",
+        "mosquitoes",
+        "dead sea",
+        "dead end",
+        "bee",
+        "bees",
+        "wasp",
+        "wasps",
+        "ant",
+        "ants",
+        "worm",
+        "worms",
+        "jellyfish",
+        "salmon",
+        "mice",
+        "mouse",
+        "prey",
+        "hunt",
+        "hunting"
+      ]
     },
     {
       "id": "divorce_family",
@@ -108,7 +203,20 @@
         "we have to live apart",
         "my family is breaking up"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "divorce",
+        "divorced",
+        "stepmom",
+        "stepdad",
+        "stepmother",
+        "stepfather",
+        "split up",
+        "splitting up",
+        "moved out",
+        "custody",
+        "two houses"
+      ]
     },
     {
       "id": "illness",
@@ -135,7 +243,16 @@
         "i am in the hospital",
         "my body still hurts"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "cancer",
+        "hospital",
+        "chemo",
+        "surgery",
+        "very sick",
+        "so sick",
+        "really sick"
+      ]
     },
     {
       "id": "money_poverty",
@@ -162,7 +279,17 @@
         "we don't have enough money",
         "we are broke"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "poor",
+        "homeless",
+        "no money",
+        "lost his job",
+        "lost her job",
+        "lost their job",
+        "lost the job",
+        "can't afford"
+      ]
     },
     {
       "id": "religion",
@@ -189,7 +316,33 @@
         "will god protect me",
         "does god see me"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "gods",
+        "jesus",
+        "allah",
+        "buddha",
+        "heaven",
+        "hell",
+        "pray",
+        "prayer",
+        "church",
+        "mosque",
+        "bible",
+        "angel",
+        "angels",
+        "devil",
+        "religion",
+        "is god",
+        "does god",
+        "did god",
+        "where is god",
+        "who made god",
+        "god made",
+        "believe in god",
+        "about god",
+        "see god"
+      ]
     },
     {
       "id": "scary_news",
@@ -226,7 +379,12 @@
         "tsunami",
         "typhoon"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "kidnapper",
+        "explosion",
+        "hijack"
+      ]
     },
     {
       "id": "self_harm",
@@ -252,7 +410,31 @@
         "i wish i was gone",
         "i don't want to be here"
       ],
-      "urgent": true
+      "urgent": true,
+      "keywords_en": [
+        "kill myself",
+        "end my life",
+        "want to die",
+        "wish i was dead",
+        "wish i were dead",
+        "hate myself",
+        "better off without me",
+        "never wake up",
+        "want to be dead",
+        "do not want to live",
+        "do not want to be alive",
+        "do not want to exist",
+        "wish i was never born",
+        "wish i were never born",
+        "wish i was not born",
+        "wish i could die",
+        "wish i would die",
+        "better off dead",
+        "hurt myself on purpose",
+        "want to kill myself",
+        "suicide",
+        "nobody would miss me"
+      ]
     },
     {
       "id": "violence_war",
@@ -282,7 +464,87 @@
       "science_words_en": [
         "blood"
       ],
-      "urgent": false
+      "urgent": false,
+      "keywords_en": [
+        "gun",
+        "guns",
+        "shoot",
+        "shooting",
+        "shooter",
+        "bomb",
+        "bombs",
+        "war",
+        "wars",
+        "soldier",
+        "soldiers",
+        "weapon",
+        "weapons",
+        "kill",
+        "kills",
+        "killed",
+        "killing",
+        "killer",
+        "murder",
+        "stab",
+        "terrorist",
+        "kidnap",
+        "kidnapped"
+      ],
+      "exempt_en": [
+        "germ",
+        "germs",
+        "bacteria",
+        "virus",
+        "viruses",
+        "soap",
+        "lion",
+        "lions",
+        "tiger",
+        "tigers",
+        "shark",
+        "sharks",
+        "snake",
+        "snakes",
+        "spider",
+        "spiders",
+        "wolf",
+        "wolves",
+        "animal",
+        "animals",
+        "prey",
+        "hunt",
+        "hunting",
+        "weed",
+        "weeds",
+        "bug",
+        "bugs",
+        "ant",
+        "ants",
+        "bee",
+        "bees",
+        "shooting star",
+        "shooting stars",
+        "basketball",
+        "hoops",
+        "goal",
+        "bath bomb",
+        "photo bomb",
+        "water gun",
+        "nerf",
+        "bamboo",
+        "plant",
+        "plants",
+        "seed",
+        "seeds",
+        "sprout",
+        "sprouts",
+        "tree",
+        "trees",
+        "kill time",
+        "killing time"
+      ]
     }
-  ]
+  ],
+  "_note_keywords_en": "keywords_en: single words or short phrases matched with plain inflections (die -> dies, died); exempt_en: harmless subjects that clear a keyword-only hit when nothing personal is in the question (hub/safety.py _exempt_en).",
+  "_note_spelling_en": "English spelling / near-homophone tolerance lives in hub/safety.py (not here): contractions and possessives are normalised on both sides (dont = don't = do not, baby's = babies), SPELL_EN lists explicit spelling/ASR variants per trigger word (kil, grampa, hospitle, chirch ...), asr_alt_en reads context-bound near-homophones back (dye -> die with a person/pet and no dye object, belly me -> bully me, laugh add me -> laugh at me, kms -> kill myself) and FUZZY_EN allows one-letter edits on a few long keywords in a person context."
 }

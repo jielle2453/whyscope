@@ -56,7 +56,8 @@ restarted.
 
 Safety first (sensitive topics go to a parent), then an **intent** step (`hub/intent.py`, cheap rules): chit-chat, feelings,
 teasing, jokes, commands, statements and "what is this?" go to a **chat reply**; real questions go on to: **knowledge-base
-entry** (embedding score, label guard and asks guard) -> **family answer** (a parent approved it earlier) -> **principle library**
+entry** (embedding score, label guard and asks guard) -> **family answer** (a parent approved it earlier) -> in English only, the
+**answer bank** (5,090 fact-checked short answers; it also goes before a weaker KB match, see "Answer order") -> **principle library**
 (keyword and coverage gates) -> **AI guess** (a hedged one-sentence guess from the UGen300 LLM, "I think ...", marked as a guess
 on the child's screen, logged as a draft and put on the parent's **To answer** list prefilled with the guess) -> **abstain**
 ("I'm not sure, I'll ask your grown-up") when guessing is off, fails, or the guard rejects it. Chat replies and guesses are
@@ -105,6 +106,16 @@ For every question that is not sensitive and not chit-chat, `hub/pipeline.py` tr
    cat eyes. The first sentence is the entry's own, the explanation is composed as before.
 2. **Family answer** (`hub/family.py`): an answer a parent approved from the "To answer" list, for a near-duplicate question
    (cosine at least `family.threshold` 0.88, and most content words shared).
+   **Answer bank** (English questions only, `hub/bank.py`, `knowledge/answer_bank_en.jsonl`, a copy of the frozen
+   `eval/answer_bank/bank_en_v2.jsonl`): the item whose question or child-style variants are closest (max cosine, same MiniLM
+   model) at or above `answer_bank.threshold` (0.80; `eval/answer_bank/report_v2.md`). A KB entry keeps priority when its match
+   is strong (score at least `answer_bank.kb_strong` 0.85, or a near-verbatim example question, plain cosine at least
+   `recall.verbatim_score` 0.93); a weaker KB match loses to the bank only when the bank item's score is at least
+   `answer_bank.kb_margin` (0.05) above the entry's plain cosine, and a family answer still comes first. The child hears `a1`
+   verbatim with the item's `ask_back` (dropped if it asks about the child's day, feelings, family or friends, except on items
+   marked sensitive, which keep their gentle wording and grown-up ask-back); "why?" / "tell me more" gives `a2`. Source
+   `bank:<id>`, not a draft, never on the To-answer list. Embeddings are cached in `data/answer_bank_en.npz` (keyed by the bank
+   file's sha256 and the model name). Before / after on 145 held-out questions: `eval/run_bank_order.py`.
 3. **Principle** (`hub/principles.py`): see below.
 4. **AI guess** (`hub/chat.py`, household setting `ai_guess`, default on): a hedged one-sentence guess, grounded by the nearest
    entries / principles when they score at least `chat.context_floor`; source `ai_guess`, `draft`, and a to-answer item whose
@@ -121,11 +132,11 @@ For every question that is not sensitive and not chit-chat, `hub/pipeline.py` tr
   draft at the next token). A reply that times out (`chat.timeout_s`), fails or fails the guard becomes a canned line; the
   reason is in the event's `llm` column.
 - A short per-child memory (`chat.memory_turns` turns, `chat.memory_s` seconds) lets "why?" / "tell me more" continue: after
-  an entry it says the next fact of that entry; after a sensitive turn it stays deflected.
+  an entry it says the next fact of that entry; after an answer-bank item, its `a2`; after a sensitive turn it stays deflected.
 - Camera: "What is this?" names the object when CLIP is confident (`vision.min_confidence`, `vision.clip_margin`), otherwise the
   chat reply asks the child what it is. `Vision.describe()` is the hook for a future on-device VLM (not on disk yet).
 
-Every event records its `source` (`entry:<id>`, `family:<id>`, `principle:<id>`, `abstain`, `sensitive`), and `draft` / `partial`
+Every event records its `source` (`entry:<id>`, `bank:<id>`, `family:<id>`, `principle:<id>`, `chat`, `ai_guess`, `abstain`, `sensitive`), and `draft` / `partial`
 flags (`draft` also for answers from an entry marked `"draft": "ai"`, shown as such on the parent page). Body science such as "Why is blood red?" is
 answered (`science_words_en` of violence_war); injuries, fights, war and personal cues still go to the parent. Natural-event science questions ("Why do earthquakes happen?") are no longer treated as scary
 news: a category may list `science_words` in `knowledge/sensitive_rules.json`, and `hub/safety.py` lets a hit that comes only

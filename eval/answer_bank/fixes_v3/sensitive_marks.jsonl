@@ -1,0 +1,4 @@
+{"id": "bod-016", "q": "How do babies grow in a mommy's tummy?", "field": "notes", "old": "", "new": "sensitive:birth_sex", "reason": "Baby growing in mommy's tummy; sibling items bod-n02323..bod-n02330 are already sensitive:birth_sex"}
+{"id": "bod-108", "q": "Why are boys and girls different?", "field": "notes", "old": "", "new": "sensitive:birth_sex", "reason": "Same question as the birth_sex rule trigger 'why are boys and girls different' (body parts)"}
+{"id": "soc-070", "q": "Where do babies come from?", "field": "notes", "old": "", "new": "sensitive:birth_sex", "reason": "Same question as the birth_sex rule trigger 'where do babies come from'; the misheard \"where do baby's come from\" was answered from this item"}
+{"id": "soc-137", "q": "What is death?", "field": "notes", "old": "", "new": "sensitive:death", "reason": "'What is death?'; sibling items bod-n02309..bod-n02321 are already sensitive:death"}

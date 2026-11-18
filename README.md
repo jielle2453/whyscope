@@ -12,7 +12,7 @@ away from home the child's device reaches the hub through an end-to-end encrypte
 
 - **Ears, eyes, helper on the UGen300:** Whisper-Small English speech recognition, YOLOv8s + CLIP object recognition, and an
   LLM that drafts answers for the parent ([docs/ugen.md](docs/ugen.md)).
-- **Safe answers:** knowledge entry -> family answer -> principle library -> "I'm not sure, I'll ask your grown-up"; sensitive
+- **Safe answers:** knowledge entry -> family answer -> (English) fact-checked answer bank -> principle library -> "I'm not sure, I'll ask your grown-up"; sensitive
   topics go to a parent with talking points ([docs/safety.md](docs/safety.md)).
 - **Parent in the loop:** To-answer list, LLM drafts checked by a person, approved answers kept as family answers.
 - **Many children, anywhere:** households, children, parents with PIN, QR pairing; encrypted relay and an offline "curiosity
@@ -139,7 +139,8 @@ lang}` (or multipart with `audio`) answers once more:
 Chit-chat ("hi", "you're silly", "I'm sad", "what is this?") gets a short guarded chat reply from the UGen300 LLM. A question
 is answered by the first of: (1) a knowledge-base entry (in English the question must also name the entry's object,
 so near-misses such as "Why do things fall down?" -> rain no longer match), (2) a family answer a parent approved earlier,
-(3) a principle from the library, (4) a hedged one-sentence AI guess ("I think ..."), shown as a guess and put on the parent's
+(2b) in English only, an item of the fact-checked answer bank (`knowledge/answer_bank_en.jsonl`, 5,090 items; it also goes before
+a weaker KB match when its example question is clearly closer), (3) a principle from the library, (4) a hedged one-sentence AI guess ("I think ..."), shown as a guess and put on the parent's
 To answer list (setting `ai_guess`, default on), (5) otherwise it is passed to a parent. Details:
 [docs/architecture.md](docs/architecture.md); measurements in [eval/chat_report.md](eval/chat_report.md).
 

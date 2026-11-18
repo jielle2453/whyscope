@@ -126,8 +126,28 @@ class ParentAssistant:
         return time.monotonic() - self._last_child
 
     def llm_ready(self) -> bool:
+        """The UGen LLM is loaded and the worker is not known to be down (recovering / degraded / unreachable: drafting
+        pauses and resumes by itself once the worker answers again)."""
         cp = self.p.composer
-        return bool(cp.ready and cp.backend == "hailo" and getattr(cp, "llm", None) is not None)
+        if not (cp.ready and cp.backend == "hailo" and getattr(cp, "llm", None) is not None):
+            return False
+        if (self.p.cfg.get("hailo") or {}).get("worker"):
+            from .hailo import worker_down
+            return not worker_down(self.p.cfg)
+        return True
+
+    def _worker_ok(self) -> bool:
+        """Before a draft: ask the worker's /info (no device work) how the UGen is. While it is recovering or degraded
+        the draft waits (WorkerClient keeps that state for every other caller too)."""
+        client = getattr(getattr(self.p.composer, "llm", None), "client", None)
+        if client is None:
+            return True
+        try:
+            client.info(2)
+        except Exception as e:
+            self.error = f"{type(e).__name__}: {str(e)[:160]}"
+            return False
+        return self.llm_ready()
 
     # ------------------------------------------------------------ items
     def note_question(self, event_id, question: str, lang: str):
@@ -359,7 +379,7 @@ class ParentAssistant:
                 if not (self.enabled and self.llm_ready()) or self.child_busy() or self.idle_for() < self.idle_s:
                     continue
                 it = self.p.db.todo_next()
-                if it:
+                if it and self._worker_ok():
                     self.draft(it)
             except Exception as e:
                 self.error = f"{type(e).__name__}: {str(e)[:160]}"

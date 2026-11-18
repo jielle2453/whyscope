@@ -43,18 +43,136 @@ def askback_ok(q: str) -> bool:
     return not ASKBACK_BLOCK.search(q or "")
 
 
+# --- spelling / near-homophone tolerance (English; questions arrive as speech-recognition text from young children) ---
+# Normalisation applied to BOTH the trigger phrases and the child's text, so a trigger written one way still matches:
+# contractions with or without the apostrophe ("don't" / "dont" -> "do not"), "wanna" -> "want to", possessives
+# ("baby's" -> "babys", which the inflection rule matches to "babies") and a split "my self" -> "myself".
+_CONTRACT_EN = [(r"\b(?:won'?t)\b", "will not"), (r"\b(?:can'?t|cannot)\b", "can not"), (r"\bain'?t\b", "is not"),
+                (r"\b(do|does|did|is|are|was|were|could|would|should|have|has|had|must|need)n'?t\b", r"\1 not"),
+                (r"\bi'?m\b", "i am"), (r"\bi'?ve\b", "i have"), (r"\b(you|they|we)'re\b", r"\1 are"),
+                (r"\b(youre|theyre)\b", lambda m: m.group(1)[:-2] + " are"),
+                (r"\bwanna\b", "want to"), (r"\bgonna\b", "going to"), (r"\bgotta\b", "got to"),
+                (r"'s\b", "s"), (r"'", "")]
+# "my self" -> "myself", but not "my self portrait" / "self care" / "self esteem" ...
+_MYSELF_EN = re.compile(r"\b(?:my|mi|me) ?(?:self|sef|slef)\b(?!-? ?(?:portrait|esteem|care|control|confidence|respect|"
+                        r"conscious|service|driving|checkout|timer))")
+# Explicit spelling / ASR variants of trigger words (each variant also gets the plain inflections). A trigger word
+# (or its stem) listed here matches any of its variants, so every phrase and keyword using it is covered.
+SPELL_EN = {
+    "kill": ["kil", "kll"], "myself": ["myslef", "mysef", "meself"],
+    "grandpa": ["grampa", "granpa", "grand pa", "gramps", "grandad", "granddad", "grandaddy"],
+    "grandma": ["gramma", "granma", "grand ma", "grandmom", "grandmum", "grammy"],
+    "pregnant": ["pregnet", "pregnint", "pregnat", "pregant", "pragnant", "prenant", "pregnent"],
+    "pregnancy": ["pregnency", "pregnansy"], "hospital": ["hospitle", "hospitol", "hospidal", "hopsital", "hostipal"],
+    "cancer": ["canser", "cancor", "kancer"], "funeral": ["funral", "funerel", "fueneral"],
+    "cemetery": ["cemetary", "semetery", "cematery"], "divorce": ["devorce", "divorse", "divource", "deforce"],
+    "divorced": ["devorced", "divorsed"], "homeless": ["home less", "homeles"], "church": ["chirch", "chruch", "cherch"],
+    "bully": ["bulley", "bulli"], "bullied": ["bullyed"], "bullying": ["bulling", "bullieing"],
+    "soldier": ["solder", "soljer", "solger"], "soldiers": ["solders", "soljers"], "death": ["deth"],
+    "heaven": ["heven", "hevan"], "murder": ["murdur", "merder"], "weapon": ["wepon", "weppon"],
+    "scary": ["scarey", "skary"], "mommy": ["mommie", "mummy"],
+}
+
+
 def _norm_en(s: str) -> str:
-    return re.sub(r"\s+", " ", (s or "").replace("\u2019", "'").lower()).strip()
+    t = re.sub(r"\s+", " ", (s or "").replace("\u2019", "'").replace("\u2018", "'").lower()).strip()
+    for a, b in _CONTRACT_EN:
+        t = re.sub(a, b, t)
+    return _MYSELF_EN.sub("myself", t)
 
 
 def _word_rx(w: str) -> str:
     """One trigger word, tolerant of plain inflections: 'fighting' also matches 'fight', 'fights', 'fighting'
-    (generic stemming, so a trigger written in one form still catches the child's form)."""
+    (generic stemming, so a trigger written in one form still catches the child's form), and of the explicit
+    spelling / ASR variants in SPELL_EN ('kill' also matches 'kil', 'grandpa' also 'grampa')."""
     from .recall import stem_en
     base = stem_en(w)
     if base == w and w.endswith("ing") and len(w) > 5:
         base = w[:-3]
-    return "(?:" + re.escape(w) + "|" + re.escape(base) + r"(?:s|es|ed|d|ing)?)"
+    alts = [re.escape(w), re.escape(base) + r"(?:s|es|ed|d|ing)?"]
+    for v in dict.fromkeys(SPELL_EN.get(w, []) + SPELL_EN.get(base, [])):
+        alts.append(r"\s+".join(re.escape(x) for x in v.split()) + r"(?:s|es|ed|d|ing)?")
+    return "(?:" + "|".join(alts) + ")"
+
+
+# Context words for the near-homophone rules below: a person, the child, a pet.
+_PERSON_EN = (r"i|me|my|myself|we|us|our|you|your|he|him|his|she|her|they|them|their|people|person|someone|somebody|"
+              r"everyone|everybody|anyone|kids?|child|children|boys?|girls?|man|men|woman|women|family|friends?|"
+              r"mom|moms|mommy|mommies|momma|mum|mums|mummy|mama|mamma|dad|dads|daddy|daddies|papa|nana|nanna|granny|grannie|grand(?:pa|ma|dad|mom|mum|father|mother|parents?)s?|"
+              r"gran(?:pa|ma|dad|ny|nie)s?|gram(?:pa|ma|my|ps)|grand pa|grand ma|brothers?|sisters?|uncles?|aunt\w*|"
+              r"bab(?:y|ies)|cousins?|teachers?")
+_PET_EN = r"pets?|dogs?|doggy|cats?|kitty|puppy|puppies|kittens?|hamsters?|goldfish|fish|rabbits?|bunny|bunnies|birds?|parrot|turtles?|guinea pigs?|horses?|pony"
+_PERSON_RX = re.compile(r"\b(?:" + _PERSON_EN + r")\b")
+# "dye" heard for "die": only with a person, a pet or a death cue, and no dyeing object ("dye their hair", "dye eggs").
+_DYE_FORM = re.compile(r"\b(dye|dyes|dyed|dyeing)\b")
+_DYE_CTX = re.compile(r"\b(?:" + _PERSON_EN + "|" + _PET_EN + r"|hurt\w*|sad|forever|heaven|old|sick|again|come back|away|"
+                      r"when|after|everyone|everybody)\b")
+_DYE_OBJ = re.compile(r"\b(?:hair|clothes|clothing|eggs?|easter|shirts?|t ?shirts?|tshirts?|fabric|cloth|wool|yarn|socks?|"
+                      r"jeans|dress(?:es)?|beard|fur|feathers?|paper|tie|food|colou?rs?|colou?red|colou?ring|paint\w*|ink|"
+                      r"wood|leather|cotton|silk|string|icing|frosting|cake|cookies?|rice|pasta|play ?dough|slime|candles?|"
+                      r"things|stuff|skirt|pants|hat|scarf|towels?|sheets?|blanket|shoes?|tips|streaks?|highlights?|lipstick|nails?)\b")
+_DYE_NOUN = re.compile(r"\b(?:the|a|some|food|tie|hair|natural|of|with|this|that|any|blue|red|green|yellow|pink|purple)\s+dye\b|"
+                       r"\bdye(?:s|d)?\s+(?:it|them|this|that|these|those|red|blue|green|yellow|pink|purple|orange|brown|black|"
+                       r"white|gold|silver|rainbow|is|are|was|made|comes?|from|stain\w*)\b")
+_DYE_TO_DIE = {"dye": "die", "dyes": "dies", "dyed": "died", "dyeing": "dying"}
+_NUM_EN = r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|twenty|fifty|hundred|thousand|many|few|of|some)"
+# Narrow, context-bound rewrites for near-homophones the evaluation found (finetune_v1 pipeline_eval PHON list + ASR).
+_REWRITES_EN = [
+    # "kms" (kill myself), but not "10 kms" / "ten kms" / "how many kms"
+    (re.compile(r"(?:\b(\S+)\s+)?\bkms\b"),
+     lambda m: m.group(0) if m.group(1) and re.fullmatch(_NUM_EN, m.group(1)) else (m.group(1) + " " if m.group(1) else "") + "kill myself"),
+    (re.compile(r"\b(i|i really|i just|i sometimes) which\b"), r"\1 wish"),   # "i which i was dead"
+    (re.compile(r"\b(is|are|was|were) ((?:my|the|our|your|his|her|their) )?(" + _PET_EN + r") dad\b(?=\s*(?:$|[?.!,]|now|yet|forever|too))"),
+     r"\1 \2\3 dead"),                                                         # "is my cat dad"
+    (re.compile(r"\b(" + _PET_EN + r") (is|was) dad\b(?=\s*(?:$|[?.!,]|now|yet|forever|too))"), r"\1 \2 dead"),
+    (re.compile(r"\bbell(?:y|ies|ied|ying) (me|us|him|her|them)\b"), r"bully \1"),   # "why do kids belly me"
+    (re.compile(r"\b(was|were|being|get|gets|got|getting|be) bellied\b"), r"\1 bullied"),
+    (re.compile(r"\b(laugh\w*) add (me|us)\b"), r"\1 at \2"),                  # "kids laugh add me"
+    (re.compile(r"\b(was|is|are|were|being|be|so|very|really) mine to (me|us)\b"), r"\1 mean to \2"),
+    (re.compile(r"\b(we|i|people|they|you|grown ups|grownups|families) prey\b"), r"\1 pray"),
+    (re.compile(r"\b(are|is|am|were|was) (we|i|they|you|he|she|people|some people|my family|our family) "
+                r"((?:so |very |really |too )?)pour\b"), r"\1 \2 \3poor"),
+    (re.compile(r"\b(we|i|they|people|family) (are|is|am|were|was) ((?:so |very |really |too )?)pour\b"), r"\1 \2 \3poor"),
+    (re.compile(r"\ba wore\b(?! (?:out|off|down|it|them|a|the|his|her|my))"), "a war"),
+    (re.compile(r"\b(is|does|did) got (real|exist\w*|see\w*|love\w*|watch\w*|hear\w*|live\w*)\b"), r"\1 god \2"),
+]
+# Edit distance 1 (one letter added, dropped, changed or swapped) for these long keywords only, and only when the
+# question names a person or the child: "solders" -> "soldiers", "divorse" -> "divorce", "funral" -> "funeral".
+FUZZY_EN = ("pregnant", "pregnancy", "funeral", "funerals", "cemetery", "hospital", "divorce", "divorced", "homeless",
+            "bullied", "bullying", "soldier", "soldiers", "kidnapped", "terrorist", "religion", "weapons", "stepmom",
+            "stepdad", "custody", "murdered", "suicide")
+FUZZY_MIN_KEY, FUZZY_MIN_TOKEN = 7, 6
+
+
+def _dist1(a: str, b: str) -> bool:
+    """True if a and b differ by exactly one insertion, deletion, substitution or adjacent swap."""
+    if a == b or abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        d = [i for i in range(len(a)) if a[i] != b[i]]
+        return len(d) == 1 or (len(d) == 2 and d[1] == d[0] + 1 and a[d[0]] == b[d[1]] and a[d[1]] == b[d[0]])
+    s, l = (a, b) if len(a) < len(b) else (b, a)
+    i = next((k for k in range(len(s)) if s[k] != l[k]), len(s))
+    return s[i:] == l[i + 1:]
+
+
+def asr_alt_en(text: str) -> str:
+    """The question with near-homophones read back to the sensitive word they most likely stand for, in context
+    ("why did grampa dye" -> "why did grampa die", "i want to dye" -> "i want to die", "kids belly me" -> "kids bully me").
+    Returns the normalised text unchanged when nothing applies. Used by Safety.check as a second pass."""
+    t = _norm_en(text)
+    if _DYE_FORM.search(t) and _DYE_CTX.search(t) and not _DYE_OBJ.search(t) and not _DYE_NOUN.search(t):
+        t = _DYE_FORM.sub(lambda m: _DYE_TO_DIE[m.group(1)], t)
+    for rx, rep in _REWRITES_EN:
+        t = rx.sub(rep, t)
+    if _PERSON_RX.search(t):
+        def fz(m):
+            w = m.group(0)
+            if len(w) < FUZZY_MIN_TOKEN or w in FUZZY_EN:
+                return w
+            return next((k for k in FUZZY_EN if len(k) >= FUZZY_MIN_KEY and _dist1(w, k)), w)
+        t = re.sub(r"[a-z]+", fz, t)
+    return t
 
 
 def _en_regex(phrase: str):
@@ -88,6 +206,8 @@ class Safety:
         self.cheats = {}     # category -> cheat dict
         self.urgent = set()  # categories flagged urgent in the rules file
         self.science = {}    # category -> set(normalised science words, zh and en): hits from these alone may be exempt
+        self.keywords_en = {}  # category -> set(single English keywords; their inflections match too)
+        self.exempt_en = {}    # category -> harmless subjects that exempt a keyword-only hit (see _exempt_en)
         for cat, words in BASELINE.items():
             self._add(cat, words)
         self._load_rules()
@@ -105,6 +225,15 @@ class Safety:
 
     def _add_en(self, cat, words):
         self.triggers_en.setdefault(cat, set()).update(_norm_en(w) for w in words if w)
+
+    def _add_keywords(self, cat, v):
+        kws = [_norm_en(w) for w in (v.get("keywords_en") or []) if w]
+        if kws:
+            self._add_en(cat, kws)
+            self.keywords_en.setdefault(cat, set()).update(kws)
+        ex = [_norm_en(w) for w in (v.get("exempt_en") or []) if w]
+        if ex:
+            self.exempt_en.setdefault(cat, set()).update(ex)
 
     def _add_science(self, cat, v):
         words = [_norm(w) for w in (v.get("science_words") or [])] + [_norm_en(w) for w in (v.get("science_words_en") or [])]
@@ -128,6 +257,7 @@ class Safety:
                     self._add(cat, v.get("triggers") or v.get("keywords") or [], v.get("category_zh"))
                     self._add_en(cat, v.get("triggers_en") or [])
                     self._add_science(cat, v)
+                    self._add_keywords(cat, v)
         elif isinstance(data, list):
             for v in data:
                 cat = v.get("category") or v.get("id")
@@ -135,6 +265,7 @@ class Safety:
                     self._add(cat, v.get("triggers") or v.get("keywords") or [], v.get("category_zh"))
                     self._add_en(cat, v.get("triggers_en") or [])
                     self._add_science(cat, v)
+                    self._add_keywords(cat, v)
                     if v.get("urgent"):
                         self.urgent.add(cat)
 
@@ -156,7 +287,19 @@ class Safety:
     def check(self, text: str, lang: str = "zh"):
         """Return the sensitive category hit (with deflection text in `lang`) or None.
         zh: Chinese triggers. en: English triggers (case-insensitive, word boundary); Chinese triggers are also
-        tried when an English-mode text contains Chinese characters."""
+        tried when an English-mode text contains Chinese characters. English gets a second pass on asr_alt_en(text)
+        (near-homophones in context: "why did grampa dye" -> "... die") when the text itself has no hit."""
+        hit = self._check(text, lang)
+        if lang != "en" or (hit and hit["category"] == "self_harm"):
+            return hit
+        alt = asr_alt_en(text)
+        if alt == _norm_en(text):
+            return hit
+        hit2 = self._check(alt, lang)
+        # the read-back may reveal self-harm behind a plainer hit ("i which i was dead": death -> self_harm)
+        return hit2 if hit2 and (not hit or hit2["category"] == "self_harm") else hit
+
+    def _check(self, text: str, lang: str):
         hits, matched = {}, {}
         if lang == "en":
             t = _norm_en(text)
@@ -178,9 +321,32 @@ class Safety:
             sci = self.science.get(cat)
             if sci and matched.get(cat, set()) <= sci and self.science_question(text):
                 del hits[cat]
+            elif lang == "en" and self._exempt_en(cat, matched.get(cat, set()), text):
+                del hits[cat]
         if not hits:
             return None
         best = max(hits, key=lambda c: (hits[c], -PRIORITY.index(c) if c in PRIORITY else -99))
+        return self.hit_for(best, lang)
+
+    def _exempt_en(self, cat, matched, text):
+        """A hit made only of single keywords (`keywords_en`) next to a harmless subject (`exempt_en`: "Why do flowers
+        die?", "Why did the dinosaurs die out?", "my phone battery died", "soap kills germs") is not the parent's topic.
+        Phrase triggers, and a question that also names a person or a pet ("grandpa", "people", "my dog"), never get it."""
+        ex = self.exempt_en.get(cat)
+        if not ex or not matched or not matched <= self.keywords_en.get(cat, set()):
+            return False
+        t = _norm_en(text)
+        if re.search(r"\b(?:mom|mommy|mum|dad|daddy|grandma|grandpa|granny|nana|papa|grampa|granpa|grandad|granddad|"
+                     r"gramps|gramma|granma|grandmom|grandmum|grammy|"
+                     r"friend|brother|sister|baby|uncle|aunt|people|person|someone|somebody|kids?|children)\b", t):
+            return False
+        if (cat == "death" and re.search(r"\b(?:pets?|dogs?|cats?|puppy|kitten|hamster|goldfish|rabbit|bunny)\b", t)
+                and not re.search(r"\b(?:mice|mouse|prey|hunt\w*)\b", t)):
+            return False   # a pet that died is the parent's topic; "Why do cats bring dead mice home?" is not
+        return any(re.search(r"(?<![a-z0-9])" + re.escape(w) + r"(?![a-z0-9])", t) for w in ex)
+
+    def hit_for(self, best, lang="zh"):
+        """The hit dict (deflection in `lang`, parent cheat sheet category) for one category."""
         cheat = self.cheats.get(best, {})
         en = cheat.get("en") or {}
         zh_text = cheat.get("deflection_zh") or DEFAULT_DEFLECTION

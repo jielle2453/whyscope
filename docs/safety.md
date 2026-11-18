@@ -26,6 +26,32 @@ Whyscope talks to children aged 5 to 8. These are the rules the design is held t
 2. `hub/safety.py` matches triggers from `knowledge/sensitive_rules.json` and from each `knowledge/cheats/*.json`,
    plus a small always-on floor (the characters 死 and 自殺 / 想死 / 不想活), so thin or missing rules still err on
    the side of the parent. Longest match wins; self-harm wins ties.
+   English: phrase triggers (`triggers_en`) plus single keywords (`keywords_en`: die / died / dying / dead, gun, war,
+   divorce, pregnant, bully ...), all matched with plain inflections. A hit made only of keywords is cleared when the
+   question names a harmless subject (`exempt_en`: "Why do flowers die?", "soap kills germs", "bamboo shoots") and no
+   person; a pet that died stays the parent's topic.
+   Then, in English mode, a question that is (near-)verbatim (cosine >= 0.93) to an answer-bank item marked sensitive
+   ("Why did my dad move out?") is handled as a hit of that item's category. A looser match to such an item is never
+   used as an answer ("Why do kids laugh?" is 0.90 to "Why do kids laugh at me?"). Test: `eval/check_safety_en.py`.
+   **Spelling and near-homophones (English).** Questions arrive as speech-recognition text from young children, so
+   misspellings and sound-alikes are expected. The rules handle them in four narrow ways, all in `hub/safety.py`:
+   - Normalisation on both sides: contractions with or without the apostrophe ("dont" = "don't" = "do not",
+     "wanna" = "want to"), possessives ("baby's" = "babys", which matches "babies") and "my self" = "myself" (not
+     "my self portrait").
+   - `SPELL_EN`: explicit spelling and ASR variants per trigger word, such as kil, grampa / granpa / grandad,
+     hospitle, canser, pregnet, chirch and home less.
+   - `asr_alt_en`: a second pass that reads near-homophones back only in context:
+     - "dye" becomes "die" only with a person, a pet or a death cue and no dyeing object, so "why did grampa dye"
+       and "i want to dye" are caught but "dye their hair" and "dye eggs" are not;
+     - "kids belly me" becomes "bully me", "laugh add me" becomes "laugh at me", "was mine to me" becomes "mean to me";
+     - "is my cat dad" becomes "dead", "kms" becomes "kill myself" (but not "10 kms"), "i which i was dead" becomes "wish";
+     - "we prey" becomes "pray", "are we pour" becomes "poor", "a wore" becomes "war", "is got real" becomes "god".
+     If the second pass finds self-harm, that wins over a plainer hit.
+   - `FUZZY_EN`: a one-letter edit (added, dropped, changed or swapped) on a few long keywords (7+ letters), only
+     when the question names a person or the child: "solders", "divorse", "funral".
+
+   On the near-homophone probes of `eval/answer_bank/finetune_v1/pipeline_eval.py` (base config), this moved
+   sensitive catches from 6/31 to 28/31. The harmless probes stayed at 0/10.
 3. On a hit the pipeline stops. The child hears only the cheat sheet's `deflection_zh`
    ("這個問題很重要，我們一起去問爸爸媽媽好嗎？"). No facts, no explanation, no question back.
 4. An event with `status = sensitive` and `sensitive_category` is logged.
@@ -63,5 +89,10 @@ other people's faces, which is why the setting defaults to off; Stage II adds on
   part of the Stage II plan, as is an evaluation with real children's speech.
 - ASR can mishear; a misheard sensitive word may not be caught, and a misheard ordinary word may be answered wrongly.
   The abstention threshold exists to limit the second case.
+  The spelling and near-homophone rules only help when a recognisable form of the key word is still in the text. Rules
+  cannot catch ASR output that drops or replaces the key word entirely: "my dog died" heard as "my blog site", "my
+  goldfish died" as "my goldfish dive", or "will a war come here" as "really, we'll come here". These made up all 14
+  remaining ASR misses (56/70 caught). Ambiguous sound-alikes are left out on purpose: "dad" for "dead" in self-talk ("i wish i was
+  dad"), "the force" for "divorce" and "gums" for "guns". Each of these is also an ordinary child question.
 - Knowledge entries are drafted by AI and must be reviewed by a human (`reviewed_by`, `spot_checked`) before any
   child-facing release.

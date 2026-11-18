@@ -78,7 +78,7 @@ class DB:
                 c.execute("ALTER TABLE events ADD COLUMN reply_result TEXT")
             if "snapshot" not in cols:  # opt-in photos: 1 when data/snapshots/<id>.jpg exists (additive migration)
                 c.execute("ALTER TABLE events ADD COLUMN snapshot INTEGER DEFAULT 0")
-            if "source" not in cols:    # where the answer came from: entry:<id> | principle:<id> | family:<id> | abstain | sensitive
+            if "source" not in cols:    # where the answer came from: entry:<id> | bank:<id> | principle:<id> | family:<id> | chat | ai_guess | abstain | sensitive
                 c.execute("ALTER TABLE events ADD COLUMN source TEXT")
                 c.execute("ALTER TABLE events ADD COLUMN draft INTEGER DEFAULT 0")     # 1 = from an unreviewed (AI draft) library
                 c.execute("ALTER TABLE events ADD COLUMN partial INTEGER DEFAULT 0")   # 1 = the principle only partly answers

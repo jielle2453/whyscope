@@ -36,10 +36,11 @@ def week(db, days: int = 7, lang: str = "zh", entries: dict = None, emoji_of=Non
 
     talk = {}
     for e in reversed(answered):  # oldest first, so the dict ends up holding the latest event per object
-        k = e["kb_id"] or e["object"]
-        if not k:   # an AI guess has no object: it is reviewed in the to-answer list instead
-            continue
-        obj, ask = in_lang(e)
+        bank = str(e.get("source") or "").startswith("bank:")   # an answer-bank item (English): keyed by item, titled by the question
+        k = e["kb_id"] or e["object"] or (e["source"] if bank else None)
+        if not k or (bank and not e["ask_back"]):   # an AI guess (no object) is reviewed in the to-answer list instead;
+            continue                                  # a bank "tell me more" turn must not replace the question's card
+        obj, ask = (e["question"], e["ask_back"]) if bank and not e["object"] else in_lang(e)
         t = talk.setdefault(k, {"object": obj, "topic": e["topic"], "count": 0})
         t.update(object=obj, count=t["count"] + 1, ask_back=ask, event_id=e["id"], talked=bool(e.get("talked")),
                  emoji=emoji_of(obj, e["topic"]), lang=lang)
